@@ -32,7 +32,7 @@ PixelShaderInput vertexShaderFunction(VertexShaderInput input) {
 
 
 float4 pixelShaderFunction(PixelShaderInput input): COLOR {
-	//float4 check = checker(input.texcoord);
+	//float4 height = checker(input.texcoord);
     //float4 height = float4(1, 0, 0, 1);
     float4 height = tex2D(texHeightmap, input.texcoord);
     

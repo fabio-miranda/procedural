@@ -42,7 +42,7 @@ float4 checker(float2 uv) {
 
 float4 pixelShaderFunction(PixelShaderInput input): COLOR {
 	//float4 check = checker(input.texcoord);
-    float4 color = float4(time, 0, 0, 1);
+    float4 color = float4(time,0 , 0, 1);
     //float height = tex2D(texSampler0, input.texcoord).r;
     
     return color;

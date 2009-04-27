@@ -4,11 +4,12 @@ function Patch(patchParentNode, heightmapParentNode){
 	//this.position = position;
 	this.shape = null;
 	this.heightmap = null;
-	this.patchParentNode = patchParentNode;
-	this.heightmapParentNode = heightmapParentNode;
+	this.parentNode = patchParentNode;
+	this.heightmap = new Heightmap(heightmapParentNode);
 	
 	this.create = Patch_create;
 	this.createMaterial = Patch_createMaterial;
+	
 	
 	this.create();
 	
@@ -33,7 +34,7 @@ function Patch_createMaterial(){
 	effect.createUniformParameters(material);
 	var samplerParam = material.getParam('texHeightmap');
 	var sampler = g_pack.createObject('Sampler');
-	sampler.texture = g_heightmap.heightTexture;
+	sampler.texture = this.heightmap.heightTexture;
 	samplerParam.value = sampler;
 	
 	return material
@@ -57,7 +58,7 @@ function Patch_create(){
 	patchTransform.addShape(this.shape);
 
 	// Parent the cube's transform to the client root.
-	patchTransform.parent = this.patchParentNode;
+	patchTransform.parent = this.parentNode;
 
 	// Generate the draw elements for the cube shape.
 	this.shape.createDrawElements(g_pack, null);

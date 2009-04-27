@@ -35,12 +35,12 @@ function CreateSquareShape(material, pack){
 	var positionArray = [
 	-0.5, -0.5,  0.5,  // vertex 0
 	 0.5, -0.5,  0.5,  // vertex 1
-	-0.5,  0.5,  0.5,  // vertex 2
-	 0.5,  0.5,  0.5  // vertex 3
+	 0.5,  0.5,  0.5,  // vertex 2
+	 -0.5,  0.5,  0.5  // vertex 3
 	];
 	var indicesArray = [
 	  0, 1, 2,  // face 1
-	  2, 1, 3
+	  2, 3, 0
 	];
 
 	// Create buffers containing the vertex data.
@@ -70,10 +70,10 @@ function CreateSquareShape(material, pack){
 	//========Creates texture===========
 	//==================================
 	//==================================
-	var texCoordsArray = [0, 1,
-						  1, 1,
+	var texCoordsArray = [0, 0,
 						  1, 0,
-						  0, 0];
+						  1, 1,
+						  0, 1];
 	
 	var texCoordsBuffer = pack.createObject('VertexBuffer');
 	var texCoordsField = texCoordsBuffer.createField('FloatField', 2);
