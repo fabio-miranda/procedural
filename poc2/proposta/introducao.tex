@@ -1,0 +1,81 @@
+\section{Introdução}
+A geração procedural de modelos é uma área da Ciência da Computação que propõe que modelos gráficos tridimensionais (representação em polígonos de algum objeto) possam ser gerados através de rotinas e algoritmos. Tal técnica vem se tornando bastante popular nos últimos tempos, tendo em vista que, com o crescimento da indústria do entretenimento, há uma necessidade de se construir modelos cada vez maiores e com um grande nível de detalhe. A técnica de geração procedural vem então como uma alternativa à utilização do trabalho de artistas e modeladores na criação de modelos tridimensionais.
+
+
+\section{Objetivo}
+O objetivo deste trabalho é continuar com o desenvolvimento do arcabouço proposto na disciplina Projeto Orientado em Computação I. O trabalho feito anteriormente envolve a parte de visualização dos terrenos e também a sua geração. Foi possível, ao final da disciplina de POC I, ter uma maior familiaridade com o assunto e também visualizar alguns terrenos (Figuras \ref{fig:1} e \ref{fig:2}).
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.4\linewidth]{figuras/1.png}}
+	\caption{\label{fig:1} Terreno gerado no POC I.}
+\end{figure}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.4\linewidth]{figuras/2.png}}
+	\caption{\label{fig:2} Terreno gerado no POC I.}
+\end{figure}
+
+Os terrenos gerados em POC I possuem uma série de parâmetros para alterar a sua aparência e também permitem uma navegação contínua, ou seja, o usuário pode andar livremente e novos terrenos são gerados, de acordo com a demanda.
+
+
+A proposta para a disciplina de POC II é adaptar o que já foi implementado e permitir também a geração e visualização de terrenos esféricos, que possam representar planetas. Há uma série de problemas a serem abordados ao longo do trabalho, como a questão de nível de detalhe (LOD), já que os terrenos terão uma escala muito maior.
+
+Não será implementada aqui uma \emph{engine} gráfica completa. Essas disponibilizam para o desenvolvedor diversas funcionalidades, como animação de modelos, exportação de modelos, partículas, tratamento de entrada e saída de controles, tratamento de rede, etc. Como essas funcionalidades fogem do escopo desse trabalho, busca-se implementar uma ferramenta que seja independente da \emph{engine}. O trabalho poderá ser tratado então como um "componente" de um aplicativo gráfico, e assim acoplado a qualquer \emph{engine} gráfica.
+
+
+\section{Referencial Teórico}
+Vários trabalhos publicados abordam a geração procedural de modelos. Alguns destes trabalhos abordam a geração de cidades (\cite{parish} e \cite{pseudoinfinite}), outros abordam a geração de terrenos realistas (em tempo-real, como os trabalhos \cite{realtime} e \cite{virtual}, ou não, como o \emph{MojoWorld}\cite{mojoworld}), ou então a geração de árvores \cite{speedtree}. A principal referência na área é o livro \emph{Texturing and Modeling: A Procedural Approach} \cite{livro}, em que é explicada a geração procedural de diversos tipos de modelos.
+
+Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Lindenmayer (\emph{l-System})\cite{lsystem}, que, através de uma gramática, modela o crescimento de plantas; geometrias fractais \cite{geometrias}; e também ruído de Perlin (\emph{Perlin Noise}\cite{perlin}).
+
+A \emph{engine} gráfica \emph{I-Novae}\cite{infinity} apresenta uma proposta semelhante ao deste trabalho. Porém, a \emph{I-Novae} é uma solução independente, que se propõe a oferecer uma série de funcionalidades esperadas de uma \emph{engine}. Como este trabalho não propõe uma \emph{engine}, ele se torna muito mais flexível, podendo ser integrado a qualquer outra \emph{engine} já existente.
+
+
+
+\section{Metodologia}
+\subsection{Tipo de Pesquisa}
+O trabalho proposto é uma pesquisa de natureza aplicada, pois busca aplicar um conhecimento teórico (técnicas de geração procedural) e obter um resultado prático na forma de uma ferramenta e tem um  objetivo exploratório. A pesquisa se dá em laboratório, pois se trata de um ambiente controlado.
+
+\subsection{Procedimento Metodológico}
+O primeiro passo do trabalho será a adaptação do que já foi feito, na disciplina de POC I, para a visualização de terrenos esféricos. Um estudo será feito e, caso necessário, será implementado um algoritmo de nível de detalhe, provavelmetne o \emph{Chunked LOD}\cite{chunked}. A seguir, o trabalho será acoplado a uma \emph{engine} gráfica.
+
+O último passo será a adição de efeitos visuais, como textura, sombra e efeitos atmosféricos.
+
+A lista abaixo apresenta os passos já abordados na disciplina de POC I:
+
+\begin{itemize}
+\item Etapa 1: Estudo das soluções já existentes.
+\item Etapa 2: Início do desenvolvimento.
+\item Etapa 3: Geração de terrenos planos com base em mapas de altura.
+\item Etapa 4: Geração de terrenos planos proceduralmente.
+\end{itemize}
+
+As quatro etapas foram concluídas. Dessa forma, as seguintes etapas serão abordadas ao longo da disciplina de POC II:
+
+\begin{itemize}
+\item Etapa 1: Adaptação para a visualização de terrenos esféricos - O arcabouço desenvolvido em POC I será modificado para que seja possível mapear as posições do terreno em uma esfera.
+\item Etapa 2: Implementação de um algoritmo de nível de detalhe - Como a complexidade do terreno tende a aumentar (maior número de polígonos), poderá ser necessário a implementação de um algoritmo de nível de detalhe.
+\item Etapa 3: Acoplamento a uma \emph{engine} gráfica.
+\item Etapa 4: Adição de efeitos visuais.
+\end{itemize}
+
+
+\subsection{Cronograma}
+Baseado nas etapas descritas anteriormente, o seguinte cronograma foi montado:
+
+\begin{center}
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{figuras/cronograma.png}}
+	\caption{\label{fig:cronograma} Cronograma para a disciplina de POC II.}
+\end{figure}
+\end{center}
+
+\newpage
+\section{Resultados Esperados}
+Ao final do trabalho, espera-se que seja possível:
+
+\begin{itemize}
+\item Visualização de um planeta em tempo-real e gerado proceduralmente.
+\item Acoplamento a uma \emph{engine} gráfica.
+\end{itemize}
+

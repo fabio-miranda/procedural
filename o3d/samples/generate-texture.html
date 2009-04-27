@@ -1,0 +1,277 @@
+<!--
+Copyright 2009, Google Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+    * Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the
+distribution.
+    * Neither the name of Google Inc. nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<!--
+How to generate a texture.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>
+Generate Texture.
+</title>
+<script type="text/javascript" src="o3djs/base.js"></script>
+<script type="text/javascript">
+o3djs.require('o3djs.util');
+o3djs.require('o3djs.math');
+o3djs.require('o3djs.rendergraph');
+o3djs.require('o3djs.primitives');
+o3djs.require('o3djs.effect');
+
+// global variables
+var g_o3d;
+var g_math;
+var g_client;
+var g_pack;
+var g_viewInfo;
+var g_finished = false;  // for selenium testing
+
+/**
+ * Creates the client area.
+ */
+function init() {
+  // Comment out the line below to run the sample in the browser
+  // JavaScript engine.  This may be helpful for debugging.
+  o3djs.util.setMainEngine(o3djs.util.Engine.V8);
+
+  o3djs.util.makeClients(initStep2);
+}
+
+/**
+ * Initializes O3D, loads an effect, creates some textures
+ * and quads to display them.
+ * @param {Array} clientElements Array of o3d object elements.
+ */
+function initStep2(clientElements) {
+  // Initializes global variables and libraries.
+  var o3dElement = clientElements[0];
+  g_o3d = o3dElement.o3d;
+  g_math = o3djs.math;
+
+  // Set window.g_client as well.  Otherwise when the sample runs in
+  // V8, selenium won't be able to find this variable (it can only see
+  // the browser environment).
+  window.g_client = g_client = o3dElement.client;
+
+  // Create a pack to manage our resources/assets
+  g_pack = g_client.createPack();
+
+  // Create the render graph for a view.
+  g_viewInfo = o3djs.rendergraph.createBasicView(
+      g_pack,
+      g_client.root,
+      g_client.renderGraphRoot);
+
+  var clientWidth = g_client.width;
+  var clientHeight = g_client.height;
+  g_viewInfo.drawContext.projection = g_math.matrix4.orthographic(
+      -clientWidth * 0.5,
+      clientWidth * 0.5,
+      -clientHeight * 0.5,
+      clientHeight * 0.5,
+      0.001,
+      1000);
+  g_viewInfo.drawContext.view = g_math.matrix4.lookAt(
+      [0, 500, 0], // eye
+      [0, 0, 0],   // target
+      [0, 0, -1]); // up
+
+  // Create and load the effect.
+  var effect = g_pack.createObject('Effect');
+  o3djs.effect.loadEffect(effect, 'shaders/texture-only.shader');
+
+  // Create a Material for the effect.
+  var myMaterial = g_pack.createObject('Material');
+
+  // Set the material's drawList for transparent objects.
+  myMaterial.drawList = g_viewInfo.zOrderedDrawList;
+
+  // Apply the effect to this material.
+  myMaterial.effect = effect;
+
+  // Create the params that effect requires on the material.
+  effect.createUniformParameters(myMaterial);
+
+  // Create a quad.
+  var shape = o3djs.primitives.createPlane(g_pack,
+                                           myMaterial,
+                                           1,
+                                           1,
+                                           1,
+                                           1);
+
+  // display our shape 7 times with 7 different textures
+  // by overriding the sampler on each instance.
+  for (var s = 0; s < 7; ++s) {
+    // create a transform for an instance
+    var transform = g_pack.createObject('Transform');
+    var x = s % 4;
+    var z = Math.floor(s / 4);
+    transform.translate((x - 1.5) * 140, 0, (z - 0.5) * 140);
+    transform.scale(128, 1, 128);
+    transform.parent = g_client.root;
+    transform.addShape(shape);
+
+    // Create a ParamSampler on the transform with the same name as in
+    // the effect so this param will be used instead of the one on the material.
+    var samplerParam = transform.createParam('texSampler0', 'ParamSampler');
+
+    var sampler = g_pack.createObject('Sampler');
+    samplerParam.value = sampler;
+    sampler.addressModeU = g_o3d.Sampler.CLAMP;
+    sampler.addressModeV = g_o3d.Sampler.CLAMP;
+
+    // Create a texture.
+    {
+      var pixels = [];
+      var format;
+
+      switch (s) {
+        case 0: {  // XRGB8
+          format = g_o3d.Texture.XRGB8;
+          for (var y = 0; y < 32; ++y) {
+            for (var x = 0; x < 32; ++x) {
+              var offset = (y * 32 + x) * 3;  // rgb
+              var u = x / 32 * Math.PI * 0.5;
+              var v = y / 32 * Math.PI * 0.5;
+              pixels[offset + 0] = Math.cos(u);  // red
+              pixels[offset + 1] = Math.sin(v);  // green
+              pixels[offset + 2] = Math.sin(u);  // blue
+            }
+          }
+          break;
+        }
+        case 1: {  // ARGB8
+          format = g_o3d.Texture.ARGB8;
+          for (var y = 0; y < 32; ++y) {
+            for (var x = 0; x < 32; ++x) {
+              var offset = (y * 32 + x) * 4;  // rgba
+              var u = x / 32 * Math.PI * 0.5;
+              var v = y / 32 * Math.PI * 0.5;
+              pixels[offset + 0] = Math.floor(y / 4) % 2;  // red
+              pixels[offset + 1] = Math.sin(v);  // green
+              pixels[offset + 2] = Math.floor(x / 4) % 2;  // blue
+              pixels[offset + 3] = Math.abs(Math.sin(v * 4));  // alpha
+            }
+          }
+          break;
+        }
+        case 2: {  // ABGR16F
+          format = g_o3d.Texture.ABGR16F;
+          for (var y = 0; y < 32; ++y) {
+            for (var x = 0; x < 32; ++x) {
+              var offset = (y * 32 + x) * 4;  // rgba
+              var u = x / 32 * Math.PI * 0.5;
+              var v = y / 32 * Math.PI * 0.5;
+              pixels[offset + 0] = Math.cos(v);  // red
+              pixels[offset + 1] = Math.sin(u);  // green
+              pixels[offset + 2] = Math.sin(v);  // blue
+              pixels[offset + 3] = Math.abs(Math.sin(u * 8));  // alpha
+            }
+          }
+          break;
+        }
+        case 3: {  // ABGR32F
+          format = g_o3d.Texture.ABGR32F;
+          for (var y = 0; y < 32; ++y) {
+            for (var x = 0; x < 32; ++x) {
+              var offset = (y * 32 + x) * 4;  // rgba
+              var u = x / 32 * Math.PI * 0.5;
+              var v = y / 32 * Math.PI * 0.5;
+              pixels[offset + 0] = Math.cos(v);  // red
+              pixels[offset + 1] = Math.sin(u);  // green
+              pixels[offset + 2] = Math.sin(v);  // blue
+              pixels[offset + 3] = Math.abs(Math.sin(u * 8));  // alpha
+            }
+          }
+          break;
+        }
+        case 4: {  // GR16F
+          format = g_o3d.Texture.GR16F;
+          for (var y = 0; y < 32; ++y) {
+            for (var x = 0; x < 32; ++x) {
+              var offset = (y * 32 + x) * 2;  // rg
+              var u = x / 32 * Math.PI * 0.5;
+              var v = y / 32 * Math.PI * 0.5;
+              pixels[offset + 0] = Math.cos(v);  // red
+              pixels[offset + 1] = Math.cos(u);  // green
+            }
+          }
+          break;
+        }
+        case 5: {  // R32F
+          format = g_o3d.Texture.R32F;
+          for (var y = 0; y < 32; ++y) {
+            for (var x = 0; x < 32; ++x) {
+              var offset = (y * 32 + x);  // r
+              var u = x / 32 * Math.PI * 0.5;
+              var v = y / 32 * Math.PI * 0.5;
+              pixels[offset + 0] = Math.cos(v * 16);  // red
+            }
+          }
+          break;
+        }
+        case 6: {  // GR32F
+          format = g_o3d.Texture.GR32F;
+          for (var y = 0; y < 32; ++y) {
+            for (var x = 0; x < 32; ++x) {
+              var offset = (y * 32 + x) * 2;  // rg
+              var u = x / 32 * Math.PI * 0.5;
+              var v = y / 32 * Math.PI * 0.5;
+              pixels[offset + 0] = Math.cos(v * 8);  // red
+              pixels[offset + 1] = Math.cos(u * 8);  // green
+            }
+          }
+          break;
+        }
+      }
+      var texture = g_pack.createTexture2D(32, 32, format, 1, false);
+      texture.set(0, pixels);
+      sampler.texture = texture;
+    }
+  }
+  window.g_finished = true;  // for selenium testing.
+}
+
+</script>
+</head>
+<body onload="init()">
+<h1>Generate Texture</h1>
+Shows how to create textures in Javascript.
+<br/>
+
+<!-- Start of O3D plugin -->
+<div id="o3d" style="width: 600px; height: 600px;"></div>
+<!-- End of O3D plugin -->
+</body>
+</html>

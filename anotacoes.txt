@@ -1,0 +1,3 @@
+
+- StepSize só é usado na hora de renderizar. Na hora de guardar as alturas no vetor, todas as posições são guardadas, independentemente do stepSize.
+Caso contrário, o stepSize só agiria como um "escalonador".

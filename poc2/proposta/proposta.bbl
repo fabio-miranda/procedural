@@ -1,0 +1,72 @@
+\begin{thebibliography}{10}
+
+
+
+\bibitem{parish}
+Yoav I~H Parish and Pascal Müller.
+\newblock Procedural modelling of cities.
+\newblock In {\em in Proc. ACM SIGGRAPH, (Los Angeles, 2001) ACM Press}, pages
+  301--308.
+
+\bibitem{pseudoinfinite}
+Stefan Greuter, Jeremy Parker, Nigel Stewart, and Geoff Leach.
+\newblock Real-time procedural generation of `pseudo infinite' cities.
+\newblock In {\em GRAPHITE '03: Proceedings of the 1st international conference
+  on Computer graphics and interactive techniques in Australasia and South East
+  Asia}, pages 87--ff, New York, NY, USA, 2003. ACM.
+
+\bibitem{realtime}
+Jacob Olsen.
+\newblock Realtime procedural terrain generation.
+\newblock In {\em Department of Mathematics And Computer Science (IMADA).},
+  2004.
+
+\bibitem{virtual}
+Lukas Zimmerli and Paul Verschure.
+\newblock Delivering environmental presence through procedural virtual
+  environments.
+\newblock In {\em PRESENCE 2007, The 10th Annual International Workshop on
+  Presence}, 2007.
+
+\bibitem{mojoworld}
+Mojoworld generator.
+\newblock Disponível em: \url{http://www.mojoworld.org/}. Acessado em: 26 mar.
+  2009.
+
+\bibitem{speedtree}
+Speedtree | idv, inc.
+\newblock Disponível em: \url{http://www.speedtree.com/}. Acessado em: 26 mar.
+  2009.
+
+\bibitem{livro}
+David~S. Ebert, F.~Kenton Musgrave, Darwyn Peachey, Ken Perlin, and Steven
+  Worley.
+\newblock {\em Texturing and Modeling: A Procedural Approach}.
+\newblock Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 2002.
+
+\bibitem{lsystem}
+Przemyslaw Prusinkiewicz and Aristid Lindenmayer.
+\newblock {\em The algorithmic beauty of plants}.
+\newblock Springer-Verlag New York, Inc., New York, NY, USA, 1996.
+
+\bibitem{geometrias}
+Benoit~B. Mandelbrot.
+\newblock {\em The Fractal Geometry of Nature}.
+\newblock {W. H. Freeman}, August 1982.
+
+\bibitem{perlin}
+Ken perlin's homepage.
+\newblock Disponível em: \url{http://mrl.nyu.edu/~perlin/}. Acessado em: 26
+  mar. 2009.
+
+\bibitem{infinity}
+Infinity.
+\newblock Disponível em: \url{http://www.infinity-universe.com/Infinity/}.
+  Acessado em: 26 mar. 2009.
+
+\bibitem{chunked}
+Chunked lod.
+\newblock Disponível em: \url{http://tulrich.com/geekstuff/chunklod.html}.
+  Acessado em: 26 mar. 2009.
+
+\end{thebibliography}
