@@ -1,0 +1,13 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.42.2.1 }
+
+\bibitem{Wilson2002}
+\abntrefinfo{Filho}{FILHO}{2002}
+{FILHO, W. de P.~P. \emph{Engenharia de Software: Fundamentos, Métodos e
+  Padrões}. Segunda edição. [S.l.]: LTC editora, 2002.}
+
+\end{thebibliography}

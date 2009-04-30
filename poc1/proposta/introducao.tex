@@ -1,0 +1,63 @@
+\section{Introdução}
+A geração procedural de modelos é uma área da Ciência da Computação que propõe que modelos gráficos tridimensionais (representação em polígonos de algum objeto) possam ser gerados através de rotinas e algoritmos. Tal técnica vem se tornando bastante popular nos últimos tempos, tendo em vista que, com o crescimento da indústria do entretenimento, há uma necessidade de se construir modelos cada vez maiores e com um grande nível de detalhe. A técnica de geração procedural vem então como uma alternativa à utilização do trabalho de artistas e modeladores na criação de modelos tridimensionais.
+
+
+\section{Objetivo}
+O objetivo deste trabalho é construir um arcabouço para a criação de terrenos proceduralmente em tempo real e que permita a inserção de modelos pelo usuário. O trabalho pode ser divido em duas vertentes: criação de terrenos e a sua respectiva visualização.
+
+Na primeira parte, criação de terrenos, propõe-se o estudo de diversos algoritmos e técnicas procedurais para a criação de terrenos realistas. Grande parte das propostas nesta área limitam-se à  criação de terrenos planos. Haverá então a necessidade da adaptação destes algoritmos para a criação de terrenos esféricos. Outro ponto importante é a união entre o conteúdo gerado proceduralmente e o inserido pelo usuário.
+
+O segundo aspecto (a visualização) também é outro problema muito estudado no campo da computação. O modelo de um planeta é algo que pode demandar um número extremamente alto de triângulos, inviabilizando a sua renderização em tempo real nos computadores atuais. Faz-se então necessária a utilização de técnicas que limitam e minimizam o número de triângulos a serem desenhados na tela. Entra aí o uso de \emph{culling} e níveis de detalhe dos modelos. Técnicas avançadas não serão levadas em consideração inicialmente, limitando em tamanho os terrenos a serem visualizados.
+
+A proposta é então criar um arcabouço que una a geração procedural automática com dados inseridos pelo usuário, seja na forma de modelos tridimensionais ou então de mapas de altura (imagens em preto-e-branco que representam algum terreno). Estes dados inseridos pelo usuário podem representar áreas de maior interesse para ele, e que necessitam de uma representação mais fiel.
+
+O trabalho feito nesta disciplina servirá também como base para o POC II, onde a intenção é propor novas técnicas de visualização e estruturas de dados específicas para terrenos gerados proceduralmente. Aí então será possível utilizar bancos de dados que mapeiam a superfície terrestre \cite{geo}.
+
+\section{Referencial Teórico}
+Vários trabalhos publicados abordam a geração procedural de modelos. Alguns destes trabalhos abordam a geração de cidades (\cite{parish} e \cite{pseudoinfinite}), outros abordam a geração de terrenos realistas (em tempo-real, como os trabalhos \cite{realtime} e \cite{virtual}, ou não, como o \emph{MojoWorld}\cite{mojoworld}), ou então a geração de árvores \cite{speedtree}. A principal referência na área é o livro \emph{Texturing and Modeling: A Procedural Approach} \cite{livro}, em que é explicada a geração procedural de diversos tipos de modelos.
+
+Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Lindenmayer (\emph{l-System})\cite{lsystem}, que, através de uma gramática, modela o crescimento de plantas; geometrias fractais \cite{geometrias}; e também ruído de Perlin (\emph{Perlin Noise}\cite{perlin}).
+
+Alguns produtos recentes, como o jogo \emph{Spore}\cite{spore} ou o motor gráfico \emph{I-Novae}\cite{infinity} propõem a geração de planetas proceduralmente e também a sua visualização em tempo real. A diferença para este trabalho, é que aqui é proposto um arcabouço suficientemente genérico que possa servir para a visualização de dados gerados proceduralmente ou inseridos pelo usuário.
+
+
+
+\section{Metodologia}
+\subsection{Tipo de Pesquisa}
+O trabalho proposto é uma pesquisa de natureza aplicada, pois busca aplicar um conhecimento teórico (técnicas de geração procedural) e obter um resultado prático na forma de um arcabouço e tem um  objetivo exploratório. A pesquisa se dá em laboratório, pois se trata de um ambiente controlado.
+
+\subsection{Procedimento Metodológico}
+O primeiro passo do trabalho será o estudo de diversos técnicas procedurais envolvidas na geração de terrenos (tanto planos quanto esféricos). Na segunda etapa, será iniciado o desenvolvimento do arcabouço.
+
+Os primeiros modelos gerados serão terrenos planos simples, com base em mapas de altura. Em um segundo momento, serão gerados os terrenos planos proceduralmente. O último passo é a geração das geometrias esféricas representando os planetas, levando-se em consideração o conteúdo gerado proceduralmente e inserido pelo usuário na forma de mapas de altura.
+
+\begin{itemize}
+\item Etapa 1: Estudo das soluções já existentes.
+\item Etapa 2: Início do desenvolvimento do arcabouço.
+\item Etapa 3: Geração de terrenos planos com base em mapas de altura.
+\item Etapa 4: Geração de terrenos planos proceduralmente.
+\item Etapa 5: Geração inicial das geometrias dos planetas com base no arcabouço.
+\end{itemize}
+
+
+\subsection{Cronograma}
+Baseado nas etapas descritas anteriormente, o seguinte cronograma foi montado:
+
+\begin{center}
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{figuras/cronograma.png}}
+	\caption{\label{fig:cronograma} Cronograma.}
+\end{figure}
+\end{center}
+
+\newpage
+\section{Resultados Esperados}
+Ao final do trabalho, espera-se que seja possível:
+
+\begin{itemize}
+\item Visualização de mapas de altura.
+\item Visualização de terrenos gerados proceduralmente
+\item Visualização (ainda inicial) das geometrias dos planetas.
+\end{itemize}
+
+Este trabalho não espera, em um primeiro momento, gerar texturas para as geometrias. Também, como não será implementada técnicas de \emph{culling} e nível de detalhe mais sofisticadas, não se espera visualizar geometrias com um grande tamanho. Estes aspectos serão abordados futuramente na disciplina de POC II.

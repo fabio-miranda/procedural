@@ -1,0 +1,20 @@
+\select@language {brazil}
+\contentsline {figure}{\numberline {1}{\ignorespaces Exemplo de uma cena com um carro e um ponto de luz.}}{15}{figure.2.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Exemplo de um grafo de cena.}}{15}{figure.2.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Exemplo de um mapa de altura.}}{15}{figure.2.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Exemplo de um ru\IeC {\'\i }do de Perlin.}}{16}{figure.2.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Ret\^angulo e seus quatro pontos.}}{17}{figure.2.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Diagrama UML do arcabou\c co.}}{20}{figure.4.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Diversos \emph {patchs} formando um terreno maior.}}{21}{figure.4.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Grafo de cena e terrenos, com a c\^amera no Terreno 0.}}{21}{figure.4.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Grafo de cena e terrenos, com a c\^amera no Terreno 5.}}{22}{figure.4.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Visualiza\c c\~ao e gera\c c\~ao dos terrenos.}}{22}{figure.4.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Tela com o terreno gerado (vers\~ao inicial).}}{23}{figure.4.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Tela com a \emph {interface} do usu\'ario (exibi\c c\~ao do terreno em \emph {wireframe}).}}{23}{figure.4.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Tela com a \emph {interface} do usu\'ario (exibi\c c\~ao do terreno em tons de cinza).}}{24}{figure.4.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Tela com a \emph {interface} do usu\'ario (exibi\c c\~ao do terreno com uma textura).}}{24}{figure.4.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Mapa de altura inserido pelo usu\'ario.}}{25}{figure.4.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Tela com o terreno gerado e um mapa de altura inserido.}}{25}{figure.4.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Gr\'afico com a porcentagem dos tempos m\'edios de cada chamada, com n\'umero vari\'avel de \emph {octaves}}}{27}{figure.4.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Teste variando o n\'umero de \emph {octaves}, e o n\'umero de terrenos vizinhos fixo em 2.}}{28}{figure.4.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Teste variando o n\'umero de terrenos vizinhos, e o n\'umero de octaves fixo.}}{29}{figure.4.19}

@@ -1,0 +1,29 @@
+O próximo teste (Tabela \ref{tabela:teste2} e Figura \ref{fig:teste2}) mostra o impacto variando o número de terrenos vizinhos.
+
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.8\linewidth]{img/graficos/teste2/teste2.png}}
+	\caption{\label{fig:teste2} Teste variando o número de terrenos vizinhos, e o número de octaves fixo.}
+\end{figure}
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			 - & \multicolumn{3}{|c|}{\emph{Frames} por segundo} \\
+			\hline
+			Vizinhos & \scriptsize Mín. & \scriptsize Máx. & \scriptsize Média \\
+			\hline
+			2 & 17,0 & 75,0 & 38,5 \\
+			\hline
+			4 & 4,0 & 20,0 & 15,8 \\
+			\hline
+			8 & 0 & 5,0 & 4,1 \\
+			\hline
+		\end{tabular}
+		\caption{FPS das execuções variando o número de terrenos vizinhos, e o número de octaves fixo.}
+		\label{tabela:teste2}
+	\end{center}
+\end{table}
+
+Como era de se esperar, quanto maior o número de vizinhos, menor o FPS. Para melhorar isso, é possível ajustar o número de vizinhos desenhados de acordo com o computador.

@@ -1,0 +1,80 @@
+\section{Proposta}
+
+\subsection{Proposta}
+
+\begin{frame}\frametitle{Proposta}
+\begin{itemize}
+	\item O objetivo deste trabalho é construir um arcabouço para a criação de terrenos proceduralmente em tempo real e que permita a inserção de modelos pelo usuário, como, por exemplo, na forma de mapas de altura.
+	\item Áreas genéricas serão geradas proceduralmente, e áreas que necessitam de maior detalhe, serão visualizadas por meio de mapas de altura.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Proposta}
+\begin{itemize}
+	\item O arcabouço está sendo construído de forma que possa suportar terrenos criados de diversas maneiras.
+	\begin{itemize}
+		\item Arquivos com mapas de altura
+		\item Fault Formation
+		\item Perlin Noise (Ruído de Perlin)
+		\item Fbm
+	\end{itemize}
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.5\linewidth]{img/node}
+\end{center}
+\end{frame}
+
+\subsection{Geração procedural dos terrenos}
+
+\begin{frame}\frametitle{Ruído de Perlin}
+\begin{columns}
+	\begin{column}{5cm}
+	\begin{itemize}
+		\item O ruído é usado para simular estruturas naturais, como núvens, texturas de árvores, e terrenos.
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/perlin}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+\subsection{Grafo de cena}
+
+\begin{frame}\frametitle{Terrenos}
+\begin{itemize}
+	\item Cada terreno é um quadrado.
+	\item É possível variar quantos terrenos são visualizados e gerados.
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.7\linewidth]{img/grafo_cena1}
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Grafo de cena - Organização}
+\begin{columns}
+	\begin{column}{5cm}
+	\begin{itemize}
+		\item Um grafo para armazenar os terrenos que serão renderizados.
+		\item Um nodo do grafo de cena aponta para os oito terrenos vizinhos.
+		\item Quando a câmera muda de terreno, novos terrenos são gerados.
+		\item Os vértices são armazenados em uma estrutura de dados VBO.
+	\end{itemize}
+	\vspace{3cm}
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics<1>[width=1.0\linewidth]{img/grafo_cena2}
+		\includegraphics<2>[width=1.0\linewidth]{img/grafo_cena3}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+
+

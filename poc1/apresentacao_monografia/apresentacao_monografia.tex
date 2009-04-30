@@ -1,0 +1,81 @@
+% This text is proprietary.
+% It's a part of presentation made by myself.
+% It may not used commercial.
+% The noncommercial use such as private and study is free
+% May 2007
+% Author: Sascha Frank 
+% University Freiburg 
+% www.informatik.uni-freiburg.de/~frank/
+%
+% 
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage[brazil]{babel}
+
+
+
+%Temas
+\usetheme[compress]{Dresden}
+%\useoutertheme[subsection=false]{smoothbars}
+%\useinnertheme[shadow]{rounded}
+\useinnertheme{rectangles}
+
+
+\makeatletter
+\beamer@theme@subsectionfalse
+\makeatother
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/fundo}}
+
+
+
+
+
+\begin{document}
+\title[Geração Procedural de Terrenos em Tempo-Real]{Desenvolvimento de um Arcabouço para a Geração Procedural e Visualização de Terrenos em Tempo-Real}
+\author[Fábio Miranda - Apresentação final - POC I]{Fábio Markus Nunes Miranda\\Orientador: Prof. Luiz Chaimowicz\\Co-Orientador: Carlúcio Cordeiro}
+\institute[Universidade Federal de Minas Gerais]{Departamento de Ciência da Computação\\Universidade Federal de Minas Gerais}
+\date[\today]{Apresentação final - POC I}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{Sumário}
+\setcounter{tocdepth}{1}
+\tableofcontents[currentsection]
+\setcounter{tocdepth}{2}
+\end{frame}
+}
+
+
+
+
+
+
+\include{motivacao}
+\include{metodologia}
+\include{proposta}
+\include{resultados}
+\include{conclusao}
+
+\section{Bibliografia}
+\begin{tiny}
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{apresentacao_monografia}
+\end{tiny}
+
+
+\begin{frame}
+\Large Dúvidas?
+\end{frame}
+
+
+
+
+\end{document}

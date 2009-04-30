@@ -1,0 +1,65 @@
+\chapter{REFERENCIAL TEÓRICO}
+
+Vários trabalhos publicados abordam a geração de modelos tridimensionais com o uso de algoritmos. Alguns destes trabalhos abordam a geração de cidades (\cite{parish} e \cite{pseudoinfinite}), outros abordam a geração de terrenos realistas (em tempo-real, como os trabalhos \cite{realtime} e \cite{virtual}, ou não, como o \emph{MojoWorld} \cite{mojoworld}), ou então a geração de árvores \cite{speedtree}. A principal referência na área é o livro \emph{Texturing and Modeling: A Procedural Approach} \cite{livro}, em que é explicada a geração procedural de diversos tipos de modelos.
+
+Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Lindenmayer (\emph{l-System})\cite{lsystem}, que, através de uma gramática, modela o crescimento de plantas; geometrias fractais \cite{geometrias}; e também ruído de Perlin (\emph{Perlin noise} \cite{perlin}). Algumas técnicas pertinentes a este trabalho serão abordadas na Seção \ref{terrenos}.
+
+Nas Seções \ref{grafocenareferencial} e \ref{mapaaltura} serão apresentados alguns conceitos relevantes a este trabalho, como Grafo de Cena e Mapa de Altura.
+
+
+\section{Grafo de cena}
+\label{grafocenareferencial}
+Um grafo de cena é uma estrutura de dados utilizada em aplicações gráficas e jogos eletrônicos. O seu objetivo é organizar os objetos presentes em um ambiente virtual (uma cena). Todo os grafos de cena são acíclicos e dirigidos.
+
+No exemplo da Figura \ref{fig:grafocena2}  \cite{grafocena}, o grafo representa uma cena com um carro (\emph{car}) e uma luz (\emph{light}). O nodo {\bf carro} possui, como nodos filhos, quatro {\bf rodas} (\emph{wheel}). A Figura \ref{fig:grafocena1} mostra a cena com o carro e um ponto de luz.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.25\linewidth]{img/grafocena_exemplo1.png}}
+	\caption{\label{fig:grafocena1} Exemplo de uma cena com um carro e um ponto de luz.}
+\end{figure}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.35\linewidth]{img/grafocena_exemplo2.png}}
+	\caption{\label{fig:grafocena2} Exemplo de um grafo de cena.}
+\end{figure}
+
+
+A maior vantagem de um grafo de cena é a possibilidade de aplicar transformações geométricas (como rotação, translação, escala) a um nodo, e os filhos desse nodo também sofrerão tais transformações. Técnicas mais avançadas, como desenhar na tela apenas parte de uma cena (ou \emph{culling}), também podem ser implementadas através de grafos de cena.
+
+
+\section{Mapa de altura}
+\label{mapaaltura}
+
+Um mapa de altura (ou \emph{heightmap}) é uma imagem bidimensional que armazena dados referentes à altura de um terreno. Geralmente, tons mais claros representam pontos mais altos, enquanto tons mais escuros são pontos mais baixos do mapa. A Figura \ref{fig:mapaalturaexemplo} \cite{mapaaltura} é um exemplo de mapa de altura.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.20\linewidth]{img/mapaaltura.png}}
+	\caption{\label{fig:mapaalturaexemplo} Exemplo de um mapa de altura.}
+\end{figure}
+
+
+\section{Terrenos procedurais}
+\label{terrenos}
+Existem uma série de técnicas para criação de terrenos proceduralmente, como ruído de Perlin e o algoritmo \emph{fractal plasma}, detalhados a seguir.
+
+\subsection{Ruído de Perlin}
+O ruído de Perlin foi criado pelo Professor Ken Perlin, da \emph{New York University}. O ruído é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
+
+Para criar um ruído de Perlin, precisamos de uma função que retorne, para um dado domínio, números entre 0 e 1. Para gerarmos esses números, é preciso uma semente (\emph{seed}); dessa forma, em uma segunda execução, com uma mesma semente, teremos os mesmos números entre 0 e 1.
+
+A Figura \ref{fig:perlin} \cite{figura_perlin} mostra três funções de ruído, criadas com diferentes valores de amplitude e frequência. A primeira função poderia ser uma representação de montanhas, a segunda de morros, a terceira de blocos de pedras. A quarta função é a soma das três funções anteriores. Cada função de ruído é chamada de um \emph{octave}.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{img/perlin.png}}
+	\caption{\label{fig:perlin} Exemplo de um ruído de Perlin.}
+\end{figure}
+
+\subsection{Fractal plasma}
+O \emph{fractal plasma} é um outro algoritmo utilizado na geração de terrenos. Basicamente, ele inicia com um retângulo onde, na primeira iteração, cada  aresta recebe um peso aleatório, como mostra a Figura \ref{fig:plasma}. Na segunda iteração, o retângulo é particionado, resultando em quatro retângulos, cujos novos pesos serão a média dos pesos das arestas adjacentes, que pode ser acrescido de um pequeno erro. Ao final de um número de iterações (determinado pelo usuário), cada média dos pesos irá corresponder a uma determinada altura do terreno.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.25\linewidth]{img/plasma.png}}
+	\caption{\label{fig:plasma} Retângulo e seus quatro pontos.}
+\end{figure}
+
+
