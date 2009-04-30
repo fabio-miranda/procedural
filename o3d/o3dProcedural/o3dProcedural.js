@@ -5,6 +5,7 @@ o3djs.require('o3djs.camera');
 o3djs.require('o3djs.rendergraph');
 o3djs.require('o3djs.effect');
 o3djs.require('o3djs.primitives');
+o3djs.require('o3djs.canvas');
 
 
 // global variables
@@ -62,7 +63,7 @@ function initStep2(clientElements){
 	
 	
 	//temp:
-	o3djs.event.addEventListener(o3dElement, 'mousedown', turnoffHeightmapShader);
+	//o3djs.event.addEventListener(o3dElement, 'mousedown', turnoffHeightmapShader);
 	
 	
 		
@@ -119,7 +120,8 @@ function turnoffHeightmapShader(){
 	
 	//alert(g_heightmap.heightTexture.getValue());
 	
-	g_patch.heightmap.renderNode.active = false
+	//g_patch.heightmap.renderNode.active = false
+	g_patch.heightmap.swapTextures();
 	
 	//g_patch = new Patch(g_patchRoot, g_heightmapRoot);
 	//g_patchRenderRoot.priority = 1;
@@ -140,9 +142,10 @@ function renderCallback(renderEvent) {
 	//g_cubeTransform.identity();
 	//g_cubeTransform.rotateY(2.0 * g_clock);
 	
-	g_patch.heightmap.timeParam.value = g_clock / 10.0;
+	//g_patch.heightmap.timeParam.value = g_clock / 10.0;
+	//g_patch.heightmap.swapTextures();
 	
 	//alert(this.patch.heightmap.timeParam)
-
+	g_patch.heightmap.swapTextures();
 }
 

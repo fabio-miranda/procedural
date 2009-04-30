@@ -88,7 +88,7 @@ function CreateSquareShape(material, pack){
 	//==================================
 	
 	
-	return shape;
+	return patchPrimitive;
 	
 	
 }
