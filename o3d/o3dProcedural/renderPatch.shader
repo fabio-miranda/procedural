@@ -1,7 +1,7 @@
 // World View Projection matrix that will transform the input vertices
 // to screen space.
 float4x4 worldViewProjection : WorldViewProjection;
-sampler texHeightmap;
+uniform float heightmap[1];
 
 
 struct VertexShaderInput {
@@ -24,8 +24,10 @@ PixelShaderInput vertexShaderFunction(VertexShaderInput input) {
 	// Multiply the vertex positions by the worldViewProjection matrix to
 	// transform them to screen space.
 	output.position = mul(input.position, worldViewProjection);
+	
+	//output.position.z = tex2Dlod(texHeightmap, float4(input.texcoord, 0, 0));
+	
 	output.texcoord = input.texcoord;
-	//output.color = float4(1, 0, 0, 1);
 	return output;
 }
 
@@ -33,10 +35,11 @@ PixelShaderInput vertexShaderFunction(VertexShaderInput input) {
 
 float4 pixelShaderFunction(PixelShaderInput input): COLOR {
 	//float4 height = checker(input.texcoord);
-    //float4 height = float4(1, 0, 0, 1);
-    float4 height = tex2D(texHeightmap, input.texcoord);
+    //float4 height = float4(0, 1, 0, 1);
     
-    return height;
+    //float4 height = tex2D(texHeightmap, input.texcoord);
+    
+    return float4(1, 0, 0, 1);
 }
 
 // Here we tell our effect file *which* functions are

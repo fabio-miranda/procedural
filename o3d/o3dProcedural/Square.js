@@ -1,7 +1,13 @@
 
 
 
-function CreateSquareShape(material, pack){
+function CreateSquareShape(material, pack, size, position_x, position_y, position_z){
+	
+	size = size || 1.0;
+	position_x = position_x || 0;
+	position_y = position_y || 0;
+	position_z = position_z || 0;
+	
 	
 	//==================================
 	//==================================
@@ -31,12 +37,13 @@ function CreateSquareShape(material, pack){
 	patchPrimitive.primitiveType = g_o3d.Primitive.TRIANGLELIST;
 	patchPrimitive.numberPrimitives = 2;
 	patchPrimitive.numberVertices = 4;
-
+	
+	
 	var positionArray = [
-	-0.5, -0.5,  0.5,  // vertex 0
-	 0.5, -0.5,  0.5,  // vertex 1
-	 0.5,  0.5,  0.5,  // vertex 2
-	 -0.5,  0.5,  0.5  // vertex 3
+	-0.5*size + position_x, -0.5*size + position_y,  0.5*size + position_z,  // vertex 0
+	 0.5*size + position_x, -0.5*size + position_y,  0.5*size + position_z,  // vertex 1
+	 0.5*size + position_x,  0.5*size + position_y,  0.5*size + position_z,  // vertex 2
+	-0.5*size + position_x,  0.5*size + position_y,  0.5*size + position_z  // vertex 3
 	];
 	var indicesArray = [
 	  0, 1, 2,  // face 1

@@ -1,8 +1,11 @@
 
-var RENDER_TARGET_WIDTH = 1;
-var RENDER_TARGET_HEIGHT = 1;
+var RENDER_TARGET_WIDTH = 64;
+var RENDER_TARGET_HEIGHT = 64;
 
-function Heightmap(parentNode, numIterations){
+
+
+
+function Heightmap(parentNode, numIterations, size){
 	this.primitive = null;
 	this.texture1 = null;
 	this.texture2 = null;
@@ -16,6 +19,7 @@ function Heightmap(parentNode, numIterations){
 	this.materialCalculateHeightmap = null;
 	this.materialClearTexture = null;
 	
+	this.size = size;
 	this.numIterations = numIterations;
 	this.currentIteration = 0;
 	
@@ -64,6 +68,14 @@ function Heightmap_createMaterialCalculateHeightmap(){
 	this.sampler = g_pack.createObject('Sampler');
 	this.sampler.texture = this.texture1;
 	samplerParam.value = this.sampler;
+	
+	//Pass the permutation texture
+	samplerParamPerm = material.getParam('permTexture');
+	samplerPerm = g_pack.createObject('Sampler');
+	samplerPerm.texture = g_permMatrix.texture;
+	samplerParamPerm.value = samplerPerm;
+	
+	
 	
 	return material
 	
@@ -139,6 +151,7 @@ function Heightmap_swapTextures(){
 	}
 	//Swap
 	else{
+		//alert('1');
 		if(this.currentIteration < this.numIterations){
 			if (this.swap == true) {
 				this.sampler.texture = this.texture1; //input
@@ -155,9 +168,6 @@ function Heightmap_swapTextures(){
 			
 			this.currentIteration++;
 		}
-		
-		
-		
 	}
 }
 

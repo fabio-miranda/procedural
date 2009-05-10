@@ -1,0 +1,117 @@
+
+
+
+\section{Proposta}
+
+\subsection{Proposta}
+
+
+
+\begin{frame}\frametitle{Trabalho anterior}
+\begin{columns}
+	\begin{column}{5cm}
+	\begin{itemize}
+		\item Ao final de POC I, foi possível gerar terrenos na CPU.
+		\item O terreno era dividido em quadrados, que eram gerados proceduralmente a medida que era necessário.
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics<1>[width=1.0\linewidth]{img/poc1}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}\frametitle{Proposta}
+\begin{itemize}
+	\item O objetivo deste trabalho é expandir oque foi implementado em POC I, dessa vez para terrenos maiores.
+	\item Para isso, buscou-se transferir a geração dos terrenos da \texttt{CPU} para a \texttt{GPU} (placas de vídeo).
+\end{itemize}
+\end{frame}
+
+
+\subsection{Geração procedural dos terrenos}
+
+\begin{frame}\frametitle{Ruído de Perlin}
+\begin{columns}
+	\begin{column}{5cm}
+	\begin{itemize}
+		\item O ruído é usado para simular estruturas naturais, como núvens, texturas de árvores, e terrenos.
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/perlin}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}\frametitle{Geração na GPU}
+\begin{columns}
+	\begin{column}{5cm}
+	\begin{itemize}
+		\item A natureza facilmente paralelizável das aplicações gráficas fez com que as GPUs fossem desenvolvidas com um número muito maior de unidades de processamento do que as CPUs.
+		\item Como o terreno vai ser gerado (e desenhado) na GPU, não haverá perda na transferência de dados do terreno entre CPU e GPU.
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/gpu}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Geração na GPU}
+\begin{columns}
+	\begin{column}{5cm}
+	\begin{itemize}
+		\item A geração será feita através de conjuntos de instruções (shaders) executados na GPU.
+		\item O \emph{pipeline} gráfico das GPUs executa dois tipos de shaders:
+		\begin{itemize}
+			\item \tiny Vertex shader: executado para cada vértice da cena.
+			\item \tiny Fragment shader: executado para cada fragmento dos polígonos (a saída do shader é uma cor, salva em uma textura).
+		\end{itemize}
+	\end{itemize}
+	%\vspace{3cm} 
+	\end{column}
+	\begin{column}{7cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/pipeline}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Geração na GPU}
+\begin{columns}
+	\begin{column}{7cm}
+	\begin{itemize}
+		\item Fragment shader: calcular o novo terreno procedural e salva o resultado em uma textura.
+		\item Vertex shader: após o calculo do terreno, irá consultar oque foi gerado, e ajustar a altura dos vértices do terreno.
+		\item Para evitar efeitos indesejáveis do terreno sendo criado a medida que o usuário se move, o terreno é criado em passos, cada um sendo exibido quando está pronto.
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/geracao}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+
+
+
+

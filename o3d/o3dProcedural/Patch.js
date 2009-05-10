@@ -1,11 +1,12 @@
 
 
-function Patch(patchParentNode, heightmapParentNode){
-	//this.position = position;
+function Patch(patchParentNode, heightmapParentNode, numIterations, size, position_x, position_y, position_z){
+	this.position = [position_x, position_y, position_z];
+	this.size = size;
 	this.primitive = null;
 	this.heightmap = null;
 	this.parentNode = patchParentNode;
-	this.heightmap = new Heightmap(heightmapParentNode, 10);
+	this.heightmap = new Heightmap(heightmapParentNode, numIterations, size);
 	this.sampler = null;
 	
 	this.create = Patch_create;
@@ -33,10 +34,12 @@ function Patch_createMaterial(){
 	
 	//Pass the heightmap texture to the shader
 	effect.createUniformParameters(material);
-	var samplerParam = material.getParam('texHeightmap');
-	this.sampler = g_pack.createObject('Sampler');
-	this.sampler.texture = this.heightmap.texture2;
-	samplerParam.value = this.sampler;
+	//var samplerParam = material.getParam('heightmap');
+	//this.sampler = g_pack.createObject('Sampler');
+	//this.sampler.texture = this.heightmap.texture2;
+	//samplerParam.value = this.sampler;
+	//var aux = [0.0, 0.0];
+	material.getParam('heightmap').value = this.heightmap.texture2.get(0);
 	
 	return material
 	
@@ -48,7 +51,7 @@ function Patch_create(){
 	
 	//this.heightmap = new Heightmap(this.heightmapParentNode);
 	var material = this.createMaterial();
-	this.primitive = CreateSquareShape(material, g_pack);
+	this.primitive = CreateSquareShape(material, g_pack, this.size, this.position[0], this.position[1], this.position[2]);
 	
 	//==================================
 	//==================================

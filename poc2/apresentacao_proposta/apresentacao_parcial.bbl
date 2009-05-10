@@ -1,0 +1,143 @@
+\begin{thebibliography}{10}
+
+\bibitem{geometrias}
+Benoit~B. Mandelbrot.
+\newblock {\em The Fractal Geometry of Nature}.
+\newblock {W. H. Freeman}, August 1982.
+
+\bibitem{lsystem}
+Przemyslaw Prusinkiewicz and Aristid Lindenmayer.
+\newblock {\em The algorithmic beauty of plants}.
+\newblock Springer-Verlag New York, Inc., New York, NY, USA, 1996.
+
+\bibitem{geo}
+geo-spatial data acquisition home.
+\newblock Disponível em: \url{http://emrl.byu.edu/gsda/}. Acessado em: 23 nov.
+  2008.
+
+\bibitem{pixar}
+Pixar animation studios.
+\newblock Disponível em: \url{http://www.pixar.com/}. Acessado em: 23 nov.
+  2008.
+
+\bibitem{elite}
+Ian bell's elite pages.
+\newblock Disponível em: \url{http://www.iancgbell.clara.net/elite/}. Acessado
+  em: 23 nov. 2008.
+
+\bibitem{luke}
+Procedural content generation.
+\newblock Disponível em:
+  \url{http://lukehalliwell.wordpress.com/2008/08/05/procedural-content-genera%
+tion/}. Acessado em: 23 nov. 2008.
+
+\bibitem{figura_perlin}
+Acmc projects ,cg rendering of coral at the university of queensland.
+\newblock Disponível em:
+  \url{http://www.acmc.uq.edu.au/Projects/CG_Rendering.html}. Acessado em: 23
+  nov. 2008.
+
+\bibitem{framework}
+Object oriented framework development.
+\newblock Disponível em:
+  \url{http://www.acm.org/crossroads/xrds7-4/frameworks.html}. Acessado em: 23
+  nov. 2008.
+
+\bibitem{glfw}
+Glfw - an opengl framework.
+\newblock Disponível em: \url{http://glfw.sourceforge.net/}. Acessado em: 23
+  nov. 2008.
+
+\bibitem{anttweakbar}
+Anttweakbar gui library to tweak parameters of opengl and directx applications.
+\newblock Disponível em:
+  \url{http://www.antisphere.com/Wiki/tools:anttweakbar}. Acessado em: 23 nov.
+  2008.
+
+\bibitem{devil}
+Devil - a full featured cross-platform image library.
+\newblock Disponível em: \url{http://openil.sourceforge.net/}. Acessado em: 23
+  nov. 2008.
+
+\bibitem{slopelighting}
+Gamedev.net - 'slope lighting' terrain.
+\newblock Disponível em:
+  \url{http://www.gamedev.net/reference/articles/article1436.asp}. Acessado em:
+  23 nov. 2008.
+
+\bibitem{Greuter03undiscoveredworlds}
+Stefan Greuter and Jeremy Parker.
+\newblock Undiscovered worlds - towards a framework for real-time.
+\newblock In {\em In Proc. of the Fifth Intern. Digital Arts and Culture
+  Conference}. Press, 2003.
+
+\bibitem{parish}
+Yoav I~H Parish and Pascal Müller.
+\newblock Procedural modelling of cities.
+\newblock In {\em in Proc. ACM SIGGRAPH, (Los Angeles, 2001) ACM Press}, pages
+  301--308, 2001.
+
+\bibitem{citygen}
+George Kelly and Hugh McCabe.
+\newblock Citygen: An interactive system for procedural city generation.
+\newblock In {\em Game Design \& Technology Workshop}, 2006.
+
+\bibitem{pseudoinfinite}
+Stefan Greuter, Jeremy Parker, Nigel Stewart, and Geoff Leach.
+\newblock Real-time procedural generation of `pseudo infinite' cities.
+\newblock In {\em GRAPHITE '03: Proceedings of the 1st international conference
+  on Computer graphics and interactive techniques in Australasia and South East
+  Asia}, pages 87--ff, New York, NY, USA, 2003. ACM.
+
+\bibitem{realtime}
+Jacob Olsen.
+\newblock Realtime procedural terrain generation.
+\newblock In {\em Department of Mathematics And Computer Science (IMADA).},
+  2004.
+
+\bibitem{virtual}
+Lukas Zimmerli and Paul Verschure.
+\newblock Delivering environmental presence through procedural virtual
+  environments.
+\newblock In {\em PRESENCE 2007, The 10th Annual International Workshop on
+  Presence}, 2007.
+
+\bibitem{livro}
+David~S. Ebert, F.~Kenton Musgrave, Darwyn Peachey, Ken Perlin, and Steven
+  Worley.
+\newblock {\em Texturing and Modeling: A Procedural Approach}.
+\newblock Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 2002.
+
+\bibitem{terrain}
+Far\`{e}s Belhadj.
+\newblock Terrain modeling: a constrained fractal model.
+\newblock In {\em AFRIGRAPH '07: Proceedings of the 5th international
+  conference on Computer graphics, virtual reality, visualisation and
+  interaction in Africa}, pages 197--204, New York, NY, USA, 2007. ACM.
+
+\bibitem{speedtree}
+Speedtree | idv, inc.
+\newblock Disponível em: \url{http://www.speedtree.com/}. Acessado em: 23 nov.
+  2008.
+
+\bibitem{mojoworld}
+Mojoworld generator.
+\newblock Disponível em: \url{http://www.mojoworld.org/}. Acessado em: 23 nov.
+  2008.
+
+\bibitem{infinity}
+Infinity.
+\newblock Disponível em: \url{http://www.infinity-universe.com/Infinity/}.
+  Acessado em: 23 nov. 2008.
+
+\bibitem{spore}
+The official spore and spore creature creator site.
+\newblock Disponível em: \url{http://www.spore.com/}. Acessado em: 23 nov.
+  2008.
+
+\bibitem{perlin}
+Ken perlin's homepage.
+\newblock Disponível em: \url{http://mrl.nyu.edu/~perlin/}. Acessado em: 23
+  nov. 2008.
+
+\end{thebibliography}

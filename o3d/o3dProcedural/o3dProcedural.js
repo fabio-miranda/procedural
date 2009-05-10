@@ -16,6 +16,7 @@ var g_pack;
 var g_clock = 0;
 var g_timeMult = 1;
 var g_patch;
+var g_permMatrix;
 var g_patchViewInfo;
 var g_heightmapRenderRoot;
 var p_patchRenderRoot;
@@ -56,8 +57,8 @@ function initStep2(clientElements){
 	initGraph();
 	initCamera();
 	
-	
-	g_patch = new Patch(g_patchRoot, g_heightmapRoot);
+	g_permMatrix = new PermMatrix();
+	g_patch = new Patch(g_patchRoot, g_heightmapRoot, 1, 1.0, 0, 0, 0);
 	
 	g_client.setRenderCallback(renderCallback);
 	
