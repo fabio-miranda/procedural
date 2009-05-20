@@ -70,3 +70,8 @@ void Camera::UpdateMouse(){
 	
 	
 }
+
+Vector3<float> Camera::GetPosition(){
+	return m_pos;
+
+}

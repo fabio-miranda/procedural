@@ -16,7 +16,7 @@ int main( int argc, char **argv ){
 
 	//Create the terrain
 	TerrainMng terrain = TerrainMng();
-	terrain.m_sceneGraph->AddNode(new CubeSphere(Vector3<float>(0,0,0),1.0f, 1));
+	//terrain.m_sceneGraph->AddNode(new CubeSphere(Vector3<float>(0,0,0),1.0f, 1));
 
 
 	
@@ -27,7 +27,7 @@ int main( int argc, char **argv ){
 		
 		
 		//===The important stuff
-		terrain.Update();
+		terrain.Update(window.GetCameraPosition());
 		terrain.Render();
 		//===
 

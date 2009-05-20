@@ -12,6 +12,7 @@ class Camera{
 public:
 	Camera(Vector3<float>, Vector3<float>);
 	void Update();
+	Vector3<float> GetPosition();
 	
 
 	Vector3<float> m_pos;

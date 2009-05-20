@@ -75,6 +75,11 @@ void WindowMng::UpdateCamera(){
 
 }
 
+Vector3<float> WindowMng::GetCameraPosition(){
+	return m_camera->GetPosition();
+
+}
+
 bool WindowMng::isRunning(){
 
 	return (!glfwGetKey( GLFW_KEY_ESC ) && glfwGetWindowParam( GLFW_OPENED ));

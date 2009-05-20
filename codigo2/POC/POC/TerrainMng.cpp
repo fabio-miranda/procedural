@@ -10,7 +10,7 @@ TerrainMng::TerrainMng()
 
 
 
-void TerrainMng::Update(){
+void TerrainMng::Update(Vector3<float> currentPosition){
 
 }
 

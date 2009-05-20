@@ -19,6 +19,7 @@ public:
 	void GLInit();
 	void GLConfig();
 	void UpdateCamera();
+	Vector3<float> GetCameraPosition();
 	bool isRunning();
 };
 

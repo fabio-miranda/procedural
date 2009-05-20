@@ -15,9 +15,10 @@ class TerrainMng{
 
 public:
 	TerrainMng();
-	void Update();
+	void Update(Vector3<float>);
 	void Render();
 
+private:
 	Node* m_sceneGraph;
 };
 
