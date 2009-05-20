@@ -4,7 +4,7 @@
 #include "Vector3.h"
 #include "GL/glew.h"
 #include "GL/glfw.h"
-#include "AntTweakBar.h"
+//#include "AntTweakBar.h"
 #include <IL/il.h>
 #include "Constants.h"
 

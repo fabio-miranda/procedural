@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Menu.h"
 #include "GL/glfw.h"
-#include "AntTweakBar.h"
+//#include "AntTweakBar.h"
 
 Menu::Menu(){
 	TwBar* bar = TwNewBar("Menu");
