@@ -1,9 +1,11 @@
 #ifndef VBO_H
 #define VBO_H
 
-#include "Vertex.h"
+
 #include "GL/glew.h"
 //#include "GL/glfw.h"
+#include "Vertex.h"
+#include "../Config.h"
 #include <list>
 
 class VBO{

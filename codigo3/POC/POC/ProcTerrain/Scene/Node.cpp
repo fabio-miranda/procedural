@@ -20,6 +20,18 @@ void Node::AddNode(Node* node){
 
 	this->m_children.insert(m_children.end(), node);
 
+}
+
+bool Node::IsWithin(Vector3<float> position){
+	return false;
+}
+
+Node* Node::FindCurrentNode(Vector3<float> position){
+	
+
+	
 
 
 }
+
+

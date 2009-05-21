@@ -47,3 +47,13 @@ void SquareNode::Render(){
 	m_face->Render();
 
 }
+
+bool SquareNode::IsWithin(Vector3<float> position){
+	if(position.GetX()  >= m_position.GetX() & position.GetX() <= m_position.GetX() + m_size)
+		if(position.GetY()  >= m_position.GetY() & position.GetY() <= m_position.GetY() + m_size)
+			return true;
+
+
+	return false;
+
+}

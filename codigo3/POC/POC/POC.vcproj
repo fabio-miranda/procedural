@@ -243,15 +243,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Config.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Scene\Node.h"
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\Random.h"
+				RelativePath=".\Util\Random.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Util\Random.h"
+				RelativePath=".\ProcTerrain\Util\Random.h"
 				>
 			</File>
 			<File

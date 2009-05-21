@@ -19,6 +19,7 @@ public:
 	Node(Vector3<float>);
 	virtual void Render();
 	virtual void AddNode(Node*);
+	virtual bool IsWithin(Vector3<float>);
 
 };
 

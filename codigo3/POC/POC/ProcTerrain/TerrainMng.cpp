@@ -19,6 +19,12 @@ TerrainMng::TerrainMng()
 
 
 void TerrainMng::Update(Vector3<float> currentPosition){
+	
+	//See if the camera is on another node. If so, we have to generate its neighbours
+	if(m_currentNode->IsWithin(currentPosition) == false){
+		m_currentNode = m_currentNode->FindCurrentNode(currentPosition);
+	}
+	
 
 }
 
@@ -32,3 +38,9 @@ void TerrainMng::AddNode(Node* node){
 	m_sceneGraph->AddNode(node);
 
 }
+
+void TerrainMng::SetCurrentNode(Node* node){
+	m_currentNode = node;
+
+}
+

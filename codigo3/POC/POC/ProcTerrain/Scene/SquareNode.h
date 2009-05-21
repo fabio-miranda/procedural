@@ -27,6 +27,7 @@ class SquareNode : public Node{
 public:
 	SquareNode(Vector3<float> position, float size, int num_divisions);
 	~ SquareNode();
+	bool IsWithin(Vector3<float>);
 	//void IncreaseDivisions(int numNewDivisions);
 	
 

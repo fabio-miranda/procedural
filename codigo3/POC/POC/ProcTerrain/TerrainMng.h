@@ -17,9 +17,11 @@ public:
 	void Update(Vector3<float>);
 	void Render();
 	void AddNode(Node*);
+	void SetCurrentNode(Node*);
 
 private:
 	Node* m_sceneGraph;
+	Node* m_currentNode;
 };
 
 #endif

@@ -8,17 +8,6 @@ VBO::VBO(Vertex vertices[4], int verticesSize, GLushort indices[4], int indicesS
 	m_ptrIndices = indices;
 	m_ptrVertices = vertices;
 
-	//m_vertexSize = vertexSize;
-	//m_indexSize = indexSize;
-
-	//m_oldVertexSize = m_vertexSize;
-	//m_oldIndexSize = m_indexSize;
-
-	//m_vertexArray = new Vertex[m_vertexSize];
-	//m_indexArray = new GLuint[m_indexSize];
-	//m_vboVertices = 0;
-	//m_vboIndices = 0;
-
 	// Generate And Bind The Vertex Buffer
 	glGenBuffersARB( 1, &m_vboVertices );					// Get A Valid Name
 	glBindBufferARB( GL_ARRAY_BUFFER_ARB, m_vboVertices );			// Bind The Buffer
@@ -65,22 +54,6 @@ void VBO::DeleteBuffer(){
 
 }
 
-/*
-void VBO::FillBuffer(){
-
-
-	//Replace the buffers
-	glBindBufferARB( GL_ARRAY_BUFFER_ARB, m_vboVertices );
-	glBufferDataARB(GL_ARRAY_BUFFER_ARB, ((int)m_listVertex.size())*sizeof(Vertex), &m_listVertex, GL_DYNAMIC_DRAW_ARB);
-
-	glBindBufferARB( GL_ELEMENT_ARRAY_BUFFER_ARB, m_vboIndices );
-	glBufferDataARB(GL_ELEMENT_ARRAY_BUFFER_ARB, ((int)m_listIndex.size())*sizeof(GLuint), &m_listIndex, GL_DYNAMIC_DRAW_ARB);
-
-	//m_oldVertexSize = m_vertexSize;
-	//m_oldIndexSize = m_indexSize;
-
-}
-*/
 
 void VBO::Render(){
 
@@ -98,7 +71,7 @@ void VBO::Render(){
 
 	
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
-	glDrawElements( GL_TRIANGLES, m_indicesSize, GL_UNSIGNED_SHORT, m_ptrIndices);
+	glDrawElements( PRIMITIVE_RENDER, m_indicesSize, GL_UNSIGNED_SHORT, m_ptrIndices);
 
 
 	glDisableClientState(GL_VERTEX_ARRAY);

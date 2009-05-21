@@ -16,9 +16,9 @@ int main( int argc, char **argv ){
 
 	//Create the terrain
 	TerrainMng* terrain = new TerrainMng();
-	for(int i=0; i<1; i++){
-		terrain->AddNode(new SquareNode(Vector3<float>(i,i,i),50.0f, 1));
-	}
+	SquareNode* node = new SquareNode(Vector3<float>(0,0,0),50.0f, 1);
+	terrain->AddNode(node);
+	terrain->SetCurrentNode(node);
 	
 
 
