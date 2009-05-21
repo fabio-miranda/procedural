@@ -12,8 +12,11 @@ private:
 	GLuint m_vboVertices;
 	GLuint m_vboIndices;
 
-	int m_vertexSize;
+	int m_verticesSize;
 	int m_indicesSize;
+
+	GLushort* m_ptrIndices;
+	Vertex* m_ptrVertices;
 
 	//int m_vertexSize;
 	//int m_indexSize;
@@ -27,7 +30,7 @@ private:
 
 public:
 
-	VBO(Vertex* [], int, GLushort* [], int);
+	VBO(Vertex[4], int, GLushort[4], int);
 	void DeleteBuffer();
 	//void InitBuffer();
 	void Render();

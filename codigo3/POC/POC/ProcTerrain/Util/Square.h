@@ -20,8 +20,8 @@ class Square{
 private:
 	void Init();
 		
-	//Vertex* m_vertices[4];
-	//GLuint* m_indices[4];
+	Vertex m_vertices[4];
+	GLushort m_indices[4];
 	
 	Vector3<float> m_position;
 	VBO* m_vboMesh;

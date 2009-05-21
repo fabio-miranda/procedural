@@ -19,19 +19,13 @@ Square::Square(Vector3<float> position, float size) {
 	m_size = size;
 	//m_vboMesh = new VBO();
 	
-	Vertex* vertices[4];
-	GLushort* indices[4];
-	for(int i=0; i<4; i++){
-		vertices[i] = new Vertex();
-		indices[i] = new GLushort();
-	}
 	
 	float sizeby2 = m_size/2.0f;
 
-	vertices[0]->x = m_position.GetX() - sizeby2; vertices[0]->y = m_position.GetY() + sizeby2;	vertices[0]->z = m_position.GetZ();
-	vertices[1]->x = m_position.GetX() + sizeby2; vertices[1]->y = m_position.GetY() + sizeby2;	vertices[1]->z = m_position.GetZ();
-	vertices[2]->x = m_position.GetX() + sizeby2; vertices[2]->y = m_position.GetY() - sizeby2; vertices[2]->z = m_position.GetZ();
-	//vertices[3]->x = m_position.GetX() - sizeby2; vertices[3]->y = m_position.GetY() - sizeby2; vertices[3]->z = m_position.GetZ();
+	m_vertices[0].x = m_position.GetX() - sizeby2; m_vertices[0].y = m_position.GetY() + sizeby2;	m_vertices[0].z = m_position.GetZ();
+	m_vertices[1].x = m_position.GetX() + sizeby2; m_vertices[1].y = m_position.GetY() + sizeby2;	m_vertices[1].z = m_position.GetZ();
+	m_vertices[2].x = m_position.GetX() + sizeby2; m_vertices[2].y = m_position.GetY() - sizeby2; m_vertices[2].z = m_position.GetZ();
+	m_vertices[3].x = m_position.GetX() - sizeby2; m_vertices[3].y = m_position.GetY() - sizeby2; m_vertices[3].z = m_position.GetZ();
 
 	//m_listVertexEndPosition = m_vboMesh->m_listVertex.end();
 	
@@ -42,10 +36,12 @@ Square::Square(Vector3<float> position, float size) {
 	//m_vboMesh->m_listVertex.push_back(*vertices[2]);
 	//m_vboMesh->m_listVertex.push_back(*vertices[3]);
 
-	*indices[0] = 0;
-	*indices[1] = 1;
-	*indices[2] = 2;
-	//*indices[3] = 3;
+	m_indices[0] = 0;
+	m_indices[1] = 1;
+	m_indices[2] = 2;
+	m_indices[3] = 2;
+	m_indices[4] = 3;
+	m_indices[5] = 0;
 
 	
 	//m_listIndexEndPosition = m_vboMesh->m_listIndex.end();
@@ -58,7 +54,7 @@ Square::Square(Vector3<float> position, float size) {
 	
 	//m_vboMesh->FillBuffer();
 	
-	m_vboMesh = new VBO(vertices, 3,  indices, 3);
+	m_vboMesh = new VBO(m_vertices, 4, m_indices, 6);
 
 
 }
