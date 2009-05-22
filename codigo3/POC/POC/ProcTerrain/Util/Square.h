@@ -26,6 +26,7 @@ private:
 	Vector3<float> m_position;
 	VBO* m_vboMesh;
 	float m_size;
+	int m_numDivisions;
 	bool m_isSplit;
 	//std::list<GLuint>::iterator m_listIndexEndPosition;
 	//std::list<Vertex>::iterator m_listVertexEndPosition;
@@ -36,7 +37,7 @@ public:
 
 	Square();
 	Square(float size);
-	Square(Vector3<float> position, float size);
+	Square(Vector3<float> position, float size, int numDivisions);
 	~ Square();
 	//void FillArray(VBO*);
 	//void SplitSquareIn4();

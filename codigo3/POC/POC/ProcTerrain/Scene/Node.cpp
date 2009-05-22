@@ -1,9 +1,17 @@
 #include "Node.h"
 
+Node::Node(){
+}
 
 Node::Node(Vector3<float> position){
 	m_position = position;
 
+}
+
+Node::~Node(){
+	//m_children.~list();
+
+	//TODO: Delete also the objects that the pointers on the list point...
 }
 
 void Node::Render(){
@@ -15,23 +23,20 @@ void Node::Render(){
 		node.Render();
 	}
 }
+/*
+void Node::AddNode(Node* parent, Node* node){
 
-void Node::AddNode(Node* node){
-
-	this->m_children.insert(m_children.end(), node);
+	//this->m_children.insert(m_children.end(), node);
+	parent->AddNode(node);
 
 }
+*/
 
 bool Node::IsWithin(Vector3<float> position){
 	return false;
 }
 
-Node* Node::FindCurrentNode(Vector3<float> position){
-	
-
-	
 
 
-}
 
 

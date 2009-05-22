@@ -5,6 +5,7 @@
 #include "Util/Random.h"
 #include "Util/Vector3.h"
 #include "Scene/Node.h"
+#include "Scene/SquareNode.h"
 
 
 
@@ -17,11 +18,11 @@ public:
 	void Update(Vector3<float>);
 	void Render();
 	void AddNode(Node*);
-	void SetCurrentNode(Node*);
+	void SetCurrentNode(SquareNode*);
 
 private:
 	Node* m_sceneGraph;
-	Node* m_currentNode;
+	SquareNode* m_currentNode;
 };
 
 #endif

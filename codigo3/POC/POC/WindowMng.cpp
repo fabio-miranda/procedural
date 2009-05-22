@@ -5,7 +5,7 @@ WindowMng::WindowMng(int width, int height){
 	m_width = width;
 	m_height = height;
 
-	m_camera = new Camera(Vector3<float>(0, 0, 100), Vector3<float>(0,0,0));
+	m_camera = new Camera(Vector3<float>(25, 25, 200), Vector3<float>(0,0,0));
 
 }
 

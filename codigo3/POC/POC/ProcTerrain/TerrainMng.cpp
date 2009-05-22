@@ -10,7 +10,7 @@ TerrainMng::TerrainMng()
 		//exit();
 	}
 
-	m_sceneGraph = new Node(Vector3<float>(0, 0, 0));
+	//m_sceneGraph = new Node(Vector3<float>(0, 0, 0));
 	
 	
 
@@ -21,8 +21,12 @@ TerrainMng::TerrainMng()
 void TerrainMng::Update(Vector3<float> currentPosition){
 	
 	//See if the camera is on another node. If so, we have to generate its neighbours
+	//TODO: mix IsWithin with GetNewStandingNode
 	if(m_currentNode->IsWithin(currentPosition) == false){
-		m_currentNode = m_currentNode->FindCurrentNode(currentPosition);
+		SquareNode* oldNode = m_currentNode;
+		m_currentNode = m_currentNode->GetNewStandingNode(currentPosition);
+		m_currentNode->GenerateNeighbours(oldNode);
+		SetCurrentNode(m_currentNode);
 	}
 	
 
@@ -30,17 +34,20 @@ void TerrainMng::Update(Vector3<float> currentPosition){
 
 void TerrainMng::Render(){
 
-	m_sceneGraph->Render();
+	//m_sceneGraph->Render();
+	m_currentNode->Render();
 
 }
 
+/*
 void TerrainMng::AddNode(Node* node){
 	m_sceneGraph->AddNode(node);
 
 }
+*/
 
-void TerrainMng::SetCurrentNode(Node* node){
+void TerrainMng::SetCurrentNode(SquareNode* node){
 	m_currentNode = node;
-
+	
 }
 

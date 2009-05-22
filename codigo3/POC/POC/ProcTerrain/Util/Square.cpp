@@ -12,29 +12,28 @@ Square::Square(float size){
 
 }
 
-Square::Square(Vector3<float> position, float size) {
+Square::Square(Vector3<float> position, float size, int numDivisions) {
 	Init();
 
 	m_position = position;	
 	m_size = size;
+	m_numDivisions = numDivisions;
 	//m_vboMesh = new VBO();
 	
 	
+	//m_vertices = new Vertex[m_numDivisions * m_numDivisions * 4];
 	float sizeby2 = m_size/2.0f;
+	/*
+	for(int i=0; i<numDivisions*numDivisions; i++){
+		
 
+	}
+	*/
 	m_vertices[0].x = m_position.GetX() - sizeby2; m_vertices[0].y = m_position.GetY() + sizeby2;	m_vertices[0].z = m_position.GetZ();
 	m_vertices[1].x = m_position.GetX() + sizeby2; m_vertices[1].y = m_position.GetY() + sizeby2;	m_vertices[1].z = m_position.GetZ();
 	m_vertices[2].x = m_position.GetX() + sizeby2; m_vertices[2].y = m_position.GetY() - sizeby2; m_vertices[2].z = m_position.GetZ();
 	m_vertices[3].x = m_position.GetX() - sizeby2; m_vertices[3].y = m_position.GetY() - sizeby2; m_vertices[3].z = m_position.GetZ();
 
-	//m_listVertexEndPosition = m_vboMesh->m_listVertex.end();
-	
-	
-
-	//m_vboMesh->m_listVertex.push_back(*vertices[0]);
-	//m_vboMesh->m_listVertex.push_back(*vertices[1]);
-	//m_vboMesh->m_listVertex.push_back(*vertices[2]);
-	//m_vboMesh->m_listVertex.push_back(*vertices[3]);
 
 	m_indices[0] = 0;
 	m_indices[1] = 1;
@@ -42,20 +41,14 @@ Square::Square(Vector3<float> position, float size) {
 	m_indices[3] = 2;
 	m_indices[4] = 3;
 	m_indices[5] = 0;
-
-	
-	//m_listIndexEndPosition = m_vboMesh->m_listIndex.end();
-
-	//m_vboMesh->m_listIndex.push_back(*indices[0]);
-	//m_vboMesh->m_listIndex.push_back(*indices[1]);
-	//m_vboMesh->m_listIndex.push_back(*indices[2]);
-	//m_vboMesh->m_listIndex.push_back(*indices[3]);
-
-	
-	//m_vboMesh->FillBuffer();
 	
 	m_vboMesh = new VBO(m_vertices, 4, m_indices, 6);
 
+
+}
+
+Square::~Square(){
+	m_vboMesh->DeleteBuffer();
 
 }
 
@@ -72,10 +65,7 @@ void Square::Init(){
 
 }
 
-Square::~Square(){
-	m_vboMesh->DeleteBuffer();
 
-}
 
 void Square::Render(){
 	

@@ -205,10 +205,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Scene\Node.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\ProcTerrain\Util\Square.cpp"
 				>
 			</File>
@@ -247,15 +243,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Scene\Node.h"
+				RelativePath=".\ProcTerrain\Util\Random.h"
 				>
 			</File>
 			<File
 				RelativePath=".\Util\Random.h"
-				>
-			</File>
-			<File
-				RelativePath=".\ProcTerrain\Util\Random.h"
 				>
 			</File>
 			<File
