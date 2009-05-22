@@ -21,7 +21,8 @@ Square::Square(Vector3<float> position, float size, int numDivisions) {
 	//m_vboMesh = new VBO();
 	
 	
-	//m_vertices = new Vertex[m_numDivisions * m_numDivisions * 4];
+	m_vertices = new Vertex[4 + (m_numDivisions-1)*4 + (m_numDivisions-1)*(m_numDivisions-1)];
+	m_indices = new GLushort[m_numDivisions*m_numDivisions*4];
 	float sizeby2 = m_size/2.0f;
 	/*
 	for(int i=0; i<numDivisions*numDivisions; i++){
