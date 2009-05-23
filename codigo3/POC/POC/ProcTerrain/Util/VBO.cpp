@@ -70,8 +70,8 @@ void VBO::Render(){
 	//glIndexPointer(GL_UNSIGNED_SHORT, 0, 0);
 
 	
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
-	glDrawElements( PRIMITIVE_RENDER, m_indicesSize, GL_UNSIGNED_SHORT, m_ptrIndices);
+	glPolygonMode(GL_FRONT, POLYGON_MODE);
+	glDrawElements( GL_TRIANGLES, m_indicesSize, GL_UNSIGNED_SHORT, m_ptrIndices);
 
 
 	glDisableClientState(GL_VERTEX_ARRAY);

@@ -36,17 +36,9 @@ void WindowMng::GLInit(){
 
 	// Enable sticky keys
     glfwEnable( GLFW_STICKY_KEYS );
-}
-
-void WindowMng::GLConfig(){
-
+	
 	glfwGetWindowSize( &m_width, &m_height );
     glViewport( 0, 0, m_width, m_height );
-
-
-	// Clear color and depht buffers
-    glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
-    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 	// Set up projection matrix
     glMatrixMode( GL_PROJECTION );    // Select projection matrix
@@ -57,6 +49,26 @@ void WindowMng::GLConfig(){
         1.0,                          // Near Z clipping plane
         10000.0                         // Far Z clippling plane
     );
+
+	//Enable back face culling
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
+
+	//Enable z buffer
+	glEnable(GL_DEPTH_TEST);
+	glDepthMask(GL_TRUE);
+}
+
+void WindowMng::GLConfig(){
+
+	
+
+
+	// Clear color and depht buffers
+    glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+	
 
 	glMatrixMode( GL_MODELVIEW );
 	glLoadIdentity();

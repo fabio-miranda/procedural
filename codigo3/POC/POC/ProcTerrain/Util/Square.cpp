@@ -20,36 +20,63 @@ Square::Square(Vector3<float> position, float size, int numDivisions) {
 	m_numDivisions = numDivisions;
 	//m_vboMesh = new VBO();
 	
+	int numVertices = 4 + (m_numDivisions-1)*4 + (m_numDivisions-1)*(m_numDivisions-1);
+	int numIndices = m_numDivisions*m_numDivisions*6;
+
+	m_vertices = new Vertex[numVertices];
+	m_indices = new GLushort[numIndices];
 	
-	m_vertices = new Vertex[4 + (m_numDivisions-1)*4 + (m_numDivisions-1)*(m_numDivisions-1)];
-	m_indices = new GLushort[m_numDivisions*m_numDivisions*4];
 	float sizeby2 = m_size/2.0f;
-	/*
-	for(int i=0; i<numDivisions*numDivisions; i++){
-		
+	float divisionSize = m_size/m_numDivisions;
+	int cont = 0;
+	for(int i=-sizeby2; i<=sizeby2; i+=divisionSize){
+		for(int j=-sizeby2; j<=sizeby2; j+=divisionSize){
+			m_vertices[cont].x = m_position.GetX() +i; m_vertices[cont].y = m_position.GetY() +j;	m_vertices[cont].z = m_position.GetZ();
+			cont++;
 
+		}
 	}
-	*/
-	m_vertices[0].x = m_position.GetX() - sizeby2; m_vertices[0].y = m_position.GetY() + sizeby2;	m_vertices[0].z = m_position.GetZ();
-	m_vertices[1].x = m_position.GetX() + sizeby2; m_vertices[1].y = m_position.GetY() + sizeby2;	m_vertices[1].z = m_position.GetZ();
-	m_vertices[2].x = m_position.GetX() + sizeby2; m_vertices[2].y = m_position.GetY() - sizeby2; m_vertices[2].z = m_position.GetZ();
-	m_vertices[3].x = m_position.GetX() - sizeby2; m_vertices[3].y = m_position.GetY() - sizeby2; m_vertices[3].z = m_position.GetZ();
-
-
-	m_indices[0] = 0;
-	m_indices[1] = 1;
-	m_indices[2] = 2;
-	m_indices[3] = 2;
-	m_indices[4] = 3;
-	m_indices[5] = 0;
 	
-	m_vboMesh = new VBO(m_vertices, 4, m_indices, 6);
+	cont = 0; //counts the number of squares rendered
+	int coluns = 0; //counts the coluns rendered
+
+	//numIndices = 18;
+	//numVertices = 8;
+	for(int i=0; i<numIndices; i+=6){
+		m_indices[i] = cont + coluns;
+		m_indices[i+1] = cont + coluns + 1 + m_numDivisions;
+		m_indices[i+2] = cont + coluns + 2 + m_numDivisions;
+	
+		m_indices[i+3] = cont + coluns + 2 + m_numDivisions;
+		m_indices[i+4] = cont + coluns + 1;
+		m_indices[i+5] = cont + coluns;
+
+		cont++;
+		
+		//If it reaches the limit of the square, it adds two to the count
+		if(cont % m_numDivisions == 0)
+			coluns++;
+	}
+	
+	/*
+	m_indices[0] = 0;
+	m_indices[1] = 2;
+	m_indices[2] = 3;
+	m_indices[3] = 3;
+	m_indices[4] = 1;
+	m_indices[5] = 0;
+	*/
+	
+	m_vboMesh = new VBO(m_vertices, numVertices, m_indices, numIndices);
 
 
 }
 
 Square::~Square(){
 	m_vboMesh->DeleteBuffer();
+
+	delete [] m_vertices;
+	delete [] m_indices;
 
 }
 
