@@ -14,6 +14,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glew_static", "libs\glew\build\vc6\glew_static.vcproj", "{99E44E46-10B0-4928-903F-49138F1E5819}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ftgl_static", "libs\ftgl\msvc\vc8\ftgl_static.vcproj", "{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}"
+	ProjectSection(ProjectDependencies) = postProject
+		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B} = {78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "freetype", "libs\freetype\builds\win32\vc2008\freetype.vcproj", "{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}"
 EndProject
@@ -27,6 +30,7 @@ Global
 		Release MX|Win32 = Release MX|Win32
 		Release Singlethreaded|Win32 = Release Singlethreaded|Win32
 		Release|Win32 = Release|Win32
+		Release-without whole code optmization|Win32 = Release-without whole code optmization|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{699F7AF5-EB3B-445A-810E-ADFEA41A02BC}.Debug Multithreaded|Win32.ActiveCfg = Debug|Win32
@@ -45,6 +49,8 @@ Global
 		{699F7AF5-EB3B-445A-810E-ADFEA41A02BC}.Release Singlethreaded|Win32.Build.0 = Release|Win32
 		{699F7AF5-EB3B-445A-810E-ADFEA41A02BC}.Release|Win32.ActiveCfg = Release|Win32
 		{699F7AF5-EB3B-445A-810E-ADFEA41A02BC}.Release|Win32.Build.0 = Release|Win32
+		{699F7AF5-EB3B-445A-810E-ADFEA41A02BC}.Release-without whole code optmization|Win32.ActiveCfg = Release-without whole code optmization|Win32
+		{699F7AF5-EB3B-445A-810E-ADFEA41A02BC}.Release-without whole code optmization|Win32.Build.0 = Release-without whole code optmization|Win32
 		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}.Debug Multithreaded|Win32.ActiveCfg = Debug|Win32
 		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}.Debug Multithreaded|Win32.Build.0 = Debug|Win32
 		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}.Debug MX|Win32.ActiveCfg = Debug|Win32
@@ -61,6 +67,8 @@ Global
 		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}.Release Singlethreaded|Win32.Build.0 = Release|Win32
 		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}.Release|Win32.ActiveCfg = Release|Win32
 		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}.Release|Win32.Build.0 = Release|Win32
+		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}.Release-without whole code optmization|Win32.ActiveCfg = Release|Win32
+		{BAA85EB9-BE33-45FB-B552-0AB3AC4D9CA9}.Release-without whole code optmization|Win32.Build.0 = Release|Win32
 		{99E44E46-10B0-4928-903F-49138F1E5819}.Debug Multithreaded|Win32.ActiveCfg = Debug MX|Win32
 		{99E44E46-10B0-4928-903F-49138F1E5819}.Debug Multithreaded|Win32.Build.0 = Debug MX|Win32
 		{99E44E46-10B0-4928-903F-49138F1E5819}.Debug MX|Win32.ActiveCfg = Debug MX|Win32
@@ -77,6 +85,8 @@ Global
 		{99E44E46-10B0-4928-903F-49138F1E5819}.Release Singlethreaded|Win32.Build.0 = Release MX|Win32
 		{99E44E46-10B0-4928-903F-49138F1E5819}.Release|Win32.ActiveCfg = Release|Win32
 		{99E44E46-10B0-4928-903F-49138F1E5819}.Release|Win32.Build.0 = Release|Win32
+		{99E44E46-10B0-4928-903F-49138F1E5819}.Release-without whole code optmization|Win32.ActiveCfg = Release|Win32
+		{99E44E46-10B0-4928-903F-49138F1E5819}.Release-without whole code optmization|Win32.Build.0 = Release|Win32
 		{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}.Debug Multithreaded|Win32.ActiveCfg = Debug|Win32
 		{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}.Debug Multithreaded|Win32.Build.0 = Debug|Win32
 		{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}.Debug MX|Win32.ActiveCfg = Debug|Win32
@@ -93,6 +103,8 @@ Global
 		{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}.Release Singlethreaded|Win32.Build.0 = Release|Win32
 		{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}.Release|Win32.ActiveCfg = Release|Win32
 		{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}.Release|Win32.Build.0 = Release|Win32
+		{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}.Release-without whole code optmization|Win32.ActiveCfg = Release|Win32
+		{1D758EEA-59C3-46E4-BEF5-16DCCA8C0B21}.Release-without whole code optmization|Win32.Build.0 = Release|Win32
 		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}.Debug Multithreaded|Win32.ActiveCfg = Debug Multithreaded|Win32
 		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}.Debug Multithreaded|Win32.Build.0 = Debug Multithreaded|Win32
 		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}.Debug MX|Win32.ActiveCfg = Debug Multithreaded|Win32
@@ -109,6 +121,8 @@ Global
 		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}.Release Singlethreaded|Win32.Build.0 = Release Singlethreaded|Win32
 		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}.Release|Win32.ActiveCfg = Release|Win32
 		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}.Release|Win32.Build.0 = Release|Win32
+		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}.Release-without whole code optmization|Win32.ActiveCfg = Release|Win32
+		{78B079BD-9FC7-4B9E-B4A6-96DA0F00248B}.Release-without whole code optmization|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
