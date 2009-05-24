@@ -29,8 +29,8 @@ Square::Square(Vector3<float> position, float size, int numDivisions) {
 	float sizeby2 = m_size/2.0f;
 	float divisionSize = m_size/m_numDivisions;
 	int cont = 0;
-	for(int i=-sizeby2; i<=sizeby2; i+=divisionSize){
-		for(int j=-sizeby2; j<=sizeby2; j+=divisionSize){
+	for(float i=-sizeby2; i<=sizeby2; i+=divisionSize){
+		for(float j=-sizeby2; j<=sizeby2; j+=divisionSize){
 			m_vertices[cont].x = m_position.GetX() +i; m_vertices[cont].y = m_position.GetY() +j;	m_vertices[cont].z = m_position.GetZ();
 			cont++;
 

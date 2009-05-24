@@ -137,8 +137,8 @@ void SquareNode::GenerateNeighbours(SquareNode* m_oldNode, short numNeighbours){
 	int cont = 0;
 
 	if(numNeighbours > 0){
-		for(int i=m_position.GetX() - m_size; i<=m_position.GetX() + m_size; i+=m_size){
-			for(int j=m_position.GetY() - m_size; j<=m_position.GetY() + m_size; j+=m_size){
+		for(float i=m_position.GetX() - m_size; i<=m_position.GetX() + m_size; i+=m_size){
+			for(float j=m_position.GetY() - m_size; j<=m_position.GetY() + m_size; j+=m_size){
 				
 				if(i != m_position.GetX() || j != m_position.GetY()){
 

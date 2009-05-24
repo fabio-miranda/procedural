@@ -12,7 +12,7 @@ GUI::GUI(){
 	glfwGetWindowSize(&width, &height);
 	m_position = FTPoint(width-200, height-100, 0);
 
-	m_fps = new FTTextureFont("../data/verdana.ttf");
+	m_fps = new FTTextureFont("../../ProcTerrain/Data/verdana.ttf");
 	
 	m_fps->FaceSize(12);
 

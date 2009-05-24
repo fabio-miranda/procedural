@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)\ProcTerrain\bin\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			CharacterSet="1"
@@ -297,6 +297,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Util\textfile.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\VBO.cpp"
 				>
 			</File>
@@ -351,6 +355,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Util\textfile.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\VBO.h"
 				>
 			</File>
@@ -394,7 +402,19 @@
 			>
 		</Filter>
 		<File
+			RelativePath=".\ProcTerrain\Shaders\generate.frag"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\generate.vert"
+			>
+		</File>
+		<File
 			RelativePath=".\ProcTerrain\Util\Vector2.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Data\verdana.ttf"
 			>
 		</File>
 	</Files>
