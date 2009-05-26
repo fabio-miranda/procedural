@@ -13,55 +13,21 @@ TerrainMng::TerrainMng()
 
 	//m_sceneGraph = new Node(Vector3<float>(0, 0, 0));
 	
-	//Shader
-	SetUpShaders();	
-
 	m_gui = new GUI();
 
-	
+	//Shaders
+	//SetUpShaders();
+	m_terrainGenerationShader = new Shader("../../ProcTerrain/Shaders/terrainGeneration.vert", "../../ProcTerrain/Shaders/terrainGeneration.frag");
+	m_terrainRenderingShader = new Shader("../../ProcTerrain/Shaders/terrainRendering.vert", "../../ProcTerrain/Shaders/terrainRendering.frag");
 
-}
+	SquareNode* node = new SquareNode(m_terrainGenerationShader, m_terrainRenderingShader, Vector3<float>(0,0,0),50.0f, conf_numDivisions);
+	node->GenerateNeighbours(NULL, conf_numNeighbours);
+	SetCurrentNode(node);
 
-void TerrainMng::SetUpShaders(){
-	char *vs = NULL,*fs = NULL;
-	GLhandleARB vertexShader, fragmentShader;
-	
-	vertexShader = glCreateShaderObjectARB(GL_VERTEX_SHADER_ARB);
-	fragmentShader = glCreateShaderObjectARB(GL_FRAGMENT_SHADER_ARB);	
-
-	vs = textFileRead("../../ProcTerrain/Shaders/generate.vert");
-	fs = textFileRead("../../ProcTerrain/Shaders/generate.frag");
-
-	if(vs != NULL && fs != NULL){
-		const char * vv = vs;
-		const char * ff = fs;
-
-		glShaderSourceARB(vertexShader, 1, &vv,NULL);
-		glShaderSourceARB(fragmentShader, 1, &ff,NULL);
-
-		free(vs);free(fs);
-
-		glCompileShaderARB(vertexShader);
-		glCompileShaderARB(fragmentShader);
-
-		printInfoLog(vertexShader);
-		printInfoLog(fragmentShader);
-
-		m_shaderGenerate = glCreateProgramObjectARB();
-		
-		glAttachObjectARB(m_shaderGenerate,vertexShader);
-		glAttachObjectARB(m_shaderGenerate,fragmentShader);
-
-		glLinkProgramARB(m_shaderGenerate);
-		printInfoLog(m_shaderGenerate);
-
-		glUseProgramObjectARB(m_shaderGenerate);
-
-	}
 
 	
 
-
+	
 
 }
 
@@ -84,7 +50,9 @@ void TerrainMng::Update(Vector3<float> currentPosition){
 void TerrainMng::Render(){
 
 	//m_sceneGraph->Render();
+	//m_terrainRenderingShader->Enable();
 	m_currentNode->Render();
+	//m_terrainRenderingShader->Disable();
 	m_gui->Render();
 
 }

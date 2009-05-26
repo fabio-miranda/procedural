@@ -1,18 +1,21 @@
 #include "SquareNode.h"
 
 
-SquareNode::SquareNode(Vector3<float> position, float size, short numDivisions){
+SquareNode::SquareNode(Shader* generationShader, Shader* renderingShader, Vector3<float> position, float size, short numDivisions){
 	
+	m_ptrTerrainGenerationShader = generationShader;
+	m_ptrTerrainRenderingShader = renderingShader;
 	m_position = position;
 	m_size = size;
 	m_numDivisions = numDivisions;
 	m_face = new Square(m_position, m_size, m_numDivisions);
 	m_gridIndex = -1; //center of the grid (currentNode)
+	m_firstTime = false;
 
 	for(int i=0; i<8; i++){
 		m_ptrNeighbours[i] = NULL;
 	}
-
+	
 }
 
 SquareNode::~SquareNode(){
@@ -32,9 +35,22 @@ void SquareNode::Render(){
 			m_ptrNeighbours[i]->Render();
 	}
 
+	if(m_firstTime==false){
+		m_ptrTerrainGenerationShader->Enable();
+	}
+	else{
+		m_ptrTerrainRenderingShader->Enable();
+	}
 
 	m_face->Render();
 
+	if(m_firstTime==false){
+		m_ptrTerrainGenerationShader->Disable();
+		m_firstTime = true;
+	}
+	else{
+		m_ptrTerrainRenderingShader->Disable();
+	}
 }
 
 bool SquareNode::IsWithin(Vector3<float> position){
@@ -144,7 +160,7 @@ void SquareNode::GenerateNeighbours(SquareNode* m_oldNode, short numNeighbours){
 
 					//Check if the node was already created (and set up on the previous ifs/else ifs
 					if(m_ptrNeighbours[cont] == NULL){
-						aux = new SquareNode(Vector3<float>(i,j,0),m_size, m_numDivisions);
+						aux = new SquareNode(m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, Vector3<float>(i,j,0),m_size, m_numDivisions);
 						aux->m_gridIndex = cont;
 						m_ptrNeighbours[cont] = aux;
 						

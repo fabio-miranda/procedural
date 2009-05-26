@@ -6,6 +6,7 @@
 #include "../Util/Vertex.h"
 #include "../Util/Square.h"
 #include "Node.h"
+#include "../Shaders/Shader.h"
 
 
 class SquareNode{
@@ -20,7 +21,8 @@ class SquareNode{
 	float m_size;
 	
 
-
+	Shader *m_ptrTerrainGenerationShader;
+	Shader *m_ptrTerrainRenderingShader;
 	//Cube
 	Square* m_face;
 
@@ -35,11 +37,12 @@ class SquareNode{
 								*/
 	
 	short m_numDivisions;
+	bool m_firstTime;
 	//short m_numNeighbours;
 
 
 public:
-	SquareNode(Vector3<float>, float, short);
+	SquareNode(Shader*, Shader*, Vector3<float>, float, short);
 	~ SquareNode();
 	void Render();
 	void GenerateNeighbours(SquareNode*, short);

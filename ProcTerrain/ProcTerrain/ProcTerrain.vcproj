@@ -289,6 +289,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Shaders\Shader.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\Square.cpp"
 				>
 			</File>
@@ -339,11 +343,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Util\Random.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\Random.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Util\Random.h"
+				RelativePath=".\ProcTerrain\Shaders\Shader.h"
 				>
 			</File>
 			<File
@@ -402,11 +410,19 @@
 			>
 		</Filter>
 		<File
-			RelativePath=".\ProcTerrain\Shaders\generate.frag"
+			RelativePath=".\ProcTerrain\Shaders\terrainGeneration.frag"
 			>
 		</File>
 		<File
-			RelativePath=".\ProcTerrain\Shaders\generate.vert"
+			RelativePath=".\ProcTerrain\Shaders\terrainGeneration.vert"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\terrainRendering.frag"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\terrainRendering.vert"
 			>
 		</File>
 		<File

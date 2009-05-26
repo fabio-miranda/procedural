@@ -7,7 +7,7 @@
 #include "Scene/Node.h"
 #include "Scene/SquareNode.h"
 #include "Util/Gui.h"
-#include "Util/textfile.h"
+#include "Shaders/Shader.h"
 
 
 
@@ -24,14 +24,14 @@ public:
 
 
 	GUI* m_gui;
+	Shader* m_terrainRenderingShader;
+	Shader* m_terrainGenerationShader;
 
 private:
-	GLhandleARB m_shaderGenerate;
 
 	Node* m_sceneGraph;
 	SquareNode* m_currentNode;
 	void Config();
-	void SetUpShaders();
 };
 
 #endif
