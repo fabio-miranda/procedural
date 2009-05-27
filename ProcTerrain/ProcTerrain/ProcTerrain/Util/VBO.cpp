@@ -1,7 +1,7 @@
 #include "VBO.h"
 
 
-VBO::VBO(Vertex vertices[4], int verticesSize, GLushort indices[4], int indicesSize){
+VBO::VBO(Vertex vertices[], int verticesSize, GLushort indices[], int indicesSize){
 
 	m_verticesSize = verticesSize;
 	m_indicesSize = indicesSize;
@@ -39,6 +39,14 @@ int VBO::GetIndexSize(){
 	return m_listIndex.size();
 }
 */
+
+VBO::~VBO(){
+	DeleteBuffer();
+
+	delete [] m_ptrIndices;
+	delete [] m_ptrVertices;
+
+}
 
 
 void VBO::DeleteBuffer(){

@@ -35,7 +35,9 @@ Shader::Shader(char* vertexShaderFile, char* fragShaderFile){
 		glLinkProgramARB(m_shaderProg);
 		printInfoLog(m_shaderProg);
 
-		
+
+		m_locColor = glGetUniformLocationARB(m_shaderProg,"color");
+
 
 	}
 

@@ -7,6 +7,7 @@
 #include "../Util/Square.h"
 #include "Node.h"
 #include "../Shaders/Shader.h"
+#include "../Util/FBO.h"
 
 
 class SquareNode{
@@ -23,6 +24,7 @@ class SquareNode{
 
 	Shader *m_ptrTerrainGenerationShader;
 	Shader *m_ptrTerrainRenderingShader;
+	FBO *m_ptrFBO;
 	//Cube
 	Square* m_face;
 
@@ -42,7 +44,7 @@ class SquareNode{
 
 
 public:
-	SquareNode(Shader*, Shader*, Vector3<float>, float, short);
+	SquareNode(Shader*, Shader*, FBO*, Vector3<float>, float, short);
 	~ SquareNode();
 	void Render();
 	void GenerateNeighbours(SquareNode*, short);

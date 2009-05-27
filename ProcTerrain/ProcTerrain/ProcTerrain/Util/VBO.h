@@ -34,6 +34,7 @@ private:
 public:
 
 	VBO(Vertex[4], int, GLushort[4], int);
+	~VBO();
 	void DeleteBuffer();
 	//void InitBuffer();
 	void Render();

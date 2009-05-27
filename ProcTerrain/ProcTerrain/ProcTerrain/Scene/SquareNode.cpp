@@ -1,10 +1,14 @@
 #include "SquareNode.h"
 
 
-SquareNode::SquareNode(Shader* generationShader, Shader* renderingShader, Vector3<float> position, float size, short numDivisions){
+SquareNode::SquareNode(Shader* generationShader, Shader* renderingShader, FBO* fbo, Vector3<float> position, float size, short numDivisions){
 	
 	m_ptrTerrainGenerationShader = generationShader;
-	m_ptrTerrainRenderingShader = renderingShader;
+	//m_ptrTerrainRenderingShader = renderingShader;
+	m_ptrFBO = fbo;
+	m_ptrTerrainRenderingShader = new Shader("../../ProcTerrain/Shaders/terrainRendering.vert", "../../ProcTerrain/Shaders/terrainRendering.frag");
+	glUniform4fARB(m_ptrTerrainRenderingShader->m_locColor,1, 0, 0, 1);
+
 	m_position = position;
 	m_size = size;
 	m_numDivisions = numDivisions;
@@ -36,16 +40,19 @@ void SquareNode::Render(){
 	}
 
 	if(m_firstTime==false){
+		m_ptrFBO->Enable();
 		m_ptrTerrainGenerationShader->Enable();
 	}
 	else{
 		m_ptrTerrainRenderingShader->Enable();
+		glUniform4fARB(m_ptrTerrainRenderingShader->m_locColor,1, 0, 0, 1);
 	}
 
 	m_face->Render();
 
 	if(m_firstTime==false){
 		m_ptrTerrainGenerationShader->Disable();
+		m_ptrFBO->Disable();
 		m_firstTime = true;
 	}
 	else{
@@ -160,7 +167,7 @@ void SquareNode::GenerateNeighbours(SquareNode* m_oldNode, short numNeighbours){
 
 					//Check if the node was already created (and set up on the previous ifs/else ifs
 					if(m_ptrNeighbours[cont] == NULL){
-						aux = new SquareNode(m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, Vector3<float>(i,j,0),m_size, m_numDivisions);
+						aux = new SquareNode(m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_ptrFBO, Vector3<float>(i,j,0),m_size, m_numDivisions);
 						aux->m_gridIndex = cont;
 						m_ptrNeighbours[cont] = aux;
 						

@@ -281,6 +281,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Util\FBO.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\GUI.cpp"
 				>
 			</File>
@@ -339,15 +343,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Util\FBO.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\GUI.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Util\Random.h"
+				RelativePath=".\ProcTerrain\Util\Random.h"
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\Random.h"
+				RelativePath=".\Util\Random.h"
 				>
 			</File>
 			<File

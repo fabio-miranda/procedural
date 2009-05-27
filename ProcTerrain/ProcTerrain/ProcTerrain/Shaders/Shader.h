@@ -13,13 +13,15 @@ public:
 	~Shader();
 	virtual void Enable();
 	virtual void Disable();
+	GLuint m_locColor;
+
 
 
 private:
 	GLhandleARB m_shaderVert;
 	GLhandleARB m_shaderFrag;
 	GLhandleARB m_shaderProg;
-
+	
 
 };
 
