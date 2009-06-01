@@ -13,7 +13,7 @@ public:
 	~Shader();
 	virtual void Enable();
 	virtual void Disable();
-	GLuint m_locColor;
+	GLuint m_locTexture;
 
 
 

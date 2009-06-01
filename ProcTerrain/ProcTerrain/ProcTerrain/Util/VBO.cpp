@@ -66,13 +66,14 @@ void VBO::DeleteBuffer(){
 void VBO::Render(){
 
 	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	
 	//glBindBufferARB(GL_ELEMENT_ARRAY_BUFFER_ARB, m_vboIndices);
 	//glBindBufferARB(GL_ARRAY_BUFFER_ARB, m_vboVertices);
 	
 
-    glVertexPointer( 3, GL_FLOAT, 0, m_ptrVertices);
-
+	glVertexPointer( 3, GL_FLOAT, sizeof(Vertex), &m_ptrVertices[0].x);
+	glTexCoordPointer(2,GL_FLOAT,sizeof(Vertex),&m_ptrVertices[0].u);
 	
 	
 	//glIndexPointer(GL_UNSIGNED_SHORT, 0, 0);
@@ -88,6 +89,7 @@ void VBO::Render(){
 
 
 	glDisableClientState(GL_VERTEX_ARRAY);
+	//glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	glBindBufferARB(GL_ARRAY_BUFFER_ARB, 0);
 	glBindBufferARB(GL_ELEMENT_ARRAY_BUFFER_ARB, 0);

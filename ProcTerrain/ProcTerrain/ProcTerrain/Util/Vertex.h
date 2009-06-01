@@ -2,12 +2,13 @@
 #define VERTEX_H
 
 
+//TODO: Use padding
 struct Vertex
 {
    float x, y, z;
    //GLuint color;
-   //float s, t;
-   //float padding[2]; //Performance: this way, the struct is 32 bytes (http://www.ati.com/developer/gdc/PerformanceTuning.pdf)
+   float u, v;
+   //float padding[2]; //Performance: this way, the struct is 32 bytes (http://ati.amd.com/developer/gdc/performancetuning.pdf)
 };
 
 static Vertex* MidPoint(Vertex a, Vertex b){

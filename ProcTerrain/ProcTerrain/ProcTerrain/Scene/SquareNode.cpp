@@ -7,18 +7,21 @@ SquareNode::SquareNode(Shader* generationShader, Shader* renderingShader, FBO* f
 	//m_ptrTerrainRenderingShader = renderingShader;
 	m_ptrFBO = fbo;
 	m_ptrTerrainRenderingShader = new Shader("../../ProcTerrain/Shaders/terrainRendering.vert", "../../ProcTerrain/Shaders/terrainRendering.frag");
-	glUniform4fARB(m_ptrTerrainRenderingShader->m_locColor,1, 0, 0, 1);
+	//glUniform4fARB(m_ptrTerrainRenderingShader->m_locColor,1, 0, 0, 1);
 
 	m_position = position;
 	m_size = size;
 	m_numDivisions = numDivisions;
 	m_face = new Square(m_position, m_size, m_numDivisions);
 	m_gridIndex = -1; //center of the grid (currentNode)
-	m_firstTime = false;
+	m_firstTime = true;
 
 	for(int i=0; i<8; i++){
 		m_ptrNeighbours[i] = NULL;
 	}
+
+
+	GenerateHeightMap();
 	
 }
 
@@ -26,6 +29,31 @@ SquareNode::~SquareNode(){
 	delete m_face;
 
 
+}
+
+void SquareNode::GenerateHeightMap(){
+	m_ptrFBO = new FBO(512, 512);
+	Square* square = new Square(m_position, m_size, 1);
+
+
+	m_ptrFBO->Enable();
+	m_ptrTerrainGenerationShader->Enable();
+	
+	
+	square->Render();
+	
+
+	m_ptrTerrainGenerationShader->Disable();
+	m_ptrFBO->Disable();
+
+	//aux
+	
+	float* aux;
+	glBindTexture(GL_TEXTURE_2D, m_ptrFBO->m_textureId);
+	aux = (float*)malloc(512*512*sizeof(float)*4);
+	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, aux);
+	//glReadPixels(0,0,512,512,GL_RGBA,GL_FLOAT,aux);
+	
 }
 
 
@@ -39,25 +67,22 @@ void SquareNode::Render(){
 			m_ptrNeighbours[i]->Render();
 	}
 
-	if(m_firstTime==false){
-		m_ptrFBO->Enable();
-		m_ptrTerrainGenerationShader->Enable();
-	}
-	else{
-		m_ptrTerrainRenderingShader->Enable();
-		glUniform4fARB(m_ptrTerrainRenderingShader->m_locColor,1, 0, 0, 1);
-	}
+
+	
+
+	m_ptrTerrainRenderingShader->Enable();
+
+	
+	//glActiveTexture(GL_TEXTURE0);
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, m_ptrFBO->m_textureId);
+	//TODO: do it only once, after generating the heightmap
+	glUniform1i(m_ptrTerrainRenderingShader->m_locTexture, 0);
+	
 
 	m_face->Render();
 
-	if(m_firstTime==false){
-		m_ptrTerrainGenerationShader->Disable();
-		m_ptrFBO->Disable();
-		m_firstTime = true;
-	}
-	else{
-		m_ptrTerrainRenderingShader->Disable();
-	}
+	m_ptrTerrainRenderingShader->Disable();
 }
 
 bool SquareNode::IsWithin(Vector3<float> position){

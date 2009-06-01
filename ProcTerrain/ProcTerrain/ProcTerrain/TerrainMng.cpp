@@ -14,7 +14,7 @@ TerrainMng::TerrainMng()
 	//m_sceneGraph = new Node(Vector3<float>(0, 0, 0));
 	
 	m_gui = new GUI();
-	m_fbo = new FBO();
+	//m_fbo = new FBO();
 
 
 	//Shaders
@@ -22,7 +22,7 @@ TerrainMng::TerrainMng()
 	m_terrainGenerationShader = new Shader("../../ProcTerrain/Shaders/terrainGeneration.vert", "../../ProcTerrain/Shaders/terrainGeneration.frag");
 	//m_terrainRenderingShader = new Shader("../../ProcTerrain/Shaders/terrainRendering.vert", "../../ProcTerrain/Shaders/terrainRendering.frag");
 
-	SquareNode* node = new SquareNode(m_terrainGenerationShader, NULL, m_fbo, Vector3<float>(0,0,0),50.0f, conf_numDivisions);
+	SquareNode* node = new SquareNode(m_terrainGenerationShader, NULL, NULL, Vector3<float>(0,0,0),50.0f, conf_numDivisions);
 	node->GenerateNeighbours(NULL, conf_numNeighbours);
 	SetCurrentNode(node);
 

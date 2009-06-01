@@ -25,18 +25,20 @@ Square::Square(Vector3<float> position, float size, int numDivisions) {
 
 	m_vertices = new Vertex[numVertices];
 	m_indices = new GLushort[numIndices];
-	
+
 	float sizeby2 = m_size/2.0f;
 	float divisionSize = m_size/m_numDivisions;
 	int cont = 0;
 	for(float i=-sizeby2; i<=sizeby2; i+=divisionSize){
 		for(float j=-sizeby2; j<=sizeby2; j+=divisionSize){
 			m_vertices[cont].x = m_position.GetX() +i; m_vertices[cont].y = m_position.GetY() +j;	m_vertices[cont].z = m_position.GetZ();
+			m_vertices[cont].v = (i+sizeby2) / m_size; m_vertices[cont].u = (j+sizeby2) / m_size;
+
 			cont++;
 
 		}
 	}
-	
+
 	cont = 0; //counts the number of squares rendered
 	int coluns = 0; //counts the coluns rendered
 
@@ -97,17 +99,16 @@ void Square::Init(){
 
 void Square::Render(){
 	
-	m_vboMesh->Render();
-	/*
+	//m_vboMesh->Render();
 	glBegin( GL_TRIANGLES );
 
-		glVertex3f(-25.0f, 25.0f, 0.0f);				// Top Left
-		glVertex3f( 25.0f, 25.0f, 0.0f);				// Top Right
-		glVertex3f( 25.0f,-25.0f, 0.0f);				// Bottom Right
-		//glVertex3f(-25.0f,-25.0f, 0.0f);
-
+		glTexCoord2d(0.0,0.0); glVertex3f(0, 0, 0.0f);				// Top Left
+		glTexCoord2d(1.0,0.0); glVertex3f( 250, 0, 0.0f);				// Top Right
+		glTexCoord2d(1.0,1.0); glVertex3f( 250,250, 0.0f);				// Bottom Right
+		glTexCoord2d(0.0,1.0); glVertex3f(0,250, 0.0f);
 	glEnd();
-	*/
+	
+	
 }
 
 /*

@@ -7,28 +7,32 @@
 #include "Vertex.h"
 #include "../Config.h"
 
-
+/*
 typedef struct{
 	bool beingUsed;
 	GLenum attachment;
 } FBOAttachment;
-
+*/
 
 class FBO{
 
 private:
 	GLuint m_fbo;
-	FBOAttachment m_usedAttachments[16];
+	
+	//FBOAttachment m_usedAttachments[16];
 
 
 public:
 
-	FBO();
+	FBO(int, int);
 	~FBO();
 	void DeleteBuffer();
-	void BindTexture(GLuint);
+	//void BindTexture(GLuint);
 	void Enable();
 	void Disable();
+
+	GLuint m_textureId;
+	GLuint m_renderBufferId;
 	
 	
 

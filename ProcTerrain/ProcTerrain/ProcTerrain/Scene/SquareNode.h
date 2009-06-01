@@ -14,6 +14,7 @@ class SquareNode{
 	
 	
 	void Update();
+	void GenerateHeightMap();
 	
 	
 
