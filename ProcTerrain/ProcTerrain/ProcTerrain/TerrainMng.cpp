@@ -40,10 +40,16 @@ void TerrainMng::Update(Vector3<float> currentPosition){
 	//See if the camera is on another node. If so, we have to generate its neighbours
 	//TODO: mix IsWithin with GetNewStandingNode
 	if(m_currentNode->IsWithin(currentPosition) == false){
+
+
 		SquareNode* oldNode = m_currentNode;
 		m_currentNode = m_currentNode->GetNewStandingNode(currentPosition);
 		SetCurrentNode(m_currentNode);
 		m_currentNode->GenerateNeighbours(oldNode, conf_numNeighbours);
+		
+
+
+		
 	}
 	
 

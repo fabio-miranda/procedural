@@ -18,13 +18,15 @@ class FBO{
 
 private:
 	GLuint m_fbo;
+	short m_width;
+	short m_height;
 	
 	//FBOAttachment m_usedAttachments[16];
 
 
 public:
 
-	FBO(int, int);
+	FBO(short, short);
 	~FBO();
 	void DeleteBuffer();
 	//void BindTexture(GLuint);

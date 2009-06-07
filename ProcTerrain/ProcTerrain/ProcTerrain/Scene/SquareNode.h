@@ -21,6 +21,7 @@ class SquareNode{
 	
 	Vector3<float> m_position;
 	float m_size;
+	short m_numNeighbours;
 	
 
 	Shader *m_ptrTerrainGenerationShader;

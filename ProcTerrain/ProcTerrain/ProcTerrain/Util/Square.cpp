@@ -100,15 +100,30 @@ void Square::Init(){
 void Square::Render(){
 	
 	//m_vboMesh->Render();
+	
 	glBegin( GL_TRIANGLES );
 
 		glTexCoord2d(0.0,0.0); glVertex3f(0, 0, 0.0f);				// Top Left
 		glTexCoord2d(1.0,0.0); glVertex3f( 250, 0, 0.0f);				// Top Right
 		glTexCoord2d(1.0,1.0); glVertex3f( 250,250, 0.0f);				// Bottom Right
+
+		glTexCoord2d(1.0,1.0); glVertex3f( 250,250, 0.0f);				
 		glTexCoord2d(0.0,1.0); glVertex3f(0,250, 0.0f);
+		glTexCoord2d(0.0,0.0); glVertex3f(0,0, 0.0f);
 	glEnd();
 	
-	
+	/*
+	glBegin( GL_TRIANGLES );
+
+		glTexCoord2d(0.0,0.0); glVertex3f(-25, -25, 0.0f);
+		glTexCoord2d(0.0,1.0); glVertex3f( 25, -25, 0.0f);
+		glTexCoord2d(1.0,1.0); glVertex3f( 25,25, 0.0f);
+
+		glTexCoord2d(1.0,1.0); glVertex3f( 25,25, 0.0f);
+		glTexCoord2d(1.0,0); glVertex3f( -25,25, 0.0f);
+		glTexCoord2d(0.0,0.0); glVertex3f(-25, -25, 0.0f);
+	glEnd();
+	*/
 }
 
 /*

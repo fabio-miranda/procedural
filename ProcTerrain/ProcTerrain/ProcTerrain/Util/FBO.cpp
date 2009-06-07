@@ -1,8 +1,9 @@
 #include "FBO.h"
 
 
-FBO::FBO(int width, int height){
-
+FBO::FBO(short width, short height){
+	m_width = width;
+	m_height = height;
 	//GLint maxbuffers;
 	//glGetIntegerv(GL_MAX_DRAW_BUFFERS, &maxbuffers);
 	
@@ -21,7 +22,7 @@ FBO::FBO(int width, int height){
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE); // automatic mipmap
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0,
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_width, m_height, 0,
 				 GL_RGBA, GL_UNSIGNED_BYTE, 0);
 	glEnable(GL_TEXTURE_2D);
 	glGenerateMipmap(GL_TEXTURE_2D);
@@ -81,7 +82,7 @@ void FBO::BindTexture(GLuint m_textureId){
 
 void FBO::Enable(){
 	glPushAttrib(GL_VIEWPORT_BIT);
-	glViewport(0,0,512, 512);
+	glViewport(0,0,m_width, m_height);
 
 	//glEnable(GL_TEXTURE_2D);
 	
@@ -93,6 +94,8 @@ void FBO::Enable(){
 
 	glClearColor (0, 0, 1, 1.0f);
 	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glPopAttrib();
 
 }
 
