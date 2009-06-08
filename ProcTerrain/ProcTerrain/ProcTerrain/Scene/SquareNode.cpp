@@ -4,9 +4,9 @@
 SquareNode::SquareNode(Shader* generationShader, Shader* renderingShader, FBO* fbo, Vector3<float> position, float size, short numDivisions){
 	
 	m_ptrTerrainGenerationShader = generationShader;
-	//m_ptrTerrainRenderingShader = renderingShader;
+	m_ptrTerrainRenderingShader = renderingShader;
 	m_ptrFBO = fbo;
-	m_ptrTerrainRenderingShader = new Shader("../../ProcTerrain/Shaders/terrainRendering.vert", "../../ProcTerrain/Shaders/terrainRendering.frag");
+	//m_ptrTerrainRenderingShader = new Shader("../../ProcTerrain/Shaders/terrainRendering.vert", "../../ProcTerrain/Shaders/terrainRendering.frag");
 	//glUniform4fARB(m_ptrTerrainRenderingShader->m_locColor,1, 0, 0, 1);
 
 	m_position = position;
@@ -15,14 +15,14 @@ SquareNode::SquareNode(Shader* generationShader, Shader* renderingShader, FBO* f
 	m_numNeighbours = 0;
 	m_face = new Square(m_position, m_size, m_numDivisions);
 	m_gridIndex = -1; //center of the grid (currentNode)
-	m_firstTime = true;
+	m_heightMapGenerated = false;
 
 	for(int i=0; i<8; i++){
 		m_ptrNeighbours[i] = NULL;
 	}
 
 
-	GenerateHeightMap();
+	//GenerateHeightMap();
 	
 }
 
@@ -33,7 +33,7 @@ SquareNode::~SquareNode(){
 }
 
 void SquareNode::GenerateHeightMap(){
-	m_ptrFBO = new FBO(1, 1);
+	//m_ptrFBO = new FBO(1, 1);
 	Square* square = new Square(m_position, m_size, 1);
 
 	
@@ -47,7 +47,7 @@ void SquareNode::GenerateHeightMap(){
 	m_ptrTerrainGenerationShader->Disable();
 	m_ptrFBO->Disable();
 	
-
+	m_heightMapGenerated = true;
 	//aux
 	/*
 	float* aux;
@@ -60,15 +60,18 @@ void SquareNode::GenerateHeightMap(){
 
 
 void SquareNode::Render(){
-	
+
+	if(m_heightMapGenerated == false) return;
+
 	//Call the parent
 	//Node::Render();
 	//TODO: make sure they render only once
+	/*
 	for(int i=0; i<8; i++){
 		if(m_ptrNeighbours[i] != NULL)
 			m_ptrNeighbours[i]->Render();
 	}
-
+	*/
 	
 	
 
@@ -76,7 +79,7 @@ void SquareNode::Render(){
 
 	
 	//glActiveTexture(GL_TEXTURE0);
-	//glEnable(GL_TEXTURE_2D);
+	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, m_ptrFBO->m_textureId);
 	//TODO: do it only once, after generating the heightmap
 	glUniform1i(m_ptrTerrainRenderingShader->m_locTexture, 0);
@@ -184,10 +187,12 @@ void SquareNode::GenerateNeighbours(SquareNode* m_oldNode, short numNeighbours){
 
 	m_numNeighbours = numNeighbours;
 
-	SquareNode* aux;
-	int cont = 0;
+	
 
 	if(numNeighbours > 0){
+		SquareNode* aux;
+		int cont = 0;
+
 		for(float i=m_position.GetX() - m_size; i<=m_position.GetX() + m_size; i+=m_size){
 			for(float j=m_position.GetY() - m_size; j<=m_position.GetY() + m_size; j+=m_size){
 				
@@ -198,7 +203,6 @@ void SquareNode::GenerateNeighbours(SquareNode* m_oldNode, short numNeighbours){
 						aux = new SquareNode(m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_ptrFBO, Vector3<float>(i,j,0),m_size, m_numDivisions);
 						aux->m_gridIndex = cont;
 						m_ptrNeighbours[cont] = aux;
-						
 
 						//TODO: make sure that, when the neighbour generate its neighbours, it doesn't create nodes in position already created
 						aux->GenerateNeighbours(this, numNeighbours-1);

@@ -14,7 +14,7 @@ class SquareNode{
 	
 	
 	void Update();
-	void GenerateHeightMap();
+	
 	
 	
 
@@ -41,7 +41,7 @@ class SquareNode{
 								*/
 	
 	short m_numDivisions;
-	bool m_firstTime;
+	bool m_heightMapGenerated;
 	//short m_numNeighbours;
 
 
@@ -52,6 +52,7 @@ public:
 	void GenerateNeighbours(SquareNode*, short);
 	bool IsWithin(Vector3<float>);
 	SquareNode* GetNewStandingNode(Vector3<float>);
+	void GenerateHeightMap();
 	//void SetNumNeighbours(short);
 	//void AddNode(int, Node*);
 	//void IncreaseDivisions(int numNewDivisions);
