@@ -4,7 +4,8 @@
 
 
 #include "../Util/Vertex.h"
-#include "../Util/Square.h"
+#include "../Util/VBOSquare.h"
+#include "../Util/HeightMap.h"
 #include "Node.h"
 #include "../Shaders/Shader.h"
 #include "../Util/FBO.h"
@@ -16,19 +17,13 @@ class SquareNode{
 	void Update();
 	
 	
-	
-
-	
+	short m_numNeighbours;
+	short m_numDivisions;
+	VBOSquare* m_face;
+	HeightMap* m_heightMap;
 	Vector3<float> m_position;
 	float m_size;
-	short m_numNeighbours;
-	
-
-	Shader *m_ptrTerrainGenerationShader;
-	Shader *m_ptrTerrainRenderingShader;
-	FBO *m_ptrFBO;
-	//Cube
-	Square* m_face;
+	Shader* m_ptrTerrainRenderingShader;
 
 	SquareNode* m_ptrNeighbours[8]; //pointer to the neighbours. It's easy to get a particular node, because it is in an an array:
 								/*
@@ -40,9 +35,7 @@ class SquareNode{
 								0 3 5 -> BOTTOM
 								*/
 	
-	short m_numDivisions;
-	bool m_heightMapGenerated;
-	//short m_numNeighbours;
+
 
 
 public:
@@ -52,13 +45,12 @@ public:
 	void GenerateNeighbours(SquareNode*, short);
 	bool IsWithin(Vector3<float>);
 	SquareNode* GetNewStandingNode(Vector3<float>);
-	void GenerateHeightMap();
 	//void SetNumNeighbours(short);
 	//void AddNode(int, Node*);
 	//void IncreaseDivisions(int numNewDivisions);
 
 
-	int m_gridIndex; //the index of the node, relative to the m_currentNode
+	short m_gridIndex; //the index of the node, relative to the m_currentNode
 	
 
 };

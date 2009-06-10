@@ -17,7 +17,7 @@ public:
 
 	Vector3<float> m_pos;
 	Vector3<float> m_up;
-	Vector2<float> m_rotation;
+	Vector3<float> m_rotation;
 	Vector2<int> m_lastMousePos;
 	float m_speed;
 

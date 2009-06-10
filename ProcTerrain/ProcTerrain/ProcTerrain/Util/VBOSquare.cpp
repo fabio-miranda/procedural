@@ -1,18 +1,18 @@
-#include "Square.h"
+#include "VBOSquare.h"
 
-Square::Square(){
+VBOSquare::VBOSquare(){
 	Init();
 
 }
 
-Square::Square(float size){
+VBOSquare::VBOSquare(float size){
 	Init();
 
 	m_size = size;
 
 }
 
-Square::Square(Vector3<float> position, float size, int numDivisions) {
+VBOSquare::VBOSquare(Vector3<float> position, float size, int numDivisions) {
 	Init();
 
 	m_position = position;	
@@ -38,6 +38,7 @@ Square::Square(Vector3<float> position, float size, int numDivisions) {
 
 		}
 	}
+
 
 	cont = 0; //counts the number of squares rendered
 	int coluns = 0; //counts the coluns rendered
@@ -74,7 +75,7 @@ Square::Square(Vector3<float> position, float size, int numDivisions) {
 
 }
 
-Square::~Square(){
+VBOSquare::~VBOSquare(){
 	m_vboMesh->DeleteBuffer();
 
 	delete [] m_vertices;
@@ -82,7 +83,7 @@ Square::~Square(){
 
 }
 
-void Square::Init(){
+void VBOSquare::Init(){
 
 
 	m_isSplit = false;
@@ -97,21 +98,21 @@ void Square::Init(){
 
 
 
-void Square::Render(){
+void VBOSquare::Render(){
 	
-	//m_vboMesh->Render();
-	
+	m_vboMesh->Render();
+	/*
 	glBegin( GL_TRIANGLES );
 
-		glTexCoord2d(0.0,0.0); glVertex3f(0, 0, 0.0f);				// Top Left
-		glTexCoord2d(1.0,0.0); glVertex3f( 250, 0, 0.0f);				// Top Right
-		glTexCoord2d(1.0,1.0); glVertex3f( 250,250, 0.0f);				// Bottom Right
+		glTexCoord2d(m_vertices[0].u,m_vertices[0].v); glVertex3f(m_vertices[0].x, m_vertices[0].y, 0.0f);				// Top Left
+		glTexCoord2d(m_vertices[2].u,m_vertices[2].v); glVertex3f( m_vertices[2].x, m_vertices[2].y, 0.0f);				// Top Right
+		glTexCoord2d(m_vertices[3].u,m_vertices[3].v); glVertex3f( m_vertices[3].x,m_vertices[3].y, 0.0f);				// Bottom Right
 
-		glTexCoord2d(1.0,1.0); glVertex3f( 250,250, 0.0f);				
-		glTexCoord2d(0.0,1.0); glVertex3f(0,250, 0.0f);
-		glTexCoord2d(0.0,0.0); glVertex3f(0,0, 0.0f);
+		glTexCoord2d(m_vertices[3].u,m_vertices[3].v); glVertex3f( m_vertices[3].x,m_vertices[3].y, 0.0f);				
+		glTexCoord2d(m_vertices[1].u,m_vertices[1].v); glVertex3f(m_vertices[1].x,m_vertices[1].y, 0.0f);
+		glTexCoord2d(m_vertices[0].u,m_vertices[0].v); glVertex3f(m_vertices[0].x,m_vertices[0].y, 0.0f);
 	glEnd();
-	
+	*/
 	/*
 	glBegin( GL_TRIANGLES );
 

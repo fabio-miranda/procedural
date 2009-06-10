@@ -7,21 +7,21 @@ GUI::GUI(){
 	m_currentTime = 0;
 	m_frameCount = 0;
 
-	int width = 0;
-	int height = 0;
-	glfwGetWindowSize(&width, &height);
-	m_position = FTPoint(width-200, height-100, 0);
+	m_width = 0;
+	m_height = 0;
+	glfwGetWindowSize(&m_width, &m_height);
 
-	m_fps = new FTTextureFont("../../ProcTerrain/Data/verdana.ttf");
-	
-	m_fps->FaceSize(12);
+	m_text = new FTTextureFont("../../ProcTerrain/Data/verdana.ttf");
+	m_text->FaceSize(11);
+
+
 
 
 
 }
 
 GUI::~GUI(){
-	delete m_fps;
+	delete m_text;
 }
 
 void GUI::Render(){
@@ -43,6 +43,7 @@ void GUI::Render(){
 
 	//Render fps
 	RenderFPS();
+	RenderPolyCount();
 
 	glPopMatrix();
 	glMatrixMode(GL_PROJECTION);
@@ -71,9 +72,26 @@ void GUI::RenderFPS(){
 	
 	stringstream ss;
 	ss << "FPS: " << m_frameRate;
-	m_fps->Render(ss.str().c_str(), -1, m_position);
+	m_text->Render(ss.str().c_str(), -1, FTPoint(m_width-200, m_height-100, 0));
 	
 
 	m_frameCount++;
+
+}
+
+void GUI::RenderPolyCount(){
+	
+	//TODO: clean this up
+	stringstream ss1;
+	ss1 << "Quads: " << "10";
+	m_text->Render(ss1.str().c_str(), -1, FTPoint(m_width-200, m_height-115, 0));
+	
+	stringstream ss2;
+	ss2 << "Tri: " << "20";
+	m_text->Render(ss2.str().c_str(), -1, FTPoint(m_width-200, m_height-130, 0));
+
+	stringstream ss3;
+	ss3 << "Vertices: " << "10";
+	m_text->Render(ss3.str().c_str(), -1, FTPoint(m_width-200, m_height-145, 0));
 
 }

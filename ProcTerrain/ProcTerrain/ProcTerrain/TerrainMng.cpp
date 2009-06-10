@@ -19,13 +19,12 @@ TerrainMng::TerrainMng()
 
 	//Shaders
 	//SetUpShaders();
-	FBO* m_fbo = new FBO(1, 1);
+	FBO* m_fbo = new FBO(50, 50);
 	m_terrainGenerationShader = new Shader("../../ProcTerrain/Shaders/terrainGeneration.vert", "../../ProcTerrain/Shaders/terrainGeneration.frag");
 	m_terrainRenderingShader = new Shader("../../ProcTerrain/Shaders/terrainRendering.vert", "../../ProcTerrain/Shaders/terrainRendering.frag");
 
 	SquareNode* node = new SquareNode(m_terrainGenerationShader, m_terrainRenderingShader, m_fbo, Vector3<float>(0,0,0),50.0f, conf_numDivisions);
 	node->GenerateNeighbours(NULL, conf_numNeighbours);
-	node->GenerateHeightMap();
 	SetCurrentNode(node);
 	
 
@@ -42,7 +41,7 @@ void TerrainMng::Update(Vector3<float> currentPosition){
 	
 	//See if the camera is on another node. If so, we have to generate its neighbours
 	//TODO: mix IsWithin with GetNewStandingNode
-
+	
 	if(m_currentNode->IsWithin(currentPosition) == false){
 
 
@@ -50,12 +49,7 @@ void TerrainMng::Update(Vector3<float> currentPosition){
 		m_currentNode = m_currentNode->GetNewStandingNode(currentPosition);
 		SetCurrentNode(m_currentNode);
 		m_currentNode->GenerateNeighbours(oldNode, conf_numNeighbours);
-		
-
-		
 	}
-	
-
 }
 
 void TerrainMng::Render(){

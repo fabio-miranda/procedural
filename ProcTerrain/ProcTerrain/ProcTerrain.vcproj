@@ -289,6 +289,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Util\HeightMap.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\main.cpp"
 				>
 			</File>
@@ -297,7 +301,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\Square.cpp"
+				RelativePath=".\ProcTerrain\Util\SimpleSquare.cpp"
 				>
 			</File>
 			<File
@@ -310,6 +314,10 @@
 			</File>
 			<File
 				RelativePath=".\ProcTerrain\Util\VBO.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcTerrain\Util\VBOSquare.cpp"
 				>
 			</File>
 			<File
@@ -351,7 +359,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\Random.h"
+				RelativePath=".\ProcTerrain\Util\HeightMap.h"
 				>
 			</File>
 			<File
@@ -359,11 +367,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Util\Random.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Shaders\Shader.h"
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\Square.h"
+				RelativePath=".\ProcTerrain\Util\SimpleSquare.h"
 				>
 			</File>
 			<File
@@ -376,6 +388,10 @@
 			</File>
 			<File
 				RelativePath=".\ProcTerrain\Util\VBO.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcTerrain\Util\VBOSquare.h"
 				>
 			</File>
 			<File

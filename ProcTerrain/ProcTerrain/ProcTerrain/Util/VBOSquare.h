@@ -1,5 +1,5 @@
-#ifndef SQUARE_H
-#define SQUARE_H
+#ifndef VBOSQUARE_H
+#define VBOSQUARE_H
 
 
 #include "Vertex.h"
@@ -9,7 +9,7 @@
 
 
 
-class Square{
+class VBOSquare{
 	
 	/////////////
 	// 3------2
@@ -35,10 +35,10 @@ private:
 
 public:
 
-	Square();
-	Square(float size);
-	Square(Vector3<float> position, float size, int numDivisions);
-	~ Square();
+	VBOSquare();
+	VBOSquare(float size);
+	VBOSquare(Vector3<float> position, float size, int numDivisions);
+	~ VBOSquare();
 	//void FillArray(VBO*);
 	//void SplitSquareIn4();
 	void Render();

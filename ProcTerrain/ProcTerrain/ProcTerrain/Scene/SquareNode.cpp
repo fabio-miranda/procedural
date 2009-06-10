@@ -3,91 +3,67 @@
 
 SquareNode::SquareNode(Shader* generationShader, Shader* renderingShader, FBO* fbo, Vector3<float> position, float size, short numDivisions){
 	
-	m_ptrTerrainGenerationShader = generationShader;
+
+	m_heightMap = new HeightMap(generationShader, fbo, position, size, 1);
 	m_ptrTerrainRenderingShader = renderingShader;
-	m_ptrFBO = fbo;
-	//m_ptrTerrainRenderingShader = new Shader("../../ProcTerrain/Shaders/terrainRendering.vert", "../../ProcTerrain/Shaders/terrainRendering.frag");
-	//glUniform4fARB(m_ptrTerrainRenderingShader->m_locColor,1, 0, 0, 1);
 
 	m_position = position;
 	m_size = size;
 	m_numDivisions = numDivisions;
 	m_numNeighbours = 0;
-	m_face = new Square(m_position, m_size, m_numDivisions);
+	m_face = new VBOSquare(m_position, m_size, m_numDivisions);
 	m_gridIndex = -1; //center of the grid (currentNode)
-	m_heightMapGenerated = false;
 
 	for(int i=0; i<8; i++){
 		m_ptrNeighbours[i] = NULL;
 	}
 
-
-	//GenerateHeightMap();
+	
 	
 }
 
 SquareNode::~SquareNode(){
-	delete m_face;
+	delete m_heightMap;
 
 
 }
 
-void SquareNode::GenerateHeightMap(){
-	//m_ptrFBO = new FBO(1, 1);
-	Square* square = new Square(m_position, m_size, 1);
-
-	
-	m_ptrFBO->Enable();
-	m_ptrTerrainGenerationShader->Enable();
-	
-	
-	square->Render();
-	
-
-	m_ptrTerrainGenerationShader->Disable();
-	m_ptrFBO->Disable();
-	
-	m_heightMapGenerated = true;
-	//aux
-	/*
-	float* aux;
-	glBindTexture(GL_TEXTURE_2D, m_ptrFBO->m_textureId);
-	aux = (float*)malloc(512*512*sizeof(float)*4);
-	glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_FLOAT, aux);
-	glReadPixels(0,0,512,512,GL_RGBA,GL_FLOAT,aux);
-	*/
-}
 
 
 void SquareNode::Render(){
 
-	if(m_heightMapGenerated == false) return;
+	
+	m_heightMap->Generate();
+	
 
 	//Call the parent
 	//Node::Render();
 	//TODO: make sure they render only once
-	/*
+	
 	for(int i=0; i<8; i++){
 		if(m_ptrNeighbours[i] != NULL)
 			m_ptrNeighbours[i]->Render();
 	}
-	*/
 	
 	
-
+	
+	
 	m_ptrTerrainRenderingShader->Enable();
 
 	
 	//glActiveTexture(GL_TEXTURE0);
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, m_ptrFBO->m_textureId);
+	//glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, m_heightMap->m_ptrFBO->m_textureId);
 	//TODO: do it only once, after generating the heightmap
 	glUniform1i(m_ptrTerrainRenderingShader->m_locTexture, 0);
 	
 
 	m_face->Render();
 
+	glBindTexture(GL_TEXTURE_2D, 0);
 	m_ptrTerrainRenderingShader->Disable();
+	
+	
 }
 
 bool SquareNode::IsWithin(Vector3<float> position){
@@ -200,7 +176,7 @@ void SquareNode::GenerateNeighbours(SquareNode* m_oldNode, short numNeighbours){
 
 					//Check if the node was already created (and set up on the previous ifs/else ifs
 					if(m_ptrNeighbours[cont] == NULL){
-						aux = new SquareNode(m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_ptrFBO, Vector3<float>(i,j,0),m_size, m_numDivisions);
+						aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, Vector3<float>(i,j,0),m_size, m_numDivisions - 10);
 						aux->m_gridIndex = cont;
 						m_ptrNeighbours[cont] = aux;
 

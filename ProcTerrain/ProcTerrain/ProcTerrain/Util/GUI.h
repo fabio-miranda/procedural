@@ -11,9 +11,10 @@ using namespace std;
 class GUI{
 
 private:
-	FTPoint m_position;
 
-	FTTextureFont* m_fps;
+	FTTextureFont* m_text;
+	int m_width;
+	int m_height;
 	int m_frameCount;
 	double m_startTime;
 	double m_currentTime;
@@ -27,6 +28,7 @@ public:
 	~GUI();
 	void Render();
 	void RenderFPS();
+	void RenderPolyCount();
 	
 	
 

@@ -31,7 +31,7 @@ FBO::FBO(short width, short height){
 	//Generate render buffer
 	glGenRenderbuffersEXT(1, &m_renderBufferId);
     glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, m_renderBufferId);
-    glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_DEPTH_COMPONENT, width, height);
+    glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_DEPTH_COMPONENT, m_width, m_height);
     glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, 0);
 
 	//Attach texture to the fbo
@@ -81,8 +81,23 @@ void FBO::BindTexture(GLuint m_textureId){
 */
 
 void FBO::Enable(){
-	glPushAttrib(GL_VIEWPORT_BIT);
-	glViewport(0,0,m_width, m_height);
+	glPushAttrib(GL_ENABLE_BIT | GL_POLYGON_BIT);
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_CULL_FACE);
+
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+	glOrtho(0.0, m_width, m_height, 0.0, -1.0, 1.0);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+	glViewport(0, 0, m_width, m_height);
+	
 
 	//glEnable(GL_TEXTURE_2D);
 	
@@ -92,7 +107,7 @@ void FBO::Enable(){
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, m_fbo);
 	//glBindTexture(GL_TEXTURE_2D, m_textureId);
 
-	glClearColor (0, 0, 1, 1.0f);
+	glClearColor (0.1, 0.1, 0.1, 1.0f);
 	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	//glPopAttrib();
@@ -100,7 +115,18 @@ void FBO::Enable(){
 }
 
 void FBO::Disable(){
-	glPopAttrib();
+	glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
+
+    glMatrixMode(GL_MODELVIEW);
+    glPopMatrix();
+
+    glViewport(0, 0, 1280, 720);
+
+    glPopAttrib();
+
+
+
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 
 

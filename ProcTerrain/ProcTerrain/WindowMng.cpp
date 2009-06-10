@@ -74,6 +74,7 @@ void WindowMng::GLConfig(){
 	glLoadIdentity();
 	glRotatef(m_camera->m_rotation.GetX(),1.0,0.0,0.0); //rotate our camera on teh x-axis (left and right)
 	glRotatef(m_camera->m_rotation.GetY(),0.0,1.0,0.0); //rotate our camera on the y-axis (up and down)
+	glRotatef(m_camera->m_rotation.GetZ(),0.0,0.0,1.0);
 	glTranslated(-m_camera->m_pos.GetX(),-m_camera->m_pos.GetY(),-m_camera->m_pos.GetZ()); //translate the screen to the position of our camera
 
 }
