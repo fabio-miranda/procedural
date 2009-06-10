@@ -18,7 +18,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Don't like 10pt? Try 11pt or 12pt
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
 % This is a helpful package that puts math inside length specifications
 \usepackage{calc}
@@ -49,11 +49,10 @@
 % is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
 % below.
 %
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
 
 %% Use these lines for letter-sized paper
-\usepackage[brazil]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
 \usepackage[paper=letterpaper,
             %includefoot, % Uncomment to put page number above margin
             marginparwidth=1.2in,     % Length of section titles
@@ -185,7 +184,7 @@
 % ALSO: \rcollength is the width of the right column of the table 
 %       (adjust it to your liking; default is 1.85in).
 %
-\newlength{\rcollength}\setlength{\rcollength}{1.85in}%
+\newlength{\rcollength}\setlength{\rcollength}{2.25in}%
 %
 \begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
 Rua Pio Porto de Menezes, 120& \textit{Telefone:} (31) 3342-1786 \\
@@ -194,7 +193,9 @@ Luxemburgo 					 & \textit{E-mail:} \href{mailto:fabiom@gmail.com}{fabiom@gmail.
 Belo Horizonte, MG			 & \textit{WWW:} \href{http://www.dcc.ufmg.br/~fmiranda}{www.dcc.ufmg.br/$\sim$fmiranda}\\
 \end{tabular}
 
-
+\section{Nascimento}
+%
+22 de junho de 1985
 
 \section{Áreas de Interesse}
 %
@@ -250,12 +251,12 @@ MIRANDA, F. M. ; LAFETA, P. ; ANDRADE, Leonardo Queiroz de ; CORDEIRO, Carlúcio 
 
 \section{Prêmios} 
 %
-\begin{innerlist}
+\begin{outerlist}
 \item Melhor artigo resumido: "Pandorga: Uma plataforma open source para a criação e desenvolvimento de jogos", SBGames 2008 - Trilha de Computação, Sociedade Brasileira de Computação.
 
 \item 2º Colocado Concurso XNA - SBGames 2008: Chameleon
 
-\end{innerlist}
+\end{outerlist}
 
 \section{Experiência Profissional}
 \href{http://www.atan.com.br/}{\textbf{Atan Sistemas}}
@@ -277,28 +278,19 @@ MIRANDA, F. M. ; LAFETA, P. ; ANDRADE, Leonardo Queiroz de ; CORDEIRO, Carlúcio 
 \end{innerlist}
 \end{outerlist}
 
+\section{Idiomas}
+Português (nativo), inglês (fluente), espanhol (básico).
+
 
 \section{Conhecimentos Técnicos} 
-\begin{innerlist}
+\begin{outerlist}
 \item Linguagens de Programação: C, C++, Python, C\#, GLSL, HLSL, Cg, Java, Javascript, PHP.
-
-\blankline
-
 \item Linguagens de Shader: GLSL, Cg.
-
-\blankline
-
 \item APIs Gráficas: OpenGL, DirectX.
-
-\blankline
-
 \item Arquiteturas, Frameworks e \emph{Engines}: CUDA, XNA, Panda3D, Torque, PyODE.
-
-\blankline
-
 \item Conhecimentos em computação gráfica:
 
-\end{innerlist}
+\end{outerlist}
 \end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
