@@ -5,6 +5,7 @@
 #include "GL/glew.h"
 //#include "GL/glfw.h"
 #include "Vertex.h"
+#include "Vector3.h"
 #include "../Config.h"
 
 /*
@@ -30,7 +31,7 @@ public:
 	~FBO();
 	void DeleteBuffer();
 	//void BindTexture(GLuint);
-	void Enable();
+	void Enable(Vector3<float>);
 	void Disable();
 
 	GLuint m_textureId;

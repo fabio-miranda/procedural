@@ -1,6 +1,9 @@
 #include "Shader.h"
 
+Shader::Shader(){
 
+
+}
 
 Shader::Shader(char* vertexShaderFile, char* fragShaderFile){
 	
@@ -35,17 +38,13 @@ Shader::Shader(char* vertexShaderFile, char* fragShaderFile){
 		glLinkProgramARB(m_shaderProg);
 		printInfoLog(m_shaderProg);
 
-		
-		//Enable();
-		m_locTexture = glGetUniformLocationARB(m_shaderProg,"texture");
-		//Disable();
-
 	}
 
 
 }
 
 Shader::~Shader(){
+	
 	glDetachObjectARB(m_shaderProg, m_shaderVert);
 	glDeleteObjectARB(m_shaderVert); 
 
@@ -53,7 +52,7 @@ Shader::~Shader(){
 	glDeleteObjectARB(m_shaderFrag); 
 
 	glDeleteObjectARB(m_shaderProg); 
-
+	
 }
 
 void Shader::Enable(){

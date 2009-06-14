@@ -91,7 +91,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)\ProcTerrain\bin\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			CharacterSet="1"
@@ -167,7 +167,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release-without whole code optmization|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)\ProcTerrain\bin\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			CharacterSet="1"
@@ -285,6 +285,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Shaders\GenerationShader.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\GUI.cpp"
 				>
 			</File>
@@ -294,6 +298,10 @@
 			</File>
 			<File
 				RelativePath=".\main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcTerrain\Shaders\RenderingShader.cpp"
 				>
 			</File>
 			<File
@@ -355,6 +363,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Shaders\GenerationShader.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\GUI.h"
 				>
 			</File>
@@ -363,11 +375,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Util\Random.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Util\Random.h"
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\Random.h"
+				RelativePath=".\ProcTerrain\Shaders\RenderingShader.h"
 				>
 			</File>
 			<File

@@ -20,12 +20,13 @@ class SimpleSquare{
 private:
 	int m_width;
 	int m_height;
+	Vector3<float> m_position;
 
 
 
 public:
 
-	SimpleSquare(short, short);
+	SimpleSquare(Vector3<float>, short, short);
 	~ SimpleSquare();
 	void Render();
 	

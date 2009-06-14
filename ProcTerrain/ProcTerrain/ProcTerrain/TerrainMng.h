@@ -7,7 +7,8 @@
 #include "Scene/Node.h"
 #include "Scene/SquareNode.h"
 #include "Util/Gui.h"
-#include "Shaders/Shader.h"
+#include "Shaders/GenerationShader.h"
+#include "Shaders/RenderingShader.h"
 #include "Util/FBO.h"
 
 
@@ -25,8 +26,8 @@ public:
 
 
 	GUI* m_gui;
-	Shader* m_terrainRenderingShader;
-	Shader* m_terrainGenerationShader;
+	RenderingShader* m_terrainRenderingShader;
+	GenerationShader* m_terrainGenerationShader;
 	FBO* m_fbo;
 
 private:

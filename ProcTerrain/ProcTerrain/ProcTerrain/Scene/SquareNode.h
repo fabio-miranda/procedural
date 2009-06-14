@@ -7,8 +7,10 @@
 #include "../Util/VBOSquare.h"
 #include "../Util/HeightMap.h"
 #include "Node.h"
-#include "../Shaders/Shader.h"
+#include "../Shaders/RenderingShader.h"
+#include "../Shaders/GenerationShader.h"
 #include "../Util/FBO.h"
+#include <math.h>
 
 
 class SquareNode{
@@ -23,7 +25,7 @@ class SquareNode{
 	HeightMap* m_heightMap;
 	Vector3<float> m_position;
 	float m_size;
-	Shader* m_ptrTerrainRenderingShader;
+	RenderingShader* m_ptrTerrainRenderingShader;
 
 	SquareNode* m_ptrNeighbours[8]; //pointer to the neighbours. It's easy to get a particular node, because it is in an an array:
 								/*
@@ -39,10 +41,11 @@ class SquareNode{
 
 
 public:
-	SquareNode(Shader*, Shader*, FBO*, Vector3<float>, float, short);
+	SquareNode(GenerationShader*, RenderingShader*, FBO*, Vector3<float>, float, short);
 	~ SquareNode();
 	void Render();
-	void GenerateNeighbours(SquareNode*, short);
+	void GenerateNeighbours(SquareNode*, short, short);
+	void SwitchFBOs();
 	bool IsWithin(Vector3<float>);
 	SquareNode* GetNewStandingNode(Vector3<float>);
 	//void SetNumNeighbours(short);

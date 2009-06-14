@@ -5,7 +5,7 @@
 
 #include "../Util/Vertex.h"
 #include "../Util/SimpleSquare.h"
-#include "../Shaders/Shader.h"
+#include "../Shaders/GenerationShader.h"
 #include "../Util/FBO.h"
 
 
@@ -22,11 +22,11 @@ class HeightMap{
 
 
 public:
-	HeightMap(Shader*, FBO*, Vector3<float>, float, short);
+	HeightMap(GenerationShader*, FBO*, Vector3<float>, float, short);
 	~ HeightMap();
 	void Generate();
 
-	Shader *m_ptrTerrainGenerationShader;
+	GenerationShader *m_ptrTerrainGenerationShader;
 	FBO *m_ptrFBO;
 
 };

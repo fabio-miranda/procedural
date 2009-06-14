@@ -9,18 +9,20 @@ class Shader{
 	
 	
 public:
+	Shader();
 	Shader(char*, char*);
 	~Shader();
-	virtual void Enable();
-	virtual void Disable();
-	GLuint m_locTexture;
+	void Enable();
+	void Disable();
+
+	GLhandleARB m_shaderProg;
 
 
 
 private:
 	GLhandleARB m_shaderVert;
 	GLhandleARB m_shaderFrag;
-	GLhandleARB m_shaderProg;
+	
 	
 
 };

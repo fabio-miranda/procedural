@@ -1,14 +1,14 @@
 #include "HeightMap.h"
 
 
-HeightMap::HeightMap(Shader* generationShader, FBO* fbo, Vector3<float> position, float size, short maxIterations){
+HeightMap::HeightMap(GenerationShader* generationShader, FBO* fbo, Vector3<float> position, float size, short maxIterations){
 	
 
 	m_ptrTerrainGenerationShader = generationShader;
 
 	//TODO: share FBOs between the nodes? Or each node has its own FBO?
-	//m_ptrFBO = new FBO(size, size);
-	m_ptrFBO = fbo;
+	m_ptrFBO = new FBO(size, size);
+	//m_ptrFBO = fbo;
 
 	m_position = position;
 	m_size = size;
@@ -30,12 +30,13 @@ void HeightMap::Generate(){
 	m_currentIteration++;
 
 	
-	SimpleSquare* simpleSquare = new SimpleSquare(m_size, m_size);
+	SimpleSquare* simpleSquare = new SimpleSquare(m_position, m_size, m_size);
 
 	
-	m_ptrFBO->Enable();
+	m_ptrFBO->Enable(m_position);
 	m_ptrTerrainGenerationShader->Enable();
-	
+	//glUniform1fARB(m_ptrTerrainGenerationShader->m_locSeed, m_ptrTerrainGenerationShader->m_seed);
+	//glUniform2fARB(m_ptrTerrainGenerationShader->m_locPosition, m_position.GetX(), m_position.GetY());
 	
 	simpleSquare->Render();
 	

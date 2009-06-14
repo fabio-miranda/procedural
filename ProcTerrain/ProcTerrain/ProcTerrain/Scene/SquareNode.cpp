@@ -1,7 +1,7 @@
 #include "SquareNode.h"
 
 
-SquareNode::SquareNode(Shader* generationShader, Shader* renderingShader, FBO* fbo, Vector3<float> position, float size, short numDivisions){
+SquareNode::SquareNode(GenerationShader* generationShader, RenderingShader* renderingShader, FBO* fbo, Vector3<float> position, float size, short numDivisions){
 	
 
 	m_heightMap = new HeightMap(generationShader, fbo, position, size, 1);
@@ -111,88 +111,160 @@ SquareNode* SquareNode::GetNewStandingNode(Vector3<float> position){
 	}
 }
 
-void SquareNode::GenerateNeighbours(SquareNode* m_oldNode, short numNeighbours){
-	
-	//TODO: Re-point the nodes from the oldNode to the new currentNode, and delete the unused ones
-	/*
-	if(m_gridIndex == 1){
-		m_ptrNeighbours[3] = m_oldNode->m_ptrNeighbours[0];
-		m_ptrNeighbours[4] = m_oldNode->m_ptrNeighbours[2];
-		m_ptrNeighbours[5] = m_oldNode->m_ptrNeighbours[3];
-		m_ptrNeighbours[6] = m_oldNode;
-		m_ptrNeighbours[7] = m_oldNode->m_ptrNeighbours[4];
-		//nodes to delete: 7, 6, 5
-		delete m_oldNode->m_ptrNeighbours[7];
-		delete m_oldNode->m_ptrNeighbours[6];
-		delete m_oldNode->m_ptrNeighbours[5];
-	}
-	else if(m_gridIndex == 3){
-		m_ptrNeighbours[2] = m_oldNode->m_ptrNeighbours[1];
-		m_ptrNeighbours[4] = m_oldNode;
-		m_ptrNeighbours[7] = m_oldNode->m_ptrNeighbours[6];
-		m_ptrNeighbours[6] = m_oldNode->m_ptrNeighbours[5];
-		m_ptrNeighbours[1] = m_oldNode->m_ptrNeighbours[0];
-		//nodes to delete: 2, 3, 7
-		delete m_oldNode->m_ptrNeighbours[2];
-		delete m_oldNode->m_ptrNeighbours[3];
-		delete m_oldNode->m_ptrNeighbours[7];
-	}
-	else if(m_gridIndex == 4){
-		m_ptrNeighbours[0] = m_oldNode->m_ptrNeighbours[1];
-		m_ptrNeighbours[1] = m_oldNode->m_ptrNeighbours[2];
-		m_ptrNeighbours[3] = m_oldNode;
-		m_ptrNeighbours[5] = m_oldNode->m_ptrNeighbours[6];
-		m_ptrNeighbours[6] = m_oldNode->m_ptrNeighbours[7];
-		//nodes to delete: 0, 3, 5
-		delete m_oldNode->m_ptrNeighbours[0];
-		delete m_oldNode->m_ptrNeighbours[3];
-		delete m_oldNode->m_ptrNeighbours[5];
-	}
-	else if(m_gridIndex == 6){
-		m_ptrNeighbours[0] = m_oldNode->m_ptrNeighbours[3];
-		m_ptrNeighbours[1] = m_oldNode;
-		m_ptrNeighbours[2] = m_oldNode->m_ptrNeighbours[4];
-		m_ptrNeighbours[3] = m_oldNode->m_ptrNeighbours[5];
-		m_ptrNeighbours[4] = m_oldNode->m_ptrNeighbours[7];
-		//nodes to delete: 0, 1, 2
-		delete m_oldNode->m_ptrNeighbours[0];
-		delete m_oldNode->m_ptrNeighbours[1];
-		delete m_oldNode->m_ptrNeighbours[2];
-	}
-	*/
+//TODO: Instead of generating new VBOs, we just switch the FBOs from the current ones
+void SquareNode::SwitchFBOs(){
 
+
+
+}
+
+void SquareNode::GenerateNeighbours(SquareNode* m_oldNode, short numNeighbours, short gridIndex){
+
+	m_gridIndex = gridIndex;
 	m_numNeighbours = numNeighbours;
 
-	
-
+	//TODO: Make sure we don't generate nodes already generated. Re-use the already generated
 	if(numNeighbours > 0){
-		SquareNode* aux;
-		int cont = 0;
+		//Generate for the neighbours of the current node
+		short numDivisions = ceil(m_numDivisions / (float)conf_lodFactor);
+		if(m_gridIndex != -1){
+			SquareNode* aux;
+			Vector3<float> position;
 
-		for(float i=m_position.GetX() - m_size; i<=m_position.GetX() + m_size; i+=m_size){
-			for(float j=m_position.GetY() - m_size; j<=m_position.GetY() + m_size; j+=m_size){
-				
-				if(i != m_position.GetX() || j != m_position.GetY()){
+			switch(m_gridIndex){
+				case 0:
+					//0
+					position = Vector3<float>(m_position.GetX() - m_size, m_position.GetY() - m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[0] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 0);
 
-					//Check if the node was already created (and set up on the previous ifs/else ifs
-					if(m_ptrNeighbours[cont] == NULL){
-						aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, Vector3<float>(i,j,0),m_size, m_numDivisions - 10);
-						aux->m_gridIndex = cont;
+					//1
+					position = Vector3<float>(m_position.GetX() - m_size, m_position.GetY(), 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[1] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 1);
+
+					//3
+					position = Vector3<float>(m_position.GetX(), m_position.GetY() - m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[3] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 3);
+					break;
+					
+				case 1:
+					//1
+					position = Vector3<float>(m_position.GetX() - m_size, m_position.GetY(), 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[1] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 1);
+					break;
+				case 2:
+					//2
+					position = Vector3<float>(m_position.GetX() - m_size, m_position.GetY() + m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[2] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 2);
+
+					//1
+					position = Vector3<float>(m_position.GetX() - m_size, m_position.GetY(), 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[1] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 1);
+
+					//4
+					position = Vector3<float>(m_position.GetX(), m_position.GetY() + m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[4] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 4);
+					break;
+				case 3:
+					//3
+					position = Vector3<float>(m_position.GetX(), m_position.GetY() - m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[3] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 3);
+					break;
+				case 4:
+					//4
+					position = Vector3<float>(m_position.GetX(), m_position.GetY() + m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[4] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 4);
+					break;
+				case 5:
+					//5
+					position = Vector3<float>(m_position.GetX() + m_size, m_position.GetY() - m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[5] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 5);
+
+					//6
+					position = Vector3<float>(m_position.GetX() + m_size, m_position.GetY(), 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[6] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 6);
+
+					//3
+					position = Vector3<float>(m_position.GetX(), m_position.GetY() - m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[3] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 3);
+					break;
+				case 6:
+					//6
+					position = Vector3<float>(m_position.GetX() + m_size, m_position.GetY(), 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[6] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 6);
+					break;
+				case 7:
+					//7
+					position = Vector3<float>(m_position.GetX() + m_size, m_position.GetY() + m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[7] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 7);
+
+					//6
+					position = Vector3<float>(m_position.GetX() + m_size, m_position.GetY(), 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[6] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 6);
+
+					//4
+					position = Vector3<float>(m_position.GetX(), m_position.GetY() + m_size, 0);
+					aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, position,m_size, numDivisions);
+					m_ptrNeighbours[4] = aux;
+					aux->GenerateNeighbours(this, numNeighbours-1, 4);
+					break;
+				default:
+					break;
+			}
+		}
+		//Generate for the current node
+		else{
+			SquareNode* aux;
+			int cont = 0;
+
+			for(float i=m_position.GetX() - m_size; i<=m_position.GetX() + m_size; i+=m_size){
+				for(float j=m_position.GetY() - m_size; j<=m_position.GetY() + m_size; j+=m_size){
+					
+					if(i != m_position.GetX() || j != m_position.GetY()){
+						aux = new SquareNode(m_heightMap->m_ptrTerrainGenerationShader, m_ptrTerrainRenderingShader, m_heightMap->m_ptrFBO, Vector3<float>(i,j,0),m_size, numDivisions);
 						m_ptrNeighbours[cont] = aux;
+						aux->GenerateNeighbours(this, numNeighbours-1, cont);
 
-						//TODO: make sure that, when the neighbour generate its neighbours, it doesn't create nodes in position already created
-						aux->GenerateNeighbours(this, numNeighbours-1);
+						cont++;
 					}
-					else{
-						m_ptrNeighbours[cont]->GenerateNeighbours(this, numNeighbours - 1);
-					}
-
-					cont++;
 				}
 			}
+
 		}
 
 	}
+
+
+	
 	
 
 
