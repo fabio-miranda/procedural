@@ -73,27 +73,10 @@ void Camera::UpdateMouse(){
 	}
 
 	if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT)){
-		float x_rotation, y_rotation, z_rotation;
-		y_rotation = (m_rotation.GetY() / 180 * 3.141592654f);
-		x_rotation = (m_rotation.GetX() / 180 * 3.141592654f);
-		z_rotation = (m_rotation.GetZ() / 180 * 3.141592654f);
-
-		m_pos.AddX(float(sin(z_rotation)) * m_speed);
-		m_pos.AddY(float(cos(z_rotation)) * m_speed) ;
-		m_pos.AddZ(-float(cos(y_rotation)) * m_speed) ;
-
-		
-		
+		m_pos.AddZ(-m_speed) ;
 	}
 	else if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_RIGHT)){
-		float x_rotation, y_rotation, z_rotation;
-		y_rotation = (m_rotation.GetY() / 180 * 3.141592654f);
-		x_rotation = (m_rotation.GetX() / 180 * 3.141592654f);
-		z_rotation = (m_rotation.GetZ() / 180 * 3.141592654f);
-
-		m_pos.AddX(-float(sin(z_rotation)) * m_speed);
-		m_pos.AddY(-float(cos(z_rotation)) * m_speed) ;
-		m_pos.AddZ(float(cos(y_rotation)) * m_speed) ;
+		m_pos.AddZ(m_speed) ;
 	}
 	
 
