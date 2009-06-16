@@ -25,6 +25,7 @@ class SquareNode{
 	HeightMap* m_heightMap;
 	Vector3<float> m_position;
 	float m_size;
+	int m_textureSize;
 	RenderingShader* m_ptrTerrainRenderingShader;
 
 	SquareNode* m_ptrNeighbours[8]; //pointer to the neighbours. It's easy to get a particular node, because it is in an an array:
@@ -41,7 +42,7 @@ class SquareNode{
 
 
 public:
-	SquareNode(GenerationShader*, RenderingShader*, FBO*, Vector3<float>, float, short);
+	SquareNode(GenerationShader*, RenderingShader*, FBO*, Vector3<float>, float, int, short);
 	~ SquareNode();
 	void Render();
 	void GenerateNeighbours(SquareNode*, short, short);

@@ -35,6 +35,9 @@ private:
 	Node* m_sceneGraph;
 	SquareNode* m_currentNode;
 	void Config();
+	void initPermTexture(GLuint *);
+
+	GLuint m_permTextureID;
 };
 
 #endif

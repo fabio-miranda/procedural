@@ -36,11 +36,12 @@ void HeightMap::Generate(){
 	m_ptrFBO->Enable(m_position);
 	m_ptrTerrainGenerationShader->Enable();
 	//glUniform1fARB(m_ptrTerrainGenerationShader->m_locSeed, m_ptrTerrainGenerationShader->m_seed);
-	//glUniform2fARB(m_ptrTerrainGenerationShader->m_locPosition, m_position.GetX(), m_position.GetY());
+	
 	
 	simpleSquare->Render();
 	
 
+	
 	m_ptrTerrainGenerationShader->Disable();
 	m_ptrFBO->Disable();
 
