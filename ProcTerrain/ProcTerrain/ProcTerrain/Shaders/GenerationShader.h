@@ -8,7 +8,7 @@ class GenerationShader : public Shader{
 	
 	
 public:
-	GenerationShader(float, GLuint);
+	GenerationShader(float, GLuint, GLuint);
 	~GenerationShader();
 	void Enable();
 	void Disable();
@@ -17,6 +17,8 @@ public:
 	//GLuint m_locPosition;
 	GLuint m_locPermTexture;
 	GLuint m_permTextureID;
+	GLuint m_locPermGradTexture;
+	GLuint m_permGradTextureID;
 	//float m_seed;
 
 	

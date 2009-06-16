@@ -2,7 +2,8 @@
 
 
 
-GenerationShader::GenerationShader(float seed, GLuint permTextureID) : Shader("../../ProcTerrain/Shaders/terrainGeneration.vert", "../../ProcTerrain/Shaders/terrainGeneration.frag"){
+GenerationShader::GenerationShader(float seed, GLuint permTextureID, GLuint permGradTextureID)
+	: Shader("../../ProcTerrain/Shaders/terrainGeneration.vert", "../../ProcTerrain/Shaders/terrainGeneration.frag"){
 	
 	//m_locSeed = glGetUniformLocationARB(m_shaderProg,"seed");
 	//m_seed = seed;
@@ -10,6 +11,9 @@ GenerationShader::GenerationShader(float seed, GLuint permTextureID) : Shader(".
 	//m_locPosition = glGetUniformLocationARB(m_shaderProg,"position");
 	m_locPermTexture = glGetUniformLocationARB(m_shaderProg,"permTexture");
 	m_permTextureID = permTextureID;
+
+	m_locPermGradTexture = glGetUniformLocationARB(m_shaderProg,"permGradTexture");
+	m_permGradTextureID = permGradTextureID;
 
 	/*
 	Enable();
@@ -30,6 +34,7 @@ void GenerationShader::Enable(){
 	Shader::Enable();
 
 	glBindTexture(GL_TEXTURE_2D, m_permTextureID);
+	//glBindTexture(GL_TEXTURE_2D, m_permGradTextureID);
 
 	//TODO: bind only once, when the GenerationShader is instanced
 	//there is no need to do it every frame: http://www.gamedev.net/community/forums/mod/journal/journal.asp?jn=530427&reply_id=3450696
