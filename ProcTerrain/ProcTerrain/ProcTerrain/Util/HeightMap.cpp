@@ -34,7 +34,7 @@ void HeightMap::Generate(){
 
 	
 	m_ptrFBO->Enable(m_position);
-	m_ptrTerrainGenerationShader->Enable();
+	m_ptrTerrainGenerationShader->Enable(m_position);
 	//glUniform1fARB(m_ptrTerrainGenerationShader->m_locSeed, m_ptrTerrainGenerationShader->m_seed);
 	
 	

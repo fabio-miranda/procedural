@@ -2,18 +2,18 @@
 
 
 
-GenerationShader::GenerationShader(float seed, GLuint permTextureID, GLuint permGradTextureID)
+GenerationShader::GenerationShader(float seed, GLuint permTextureID)
 	: Shader("../../ProcTerrain/Shaders/terrainGeneration.vert", "../../ProcTerrain/Shaders/terrainGeneration.frag"){
 	
 	//m_locSeed = glGetUniformLocationARB(m_shaderProg,"seed");
 	//m_seed = seed;
 
-	//m_locPosition = glGetUniformLocationARB(m_shaderProg,"position");
+	m_locPosition = glGetUniformLocationARB(m_shaderProg,"position");
 	m_locPermTexture = glGetUniformLocationARB(m_shaderProg,"permTexture");
 	m_permTextureID = permTextureID;
 
-	m_locPermGradTexture = glGetUniformLocationARB(m_shaderProg,"permGradTexture");
-	m_permGradTextureID = permGradTextureID;
+	//m_locPermGradTexture = glGetUniformLocationARB(m_shaderProg,"permGradTexture");
+	//m_permGradTextureID = permGradTextureID;
 
 	/*
 	Enable();
@@ -30,8 +30,10 @@ GenerationShader::~GenerationShader(){
 
 }
 
-void GenerationShader::Enable(){
+void GenerationShader::Enable(Vector3<float> position){
 	Shader::Enable();
+
+	glUniform2f(m_locPosition, position.GetX(), position.GetY());
 
 	glBindTexture(GL_TEXTURE_2D, m_permTextureID);
 	//glBindTexture(GL_TEXTURE_2D, m_permGradTextureID);

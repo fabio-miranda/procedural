@@ -5,72 +5,93 @@
 #define ONEHALF 0.001953125
 
 uniform sampler2D permTexture;
-uniform sampler1D permGradTexture;
-varying vec2 position;
+//varying vec2 position;
+uniform vec2 position;
 
-vec3 fade(vec3 t)
-{
-	return t * t * t * (t * (t * 6 - 15) + 10); // new curve
-//	return t * t * (3 - 2 * t); // old curve
+float fade(float t) {
+  //return t*t*(3.0-2.0*t); // Old fade
+  return t*t*t*(t*(t*6.0-15.0)+10.0); // Improved fade
 }
 
-vec4 perm2d(vec2 p)
-{
-	return texture2D(permTexture, p);
-}
 
-float gradperm(float x, vec3 p)
+float noise(vec3 P)
 {
-	return dot(texture1D(permGradTexture, x).r, p);
-	//return dot(texture2D(permTexture, p.xy).rgb, p);
-}
-
-float noise(vec3 p)
-{  
+  vec3 Pi = ONE*floor(P)+ONEHALF; 
+                                 
+  vec3 Pf = P-floor(P);
   
-  	vec3 P = mod(floor(p), 256.0);	// FIND UNIT CUBE THAT CONTAINS POINT
-  	p -= floor(p);                      // FIND RELATIVE X,Y,Z OF POINT IN CUBE.
-	vec3 f = fade(p);                 // COMPUTE FADE CURVES FOR EACH OF X,Y,Z.
+  // Noise contributions from (x=0, y=0), z=0 and z=1
+  float perm00 = texture2D(permTexture, Pi.xy).a ;
+  vec3  grad000 = texture2D(permTexture, vec2(perm00, Pi.z)).rgb * 4.0 - 1.0;
+  float n000 = dot(grad000, Pf);
+  //vec3  grad001 = texture2D(permTexture, vec2(perm00, Pi.z + ONE)).rgb * 4.0 - 1.0;
+  //float n001 = dot(grad001, Pf - vec3(0.0, 0.0, 1.0));
 
-	P = P / 256.0;
-	//const float one = 1.0 / 256.0;
-	
-    // HASH COORDINATES OF THE 8 CUBE CORNERS
-	vec4 AA = perm2d(P.xy) + P.z;
+  // Noise contributions from (x=0, y=1), z=0 and z=1
+  float perm01 = texture2D(permTexture, Pi.xy + vec2(0.0, ONE)).a ;
+  vec3  grad010 = texture2D(permTexture, vec2(perm01, Pi.z)).rgb * 4.0 - 1.0;
+  float n010 = dot(grad010, Pf - vec3(0.0, 1.0, 0.0));
+  //vec3  grad011 = texture2D(permTexture, vec2(perm01, Pi.z + ONE)).rgb * 4.0 - 1.0;
+  //float n011 = dot(grad011, Pf - vec3(0.0, 1.0, 1.0));
+
+  // Noise contributions from (x=1, y=0), z=0 and z=1
+  float perm10 = texture2D(permTexture, Pi.xy + vec2(ONE, 0.0)).a ;
+  vec3  grad100 = texture2D(permTexture, vec2(perm10, Pi.z)).rgb * 4.0 - 1.0;
+  float n100 = dot(grad100, Pf - vec3(1.0, 0.0, 0.0));
+  //vec3  grad101 = texture2D(permTexture, vec2(perm10, Pi.z + ONE)).rgb * 4.0 - 1.0;
+  //float n101 = dot(grad101, Pf - vec3(1.0, 0.0, 1.0));
+
+  // Noise contributions from (x=1, y=1), z=0 and z=1
+  float perm11 = texture2D(permTexture, Pi.xy + vec2(ONE, ONE)).a ;
+  vec3  grad110 = texture2D(permTexture, vec2(perm11, Pi.z)).rgb * 4.0 - 1.0;
+  float n110 = dot(grad110, Pf - vec3(1.0, 1.0, 0.0));
+  //vec3  grad111 = texture2D(permTexture, vec2(perm11, Pi.z + ONE)).rgb * 4.0 - 1.0;
+  //float n111 = dot(grad111, Pf - vec3(1.0, 1.0, 1.0));
+
+  // Blend contributions along x
+  vec2 n_x = mix(vec2(n000, n010), vec2(n100, n110), fade(Pf.x));
+
+  // Blend contributions along y
+  float n_xy = mix(n_x.x, n_x.y, fade(Pf.y));
+
+  // Blend contributions along z
+  //float n_xyz = mix(n_xy.x, n_xy.y, fade(Pf.z));
  
-	// AND ADD BLENDED RESULTS FROM 8 CORNERS OF CUBE
-  	return mix( mix( mix( gradperm(AA.x, p ),  
-                             gradperm(AA.z, p + vec3(-1, 0, 0) ), f.x),
-                       mix( gradperm(AA.y, p + vec3(0, -1, 0) ),
-                             gradperm(AA.w, p + vec3(-1, -1, 0) ), f.x), f.y),
-                             
-                 mix( mix( gradperm(AA.x+ONE, p + vec3(0, 0, -1) ),
-                             gradperm(AA.z+ONE, p + vec3(-1, 0, -1) ), f.x),
-                       mix( gradperm(AA.y+ONE, p + vec3(0, -1, -1) ),
-                             gradperm(AA.w+ONE, p + vec3(-1, -1, -1) ), f.x), f.y), f.z);
-  
+  return n_xy;
 }
 
 
-float turbulence(int octaves, vec3 P, float lacunarity, float gain)
-{	
-  float sum = 0.0;
-  float scale = 1.0;
-  float totalgain = 1.0;
-  for(int i=0;i<octaves;i++){
-    sum += totalgain*noise(P*scale);
-    scale *= lacunarity;
-    totalgain *= gain;
-  }
-  return abs(sum);
+float ridge(float h, float offset)
+{
+    h = abs(h);
+    h = offset - h;
+    h = h * h;
+    return h;
 }
+
+float ridgedmf(vec3 p, int octaves, float lacunarity, float gain, float offset)
+{
+	float sum = 0;
+	float freq = 1.0, amp = 0.5;
+	float prev = 1.0;
+	for(int i=0; i<octaves; i++) {
+		float n = ridge(noise(p*freq), offset);
+		sum += n*amp*prev;
+		prev = n;
+		freq *= lacunarity;
+		amp *= gain;
+	}
+	return sum;
+}
+
 
 
 
 void main(void){
 	
-	vec3 position = vec3(gl_TexCoord[0].x + position.x, gl_TexCoord[0].y + position.y, 0);
-	float color = turbulence(1, position, 1.0, 1.0);
+	//vec3 position = vec3(gl_TexCoord[0].x + position.x, gl_TexCoord[0].y + position.y, 0);
+	vec3 position = vec3(mix(position.x,position.x+ 128.0, gl_TexCoord[0].x), mix(position.y, position.y+128.0, gl_TexCoord[0].y), 0);
+	float color = ridgedmf(position, 10, 1.0, 0.5, 1.0);
 	gl_FragColor = vec4(color, color, color, 1);
 
 }

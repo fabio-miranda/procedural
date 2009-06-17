@@ -23,11 +23,11 @@ TerrainMng::TerrainMng()
 
 	//Shaders
 	//SetUpShaders();
-	FBO* m_fbo = new FBO(50, 50);
-	m_terrainGenerationShader = new GenerationShader(5132, m_permTextureID, m_permGradTextureID);
+	FBO* m_fbo = new FBO(500, 500);
+	m_terrainGenerationShader = new GenerationShader(5132, m_permTextureID);
 	m_terrainRenderingShader = new RenderingShader();
 
-	SquareNode* node = new SquareNode(m_terrainGenerationShader, m_terrainRenderingShader, m_fbo, Vector3<float>(0,0,0),50.0f, 128, conf_numDivisions);
+	SquareNode* node = new SquareNode(m_terrainGenerationShader, m_terrainRenderingShader, m_fbo, Vector3<float>(0,0,0),500.0f, 128, conf_numDivisions);
 	node->GenerateNeighbours(NULL, conf_numNeighbours, -1);
 	SetCurrentNode(node);
 	
@@ -59,6 +59,8 @@ void TerrainMng::Render(){
 	m_currentNode->Render();
 	//m_terrainRenderingShader->Disable();
 	m_gui->Render();
+
+
 
 }
 
@@ -97,53 +99,39 @@ void TerrainMng::initPermAndGradTextures()
 				  251,34,242,193,238,210,144,12,191,179,162,241, 81,51,145,235,249,14,239,107,
 				  49,192,214, 31,181,199,106,157,184, 84,204,176,115,121,50,45,127, 4,150,254,
 				  138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180};
-  int grad3[48] = {1,1,0,
-					-1,1,0,
-					1,-1,0,
-					-1,-1,0,
-					1,0,1,
-					-1,0,1,
-					1,0,-1,
-					-1,0,-1, 
-					0,1,1,
-					0,-1,1,
-					0,1,-1,
-					0,-1,-1,
-					1,1,0,
-					0,-1,1,
-					-1,1,0,
-					0,-1,-1};
+	int grad3[16][3] = {
+		{1,1,0},
+		{-1,1,0},
+		{1,-1,0},
+		{-1,-1,0},
+		{1,0,1},
+		{-1,0,1},
+		{1,0,-1},
+		{-1,0,-1}, 
+		{0,1,1},
+		{0,-1,1},
+		{0,1,-1},
+		{0,-1,-1},
+		{1,1,0},
+		{0,-1,1},
+		{-1,1,0},
+		{0,-1,-1}
+};
 
-	//Init perm texture
-	pixels = (char*)malloc( 256);
-	for(i = 0; i<64; i++){
-		int offset = i*4;
-		pixels[offset] = perm[offset];
-		pixels[offset+1] = perm[offset+1];
-		pixels[offset+2] = perm[offset+2];
-		pixels[offset+3] = perm[offset+3];
+	pixels = (char*)malloc( 256*256*4 );
+	for(i = 0; i<256; i++)
+	for(j = 0; j<256; j++) {
+		int offset = (i*256+j)*4;
+		char value = perm[(j+perm[i]) & 0xFF];
+		pixels[offset] = grad3[value & 0x0F][0] * 64 + 64;   // Gradient x
+		pixels[offset+1] = grad3[value & 0x0F][1] * 64 + 64; // Gradient y
+		pixels[offset+2] = grad3[value & 0x0F][2] * 64 + 64; // Gradient z
+		pixels[offset+3] = value;                     // Permuted index
 	}
 
 	glGenTextures(1, &m_permTextureID); // Generate a unique texture ID
 	glBindTexture(GL_TEXTURE_2D, m_permTextureID); // Bind the texture to texture unit 0
-	glTexImage2D( GL_TEXTURE_2D, 0, 4, 64, 1, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels );
+	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
-	glBindTexture(GL_TEXTURE_2D, 0);
-
-
-	free(pixels);
-	//Init grad texture
-	pixels = (char*)malloc( 48);
-	for(i = 0; i<48; i++){
-		pixels[i] = grad3[perm[i] % 16];
-	}
-
-	glGenTextures(1, &m_permGradTextureID); // Generate a unique texture ID
-	glBindTexture(GL_TEXTURE_2D, m_permGradTextureID); // Bind the texture to texture unit 0
-	glTexImage2D( GL_TEXTURE_2D, 0, GL_R, 48, 1, 0, GL_R, GL_UNSIGNED_BYTE, pixels );
-	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
-	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
-	glBindTexture(GL_TEXTURE_2D, 0);
-
 }
