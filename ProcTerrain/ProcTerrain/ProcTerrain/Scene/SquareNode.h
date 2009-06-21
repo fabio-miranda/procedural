@@ -22,39 +22,37 @@ class SquareNode{
 	short m_numNeighbours;
 	short m_numDivisions;
 	VBOSquare* m_face;
-	HeightMap* m_heightMap;
-	Vector3<float> m_position;
-	float m_size;
+	
+	
+	float m_geomSize;
 	int m_textureSize;
 	RenderingShader* m_ptrTerrainRenderingShader;
 
-	SquareNode* m_ptrNeighbours[8]; //pointer to the neighbours. It's easy to get a particular node, because it is in an an array:
-								/*
-								Left
-								|   Right
-								|   |
-								2 4 7 -> TOP
-								1 c 6
-								0 3 5 -> BOTTOM
-								*/
+	
 	
 
 
 
 public:
-	SquareNode(GenerationShader*, RenderingShader*, FBO*, Vector3<float>, float, int, short);
+	SquareNode(GenerationShader* generationShader, RenderingShader* renderingShader, Vector3<float> position, Vector3<float> translation, float geomSize, int textureSize, short numDivisions);
 	~ SquareNode();
-	void Render();
-	void GenerateNeighbours(SquareNode*, short, short);
-	void SwitchFBOs();
+	void Render(double);
+	void GenerateNeighbours(SquareNode* m_oldNode, bool generateFromScratch, short gridIndex, Vector3<float> relativePosition, Vector3<float> translation, short numNeighbours);
+	void GenerateFromScratch(SquareNode* oldNode, short index, Vector3<float> position, Vector3<float> translation, short numDivisions, short numNeighbours);
+	void GenerateJustHeightMap(SquareNode* oldNode, short index, Vector3<float> relativePosition, Vector3<float> translation, short numNeighbours);
 	bool IsWithin(Vector3<float>);
-	SquareNode* GetNewStandingNode(Vector3<float>);
+	short GetNewStandingNodePosition(Vector3<float>);
 	//void SetNumNeighbours(short);
 	//void AddNode(int, Node*);
 	//void IncreaseDivisions(int numNewDivisions);
 
 
 	short m_gridIndex; //the index of the node, relative to the m_currentNode
+	Vector3<float> m_relativePosition;
+	Vector3<float> m_globalPosition;
+	
+
+	HeightMap* m_heightMap;
 	
 
 };

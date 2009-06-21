@@ -18,15 +18,15 @@ class SimpleSquare{
 	// 0------1
 	////////////
 private:
-	int m_width;
-	int m_height;
+	float m_geomSize;
+	float m_textureSize;
 	Vector3<float> m_position;
 
 
 
 public:
 
-	SimpleSquare(Vector3<float>, short, short);
+	SimpleSquare(Vector3<float>, float, float);
 	~ SimpleSquare();
 	void Render();
 	

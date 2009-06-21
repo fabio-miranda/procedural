@@ -14,6 +14,7 @@ TerrainMng::TerrainMng()
 	//m_sceneGraph = new Node(Vector3<float>(0, 0, 0));
 	
 	m_gui = new GUI();
+	m_translation = Vector3<float>(0,0,0);
 	//m_fbo = new FBO();
 
 	//Permutation noise
@@ -23,13 +24,16 @@ TerrainMng::TerrainMng()
 
 	//Shaders
 	//SetUpShaders();
-	FBO* m_fbo = new FBO(500, 500);
 	m_terrainGenerationShader = new GenerationShader(5132, m_permTextureID);
 	m_terrainRenderingShader = new RenderingShader();
 
-	SquareNode* node = new SquareNode(m_terrainGenerationShader, m_terrainRenderingShader, m_fbo, Vector3<float>(0,0,0),500.0f, 128, conf_numDivisions);
-	node->GenerateNeighbours(NULL, conf_numNeighbours, -1);
+	SquareNode* node = new SquareNode(m_terrainGenerationShader, m_terrainRenderingShader, Vector3<float>(0,0,0), Vector3<float>(0,0,0), 5.0f, 128, conf_numDivisions);
+	node->GenerateNeighbours(NULL, true, -1, Vector3<float>(0,0,0), m_translation, conf_numNeighbours);
 	SetCurrentNode(node);
+
+
+	//Light
+	initLight();
 	
 
 }
@@ -38,25 +42,40 @@ TerrainMng::TerrainMng()
 
 void TerrainMng::Update(Vector3<float> currentPosition){
 	
+	
+
 	//See if the camera is on another node. If so, we have to generate its neighbours
 	
 	//TODO: mix IsWithin with GetNewStandingNode
 	//TODO: remove conf_numNeighbours
 	if(conf_numNeighbours > 0 && m_currentNode->IsWithin(currentPosition) == false){
 
+		short index = m_currentNode->GetNewStandingNodePosition(currentPosition);
+		m_translation.Add(m_currentNode->m_ptrNeighbours[index]->m_relativePosition);
+		//SetCurrentNode(m_currentNode);
+		
+		
+		m_currentNode->GenerateNeighbours(m_currentNode, false, index, m_currentNode->m_relativePosition, m_translation, conf_numNeighbours);
 
-		SquareNode* oldNode = m_currentNode;
-		m_currentNode = m_currentNode->GetNewStandingNode(currentPosition);
-		SetCurrentNode(m_currentNode);
-		m_currentNode->GenerateNeighbours(oldNode, conf_numNeighbours, -1);
+
+		m_currentNode->m_globalPosition = Vector3<float>(m_translation.GetX(), m_translation.GetY(), 0);
+
 	}
 }
 
-void TerrainMng::Render(){
+void TerrainMng::Render(double elapsedTime){
+	
+	glTranslatef(m_translation.GetX(),m_translation.GetY(), 0);
 
 	//m_sceneGraph->Render();
 	//m_terrainRenderingShader->Enable();
-	m_currentNode->Render();
+	
+	//Enable light
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	m_currentNode->Render(elapsedTime);
+	glDisable(GL_LIGHTING);
+
 	//m_terrainRenderingShader->Disable();
 	m_gui->Render();
 
@@ -74,6 +93,35 @@ void TerrainMng::AddNode(Node* node){
 void TerrainMng::SetCurrentNode(SquareNode* node){
 	m_currentNode = node;
 	
+}
+
+void TerrainMng::initLight(){
+	
+	GLfloat LightPosition[] = { 0.0, 0.0, 5.0, 1.0};
+
+	GLfloat DiffuseLight[] = {1.0, 0.0, 0.0};
+	GLfloat AmbientLight[] = {0.2, 0.2, 0.2};
+	GLfloat SpecularLight[] = {1.0, 1.0, 1.0};
+
+	glLightfv (GL_LIGHT0, GL_SPECULAR, SpecularLight);
+	glLightfv (GL_LIGHT0, GL_DIFFUSE, DiffuseLight);
+	glLightfv (GL_LIGHT0, GL_AMBIENT, AmbientLight);
+	glLightfv(GL_LIGHT0, GL_POSITION, LightPosition);
+
+	GLfloat mShininess[] = {8};
+
+	GLfloat DiffuseMaterial[] = {1.0, 0.0, 0.0};
+	GLfloat AmbientMaterial[] = {0.2, 0.2, 0.2};
+	GLfloat SpecularMaterial[] = {1.0, 1.0, 1.0};
+
+	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, DiffuseMaterial);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, AmbientMaterial);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, SpecularMaterial);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mShininess); 
+
+
+	
+
 }
 
 //(http://www.sci.utah.edu/~leenak/IndStudy_reportfall/MarbleCode.txt)

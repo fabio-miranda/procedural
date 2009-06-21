@@ -375,11 +375,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\Random.h"
+				RelativePath=".\Util\Random.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Util\Random.h"
+				RelativePath=".\ProcTerrain\Util\Random.h"
 				>
 			</File>
 			<File
@@ -463,6 +463,14 @@
 		</File>
 		<File
 			RelativePath=".\ProcTerrain\Shaders\terrainRendering.vert"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\terrainRendering_bkp.frag"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\terrainRendering_bkp.vert"
 			>
 		</File>
 		<File

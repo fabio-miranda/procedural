@@ -3,5 +3,5 @@
 
 bool conf_wire_frame = false;
 short conf_numNeighbours = 2;
-short conf_numDivisions = 50;
-short conf_lodFactor = 1;
+short conf_numDivisions = 80;
+short conf_lodFactor = 2;

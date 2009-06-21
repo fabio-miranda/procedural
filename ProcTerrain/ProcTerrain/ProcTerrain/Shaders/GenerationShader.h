@@ -11,11 +11,11 @@ class GenerationShader : public Shader{
 public:
 	GenerationShader(float, GLuint);
 	~GenerationShader();
-	void Enable(Vector3<float> position);
+	void Enable();
 	void Disable();
 
 	//GLuint m_locSeed;
-	GLuint m_locPosition;
+	//GLuint m_locPosition;
 	GLuint m_locPermTexture;
 	GLuint m_permTextureID;
 	GLuint m_locPermGradTexture;

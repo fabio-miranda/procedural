@@ -5,7 +5,7 @@ WindowMng::WindowMng(int width, int height){
 	m_width = width;
 	m_height = height;
 
-	m_camera = new Camera(Vector3<float>(25, 25, 200), Vector3<float>(0,0,0));
+	m_camera = new Camera(Vector3<float>(2.5, 2.5, 3), Vector3<float>(0,0,0));
 
 }
 
@@ -46,7 +46,7 @@ void WindowMng::GLInit(){
     gluPerspective(                   // Set perspective view
         90.0,                         // Field of view = 65 degrees
         (double)m_width/(double)m_height, // Window aspect (assumes square pixels)
-        1.0,                          // Near Z clipping plane
+        0.01,                          // Near Z clipping plane
         10000.0                         // Far Z clippling plane
     );
 
@@ -69,13 +69,14 @@ void WindowMng::GLConfig(){
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 	
-
+	
 	glMatrixMode( GL_MODELVIEW );
 	glLoadIdentity();
 	glRotatef(m_camera->m_rotation.GetX(),1.0,0.0,0.0); //rotate our camera on teh x-axis (left and right)
 	glRotatef(m_camera->m_rotation.GetY(),0.0,1.0,0.0); //rotate our camera on the y-axis (up and down)
 	glRotatef(m_camera->m_rotation.GetZ(),0.0,0.0,1.0);
 	glTranslated(-m_camera->m_pos.GetX(),-m_camera->m_pos.GetY(),-m_camera->m_pos.GetZ()); //translate the screen to the position of our camera
+
 
 }
 

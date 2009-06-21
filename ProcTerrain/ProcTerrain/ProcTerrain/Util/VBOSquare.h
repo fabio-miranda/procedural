@@ -5,6 +5,7 @@
 #include "Vertex.h"
 #include "Vector3.h"
 #include "VBO.h"
+#include <math.h>
 #include <list>
 
 

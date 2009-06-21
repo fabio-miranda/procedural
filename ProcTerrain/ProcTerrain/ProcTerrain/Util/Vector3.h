@@ -33,6 +33,20 @@ public:
 
 	}
 
+	void Add(const Vector3<T> &vec){
+		this->AddX(vec.GetX());
+		this->AddY(vec.GetY());
+		this->AddZ(vec.GetZ());
+
+	}
+
+	void Sub(const Vector3<T> &vec){
+		this->AddX(-vec.GetX());
+		this->AddY(-vec.GetY());
+		this->AddZ(-vec.GetZ());
+
+	}
+
 };
 
 

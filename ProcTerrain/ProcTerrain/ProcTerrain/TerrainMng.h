@@ -20,7 +20,7 @@ class TerrainMng{
 public:
 	TerrainMng();
 	void Update(Vector3<float>);
-	void Render();
+	void Render(double);
 	void AddNode(Node*);
 	void SetCurrentNode(SquareNode*);
 
@@ -34,11 +34,25 @@ private:
 
 	Node* m_sceneGraph;
 	SquareNode* m_currentNode;
+
 	void Config();
 	void initPermAndGradTextures();
+	void initLight();
 
 	GLuint m_permTextureID;
 	GLuint m_permGradTextureID;
+	Vector3<float> m_translation;
+
+	SquareNode* m_ptrNodes; //pointer to a matriz of nodes. It's easy to get a particular node, because it is in an an array:
+								/*
+								Left
+								|   Right
+								|   |
+								2 4 7 -> TOP
+								1 c 6
+								0 3 5 -> BOTTOM
+								*/
+
 };
 
 #endif

@@ -13,7 +13,8 @@ class HeightMap{
 	
 	
 	Vector3<float> m_position;
-	float m_size;
+	float m_geomSize;
+	float m_textureSize;
 	
 	short m_currentIteration;
 	short m_maxIterations;
@@ -22,12 +23,13 @@ class HeightMap{
 
 
 public:
-	HeightMap(GenerationShader*, FBO*, Vector3<float>, float, short);
+	HeightMap(GenerationShader*, Vector3<float>, float, short, short);
 	~ HeightMap();
 	void Generate();
 
 	GenerationShader *m_ptrTerrainGenerationShader;
 	FBO *m_ptrFBO;
+	double m_time;
 
 };
 

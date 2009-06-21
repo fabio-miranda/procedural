@@ -20,8 +20,14 @@ int main( int argc, char **argv ){
 
 
 	
-
+	double currentTime = 0;
+	double elapsedTime = 0;
+	double oldTime = 0;
 	while(window.isRunning()){
+		currentTime = glfwGetTime();
+		elapsedTime = currentTime - oldTime;
+		oldTime = currentTime;
+
 		window.GLConfig();
 		window.UpdateKeyboard();
 		window.UpdateMouse();
@@ -29,7 +35,7 @@ int main( int argc, char **argv ){
 		
 		//===The important stuff
 		terrain->Update(window.GetCameraPosition());
-		terrain->Render();
+		terrain->Render(elapsedTime);
 		//===
 
 		glfwSwapBuffers();

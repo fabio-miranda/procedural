@@ -8,7 +8,7 @@ GenerationShader::GenerationShader(float seed, GLuint permTextureID)
 	//m_locSeed = glGetUniformLocationARB(m_shaderProg,"seed");
 	//m_seed = seed;
 
-	m_locPosition = glGetUniformLocationARB(m_shaderProg,"position");
+	//m_locPosition = glGetUniformLocationARB(m_shaderProg,"position");
 	m_locPermTexture = glGetUniformLocationARB(m_shaderProg,"permTexture");
 	m_permTextureID = permTextureID;
 
@@ -30,10 +30,10 @@ GenerationShader::~GenerationShader(){
 
 }
 
-void GenerationShader::Enable(Vector3<float> position){
+void GenerationShader::Enable(){
 	Shader::Enable();
 
-	glUniform2f(m_locPosition, position.GetX(), position.GetY());
+	//glUniform2f(m_locPosition, position.GetX(), position.GetY());
 
 	glBindTexture(GL_TEXTURE_2D, m_permTextureID);
 	//glBindTexture(GL_TEXTURE_2D, m_permGradTextureID);

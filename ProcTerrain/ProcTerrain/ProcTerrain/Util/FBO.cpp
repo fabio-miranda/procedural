@@ -18,15 +18,15 @@ FBO::FBO(short width, short height){
 	glGenTextures(1, &m_textureId);
 	glBindTexture(GL_TEXTURE_2D, m_textureId);
 	//TODO: GL_LINEAR ?
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE); // automatic mipmap
+	//glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE); // automatic mipmap
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_width, m_height, 0,
 				 GL_RGBA, GL_UNSIGNED_BYTE, 0);
 	//glEnable(GL_TEXTURE_2D);
-	glGenerateMipmap(GL_TEXTURE_2D);
+	//glGenerateMipmap(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	//Generate render buffer
@@ -110,7 +110,7 @@ void FBO::Enable(Vector3<float> position){
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, m_fbo);
 	//glBindTexture(GL_TEXTURE_2D, m_textureId);
 
-	glClearColor (0.1, 0.1, 0.1, 1.0f);
+	glClearColor (0.1f, 0.1f, 0.1f, 1.0f);
 	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	//glPopAttrib();

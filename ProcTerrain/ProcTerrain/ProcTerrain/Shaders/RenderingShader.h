@@ -11,6 +11,7 @@ public:
 	RenderingShader();
 	~RenderingShader();
 	GLuint m_locTexture;
+	GLuint m_locTime;
 	
 
 };
