@@ -21,8 +21,6 @@ public:
 	TerrainMng();
 	void Update(Vector3<float>);
 	void Render(double);
-	void AddNode(Node*);
-	void SetCurrentNode(SquareNode*);
 
 
 	GUI* m_gui;
@@ -38,12 +36,15 @@ private:
 	void Config();
 	void initPermAndGradTextures();
 	void initLight();
+	void initNodes();
+	void GenerateNeighbours(short oldIndex, short newIndex);
 
 	GLuint m_permTextureID;
 	GLuint m_permGradTextureID;
 	Vector3<float> m_translation;
+	int m_size;
 
-	SquareNode* m_ptrNodes; //pointer to a matriz of nodes. It's easy to get a particular node, because it is in an an array:
+	SquareNode** m_ptrNodes; //pointer to a matriz of nodes. It's easy to get a particular node, because it is in an an array:
 								/*
 								Left
 								|   Right

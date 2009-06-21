@@ -15,6 +15,7 @@ TerrainMng::TerrainMng()
 	
 	m_gui = new GUI();
 	m_translation = Vector3<float>(0,0,0);
+	m_size = 0;
 	//m_fbo = new FBO();
 
 	//Permutation noise
@@ -27,17 +28,46 @@ TerrainMng::TerrainMng()
 	m_terrainGenerationShader = new GenerationShader(5132, m_permTextureID);
 	m_terrainRenderingShader = new RenderingShader();
 
-	SquareNode* node = new SquareNode(m_terrainGenerationShader, m_terrainRenderingShader, Vector3<float>(0,0,0), Vector3<float>(0,0,0), 5.0f, 128, conf_numDivisions);
-	node->GenerateNeighbours(NULL, true, -1, Vector3<float>(0,0,0), m_translation, conf_numNeighbours);
-	SetCurrentNode(node);
+	
 
 
 	//Light
 	initLight();
+
+	//Nodes
+	initNodes();
 	
 
 }
 
+void TerrainMng::initNodes(){
+	
+	//TODO: make sure this allocation is working
+	m_size = (2*conf_numNeighbours+1);
+	m_ptrNodes = (SquareNode**) malloc(m_size*m_size * sizeof(void *));
+
+	float pos_x = -conf_geomSize*conf_numNeighbours;
+	float pos_y = -conf_geomSize*conf_numNeighbours;
+	int cont = 0;
+	for(int i=0; i<m_size; i++){
+		pos_y = -conf_geomSize*conf_numNeighbours;
+		for(int j=0; j<m_size; j++){
+			
+			m_ptrNodes[i*m_size+j] = new SquareNode(cont, m_terrainGenerationShader, m_terrainRenderingShader, Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), conf_geomSize, conf_textureSize, conf_numDivisions);
+
+			
+			pos_y+=conf_geomSize;
+			cont++;
+
+		}
+		pos_x+=conf_geomSize;
+	}
+
+	m_currentNode = m_ptrNodes[(m_size*m_size - 1)/2];
+
+	
+
+}
 
 
 void TerrainMng::Update(Vector3<float> currentPosition){
@@ -49,17 +79,14 @@ void TerrainMng::Update(Vector3<float> currentPosition){
 	//TODO: mix IsWithin with GetNewStandingNode
 	//TODO: remove conf_numNeighbours
 	if(conf_numNeighbours > 0 && m_currentNode->IsWithin(currentPosition) == false){
-
-		short index = m_currentNode->GetNewStandingNodePosition(currentPosition);
-		m_translation.Add(m_currentNode->m_ptrNeighbours[index]->m_relativePosition);
-		//SetCurrentNode(m_currentNode);
 		
-		
-		m_currentNode->GenerateNeighbours(m_currentNode, false, index, m_currentNode->m_relativePosition, m_translation, conf_numNeighbours);
 
+		short oldIndex = m_currentNode->m_gridIndex;
+		short newIndex = m_currentNode->GetNewStandingNodePosition(currentPosition, m_size);
 
+		m_translation.Add(m_ptrNodes[newIndex]->m_relativePosition);
 		m_currentNode->m_globalPosition = Vector3<float>(m_translation.GetX(), m_translation.GetY(), 0);
-
+		GenerateNeighbours(oldIndex, newIndex);
 	}
 }
 
@@ -73,7 +100,13 @@ void TerrainMng::Render(double elapsedTime){
 	//Enable light
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
-	m_currentNode->Render(elapsedTime);
+	//m_currentNode->Render(elapsedTime);
+	for(int i=0; i<m_size; i++){
+		for(int j=0; j<m_size; j++){
+			m_ptrNodes[i*m_size+j]->Render(elapsedTime);
+		}
+	}
+
 	glDisable(GL_LIGHTING);
 
 	//m_terrainRenderingShader->Disable();
@@ -81,18 +114,6 @@ void TerrainMng::Render(double elapsedTime){
 
 
 
-}
-
-/*
-void TerrainMng::AddNode(Node* node){
-	m_sceneGraph->AddNode(node);
-
-}
-*/
-
-void TerrainMng::SetCurrentNode(SquareNode* node){
-	m_currentNode = node;
-	
 }
 
 void TerrainMng::initLight(){
@@ -120,8 +141,128 @@ void TerrainMng::initLight(){
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mShininess); 
 
 
-	
+}
 
+void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
+
+	short difference = newIndex - oldIndex;
+	//Moving up
+	if(difference == 1){
+		//Delete lower row
+		for(int i=0; i<m_size*m_size; i+=m_size){
+			delete m_ptrNodes[i]->m_heightMap;
+			
+		}
+
+		//Move intermidiate rows one line down
+		for(int i=0; i<m_size-1;i++){
+			for(int cont=0; cont<m_size; cont++){
+				int j = i + cont*m_size;;
+				m_ptrNodes[j]->m_heightMap = m_ptrNodes[j+1]->m_heightMap;
+			}
+			
+		}
+		
+
+		//Create upper row
+		Vector3<float> position;
+		float pos_x = -conf_geomSize*conf_numNeighbours;
+		for(int i=m_size-1; i<m_size*m_size; i+=m_size){
+			position = Vector3<float>(pos_x, m_currentNode->m_globalPosition.GetY() + conf_geomSize*conf_numNeighbours, 0);
+			m_ptrNodes[i]->m_heightMap = new HeightMap(m_terrainGenerationShader, position, conf_geomSize, conf_textureSize, 1);
+
+			pos_x+=conf_geomSize;
+
+		}
+
+	}
+	//Moving down
+	else if(difference == -1){
+		//Delete upper row
+		for(int i=m_size-1; i<m_size*m_size; i+=m_size){
+			delete m_ptrNodes[i]->m_heightMap;
+			
+		}
+
+		//Move intermidiate rows one line up
+		for(int i=m_size-1; i>0;i--){
+			for(int cont=0; cont<m_size; cont++){
+				int j = i + cont*m_size;;
+				m_ptrNodes[j]->m_heightMap = m_ptrNodes[j-1]->m_heightMap;
+			}
+			
+		}
+		
+
+		//Create lower row
+		Vector3<float> position;
+		float pos_x = -conf_geomSize*conf_numNeighbours;
+		for(int i=0; i<m_size*m_size; i+=m_size){
+			position = Vector3<float>(pos_x, m_currentNode->m_globalPosition.GetY() - conf_geomSize*conf_numNeighbours, 0);
+			m_ptrNodes[i]->m_heightMap = new HeightMap(m_terrainGenerationShader, position, conf_geomSize, conf_textureSize, 1);
+
+			pos_x+=conf_geomSize;
+
+		}
+
+	}
+	//Moving right
+	else if(difference == m_size){
+		//Delete left colum
+		for(int j=0; j<m_size; j++){
+			delete m_ptrNodes[j]->m_heightMap;
+			
+		}
+
+		//Move intermidiate colums one colum right
+		for(int j=0; j<m_size;j++){
+			for(int cont=0; cont<m_size-1; cont++){
+				int i = j + cont*m_size;
+				m_ptrNodes[i]->m_heightMap = m_ptrNodes[i+m_size]->m_heightMap;
+			}	
+		}
+		
+
+		//Create right colum
+		Vector3<float> position;
+		float pos_y = -conf_geomSize*conf_numNeighbours;
+		for(int i=m_size*(m_size-1); i<m_size*m_size; i++){
+			position = Vector3<float>(m_currentNode->m_globalPosition.GetX() - conf_geomSize*conf_numNeighbours, pos_y, 0);
+			m_ptrNodes[i]->m_heightMap = new HeightMap(m_terrainGenerationShader, position, conf_geomSize, conf_textureSize, 1);
+
+			pos_y+=conf_geomSize;
+
+		}
+	}
+	//Moving left
+	else if(difference == -m_size){
+		//Delete right colum
+		for(int j=(m_size-1)*m_size; j<m_size*m_size; j++){
+			delete m_ptrNodes[j]->m_heightMap;
+			
+		}
+
+		//Move intermidiate colums one colum left
+		for(int j=m_size*(m_size-1); j>0;j-=m_size){
+			for(int cont=0; cont<m_size; cont++){
+				int i = j + cont;
+				m_ptrNodes[i]->m_heightMap = m_ptrNodes[i-m_size]->m_heightMap;
+			}	
+		}
+		
+
+		//Create left colum
+		Vector3<float> position;
+		float pos_y = -conf_geomSize*conf_numNeighbours;
+		for(int i=0; i<m_size; i++){
+			position = Vector3<float>(m_currentNode->m_globalPosition.GetX() - conf_geomSize*conf_numNeighbours, pos_y, 0);
+			m_ptrNodes[i]->m_heightMap = new HeightMap(m_terrainGenerationShader, position, conf_geomSize, conf_textureSize, 1);
+
+			pos_y+=conf_geomSize;
+
+		}
+
+	}
 }
 
 //(http://www.sci.utah.edu/~leenak/IndStudy_reportfall/MarbleCode.txt)

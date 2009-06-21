@@ -1,7 +1,7 @@
 #include "SquareNode.h"
 
 
-SquareNode::SquareNode(GenerationShader* generationShader, RenderingShader* renderingShader, Vector3<float> relativePosition, Vector3<float> translation, float geomSize, int textureSize, short numDivisions){
+SquareNode::SquareNode(int index, GenerationShader* generationShader, RenderingShader* renderingShader, Vector3<float> relativePosition, Vector3<float> translation, float geomSize, int textureSize, short numDivisions){
 	
 
 	
@@ -15,11 +15,13 @@ SquareNode::SquareNode(GenerationShader* generationShader, RenderingShader* rend
 	m_numNeighbours = 0;
 	m_textureSize = textureSize;
 	
-	m_gridIndex = -1; //center of the grid (currentNode)
+	m_gridIndex = index; //center of the grid (currentNode)
 
+	/*
 	for(int i=0; i<8; i++){
 		m_ptrNeighbours[i] = NULL;
 	}
+	*/
 	
 	//translation.Add(relativePosition);
 	m_heightMap = new HeightMap(generationShader, m_globalPosition, geomSize, textureSize, 1);
@@ -48,12 +50,12 @@ void SquareNode::Render(double elapsedTime){
 	//Call the parent
 	//Node::Render();
 	//TODO: make sure they render only once
-	
+	/*
 	for(int i=0; i<8; i++){
 		if(m_ptrNeighbours[i] != NULL)
 			m_ptrNeighbours[i]->Render(elapsedTime);
 	}
-	
+	*/
 	
 	
 	
@@ -95,40 +97,40 @@ Left
 1 c 6
 0 3 5 -> BOTTOM
 */
-short SquareNode::GetNewStandingNodePosition(Vector3<float> position){
+short SquareNode::GetNewStandingNodePosition(Vector3<float> position, short gridSize){
 	
 	//Right
 	if(position.GetX() >= m_globalPosition.GetX() + m_geomSize){
 		
 		//return m_ptrNeighbours[6]->m_position;
-		return 6;
+		return m_gridIndex+gridSize;
 	}
 	
 	//Top
 	if(position.GetY() >= m_globalPosition.GetY() + m_geomSize){
 		
 		//return m_ptrNeighbours[4]->m_position;
-		return 4;
+		return m_gridIndex+1;
 	}
 
 	//Bottom
 	if(position.GetY() <= m_globalPosition.GetY()){
 		
 		//return m_ptrNeighbours[3]->m_position;
-		return 3;
+		return m_gridIndex-1;
 	}
 
 	//Left
 	if(position.GetX() <= m_globalPosition.GetX()){
 		
 		//return m_ptrNeighbours[1]->m_position;
-		return 1;
+		return m_gridIndex-gridSize;
 	}
 
 	return NULL;
 }
 
-
+/*
 void SquareNode::GenerateFromScratch(SquareNode* oldNode, short index, Vector3<float> relativePosition, Vector3<float> translation, short numDivisions, short numNeighbours){
 
 
@@ -302,3 +304,4 @@ void SquareNode::GenerateNeighbours(SquareNode* oldNode, bool generateFromScratc
 
 	}
 }
+*/

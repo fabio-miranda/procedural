@@ -34,14 +34,14 @@ class SquareNode{
 
 
 public:
-	SquareNode(GenerationShader* generationShader, RenderingShader* renderingShader, Vector3<float> position, Vector3<float> translation, float geomSize, int textureSize, short numDivisions);
+	SquareNode(int index, GenerationShader* generationShader, RenderingShader* renderingShader, Vector3<float> position, Vector3<float> translation, float geomSize, int textureSize, short numDivisions);
 	~ SquareNode();
 	void Render(double);
 	void GenerateNeighbours(SquareNode* m_oldNode, bool generateFromScratch, short gridIndex, Vector3<float> relativePosition, Vector3<float> translation, short numNeighbours);
 	void GenerateFromScratch(SquareNode* oldNode, short index, Vector3<float> position, Vector3<float> translation, short numDivisions, short numNeighbours);
 	void GenerateJustHeightMap(SquareNode* oldNode, short index, Vector3<float> relativePosition, Vector3<float> translation, short numNeighbours);
 	bool IsWithin(Vector3<float>);
-	short GetNewStandingNodePosition(Vector3<float>);
+	short GetNewStandingNodePosition(Vector3<float>, short);
 	//void SetNumNeighbours(short);
 	//void AddNode(int, Node*);
 	//void IncreaseDivisions(int numNewDivisions);
