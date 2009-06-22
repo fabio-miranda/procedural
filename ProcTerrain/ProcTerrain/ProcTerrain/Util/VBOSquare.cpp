@@ -29,7 +29,7 @@ VBOSquare::VBOSquare(Vector3<float> position, float size, int numDivisions) {
 	//float sizeby2 = m_size/2.0f;
 	float divisionSize = m_size/m_numDivisions;
 	
-	//Consider only the first decimal
+	//Consider only the first decimals
 	divisionSize = floor(divisionSize * 1000.0f) / 1000.0f;
 
 	int cont = 0;

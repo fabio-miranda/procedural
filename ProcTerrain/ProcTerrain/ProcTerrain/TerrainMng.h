@@ -4,12 +4,12 @@
 #include "GL/glew.h"
 #include "Util/Random.h"
 #include "Util/Vector3.h"
-#include "Scene/Node.h"
 #include "Scene/SquareNode.h"
 #include "Util/Gui.h"
 #include "Shaders/GenerationShader.h"
 #include "Shaders/RenderingShader.h"
 #include "Util/FBO.h"
+#include "Defines.h"
 
 
 
@@ -30,7 +30,6 @@ public:
 
 private:
 
-	Node* m_sceneGraph;
 	SquareNode* m_currentNode;
 
 	void Config();

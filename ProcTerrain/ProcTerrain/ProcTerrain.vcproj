@@ -293,7 +293,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\HeightMap.cpp"
+				RelativePath=".\ProcTerrain\HeightMap\HeightMap.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcTerrain\HeightMap\HeightMapCPU.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcTerrain\HeightMap\HeightMapGPU.cpp"
 				>
 			</File>
 			<File
@@ -359,6 +367,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcTerrain\Defines.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ProcTerrain\Util\FBO.h"
 				>
 			</File>
@@ -371,7 +383,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\HeightMap.h"
+				RelativePath=".\ProcTerrain\HeightMap\HeightMap.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcTerrain\HeightMap\HeightMapCPU.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ProcTerrain\HeightMap\HeightMapGPU.h"
 				>
 			</File>
 			<File
