@@ -1,0 +1,16 @@
+\chapter{METODOLOGIA}
+
+\section{Tipo de Pesquisa}
+O trabalho proposto é uma pesquisa de natureza aplicada, pois busca aplicar um conhecimento teórico (técnicas de geração procedural) e obter um resultado prático na forma de um arcabouço e tem um  objetivo exploratório. A pesquisa se dá em laboratório, pois se trata de um ambiente controlado.
+
+
+\section{Procedimentos metodológicos}
+
+O primeiro passo do trabalho foi a escolha de uma \emph{Application Programming Interface} (\sigla{API}{Application Programming Interface}). Por se tratar de uma plataforma aberta e já estudada em matérias durante o curso, o \emph{OpenGL} foi escolhido, juntamente com a linguagem C++. Além disso, essa API oferece algumas extensões que permitem maximizar a performance do sistema, como o a estrutura \emph{Vertex Buffer Object} (\sigla{VBO}{Vertex Buffer Object}), que armazena os vértices do modelo 3D diretamente na memória da \emph{Graphics Processing Unit} (\sigla{GPU}{Graphics Processing Unit}), diminuindo o número de chamadas para a renderização. O \emph{OpenGL} também possui algumas bibliotecas, como o \emph{GLFW} \cite{glfw}, para tratamento de eventos do mouse e teclado, o \emph{AntTweakBar} \cite{anttweakbar}, para a construção de interfaces gráficas e o \emph{DevIL} \cite{devil} para a leitura de imagens.
+
+O desenvolvimento do arcabouço seguiu técnicas de \emph{Programação Orientada a Objetos} (\sigla{POO}{Programação Orientada a Objetos}), sempre com a intenção de deixar o sistema o mais flexível possível. Um estudo do funcionamento de \emph{frameworks} também foi necessário, envolvendo questões como \emph{hot spots}, \emph{frozen spots}, caixa-preta, caixa-branca \cite{framework}.
+
+Foi pesquisado também diversas técnicas procedurais envolvidas na geração de terrenos, como, por exemplo, ruído de Perlin, algoritmo fractal plasma, bem como algumas sistemas que oferecem soluções ligadas à geração procedural, como o \emph{CityEngine} \cite{citygen} e o \emph{MojoWorld} \cite{mojoworld}.
+
+Por fim, foi construído um arcabouço que servirá como base para a implementação de algoritmos de geração procedural de terrenos, e uma \emph{interface} que permita uma maior interação com o usuário. Além disso, também foi construído um grafo de cena para a organização dos terrenos. Os detalhes serão apresentados na próxima seção.
+

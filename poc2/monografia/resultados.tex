@@ -1,0 +1,126 @@
+\chapter{RESULTADOS E DISCUSSÃO}
+
+Os conhecimentos adquiridos ao longo desse trabalho permitiram a criação de um arcabouço capaz de gerar terrenos procedurais e também de levar em consideração algumas entradas do usuário. Na Seção \ref{arcabouco} será apresentado tal arcabouço. Na Seção \ref{grafocena} será mostrado o grafo de cena implementado e, finalmente, na Seção \ref{terrenosgerados} alguns exemplos de terrenos gerados proceduralmente com o arcabouço.
+
+
+
+\section{Arcabouço}
+\label{arcabouco}
+
+%O arcabouço implementado aqui teve como um dos principais objetivos a possibilidade de futuras expansões. A Figura \ref{fig:node} mostra uma hierárquia de classes implementadas, e que podem ser , como \emph{PerlinNoise} e \emph{Plasma} (para geração procedural através dos algoritmos de ruído de Perlin e Plasma), e também a \emph{FileHeightmap}, que é a responsável por ler mapas de altura de arquivos de imagem. Quaisquer novos algoritmos de geração procedural de terrenos devem ser filhos da classe \emph{Terrain}, que já encapsula uma série de funções pertinentes à visualização de terrenos, como a cópia dos vértices para uma estrutura VBO.
+
+Os módulos presentes no arcabouço têm como objeto principal possibilitar e facilitar a implementação de outras técnicas de geração procedural de terrenos, sem a necessidade de uma reorganização do arcabouço. A Figura \ref{fig:arcabouco} mostra um diagrama \emph{Unified Modeling Language} (\sigla{UML}{Unified Modeling Language}) com a organização das principais classes, e uma explicação de cada módulo pode ser vista em seguida.
+
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{img/arcabouco.png}}
+	\caption{\label{fig:arcabouco} Diagrama UML do arcabouço.}
+\end{figure}
+
+\begin{itemize}
+	\item {\bf Framework}: responsável por chamar as rotinas de renderização e também verifica os eventos de entrada do mouse e do teclado.
+	\item {\bf Camera}: responsável pela movimentação no cenário.
+	\item {\bf SceneGraph}: grafo de cena implementado (e que será detalhado na Seção \ref{grafocena}).
+	\item {\bf Node}: classe base para todos os nodos que serão inseridos no grafo de cena.
+	\item {\bf Mesh}: responsável por armazenar os vértices da malha do terreno.
+\end{itemize}
+
+
+A câmera implementada permite que o usuário navegue pelo terreno com o controle do mouse e do teclado, padrão em programas de modelagem 3D, como \emph{Maya} e \emph{3dMax}.
+
+\section{Grafo de cena implementado}
+\label{grafocena}
+
+Para a visualização dos terrenos, foi criada uma estrutura de grafo de cena, onde cada nodo representa um terreno gerado (chamado de \emph{patch}). Os \emph{patchs} são pequenas partes da geometria do terreno; juntos eles formam o terreno como um todo. A Figura \ref{fig:patch} mostra isso:
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.4\linewidth]{img/caps/patch.png}}
+	\caption{\label{fig:patch} Diversos \emph{patchs} formando um terreno maior.}
+\end{figure}
+
+A estrutura leva em consideração a posição atual da câmera para gerar os terrenos. A Figura \ref{fig:grafo2} considera que a câmera está situada acima do {\bf Terreno 0}, e assim ele possui oito nodos filhos ao seu redor.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.4\linewidth]{img/grafo_cena2.png}}
+	\caption{\label{fig:grafo2} Grafo de cena e terrenos, com a câmera no Terreno 0.}
+\end{figure}
+
+Na Figura \ref{fig:grafo3}, a câmera passa a estar em cima do {\bf Terreno 5}. Logo, serão gerados os terrenos 8, 9 e 10. Os terrenos 1, 4 e 6 (em branco) poderão ser excluídos, enquanto que os terrenos 0, 2, 3, 7 e 8 passarão a apontar para um novo nodo pai: o nodo que representa o {\bf Terreno 5}.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.4\linewidth]{img/grafo_cena3.png}}
+	\caption{\label{fig:grafo3} Grafo de cena e terrenos, com a câmera no Terreno 5.}
+\end{figure}
+
+Outro aspecto levado em consideração, foi o número de terrenos gerados e o número de terrenos que estão sendo visualizados. Na Figura \ref{fig:grafo1}, os terrenos em branco foram gerados, mas não serão renderizados na tela, para economizar recursos da placa de vídeo. O número e as distâncias entre os terrenos gerados e visualizados são parâmetros do arcabouço.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.6\linewidth]{img/grafo_cena1.png}}
+	\caption{\label{fig:grafo1} Visualização e geração dos terrenos.}
+\end{figure}
+
+\newpage
+\section{Terrenos gerados}
+\label{terrenosgerados}
+
+A Figura \ref{fig:tela1} mostra um terreno gerado em um estágio inicial do arcabouço.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.7\linewidth]{img/caps/1.png}}
+	\caption{\label{fig:tela1} Tela com o terreno gerado (versão inicial).}
+\end{figure}
+
+As Figuras \ref{fig:tela2}, \ref{fig:tela3} e \ref{fig:tela4} mostram terrenos gerados com uma \emph{interface} provisória, onde é possível escolher os parâmetros dos terrenos a serem gerados, como a semente (\emph{seed}) da geração, o número de vizinhos e a cor do terreno.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.7\linewidth]{img/caps/2.png}}
+	\caption{\label{fig:tela2} Tela com a \emph{interface} do usuário (exibição do terreno em \emph{wireframe}).}
+\end{figure}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.8\linewidth]{img/caps/3.png}}
+	\caption{\label{fig:tela3} Tela com a \emph{interface} do usuário (exibição do terreno em tons de cinza).}
+\end{figure}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.8\linewidth]{img/caps/4.png}}
+	\caption{\label{fig:tela4} Tela com a \emph{interface} do usuário (exibição do terreno com uma textura).}
+\end{figure}
+
+\newpage
+
+A Figura \ref{fig:tela5} mostra um terreno gerado proceduralmente e o mapa de altura exibido na Figura \ref{fig:mapaaltura} inserido no arcabouço (mostrado na Tela em um tom cinza mais escuro, para se destacar do terreno gerado proceduralmente).
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.25\linewidth]{img/heightmap.png}}
+	\caption{\label{fig:mapaaltura} Mapa de altura inserido pelo usuário.}
+\end{figure}
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.8\linewidth]{img/caps/5.png}}
+	\caption{\label{fig:tela5} Tela com o terreno gerado e um mapa de altura inserido.}
+\end{figure}
+
+
+\newpage
+
+\section{Testes}
+Alguns testes foram feitos para avaliar a variação de frames por segundo (\sigla{FPS}{Frames por segundo}) com a alteração de alguns parâmetros e também o tempo gasto na geração procedural. Eles foram executados em um \emph{Athlon64 3500}, com 2GB de memória \emph{RAM} e placa de vídeo \emph{GeForce6600} com 64MB de memória.
+
+A Seção \ref{teste_geracao} mostra um teste com a geração de 100 terrenos proceduralmente.
+
+As Seções \ref{teste_variando_octaves} e \ref{teste_variando_vizinhos} apresentam testes que consistiam em um vôo da câmera pelo terreno durante 60 segundos, em um trajeto constante para todos os testes.
+
+\subsection{Teste 1}
+\label{teste_geracao}
+\input{teste_geracao}
+
+\subsection{Teste 2}
+\label{teste_variando_octaves}
+\input{teste_variando_octaves}
+
+
+\subsection{Teste 3}
+\label{teste_variando_vizinhos}
+\input{teste_variando_vizinhos}
+

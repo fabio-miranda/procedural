@@ -1,0 +1,8 @@
+\chapter{CONCLUSÕES E TRABALHOS FUTUROS}
+O trabalho desenvolvido em POC I teve como objetivo principal estabelecer uma base para ser desenvolvida posteriormente em POC II, e também como uma forma de aprendizado de técnicas procedurais. A interação do usuário com o terreno gerado será aprofundada ainda mais, permitindo a inserção não só de mapas de altura, mas também de modelos tridimensionais, como, por exemplo, casas.
+
+Um ponto a ser otimizado é a cópia dos vértices para as estruturas VBO. Dessa forma, será possível diminuir o tempo total gasto com a geração procedural dos terrenos, e suavizar as transições entre terrenos. Outro ponto que pode ser abordado é a visualização dos terrenos na medida em que eles são gerados; no caso do ruído de Perlin, a visualização poderia ser a cada \emph{octave} gerado. Terrenos mais longe da câmera poderiam também ser gerados com um número menor de \emph{octaves}. Além disso, o processamento em paralelo pode ser explorado, um dos temas abordados no paradigma apresentado em \cite{carlucio}.
+
+O uso de texturas também será aprofundado, possivelmente com o uso de sombras pré-calculadas \cite{slopelighting}. Outra questão a ser desenvolvida em POC II é uma \emph{interface} gráfica mais atrativa, e uma forma eficiente de se armazenar as informações inseridas pelo usuário, possivelmente em arquivos \emph{Extensible Markup Language} (\sigla{XML}{Extensible Markup Language}).
+
+

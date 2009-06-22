@@ -1,0 +1,26 @@
+\chapter{INTRODUÇÃO}
+
+
+\section{Visão geral}
+A geração procedural de modelos é uma área da Ciência da Computação que propõe que modelos gráficos tridimensionais (representação em polígonos de algum objeto) possam ser gerados através de rotinas e algoritmos. Tal técnica vem se tornando bastante popular nos últimos tempos, tendo em vista que, com o crescimento da indústria do entretenimento, há uma necessidade de se construir modelos cada vez maiores e com um grande nível de detalhe. A técnica de geração procedural vem então como uma alternativa à utilização do trabalho de artistas e modeladores na criação de modelos tridimensionais.
+
+Outro fato também muito relevante atualmente são as (\emph{Graphics Processing Unit} (\sigla{GPU}{Graphics Processing Unit})). Estes microprocessadores, incorporados às placas de vídeo atuais, são especializados em processar gráficos. O avanço da indústria de \emph{games} fez com que as \emph{GPUs} se tornassem cada vez mais rápidas, tornando-as atraente para outras áreas da computação.
+
+\section{Objetivo, justificativa e motivação}
+O objetivo deste trabalho é permitir a criação de terrenos proceduralmente em tempo real, aproveitando o poder de processamento da \emph{GPU}. O trabalho pode ser dividido em duas vertentes: visualização de terrenos e sua geração proceduralmente.
+
+
+O primeiro aspecto (a visualização) é um problema muito estudado no campo da computação. O modelo de um terreno é algo que pode demandar um número extremamente alto de triângulos. O processo de gerar a imagem a partir desse modelo (ou renderização) em tempo real fica inviabilizado nos computadores atuais. Faz-se então necessária a utilização de técnicas que limitam e minimizam o número de triângulos a serem desenhados na tela. Entra aí o uso de \emph{culling} e níveis de detalhe dos modelos.
+
+A segunda parte, geração de terrenos proceduralmente, busca, através de algoritmos, criar terrenos realistas e que possam ser utilizados em jogos eletrônicos, simuladores, ou qualquer tipo de aplicação que necessita de um ambiente virtual tridimensional. Os principais benefícios dessa geração são:
+
+\begin{itemize}
+	\item Compressão de dados: todos os modelos são criados por algoritmos, e não há a necessidade de se armazenar os dados dos modelos gerados, diminuindo assim o tempo necessário para a transmissão do conteúdo por uma rede, por exemplo.
+	\item Conteúdo gerado pelo usuário de forma fácil: com a geração procedural, o usuário não precisa de um grande conhecimento ou então a contratação de artistas para poder construir modelos 3D. Uma interface amigável e alguns ajustes de parâmetros são o bastante para gerar modelos interessantes.
+	\item Produtividade: quanto menor o número de entradas um sistema procedural possuir, menor o trabalho necessário para criar modelos.
+\end{itemize}
+
+
+Este trabalho irá implementar soluções para a geração procedural de terrenos na \emph{GPU} e também na \emph{CPU}, com o objetivo de comparar a eficiência e velocidade das duas abordagens.
+
+
