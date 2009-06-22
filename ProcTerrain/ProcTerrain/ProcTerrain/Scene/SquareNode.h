@@ -6,6 +6,7 @@
 #include "../Util/Vertex.h"
 #include "../Util/VBOSquare.h"
 #include "../HeightMap/HeightMapGPU.h"
+#include "../HeightMap/HeightMapCPU.h"
 #include "../Shaders/RenderingShader.h"
 #include "../Shaders/GenerationShader.h"
 #include "../Util/FBO.h"
@@ -36,7 +37,8 @@ public:
 	SquareNode(int index, GenerationShader* generationShader, RenderingShader* renderingShader, Vector3<float> position, Vector3<float> translation, float geomSize, int textureSize, short numDivisions, SquareNode* neighbLeft, SquareNode* neighbDown);
 	~ SquareNode();
 	void Render(double);
-	void Generate(Vector3<float> relativePosition, Vector3<float> translation);
+	void GenerateGPU(Vector3<float> relativePosition, Vector3<float> translation);
+	void GenerateCPU(Vector3<float> relativePosition, Vector3<float> translation, char* ptrPermArray);
 	void ReGenerate(Vector3<float> newPosition);
 	bool IsWithin(Vector3<float>);
 	short GetNewStandingNodePosition(Vector3<float>, short);

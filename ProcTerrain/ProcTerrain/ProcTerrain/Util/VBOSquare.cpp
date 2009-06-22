@@ -27,14 +27,14 @@ VBOSquare::VBOSquare(Vector3<float> position, float size, int numDivisions) {
 	m_indices = new GLushort[numIndices];
 
 	//float sizeby2 = m_size/2.0f;
-	float divisionSize = m_size/m_numDivisions;
+	m_divisionSize = m_size/m_numDivisions;
 	
 	//Consider only the first decimals
-	divisionSize = floor(divisionSize * 1000.0f) / 1000.0f;
+	m_divisionSize = floor(m_divisionSize * 1000.0f) / 1000.0f;
 
 	int cont = 0;
-	for(float i=0; i<=m_size ; i+=divisionSize){
-		for(float j=0; j<=m_size; j+=divisionSize){
+	for(float i=0; i<=m_size ; i+=m_divisionSize){
+		for(float j=0; j<=m_size; j+=m_divisionSize){
 			m_vertices[cont].x = m_position.GetX() +i; m_vertices[cont].y = m_position.GetY() +j ;	m_vertices[cont].z = m_position.GetZ();
 			m_vertices[cont].v = (i) / m_size; m_vertices[cont].u = (j) / m_size;
 			

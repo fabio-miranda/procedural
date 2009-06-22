@@ -78,7 +78,7 @@ void TerrainMng::initNodes(){
 													Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), 
 													conf_geomSize, conf_textureSize, numDivisions,
 													neighbLeft, neighbDown);
-			m_ptrNodes[i*m_size+j]->Generate(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0));
+			m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray);
 
 
 			
@@ -349,22 +349,22 @@ void TerrainMng::initPermAndGradTextures()
 		{0,-1,1},
 		{-1,1,0},
 		{0,-1,-1}
-};
+	};
 
-	pixels = (char*)malloc( 256*256*4 );
+	m_permArray = (char*)malloc( 256*256*4 );
 	for(i = 0; i<256; i++)
-	for(j = 0; j<256; j++) {
-		int offset = (i*256+j)*4;
-		char value = perm[(j+perm[i]) & 0xFF];
-		pixels[offset] = grad3[value & 0x0F][0] * 64 + 64;   // Gradient x
-		pixels[offset+1] = grad3[value & 0x0F][1] * 64 + 64; // Gradient y
-		pixels[offset+2] = grad3[value & 0x0F][2] * 64 + 64; // Gradient z
-		pixels[offset+3] = value;                     // Permuted index
+		for(j = 0; j<256; j++) {
+			int offset = (i*256+j)*4;
+			char value = perm[(j+perm[i]) & 0xFF];
+			m_permArray[offset] = grad3[value & 0x0F][0] * 64 + 64;   // Gradient x
+			m_permArray[offset+1] = grad3[value & 0x0F][1] * 64 + 64; // Gradient y
+			m_permArray[offset+2] = grad3[value & 0x0F][2] * 64 + 64; // Gradient z
+			m_permArray[offset+3] = value;                     // Permuted index
 	}
 
 	glGenTextures(1, &m_permTextureID); // Generate a unique texture ID
 	glBindTexture(GL_TEXTURE_2D, m_permTextureID); // Bind the texture to texture unit 0
-	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels );
+	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_permArray );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
 }

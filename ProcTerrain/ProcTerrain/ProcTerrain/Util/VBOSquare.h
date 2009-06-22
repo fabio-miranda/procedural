@@ -21,7 +21,7 @@ class VBOSquare{
 private:
 	void Init();
 		
-	Vertex* m_vertices;
+	
 	GLushort* m_indices;
 	
 	Vector3<float> m_position;
@@ -46,6 +46,9 @@ public:
 
 	//Square* m_squares[4]; //The subdivisions of the big square
 	//Square* m_parent;
+
+	float m_divisionSize;
+	Vertex* m_vertices;
 	
 
 };

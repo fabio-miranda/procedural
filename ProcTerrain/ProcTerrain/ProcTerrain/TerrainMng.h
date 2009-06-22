@@ -27,6 +27,7 @@ public:
 	RenderingShader* m_terrainRenderingShader;
 	GenerationShader* m_terrainGenerationShader;
 	FBO* m_fbo;
+	char* m_permArray;
 
 private:
 

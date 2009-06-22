@@ -47,6 +47,25 @@ public:
 
 	}
 
+	void Mult(const float mult){
+		this->list[0] = this->list[0] * mult;
+		this->list[1] = this->list[1] * mult;
+		this->list[2] = this->list[2] * mult;
+	}
+
+	float Dot(const Vector3<T> &vec){
+		return this->list[0] * vec.GetX() + this->list[1] * vec.GetY() + this->list[2] * vec.GetZ();
+
+	}
+
+	void Floor(){
+		floor(this->list[0]);
+		floor(this->list[1]);
+		floor(this->list[2]);
+	}
+
+
+
 };
 
 

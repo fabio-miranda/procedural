@@ -81,6 +81,7 @@ void HeightMapGPU::Render(double elapsedTime){
 	//glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, m_ptrFBO->m_textureId);
 	glUniform1f(m_ptrRenderingShader->m_locTime, m_time);
+	glUniform1f(m_ptrRenderingShader->m_locGPUGenerated, 1.0);
 	//TODO: do it only once, after generating the heightmap
 	//there is no need to do it every frame: http://www.gamedev.net/community/forums/mod/journal/journal.asp?jn=530427&reply_id=3450696
 	//glUniform1i(m_ptrTerrainRenderingShader->m_locTexture, 0);

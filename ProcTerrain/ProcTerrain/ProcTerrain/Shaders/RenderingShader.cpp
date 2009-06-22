@@ -6,6 +6,7 @@ RenderingShader::RenderingShader() : Shader("../../ProcTerrain/Shaders/terrainRe
 	
 	m_locTexture = glGetUniformLocationARB(m_shaderProg,"heightmap");
 	m_locTime = glGetUniformLocationARB(m_shaderProg,"time");
+	m_locGPUGenerated = glGetUniformLocationARB(m_shaderProg,"gpuGenerated");
 
 
 
