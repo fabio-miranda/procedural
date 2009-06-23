@@ -6,6 +6,10 @@
 uniform sampler2D permTexture;
 //varying vec2 position;
 //uniform vec2 position;
+uniform float octaves;
+uniform float lacunarity;
+uniform float gain;
+uniform float offset;
 
 float fade(float t) {
   //return t*t*(3.0-2.0*t); // Old fade
@@ -68,10 +72,10 @@ float ridge(float h, float offset)
     return h;
 }
 
-float ridgedmf(vec3 p, int octaves, float lacunarity, float gain, float offset)
+float ridgedmf(vec3 p)
 {
 	float sum = 0.0;
-	float freq = 1.0, amp = 0.5;
+	float freq = 0.5, amp = 0.5;
 	float prev = 1.0;
 	for(int i=0; i<octaves; i++) {
 		float n = ridge(noise(p*freq), offset);
@@ -91,7 +95,7 @@ void main(void){
 	//vec3 position = vec3(gl_TexCoord[0].x + position.x, gl_TexCoord[0].y + position.y, 0);
 	vec3 position = vec3(gl_TexCoord[0].x, gl_TexCoord[0].y, 0);
 	//float color = ridgedmf(position, 5, 0.5, 0.5, 1.0);
-	float color = ridgedmf(position, 15, 5.5, 0.5, 0.9);
+	float color = ridgedmf(position);
 	gl_FragColor = vec4(color, color, color, 1);
 
 }

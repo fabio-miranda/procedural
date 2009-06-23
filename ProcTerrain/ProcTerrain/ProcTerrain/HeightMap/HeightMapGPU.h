@@ -22,7 +22,8 @@ class HeightMapGPU : public HeightMap {
 public:
 	HeightMapGPU(RenderingShader* renderingShader, GenerationShader* generationShader,
 						   Vector3<float> relativePosition, Vector3<float> translation, 
-						   float geomSize, short numDivisions, short textureSize, short maxIterations);
+						   float geomSize, short numDivisions, short textureSize, short maxIterations,
+						   int octaves, float lacunarity, float gain, float offset);
 
 	~ HeightMapGPU();
 	void Generate();

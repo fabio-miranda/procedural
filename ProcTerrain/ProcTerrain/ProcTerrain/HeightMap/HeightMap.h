@@ -10,6 +10,11 @@
 #include "../Util/VBOSquare.h"
 
 
+#include "GL/glfw.h"
+#include <iostream>
+using namespace std;
+
+
 class HeightMap{
 	
 
@@ -27,11 +32,21 @@ protected:
 	bool m_generated;
 	
 	short m_numDivisions;
+
+
+	//
+	int m_octaves;
+	float m_lacunarity;
+	float m_gain;
+	float m_offset;
 	
 
 
 public:
-	HeightMap(RenderingShader* renderingShader, Vector3<float> relativePosition, Vector3<float> translation, float geomSize, short numDivisions);
+	HeightMap(RenderingShader* renderingShader,
+				Vector3<float> relativePosition, Vector3<float> translation,
+				float geomSize, short numDivisions,
+				int octaves, float lacunarity, float gain, float offset);
 	~ HeightMap();
 	virtual void Generate();
 	virtual void ReGenerate(Vector3<float> newPosition);

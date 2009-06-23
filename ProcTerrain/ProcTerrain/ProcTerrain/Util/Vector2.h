@@ -25,6 +25,11 @@ public:
 
 	}
 
+	void Add(float add){
+		this->AddX(add);
+		this->AddY(add);
+	}
+
 	void Sub(const Vector2<T> &vec){
 		this->AddX(-vec.GetX());
 		this->AddY(-vec.GetY());
@@ -43,8 +48,8 @@ public:
 	}
 
 	void Floor(){
-		floor(this->X);
-		floor(this->Y);
+		this->X = floor(this->X);
+		this->Y = floor(this->Y);
 	}
 };
 

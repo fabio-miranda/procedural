@@ -37,8 +37,8 @@ public:
 	SquareNode(int index, GenerationShader* generationShader, RenderingShader* renderingShader, Vector3<float> position, Vector3<float> translation, float geomSize, int textureSize, short numDivisions, SquareNode* neighbLeft, SquareNode* neighbDown);
 	~ SquareNode();
 	void Render(double);
-	void GenerateGPU(Vector3<float> relativePosition, Vector3<float> translation);
-	void GenerateCPU(Vector3<float> relativePosition, Vector3<float> translation, char* ptrPermArray);
+	void GenerateGPU(Vector3<float> relativePosition, Vector3<float> translation, int octaves, float lacunarity, float gain, float offset);
+	void GenerateCPU(Vector3<float> relativePosition, Vector3<float> translation, char* ptrPermArray, int octaves, float lacunarity, float gain, float offset);
 	void ReGenerate(Vector3<float> newPosition);
 	bool IsWithin(Vector3<float>);
 	short GetNewStandingNodePosition(Vector3<float>, short);

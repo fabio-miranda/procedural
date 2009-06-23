@@ -78,7 +78,10 @@ void TerrainMng::initNodes(){
 													Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), 
 													conf_geomSize, conf_textureSize, numDivisions,
 													neighbLeft, neighbDown);
-			m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray);
+			//m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray, 10, 5.5, 0.5, 0.9);
+			
+			//float a = (float)rand()/RAND_MAX;
+			m_ptrNodes[i*m_size+j]->GenerateGPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0),25, 1.5, 0.5, 1.0);
 
 
 			

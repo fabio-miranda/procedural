@@ -12,6 +12,11 @@ GenerationShader::GenerationShader(float seed, GLuint permTextureID)
 	m_locPermTexture = glGetUniformLocationARB(m_shaderProg,"permTexture");
 	m_permTextureID = permTextureID;
 
+	m_locOctaves = glGetUniformLocationARB(m_shaderProg,"octaves");
+	m_locLacunarity = glGetUniformLocationARB(m_shaderProg,"lacunarity");
+	m_locGain = glGetUniformLocationARB(m_shaderProg,"gain");
+	m_locOffset = glGetUniformLocationARB(m_shaderProg,"offset");
+
 	//m_locPermGradTexture = glGetUniformLocationARB(m_shaderProg,"permGradTexture");
 	//m_permGradTextureID = permGradTextureID;
 

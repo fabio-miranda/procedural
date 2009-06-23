@@ -4,8 +4,9 @@
 
 HeightMapGPU::HeightMapGPU(RenderingShader* renderingShader, GenerationShader* generationShader,
 						   Vector3<float> relativePosition, Vector3<float> globalPosition, 
-						   float geomSize, short numDivisions, short textureSize, short maxIterations)
-						   : HeightMap(renderingShader, relativePosition, globalPosition, geomSize, numDivisions){
+						   float geomSize, short numDivisions, short textureSize, short maxIterations,
+						   int octaves, float lacunarity, float gain, float offset)
+						   : HeightMap(renderingShader, relativePosition, globalPosition, geomSize, numDivisions, octaves, lacunarity, gain, offset){
 	
 
 	m_gpuOrCpu = GPU;
@@ -49,6 +50,8 @@ void HeightMapGPU::Generate(){
 
 	if(m_generated) return;
 
+	float time = glfwGetTime();
+
 
 	//Simple square has to have the same size as the FBO
 	SimpleSquare* simpleSquare = new SimpleSquare(m_globalPosition, m_textureSize, m_geomSize);
@@ -57,6 +60,11 @@ void HeightMapGPU::Generate(){
 	m_ptrFBO->Enable(m_globalPosition);
 	m_ptrGenerationShader->Enable();
 	
+	//Uniform variables
+	glUniform1f(m_ptrGenerationShader->m_locOctaves, m_octaves);
+	glUniform1f(m_ptrGenerationShader->m_locLacunarity, m_lacunarity);
+	glUniform1f(m_ptrGenerationShader->m_locGain, m_gain);
+	glUniform1f(m_ptrGenerationShader->m_locOffset, m_offset);
 	
 	simpleSquare->Render();
 	
@@ -68,6 +76,10 @@ void HeightMapGPU::Generate(){
 	if(m_currentIteration >= m_maxIterations){
 		m_generated = true;
 	}
+
+	time = glfwGetTime() - time;
+	cout << time * 1000.0f;
+	cout << "\n";
 	
 
 }
@@ -82,6 +94,7 @@ void HeightMapGPU::Render(double elapsedTime){
 	glBindTexture(GL_TEXTURE_2D, m_ptrFBO->m_textureId);
 	glUniform1f(m_ptrRenderingShader->m_locTime, m_time);
 	glUniform1f(m_ptrRenderingShader->m_locGPUGenerated, 1.0);
+	
 	//TODO: do it only once, after generating the heightmap
 	//there is no need to do it every frame: http://www.gamedev.net/community/forums/mod/journal/journal.asp?jn=530427&reply_id=3450696
 	//glUniform1i(m_ptrTerrainRenderingShader->m_locTexture, 0);

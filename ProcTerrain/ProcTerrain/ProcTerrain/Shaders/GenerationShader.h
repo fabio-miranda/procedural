@@ -22,6 +22,10 @@ public:
 	GLuint m_permGradTextureID;
 	//float m_seed;
 
+	GLuint m_locOctaves;
+	GLuint m_locLacunarity;
+	GLuint m_locGain;
+	GLuint m_locOffset;
 	
 
 };

@@ -40,6 +40,12 @@ public:
 
 	}
 
+	void Add(float add){
+		this->AddX(add);
+		this->AddY(add);
+		this->AddZ(add);
+	}
+
 	void Sub(const Vector3<T> &vec){
 		this->AddX(-vec.GetX());
 		this->AddY(-vec.GetY());
@@ -59,9 +65,9 @@ public:
 	}
 
 	void Floor(){
-		floor(this->list[0]);
-		floor(this->list[1]);
-		floor(this->list[2]);
+		this->list[0] = floor(this->list[0]);
+		this->list[1] = floor(this->list[1]);
+		this->list[2] = floor(this->list[2]);
 	}
 
 

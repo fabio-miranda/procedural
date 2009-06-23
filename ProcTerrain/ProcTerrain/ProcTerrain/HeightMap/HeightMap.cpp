@@ -1,7 +1,9 @@
 #include "HeightMap.h"
 
 
-HeightMap::HeightMap(RenderingShader* renderingShader, Vector3<float> relativePosition, Vector3<float> translation, float geomSize, short numDivisions){
+HeightMap::HeightMap(RenderingShader* renderingShader, Vector3<float> relativePosition, Vector3<float> translation, 
+					 float geomSize, short numDivisions,
+					 int octaves, float lacunarity, float gain, float offset){
 	
 
 	m_ptrRenderingShader = renderingShader;
@@ -17,6 +19,12 @@ HeightMap::HeightMap(RenderingShader* renderingShader, Vector3<float> relativePo
 	m_time = 2.0f; //time since the generation of the heightmap
 
 	m_face = new VBOSquare(m_relativePosition, m_geomSize, m_numDivisions);
+
+	//
+	m_octaves = octaves;
+	m_lacunarity = lacunarity;
+	m_gain = gain;
+	m_offset = offset;
 	
 	
 }
