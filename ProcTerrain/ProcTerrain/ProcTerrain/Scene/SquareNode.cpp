@@ -60,7 +60,7 @@ void SquareNode::GenerateGPU(Vector3<float> relativePosition, Vector3<float> tra
 void SquareNode::GenerateCPU(Vector3<float> relativePosition, Vector3<float> translation, char* ptrPermArray){
 	
 	//Generate on CPU
-	m_heightMap = new HeightMapCPU(m_ptrRenderingShader, relativePosition, translation, m_geomSize, m_numDivisions, ptrPermArray);
+	m_heightMap = new HeightMapCPU(m_ptrRenderingShader, relativePosition, translation, m_geomSize, m_numDivisions);
 
 }
 

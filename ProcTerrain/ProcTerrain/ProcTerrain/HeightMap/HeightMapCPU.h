@@ -10,16 +10,16 @@
 class HeightMapCPU : public HeightMap{
 
 	float noise(Vector3<float> P);
-	float fade(float t);
 	float ridge(float h, float offset);
 	float ridgedmf(Vector3<float> position);
-	Vector2<float> mix(Vector2<float> a, Vector2<float> b, float weight);
-	float mix(float a, float b, float weight);
+	float CosineInterpolation(float a, float b, float x);
+	float GetNoise(int i);
 
 	int m_octaves;
 	float m_offset;
 	float m_lacunarity;
 	float m_gain;
+	float m_seed;
 
 	char* m_ptrPermArray;
 
@@ -28,7 +28,7 @@ class HeightMapCPU : public HeightMap{
 public:
 	HeightMapCPU(RenderingShader* renderingShader, 
 						   Vector3<float> relativePosition, Vector3<float> translation, 
-						   float geomSize, short numDivisions, char* ptrPermArray);
+						   float geomSize, short numDivisions);
 	~ HeightMapCPU();
 	void Generate();
 	void Render(double);

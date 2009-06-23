@@ -3,11 +3,10 @@
 
 HeightMapCPU::HeightMapCPU(RenderingShader* renderingShader, 
 						   Vector3<float> relativePosition, Vector3<float> globalPosition, 
-						   float geomSize, short numDivisions, char* ptrPermArray)
+						   float geomSize, short numDivisions)
 						   : HeightMap(renderingShader, relativePosition, globalPosition, geomSize, numDivisions){
 
 	m_gpuOrCpu = GPU;
-	m_ptrPermArray = ptrPermArray;
 	
 }
 
@@ -24,9 +23,10 @@ float HeightMapCPU::ridgedmf(Vector3<float> position)
 
 	//temp:
 	m_offset = 0;
-	m_octaves = 5;
+	m_octaves = 10;
 	m_lacunarity = 0.5;
 	m_gain = 0.5;
+	m_seed = 353;
 
 	for(int i=0; i<m_octaves; i++) {
 		position.Mult(freq);
@@ -39,6 +39,44 @@ float HeightMapCPU::ridgedmf(Vector3<float> position)
 	return sum;
 }
 
+float HeightMapCPU::noise(Vector3<float> P){
+	
+	//xf = ((float)x_pixel + m_position.GetX()) / (float)m_width;
+	//zf = ((float)y_pixel + m_position.GetZ()) / (float)m_height;
+	float xf = P.GetX();
+	float zf = P.GetZ();
+
+
+	//Calculate frequency and amplitude
+	//freq = pow(2.0, i);
+	//amp = pow(m_persistence, i);
+
+	//Calculate x, z noise coordinates
+	//tx = xf * freq;
+	//tz = zf * freq;
+
+	//Calculate the fractions of x and z
+	//fracx = tx - (int)tx;
+	float fracx = xf - (int)xf;
+	//fracz = tz - (int)tz;
+	float fracz = zf - (int)zf;
+
+	//Get noise per octave for the four points
+	float v1 = GetNoise((int)xf + (int)zf * 57 + m_seed);
+	float v2 = GetNoise((int)xf + 1 + (int)zf * 57 + m_seed);
+	float v3 = GetNoise((int)xf + ((int)zf + 1) * 57 + m_seed);
+	float v4 = GetNoise((int)xf + 1 + ((int)zf + 1) * 57 + m_seed);
+
+	//Smooth noise in the x axis
+	float i1 = CosineInterpolation(v1, v2, fracx);
+	float i2 = CosineInterpolation(v3, v4, fracx);
+
+	//Smooth in the z axis
+	return CosineInterpolation(i1, i2, fracz);
+
+
+}
+
 float HeightMapCPU::ridge(float h, float offset)
 {
     h = abs(h);
@@ -47,102 +85,19 @@ float HeightMapCPU::ridge(float h, float offset)
     return h;
 }
 
-float HeightMapCPU::fade(float t) {
-	//return t*t*(3.0-2.0*t); // Old fade
-	return t*t*t*(t*(t*6.0-15.0)+10.0); // Improved fade
+float HeightMapCPU::CosineInterpolation(float a, float b, float x){
+        float ft = x * 3.1415927;
+        float f = (1 - cos(ft)) * 0.5f;
+
+        return a * (1 - f) + b * f;
 }
 
-#define ONE 0.00390625
-#define ONEHALF 0.001953125
-float HeightMapCPU::noise(Vector3<float> P)
-{
-	Vector3<float> aux;
-
-	Vector3<float> Pfloor = Vector3<float>(P);
-	Pfloor.Floor();
-
-	Vector3<float> Pi = Vector3<float>(Pfloor);
-	Pi.Mult(ONE);
-	Pi.Add(ONEHALF);
-
-
-	                             
-	Vector3<float> Pf = Vector3<float>(P);
-	Pf.Sub(Pfloor);
-
-	// Noise contributions from (x=0, y=0), z=0 and z=1
-	//float perm00 = texture2D(permTexture, Pi.xy).a;
-	int perm00 = m_ptrPermArray[(int)Pi.GetX()*256 + (int)Pi.GetY() + 3];
-	//vec3  grad000 = texture2D(permTexture, vec2(perm00, Pi.z)).rgb * 4.0 - 1.0;
-	//vec3  grad000 = m_ptrPermArray[perm00*256 + Pi.GetZ] * 4.0 - 1.0;
-	Vector3<float> grad000 = Vector3<float>(m_ptrPermArray[perm00*256 + (int)Pi.GetZ()] * 4.0 - 1.0,
-											m_ptrPermArray[perm00*256 + (int)Pi.GetZ() +1] * 4.0 - 1.0,
-											m_ptrPermArray[perm00*256 + (int)Pi.GetZ() +2] * 4.0 - 1.0);
-
-	//float n000 = dot(grad000, Pf);
-	float n000 = grad000.Dot(Pf);
-
-	// Noise contributions from (x=0, y=1), z=0 and z=1
-	//float perm01 = texture2D(permTexture, Pi.xy + vec2(0.0, ONE)).a ;
-	//vec3  grad010 = texture2D(permTexture, vec2(perm01, Pi.z)).rgb * 4.0 - 1.0;
-	//float n010 = dot(grad010, Pf - vec3(0.0, 1.0, 0.0));
-	aux = Vector3<float>(Pi.GetX(), Pi.GetY() + ONE, 0);
-	int perm01 = m_ptrPermArray[(int)aux.GetX()*256 + (int)aux.GetY() + 3];
-	Vector3<float> grad010 = Vector3<float>(m_ptrPermArray[perm01*256 + (int)Pi.GetZ()] * 4.0 - 1.0,
-											m_ptrPermArray[perm01*256 + (int)Pi.GetZ() +1] * 4.0 - 1.0,
-											m_ptrPermArray[perm01*256 + (int)Pi.GetZ() +2] * 4.0 - 1.0);
-	aux = Vector3<float>(Pf.GetX(), Pf.GetY() - 1.0, Pf.GetZ());
-	float n010 = grad010.Dot(aux);
-
-	// Noise contributions from (x=1, y=0), z=0 and z=1
-	//float perm10 = texture2D(permTexture, Pi.xy + vec2(ONE, 0.0)).a ;
-	//vec3  grad100 = texture2D(permTexture, vec2(perm10, Pi.z)).rgb * 4.0 - 1.0;
-	//float n100 = dot(grad100, Pf - vec3(1.0, 0.0, 0.0));
-	aux = Vector3<float>(Pi.GetX() + ONE, Pi.GetY(), 0);
-	int perm10 = m_ptrPermArray[(int)aux.GetX()*256 + (int)aux.GetY() + 3];
-	Vector3<float> grad100 = Vector3<float>(m_ptrPermArray[perm10*256 + (int)Pi.GetZ()] * 4.0 - 1.0,
-											m_ptrPermArray[perm10*256 + (int)Pi.GetZ() +1] * 4.0 - 1.0,
-											m_ptrPermArray[perm10*256 + (int)Pi.GetZ() +2] * 4.0 - 1.0);
-	aux = Vector3<float>(Pf.GetX() - 1.0, Pf.GetY(), Pf.GetZ());
-	float n100 = grad100.Dot(aux);
-
-	// Noise contributions from (x=1, y=1), z=0 and z=1
-	//float perm11 = texture2D(permTexture, Pi.xy + vec2(ONE, ONE)).a ;
-	//vec3  grad110 = texture2D(permTexture, vec2(perm11, Pi.z)).rgb * 4.0 - 1.0;
-	//float n110 = dot(grad110, Pf - vec3(1.0, 1.0, 0.0));
-	aux = Vector3<float>(Pi.GetX() + ONE, Pi.GetY() + ONE, 0);
-	int perm11 = m_ptrPermArray[(int)aux.GetX()*256 + (int)aux.GetY() + 3];
-	Vector3<float> grad110 = Vector3<float>(m_ptrPermArray[perm11*256 + (int)Pi.GetZ()] * 4.0 - 1.0,
-											m_ptrPermArray[perm11*256 + (int)Pi.GetZ() +1] * 4.0 - 1.0,
-											m_ptrPermArray[perm11*256 + (int)Pi.GetZ() +2] * 4.0 - 1.0);
-	aux = Vector3<float>(Pf.GetX() - 1.0, Pf.GetY() - 1.0, Pf.GetZ());
-	float n110 = grad110.Dot(aux);
-
-	// Blend contributions along x
-	Vector2<float> n_x = mix(Vector2<float>(n000, n010), Vector2<float>(n100, n110), fade(Pf.GetX()));
-
-	// Blend contributions along y
-	float n_xy = mix(n_x.GetX(), n_x.GetY(), fade(Pf.GetY()));
-
-
-	return n_xy;
+float HeightMapCPU::GetNoise(int i){
+        i = (i << 13) ^ i;
+        return (1.0f - ((i * (i * i * 15731 + 789221) + 1376312589) & 0x7FFFFFFF) / 1073741824.0f);
 }
 
-Vector2<float> HeightMapCPU::mix(Vector2<float> a, Vector2<float> b, float weight){
-	
-	//TODO: improve that. Substitute Mult with * operator
-	a.Mult(1.0 - weight);
-	b.Mult(weight);
 
-	a.Add(b);
-	return a;
-}
-
-float HeightMapCPU::mix(float a, float b, float weight){
-
-	return a * (1.0 - weight) + b * weight;
-
-}
 
 
 
