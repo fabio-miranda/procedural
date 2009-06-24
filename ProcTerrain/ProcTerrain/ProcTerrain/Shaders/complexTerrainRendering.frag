@@ -82,16 +82,6 @@ vec4 calculateBlendFactor(){
 	}
 	else{
 		float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-		float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
-	float weight_rock_snow = (z - 0.625) / (1.0 - 0.625);
 		return mix(rock, snow, weight_rock_snow);
 	}
 

@@ -18,7 +18,7 @@ HeightMap::HeightMap(RenderingShader* renderingShader, Vector3<float> relativePo
 
 	m_time = 5.0f; //time since the generation of the heightmap
 
-	m_face = new VBOSquare(m_relativePosition, m_geomSize, m_numDivisions);
+	m_face = new VBOSquare(m_relativePosition, m_geomSize + 0.1f, m_numDivisions);
 
 	//
 	m_octaves = octaves;

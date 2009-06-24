@@ -8,11 +8,10 @@ Os conhecimentos adquiridos ao longo desse trabalho permitiram a criação de um s
 \section{O Sistema Implementado}
 \label{sistema}
 
-
 O sistema implementado neste trabalho teve como principal objetivo permitir a geração procedural de terrenos tanto na \emph{GPU} quanto na \emph{CPU}. A Figura \ref{fig:bibliotecas} apresenta as camadas do sistema, destacando as bibliotecas utilizadas (como é explicado a seguir).
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.2\linewidth]{img/bibliotecas.png}}
+	\center{\includegraphics[width=0.5\linewidth]{img/bibliotecas.png}}
 	\caption{\label{fig:bibliotecas} Camadas do sistema.}
 \end{figure}
 
@@ -45,15 +44,13 @@ A Figura \ref{fig:arquitetura} apresenta em detalhes os módulos presentes nas ca
 	\item {\bf RenderingShader}: \emph{Shader} responsável pela renderização dos terrenos.
 \end{itemize}
 
-A seguir, nas Seções \ref{geracao} e \ref{visualizacao} serão apresentados os detalhes de implementação da geração e visualização do terreno.
 
-
-\section{Geração do Terreno}
+\subsection{Geração do Terreno}
 \label{geracao}
 Nesta seção, será abordado a implementação da geração de terrenos, tanto na \emph{GPU}, quanto na \emph{CPU}. Os dois têm, em comum, o algoritmo usado para a geração (\emph{Ridged multifractal noise}).
 
 
-\subsection{Geração do Terreno na \emph{GPU}}
+\subsubsection{Geração do Terreno na \emph{GPU}}
 Toda a geração dos terrenos na \emph{GPU} é feita através de um \emph{fragment shader}. Como toda computação de \emph{shaders} só pode ser aplicada com base em geometrias ou texturas, foi preciso renderizar um quadrado. Entra aí então o \sigla{FBO}{Frame Buffer Object}, extensão do \emph{OpenGL} que permite criar \emph{Frame Buffers} e realizar renderizações \emph{off-screen} (que não são exibidas na tela). O quadrado é renderizado em um novo \emph{frame buffer}, e o \emph{shader} de geração procedural é aplicado sobre ele. O resultado pode ser visto na Figura \ref{fig:resultados:heightmap}.
 
 \begin{figure}[H]
@@ -61,16 +58,20 @@ Toda a geração dos terrenos na \emph{GPU} é feita através de um \emph{fragment s
 	\caption{\label{fig:resultados:heightmap} Mapa de altura gerado pelo \emph{shader}.}
 \end{figure}
 
-\subsection{Geração do Terreno na \emph{CPU}}
+Um aspecto importante é que, durante a geração do mapa de altura, os valores das normais de cada vértice também são caulados.
+
+
+
+\section{Geração do Terreno na \emph{CPU}}
 A geração na \emph{CPU} é feita de maneira tradicional. Uma lista de vértices é criada e, para cada vértice, é calculado a sua altura de acordo com o algoritmo \emph{Ridged multifractal noise}.
 
 
 
-\section{Visualização do Terreno}
+\subsubsection{Visualização do Terreno}
 \label{visualizacao}
 Com o mapa de altura gerado, o próximo passo é exibir o terreno para o usuário. Da mesma forma, aqui também será exposto alguns detalhes específicos da visualização do terreno gerado na \emph{GPU}, na Seção \ref{visualizacaogpu}. Antes, porém, é necessário detalhar funções comuns tanto à visualização de terrenos gerados na \emph{CPU} quanto na \emph{GPU}.
 
-O passo inicial é a geração de uma malha (conjunto de vértices) de tamanho pré-determinado, como mostra a Figura \ref{fig:malha}
+O passo inicial é a geração de uma malha (conjunto de vértices) de tamanho pré-determinado, como mostra a Figura \ref{fig:malha}.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=0.5\linewidth]{img/caps/malha.png}}
@@ -82,18 +83,18 @@ A malha é gerada de tal forma que um número maior de vértices está concentrado n
 Como a malha é gerada apenas uma única vez (no início da execução), não é preciso criar repetidas malhas a medida que o jogador percorre o terreno. Apenas os mapas de altura são trocados, como mostra a Figura \ref{fig:texturas}
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.5\linewidth]{img/texturas.png}}
+	\center{\includegraphics[width=0.8\linewidth]{img/texturas.png}}
 	\caption{\label{fig:texturas} Movimentação da câmera do nodo (1,1), na esquerda, para o nodo (2, 1), na direita.}
 \end{figure}
 
 Na Figura \ref{fig:texturas} é possível notar o deslocamento dos mapas de textura quando a câmera se move do nodo (1,1) para o nodo (2,1). Este método, possível somente para terrenos gerados na \emph{GPU}, diminuiu a necessidade de implementação de um algoritmo de nível de detalhe mais robusto. Além disso, como sabemos o número de vértices antecipadamente, a performance do aplicativo tem uma menor chance de sofrer quedas bruscas de rendimento.
 
 
-\subsection{Visualização do Terreno Gerado na \emph{GPU}}
+\subsubsection{Visualização do Terreno Gerado na \emph{GPU}}
 \label{visualizacaogpu}
 Para a visualização do terreno gerado na \emph{GPU}, um \emph{vertex shader} lê a altura do mapa de altura gerado e desloca a posição de \emph{z} do vértice correspondente na malha.
 
-Um aspecto importante é que a geração do mapa de altura já fornece os valores das normais de cada vértice (necessários para o cálculo da luz).
+
 
 
 

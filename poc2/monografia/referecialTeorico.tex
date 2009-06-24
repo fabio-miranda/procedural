@@ -39,11 +39,11 @@ O \emph{Ridged multifractal noise} é uma variação do ruído de Perlin, e foi apre
 		\hline
 \begin{lstlisting}
 for(int i=0; i<octaves; i++) {
-	float n = ridge(noise(posicao*freq), offset);
-	sum += n*amp*prev;
-	prev = n;
-	freq *= lacunarity;
-	amp *= gain;
+	float n = ridge(noise(position*freq), offset);
+	height += n*amplitude*previous;
+	previous = n;
+	frequency *= lacunarity;
+	amplitude *= gain;
 }
 	\end{lstlisting}
 		\\
@@ -53,6 +53,8 @@ for(int i=0; i<octaves; i++) {
 		\label{tabela:ridged}
 	\end{center}
 \end{table}
+
+No algoritmo, o número de \textbf{octaves} representa o número de iterações (e, consequentemente somas) feitas sobre a função de ruído. A \textbf{amplitude} é o máximo valor adicionado ao valor total do ruído. \textbf{Frequency} é o número de valores de ruídos definidos entre dois pontos (quanto maior a frequência, maior o disturbio da textura resultante). \textbf{Lacunarity} é o espaço entre sucessivas frequências e, finalmente, \textbf{offset} é o valor adicionado ao resultado do \emph{ridged multifractal noise} (elevando o terreno acima do plano \emph{z = 0}).
 
 
 \subsection{Mapa de altura}
@@ -77,7 +79,7 @@ As \emph{GPUs} são as unidades de processamento inseridas na maioria das placas 
 	\caption{\label{fig:gflops} Gráfico com a evolução das \emph{GPUs}, em comparação com as \emph{CPUs}.}
 \end{figure}
 
-Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as \emph{GPUs} foram construídas de forma a processar da melhor maneira possível um grande número de dados. Assim, certos aspectos de um processador, como \emph{cache}, são relegados.
+Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as \emph{GPUs} foram construídas de forma a processar da melhor maneira possível um grande número de dados homogêneos. Assim, certos aspectos de um processador, como \emph{cache}, são relegados.
 
 A programação utilizando \emph{GPUs} iniciou de forma mais concreta no ano de 2001, com a placa \emph{Geforce3}, da \emph{NVidia}. Essa geração permitiu que programas (conhecidos como \emph{shaders}) fossem escritos para serem executados diretamente na \emph{GPU}. Inicialmente, tais programas modificavam os valores e propriedades dos vértices de uma cena. Na geração seguinte (representada pelas placas \emph{GeForce FX}), foi possível também executar \emph{shaders} que modificavam os valores dos \emph{pixels} (ou fragmentos) da cena. A Figura abaixo mostra o \emph{pipeline} gráfico das \emph{GPUs}, destacando a posição das do \emph{vertex shader} e {fragment shader}, sendo estes estágios programáveis.
 
@@ -95,10 +97,8 @@ Ao se utilizar uma dessas linguagens, todo o processamento será feito com base n
 
 
 \section{Geração Procedural utilizando \emph{GPUs}}
-A geração procedural de terrenos na \emph{GPU} já foi abordada nos trabalhos \cite{gpugems3} e \cite{Schneider:2006:FractalTerrain}. Porém, todos possuem um enfoque diferente do que é proposto aqui.
+A geração procedural de terrenos na \emph{GPU} já foi abordada nos trabalhos \cite{gpugems3} e \cite{Schneider:2006:FractalTerrain}. O primeiro faz uso da plataforma \sigla{CUDA}{Compute Unified Device Architecture}, da empresa \emph{NVidia}, para a geração procedural, e, apesar de mostrar resultados excelentes, está limitado às placas com suporte à \sigla{API}{Application Programming Interface} \emph{DirectX 10}. O trabalho descrito aqui pode ser executado em qualquer placa com suporte a \emph{DirectX 9}.
 
-O primeiro (\cite{gpugems3}) faz uso da plataforma \sigla{CUDA}{Compute Unified Device Architecture}, da empresa \emph{NVidia}, para a geração procedural, e, apesar de mostrar resultados excelentes, está limitado às placas \emph{NVidia} e com suporte à \sigla{API}{Application Programming Interface} \emph{DirectX 10}.
-
-O terceiro trabalho (\cite{Schneider:2006:FractalTerrain}) é o que mais se assemelha ao que é proposto aqui. Porém, peca por não comparar a geração utilizando a \emph{GPU} e a \emph{CPU}.
+O segundo trabalho (\cite{Schneider:2006:FractalTerrain}) é o que mais se assemelha ao que é proposto aqui. Ele porém não busca comparar a geração utilizando a \emph{GPU} e a \emph{CPU}.
 
 

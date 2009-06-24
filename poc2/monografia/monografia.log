@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  24 JUN 2009 07:10
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  24 JUN 2009 11:38
 entering extended mode
 **monografia.tex
 (monografia.tex
@@ -530,7 +530,7 @@ Cap\'{\i }tulo 2.
 
 
 
-] <img/perlin.png, id=298, 703.62875pt x 497.86pt>
+] <img/perlin.png, id=299, 703.62875pt x 497.86pt>
 File: img/perlin.png Graphic file (type png)
  <use img/perlin.png>
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 41.
@@ -552,26 +552,26 @@ Overfull \hbox (12.0pt too wide) in paragraph at lines 38--52
                                                   \fi \fi 
 l.56 
       <img/perlin.png (PNG copy)>]
-<img/mapaaltura.png, id=309, 225.84375pt x 225.84375pt>
+<img/mapaaltura.png, id=310, 225.84375pt x 225.84375pt>
 File: img/mapaaltura.png Graphic file (type png)
 
-<use img/mapaaltura.png> <img/gflops.png, id=311, 75.3998pt x 42.67914pt>
-File: img/gflops.png Graphic file (type png)
-
-<use img/gflops.png> [16pdfTeX warning (ext4): destination with the same identi
-fier (name{table.2.1}) has been already used, duplicate ignored
+<use img/mapaaltura.png> [16pdfTeX warning (ext4): destination with the same id
+entifier (name{table.2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.79 
+l.76 
      pdfTeX warning (ext4): destination with the same identifier (name{figure.2
 .2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.79 
+l.76 
       <img/mapaaltura.png (PNG copy)>]
-<img/pipeline.png, id=326, 789.95125pt x 449.68pt>
+<img/gflops.png, id=326, 75.3998pt x 42.67914pt>
+File: img/gflops.png Graphic file (type png)
+ <use img/gflops.png>
+<img/pipeline.png, id=327, 789.95125pt x 449.68pt>
 File: img/pipeline.png Graphic file (type png)
  <use img/pipeline.png>
 [17pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3
@@ -579,14 +579,15 @@ File: img/pipeline.png Graphic file (type png)
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.94 
-     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
-.4}) has been already used, duplicate ignored
+l.90 
+      <img/gflops.png (PNG copy)>]) [18pdfTeX warning (ext4): destination with 
+the same identifier (name{figure.2.4}) has been already used, duplicate ignored
+
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.94 
-      <img/gflops.png (PNG copy)> <img/pipeline.png (PNG copy)>]) [18]
+l.215 \include{referecialTeorico}
+                                  <img/pipeline.png (PNG copy)>]
 (metodologia.tex
 Cap\'{\i }tulo 3.
 
@@ -613,9 +614,9 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.30 
-      <img/bibliotecas.png>]
-<img/arquitetura.png, id=364, 658.46pt x 414.54875pt>
+l.25 	\item {
+             \bf ProcTerrain}: Camada responsável por gerar e exibir os terr...
+ <img/bibliotecas.png>] <img/arquitetura.png, id=364, 658.46pt x 414.54875pt>
 File: img/arquitetura.png Graphic file (type png)
 
 <use img/arquitetura.png> [22pdfTeX warning (ext4): destination with the same i
@@ -623,22 +624,27 @@ dentifier (name{figure.4.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.54 
+l.51 
       <img/arquitetura.png>]
-<img/caps/heightmap.png, id=373, 963.6pt x 542.025pt>
+<img/caps/heightmap.png, id=371, 963.6pt x 542.025pt>
 File: img/caps/heightmap.png Graphic file (type png)
 
-<use img/caps/heightmap.png> [23pdfTeX warning (ext4): destination with the sam
-e identifier (name{figure.4.7}) has been already used, duplicate ignored
+<use img/caps/heightmap.png>
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 70.
+
+[23pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.74 
+l.73 
       <img/caps/heightmap.png (PNG copy)>]
-<img/caps/malha.png, id=381, 963.6pt x 542.025pt>
+<img/caps/malha.png, id=379, 963.6pt x 542.025pt>
 File: img/caps/malha.png Graphic file (type png)
  <use img/caps/malha.png>
-<img/texturas.png, id=383, 722.7pt x 259.97125pt>
+<img/texturas.png, id=381, 722.7pt x 259.97125pt>
 File: img/texturas.png Graphic file (type png)
  <use img/texturas.png>
 [24pdfTeX warning (ext4): destination with the same identifier (name{figure.4.8
@@ -646,78 +652,75 @@ File: img/texturas.png Graphic file (type png)
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.105 A
-        Figura \ref{fig:heightmap2} mostra a renderização de uma cena apenas...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.9}) 
-has been already used, duplicate ignored
+l.91 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.4
+.9}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.105 A
-        Figura \ref{fig:heightmap2} mostra a renderização de uma cena apenas...
- <img/caps/malha.png (PNG copy)> <img/texturas.png>]
-<img/caps/heightmap2.png, id=391, 963.6pt x 542.025pt>
+l.91 
+      <img/caps/malha.png (PNG copy)> <img/texturas.png>]
+<img/caps/heightmap2.png, id=389, 963.6pt x 542.025pt>
 File: img/caps/heightmap2.png Graphic file (type png)
 
 <use img/caps/heightmap2.png>
-<img/caps/deslocamento.png, id=393, 963.6pt x 542.025pt>
+<img/caps/deslocamento.png, id=391, 963.6pt x 542.025pt>
 File: img/caps/deslocamento.png Graphic file (type png)
 
-<use img/caps/deslocamento.png>
-<img/caps/blend.png, id=395, 963.6pt x 542.025pt>
+<use img/caps/deslocamento.png> [25pdfTeX warning (ext4): destination with the 
+same identifier (name{figure.4.10}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.118 
+       <img/caps/heightmap2.png (PNG copy)>]
+<img/caps/blend.png, id=397, 963.6pt x 542.025pt>
 File: img/caps/blend.png Graphic file (type png)
  <use img/caps/blend.png>
-[25pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1
-0}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.123 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-4.11}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.123 
-       <img/caps/heightmap2.png (PNG copy)> <img/caps/deslocamento.png (PNG cop
-y)>] <img/caps/luz.png, id=401, 963.6pt x 542.025pt>
+<img/caps/luz.png, id=399, 963.6pt x 542.025pt>
 File: img/caps/luz.png Graphic file (type png)
- <use img/caps/luz.png>
-(testeGeracao.tex [26pdfTeX warning (ext4): destination with the same identifie
-r (name{figure.4.12}) has been already used, duplicate ignored
+ <use img/caps/luz.png> [26pdfTeX warning (ext4): destination with the same ide
+ntifier (name{figure.4.11}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2 
-    pdfTeX warning (ext4): destination with the same identifier (name{figure.4.
-13}) has been already used, duplicate ignored
+l.134 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+4.12}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2 
-     <img/caps/blend.png (PNG copy)> <img/caps/luz.png (PNG copy)>]
-<img/tempoGeracao.png, id=409, 468.75125pt x 347.2975pt>
+l.134 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+4.13}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.134 
+       <img/caps/deslocamento.png (PNG copy)> <img/caps/blend.png (PNG copy)> <
+img/caps/luz.png (PNG copy)>] (testeGeracao.tex
+<img/tempoGeracao.png, id=407, 468.75125pt x 347.2975pt>
 File: img/tempoGeracao.png Graphic file (type png)
 
-<use img/tempoGeracao.png>)) [27pdfTeX warning (ext4): destination with the sam
-e identifier (name{table.4.2}) has been already used, duplicate ignored
+<use img/tempoGeracao.png> [27pdfTeX warning (ext4): destination with the same 
+identifier (name{table.4.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.219 \include{resultados}
-                          pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.4.14}) has been already used, duplicate ignored
+l.30 
+     ])) [28pdfTeX warning (ext4): destination with the same identifier (name{f
+igure.4.14}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.219 \include{resultados}
                            <img/tempoGeracao.png (PNG copy)>] (conclusao.tex
 Cap\'{\i }tulo 5.
-) [28
+) [29
 
 
 
-] (monografia.bbl [29
+] (monografia.bbl [30
 
 
 ])
@@ -725,18 +728,18 @@ Cap\'{\i }tulo 5.
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[30] (monografia.aux (capa.aux) (folharosto.aux) (dedicatoria.aux)
+[31] (monografia.aux (capa.aux) (folharosto.aux) (dedicatoria.aux)
 (agradecimentos.aux) (epigrafe.aux) (resumo.aux) (abstract.aux) (introducao.aux
 ) (referecialTeorico.aux) (metodologia.aux) (resultados.aux) (conclusao.aux)) )
  
 Here is how much of TeX's memory you used:
  7717 strings out of 95304
- 106806 string characters out of 1183032
- 190598 words of memory out of 1500000
- 10573 multiletter control sequences out of 110000
- 9320 words of font info for 32 fonts, out of 3000000 for 5000
+ 106835 string characters out of 1183032
+ 191658 words of memory out of 1500000
+ 10572 multiletter control sequences out of 110000
+ 8961 words of font info for 31 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
- 36i,12n,32p,884b,1453s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,12n,32p,794b,1453s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbx12.pfb><C:/Program File
 s/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.7/f
 onts/type1/bluesky/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/blues
@@ -744,9 +747,9 @@ ky/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr12.pfb><
 C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr8.pfb><C:/Program Files/M
 iKTeX 2.7/fonts/type1/bluesky/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.7/fonts/
 type1/bluesky/cm/cmti12.pfb>
-Output written on monografia.pdf (32 pages, 3327462 bytes).
+Output written on monografia.pdf (33 pages, 3330340 bytes).
 PDF statistics:
- 501 PDF objects out of 1000 (max. 8388607)
- 119 named destinations out of 1000 (max. 131072)
+ 503 PDF objects out of 1000 (max. 8388607)
+ 120 named destinations out of 1000 (max. 131072)
  299 words of extra memory for PDF output out of 10000 (max. 10000000)
 

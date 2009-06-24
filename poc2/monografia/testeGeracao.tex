@@ -1,4 +1,4 @@
-Neste teste foi medido o tempo gasto com a geração de terrenos tanto na \emph{GPU} quanto na \emph{CPU}. Para cada número de \emph{octaves} (4, 8, 12, 16), foi gerado 100 terrenos, e medido o tempo gasto. Quaisquer outros parâmetros (número de vértices, tamanho de texturas, números de vizinhos) foram mantidos iguais para a geração nas duas arquiteturas. Os resultados obtidos estão na tabela \ref{tabela:geracao}.
+Neste teste foi medido o tempo médio gasto com a geração de terrenos tanto na \emph{GPU} quanto na \emph{CPU}. Para cada número de \emph{octaves} (4, 8, 12, 16), foi gerado 100 terrenos, e medido o tempo gasto. O mapa de altura utilizado possui tamanho 512 x 512. Os resultados obtidos estão na tabela \ref{tabela:geracao}.
 
 
 \begin{table}[H]
@@ -28,3 +28,5 @@ A Figura \ref{fig:geracao} apresenta os tempos anteriores.
 	\caption{\label{fig:geracao} Gráfico do tempo médio (em ms) de geração dos terrenos, com número variável de \emph{octaves}.}
 \end{figure}
 
+
+Como pode ser visto, o tempo de geração do terreno na \emph{GPU} permanece quase constante, enquanto a geração na \emph{CPU} tem um comportamento praticamente linear.

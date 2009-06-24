@@ -7,15 +7,15 @@ O trabalho proposto é uma pesquisa de natureza aplicada, pois busca aplicar um c
 
 \section{Procedimentos metodológicos}
 
-O primeiro passo do trabalho foi a escolha de uma \sigla{API}{Application Programming Interface}. Por se tratar de uma plataforma aberta e já estudada em matérias durante o curso, o \emph{OpenGL} foi escolhido, juntamente com a linguagem C++. Além disso, essa API oferece algumas extensões que permitem maximizar a performance do sistema, como o a estrutura \sigla{VBO}{Vertex Buffer Object}, que armazena os vértices do modelo 3D diretamente na memória da \emph{Graphics Processing Unit} (\sigla{GPU}{Graphics Processing Unit}), diminuindo o número de chamadas para a renderização, e o \sigla{FBO}{Frame Buffer Object}, que permite renderizar o resultado de uma certa computação diretamente em uma textura.
+O primeiro passo do trabalho foi a escolha de uma \sigla{API}{Application Programming Interface}. Por se tratar de uma plataforma aberta e já estudada em matérias durante o curso, o \emph{OpenGL} foi escolhido, juntamente com a linguagem C++. Além disso, essa API oferece algumas extensões que permitem maximizar a performance do sistema, como o a estrutura \sigla{VBO}{Vertex Buffer Object}, que armazena os vértices do modelo 3D diretamente na memória da \emph{Graphics Processing Unit} (\sigla{GPU}{Graphics Processing Unit}), diminuindo o número de chamadas para a renderização, e o \sigla{FBO}{Frame Buffer Object}, que permite renderizar o resultado de uma certa computação, realizada em um \emph{shader}, diretamente em uma textura.
 
-Durante este tempo de pesquisa, foi considerado a utilização da plataforma \emph{CUDA}, da \emph{NVidia}, destinada especificamente para o uso da \emph{GPU} em computação de propósito geral. Porém, ele foi descartado, uma vez que seu uso é limitado às placas \emph{NVidia} e, de uma maneira geral, tudo que é proposto aqui pode ser feito com o uso de plataformas abertas.
+Durante este tempo de pesquisa, foi considerado a utilização da plataforma \emph{CUDA}, da \emph{NVidia}, destinada especificamente para o uso da \emph{GPU} em computação de propósito geral. Porém, ele foi descartado, uma vez que seu uso é limitado às placas \emph{NVidia} e, de uma maneira geral, tudo que é proposto aqui pode ser feito com o uso de plataformas abertas e que podem ser executadas em um grande número de computadores.
 
 
 O segundo passo foi pesquisar diversas técnicas procedurais envolvidas na geração de terrenos, bem como algumas sistemas que oferecem soluções ligadas à geração procedural, como o \emph{CityEngine} \cite{citygen} e o \emph{MojoWorld} \cite{mojoworld}. Foi pesquisado também trabalhos relacionados à geração procedural de terrenos na \emph{GPU}.
 
 
-O terceiro passo envolveu a construção de um sistema que permite a geração procedural de terrenos tanto na \emph{GPU} quanto na \emph{CPU}), sendo possível navegar pelo cenário de maneira intuitiva.
+O terceiro passo envolveu a construção de um sistema que permite a geração procedural de terrenos infinitos tanto na \emph{GPU} quanto na \emph{CPU}, sendo possível navegar pelo cenário de maneira intuitiva.
 
 Finalmente, foram executados testes comparativos entre a geração procedural na \emph{GPU} e na \emph{CPU}, a fim de observar os benefícios obtidos em cada arquitetura.
 

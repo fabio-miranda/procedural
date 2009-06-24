@@ -4,10 +4,10 @@
 
 bool conf_complexRendering = true;
 short conf_numNeighbours = 1;
-short conf_numDivisions = 250;
+short conf_numDivisions = 150;
 short conf_lodFactor = 2;
 float conf_geomSize = 5.0f;
-short conf_textureSize = 512;
+short conf_textureSize = 1028;
 
 //Keys
 bool conf_showWireFrame = false;

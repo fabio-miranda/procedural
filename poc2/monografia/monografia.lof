@@ -2,14 +2,14 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Exemplo de um ru\IeC {\'\i }do de Perlin.}}{15}{figure.2.1}
 \contentsline {figure}{\numberline {2}{\ignorespaces Exemplo de um mapa de altura.}}{16}{figure.2.2}
 \contentsline {figure}{\numberline {3}{\ignorespaces Gr\'afico com a evolu\c c\~ao das \emph {GPUs}, em compara\c c\~ao com as \emph {CPUs}.}}{17}{figure.2.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces \emph {Pipeline} gr\'afico.}}{17}{figure.2.4}
+\contentsline {figure}{\numberline {4}{\ignorespaces \emph {Pipeline} gr\'afico.}}{18}{figure.2.4}
 \contentsline {figure}{\numberline {5}{\ignorespaces Camadas do sistema.}}{21}{figure.4.5}
 \contentsline {figure}{\numberline {6}{\ignorespaces Diagrama com as principais classes do sistema implementado.}}{22}{figure.4.6}
 \contentsline {figure}{\numberline {7}{\ignorespaces Mapa de altura gerado pelo \emph {shader}.}}{23}{figure.4.7}
 \contentsline {figure}{\numberline {8}{\ignorespaces Malha inicial para visualiza\c c\~ao dos terrenos.}}{24}{figure.4.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Movimenta\c c\~ao da c\^amera do nodo (1,1) para o nodo (2, 1).}}{24}{figure.4.9}
+\contentsline {figure}{\numberline {9}{\ignorespaces Movimenta\c c\~ao da c\^amera do nodo (1,1), na esquerda, para o nodo (2, 1), na direita.}}{24}{figure.4.9}
 \contentsline {figure}{\numberline {10}{\ignorespaces Mapa de altura aplicado a um quadrado.}}{25}{figure.4.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Mapa de altura aplicado a um quadrado, deslocando a altura.}}{25}{figure.4.11}
+\contentsline {figure}{\numberline {11}{\ignorespaces Mapa de altura aplicado a um quadrado, deslocando a altura.}}{26}{figure.4.11}
 \contentsline {figure}{\numberline {12}{\ignorespaces Mapa de altura aplicado a um quadrado, deslocando a altura, e com texturas.}}{26}{figure.4.12}
 \contentsline {figure}{\numberline {13}{\ignorespaces Mapa de altura aplicado a um quadrado, deslocando a altura, com texturas, e ilumina\c c\~ao.}}{26}{figure.4.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Gr\'afico do tempo m\'edio (em ms) de gera\c c\~ao dos terrenos, com n\'umero vari\'avel de \emph {octaves}.}}{27}{figure.4.14}
+\contentsline {figure}{\numberline {14}{\ignorespaces Gr\'afico do tempo m\'edio (em ms) de gera\c c\~ao dos terrenos, com n\'umero vari\'avel de \emph {octaves}.}}{28}{figure.4.14}
