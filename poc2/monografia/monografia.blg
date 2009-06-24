@@ -15,8 +15,7 @@ The style file: abnt-num.bst
 Database file #1: abnt-options.bib
 Database file #2: monografia.bib
 +---------------------------------------------------------+
-| Estilo bibliografico abnt-num.bst versao 1.50           |
-| Implementa a NBR6023, NBR10520 e NBR10523               |
-| Em caso de duvidas ou problemas com este estilo procure |
+| Estilo bibliográfico abnt-num.bst versão 1.42.2.1           |
+| Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+

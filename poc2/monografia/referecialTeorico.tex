@@ -1,24 +1,20 @@
 \chapter{REFERENCIAL TEÓRICO}
+\label{referencialTeorico}
 
+Para ume melhor compreensão deste trabalho, é necessário explicar o contexto em que ele se situa e também pesquisas relacionadas. O referencial teórico pertinente a este trabalho pode ser dividido em duas áreas: geração procedural e \emph{GPU}. A parte referente à geração procedural será apresentada na Seção \ref{geracaoprocedural}, enquanto que na Seçao \ref{gpu} será apresentada conceitos e trabalhos relativos à programação utilizando a \emph{GPU}.
+
+
+\section{Geração Procedural}
+\label{geracaoprocedural}
 Vários trabalhos publicados abordam a geração de modelos tridimensionais com o uso de algoritmos. Alguns destes trabalhos abordam a geração de cidades (\cite{parish} e \cite{pseudoinfinite}), outros abordam a geração de terrenos realistas (em tempo-real, como os trabalhos \cite{realtime} e \cite{virtual}, ou não, como o \emph{MojoWorld} \cite{mojoworld}), ou então a geração de árvores \cite{speedtree}. A principal referência na área é o livro \emph{Texturing and Modeling: A Procedural Approach} \cite{livro}, em que é explicada a geração procedural de diversos tipos de modelos.
 
 Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Lindenmayer (\emph{l-System})\cite{lsystem}, que, através de uma gramática, modela o crescimento de plantas; geometrias fractais \cite{geometrias}; e também ruído de Perlin (\emph{Perlin noise} \cite{perlin}). Algumas técnicas pertinentes a este trabalho serão abordadas na Seção \ref{terrenos}.
 
-A geração procedural de terrenos na \emph{GPU} já foi abordada nos trabalhos \cite{gpugems3}, \cite{sbgames} e \cite{artigo}. Porém, todos possuem um enfoque diferente do que é proposto aqui.
-
-O primeiro (\cite{gpugems3}) faz uso da plataforma \sigla{CUDA}{Compute Unified Device Architecture}, da empresa \emph{NVidia}, para a geração procedural, e, apesar de mostrar resultados excelentes, está limitado às placas \emph{NVidia} e com suporte à \sigla{API}{pplication Programming Interface} \emph{DirectX 10}.
-
-O segundo trabalho (\cite{sbgames}) propõe a geração de terrenos através do algoritmo de \emph{Marching cubes}.
-
-O terceiro trabalho (\cite{artigo}) é o que mais se assemelha ao que é proposto aqui. Porém, o trabalho peca por não comparar a geração utilizando a \emph{GPU} e a \emph{CPU}.
-
-Nas Seções \ref{grafocenareferencial} e \ref{mapaaltura} será apresentado o conceito de Mapa de Altura, relevante para este trabalho. Na Seção \ref{gpu} será abordado as \emph{GPUs}, detalhando o seu funcionamento e os seus benefícios para este trabalho.
-
-\section{Terrenos procedurais}
+\subsection{Terrenos procedurais}
 \label{terrenos}
-Existem uma série de técnicas para criação de terrenos proceduralmente, como ruído de Perlin, \emph{fractal plasma), \emph{fault formation}, \emph{circles}. Para este trabalho, porém, foi escolhido o \{Ridged multifractal noise}, uma variação do ruído de Perlin, por este ser o que melhor representa terrenos \cite{livro}.
+Existem uma série de técnicas para criação de terrenos proceduralmente, como ruído de Perlin, \emph{fractal plasma}, \emph{fault formation}, \emph{circles}. Para este trabalho, porém, foi escolhido o \emph{Ridged multifractal noise}, uma variação do ruído de Perlin, por este ser o que melhor representa terrenos \cite{livro}.
 
-\subsection{Ruído de Perlin}
+\subsubsection{Ruído de Perlin}
 O ruído de Perlin foi criado pelo Professor Ken Perlin, da \emph{New York University}. O ruído é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
 
 Para criar um ruído de Perlin, precisamos de uma função que retorne, para um dado domínio, números entre 0 e 1. Para gerarmos esses números, é preciso uma semente (\emph{seed}); dessa forma, em uma segunda execução, com uma mesma semente, teremos os mesmos números entre 0 e 1.
@@ -31,33 +27,35 @@ A Figura \ref{fig:perlin} \cite{figura_perlin} mostra três funções de ruído, cri
 \end{figure}
 
 
-A maior vantagem do ruído de Perlin é por ele ser coerente, ou seja, com os mesmos valores de entrada, obteremos os mesmos valores de saída.
+A maior vantagem do ruído de Perlin é ele ser coerente, ou seja, com os mesmos valores de entrada, obteremos os mesmos valores de saída.
 
 
-\subsection{Ridged multifractal noise}
-O \emph{Ridged multifractal noise} é uma variação do ruído de Perlin.
+\subsubsection{\emph{Ridged multifractal noise}}
+O \emph{Ridged multifractal noise} é uma variação do ruído de Perlin, e foi apresentado em \cite{livro}. O maior ponto do algoritmo é que ele captura a \emph{heterogeneidade de terrenos em grande escala}, apresentando montanhas, planaltos e crateras. Um pseudo-algoritmo pode ser visto na Tabela \ref{tabela:ridged}.
 
-\section{Grafo de cena}
-\label{grafocenareferencial}
-Um grafo de cena é uma estrutura de dados utilizada em aplicações gráficas e jogos eletrônicos. O seu objetivo é organizar os objetos presentes em um ambiente virtual (uma cena). Todo os grafos de cena são acíclicos e dirigidos.
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|p{\textwidth}|}
+		\hline
+\begin{lstlisting}
+for(int i=0; i<octaves; i++) {
+	float n = ridge(noise(posicao*freq), offset);
+	sum += n*amp*prev;
+	prev = n;
+	freq *= lacunarity;
+	amp *= gain;
+}
+	\end{lstlisting}
+		\\
+		\hline
+		\end{tabular}
+		\caption{Pseudo-algoritmo do \emph{Ridged multifractal noise}}
+		\label{tabela:ridged}
+	\end{center}
+\end{table}
 
-No exemplo da Figura \ref{fig:grafocena2}  \cite{grafocena}, o grafo representa uma cena com um carro (\emph{car}) e uma luz (\emph{light}). O nodo {\bf carro} possui, como nodos filhos, quatro {\bf rodas} (\emph{wheel}). A Figura \ref{fig:grafocena1} mostra a cena com o carro e um ponto de luz.
 
-\begin{figure}[H]
-	\center{\includegraphics[width=0.25\linewidth]{img/grafocena_exemplo1.png}}
-	\caption{\label{fig:grafocena1} Exemplo de uma cena com um carro e um ponto de luz.}
-\end{figure}
-
-\begin{figure}[H]
-	\center{\includegraphics[width=0.35\linewidth]{img/grafocena_exemplo2.png}}
-	\caption{\label{fig:grafocena2} Exemplo de um grafo de cena.}
-\end{figure}
-
-
-A maior vantagem de um grafo de cena é a possibilidade de aplicar transformações geométricas (como rotação, translação, escala) a um nodo, e os filhos desse nodo também sofrerão tais transformações. Técnicas mais avançadas, como desenhar na tela apenas parte de uma cena (ou \emph{culling}), também podem ser implementadas através de grafos de cena.
-
-
-\section{Mapa de altura}
+\subsection{Mapa de altura}
 \label{mapaaltura}
 
 Um mapa de altura (ou \emph{heightmap}) é uma imagem bidimensional que armazena dados referentes à altura de um terreno. Geralmente, tons mais claros representam pontos mais altos, enquanto tons mais escuros são pontos mais baixos do mapa. A Figura \ref{fig:mapaalturaexemplo} \cite{mapaaltura} é um exemplo de mapa de altura.
@@ -69,7 +67,38 @@ Um mapa de altura (ou \emph{heightmap}) é uma imagem bidimensional que armazena 
 
 
 
-\section{Graphics Processing Unit}
-As \emph{GPUs} são as unidades de processamento inseridas na maioria das placas de vídeo atuais. Por serem destinadas ao processamento gráfico, elas possuem um alto grau de paralelismo.
+\section{\emph{GPUs}}
+\label{gpu}
+
+As \emph{GPUs} são as unidades de processamento inseridas na maioria das placas de vídeo atuais. A sua evolução foi incentivada pela alta demanda do mercado de renderização 3D em tempo-real, como \emph{games} e simuladores virtuais, sempre em busca de representar a realidade da maneira mais fidedígna possível. A imagem \ref{fig:gflops} mostra a rápida evolução das arquiteturas da \emph{NVidia} (uma das principais produtores de placas de vídeo), considerando o número de operações de pontos flutuantes executados por segundo, em contraste com a evolução das CPUs.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{img/gflops.png}}
+	\caption{\label{fig:gflops} Gráfico com a evolução das \emph{GPUs}, em comparação com as \emph{CPUs}.}
+\end{figure}
+
+Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as \emph{GPUs} foram construídas de forma a processar da melhor maneira possível um grande número de dados. Assim, certos aspectos de um processador, como \emph{cache}, são relegados.
+
+A programação utilizando \emph{GPUs} iniciou de forma mais concreta no ano de 2001, com a placa \emph{Geforce3}, da \emph{NVidia}. Essa geração permitiu que programas (conhecidos como \emph{shaders}) fossem escritos para serem executados diretamente na \emph{GPU}. Inicialmente, tais programas modificavam os valores e propriedades dos vértices de uma cena. Na geração seguinte (representada pelas placas \emph{GeForce FX}), foi possível também executar \emph{shaders} que modificavam os valores dos \emph{pixels} (ou fragmentos) da cena. A Figura abaixo mostra o \emph{pipeline} gráfico das \emph{GPUs}, destacando a posição das do \emph{vertex shader} e {fragment shader}, sendo estes estágios programáveis.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{img/pipeline.png}}
+	\caption{\label{fig:pipeline} \emph{Pipeline} gráfico.}
+\end{figure}
+
+
+
+Ao longo da evolução das \emph{GPUs}, uma série de linguagens para programação de \emph{shaders} foram criadas. Entre elas, podemos ressaltar a \sigla{HLSL}{High Level Shader Language}, da \emph{Microsoft}, \sigla{Cg}{C for Graphics}, da \emph{NVidia}, e \sigla{GLSL}{OpenGL Shading Language}, da \sigla{OpenGL ARB}{OpenGL Architecture Review Board}.
+
+Ao se utilizar uma dessas linguagens, todo o processamento será feito com base nos vértices (em um \emph{vertex shader}) ou fragmentos (\emph{fragment shader}). O resultado do processamento também ficará limitado a tais primitivas. O destino da renderização de todas as \emph{APIs} é o chamado \emph{Frame Buffer}, que nada mais é do que um vetor com informações sobre cor, profundidade, etc. Como é possível criar novos \emph{Frame buffers}, também é possível criar novos destinos de renderização para os \emph{shaders}.
+
+
+
+\section{Geração Procedural utilizando \emph{GPUs}}
+A geração procedural de terrenos na \emph{GPU} já foi abordada nos trabalhos \cite{gpugems3} e \cite{Schneider:2006:FractalTerrain}. Porém, todos possuem um enfoque diferente do que é proposto aqui.
+
+O primeiro (\cite{gpugems3}) faz uso da plataforma \sigla{CUDA}{Compute Unified Device Architecture}, da empresa \emph{NVidia}, para a geração procedural, e, apesar de mostrar resultados excelentes, está limitado às placas \emph{NVidia} e com suporte à \sigla{API}{Application Programming Interface} \emph{DirectX 10}.
+
+O terceiro trabalho (\cite{Schneider:2006:FractalTerrain}) é o que mais se assemelha ao que é proposto aqui. Porém, peca por não comparar a geração utilizando a \emph{GPU} e a \emph{CPU}.
 
 

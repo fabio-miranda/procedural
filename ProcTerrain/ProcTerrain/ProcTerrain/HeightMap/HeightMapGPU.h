@@ -20,7 +20,7 @@ class HeightMapGPU : public HeightMap {
 
 
 public:
-	HeightMapGPU(RenderingShader* renderingShader, GenerationShader* generationShader,
+	HeightMapGPU(RenderingShader* renderingShader, GenerationShader* generationShader, GLuint* ptrBlendTextures,
 						   Vector3<float> relativePosition, Vector3<float> translation, 
 						   float geomSize, short numDivisions, short textureSize, short maxIterations,
 						   int octaves, float lacunarity, float gain, float offset);
@@ -35,6 +35,7 @@ public:
 
 	GenerationShader *m_ptrGenerationShader;
 	FBO *m_ptrFBO;
+	GLuint* m_ptrBlendTextures;
 
 };
 

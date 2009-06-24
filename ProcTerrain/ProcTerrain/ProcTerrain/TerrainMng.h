@@ -28,6 +28,7 @@ public:
 	GenerationShader* m_terrainGenerationShader;
 	FBO* m_fbo;
 	char* m_permArray;
+	GLuint* m_blendTexturesId;
 
 private:
 
@@ -37,6 +38,7 @@ private:
 	void initPermAndGradTextures();
 	void initLight();
 	void initNodes();
+	void initTextures();
 	void GenerateNeighbours(short oldIndex, short newIndex);
 
 	GLuint m_permTextureID;

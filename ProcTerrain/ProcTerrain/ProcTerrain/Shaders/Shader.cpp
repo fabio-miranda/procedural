@@ -5,7 +5,29 @@ Shader::Shader(){
 
 }
 
-Shader::Shader(char* vertexShaderFile, char* fragShaderFile){
+Shader::~Shader(){
+	
+	glDetachObjectARB(m_shaderProg, m_shaderVert);
+	glDeleteObjectARB(m_shaderVert); 
+
+	glDetachObjectARB(m_shaderProg, m_shaderFrag);
+	glDeleteObjectARB(m_shaderFrag); 
+
+	glDeleteObjectARB(m_shaderProg); 
+	
+}
+
+void Shader::Enable(){
+	glUseProgramObjectARB(m_shaderProg);
+
+}
+
+void Shader::Disable(){
+	glUseProgramObjectARB( 0 );
+
+}
+
+void Shader::LoadFiles(char* vertexShaderFile, char* fragShaderFile){
 	
 	char *vs = NULL,*fs = NULL;
 	
@@ -39,28 +61,5 @@ Shader::Shader(char* vertexShaderFile, char* fragShaderFile){
 		printInfoLog(m_shaderProg);
 
 	}
-
-
-}
-
-Shader::~Shader(){
-	
-	glDetachObjectARB(m_shaderProg, m_shaderVert);
-	glDeleteObjectARB(m_shaderVert); 
-
-	glDetachObjectARB(m_shaderProg, m_shaderFrag);
-	glDeleteObjectARB(m_shaderFrag); 
-
-	glDeleteObjectARB(m_shaderProg); 
-	
-}
-
-void Shader::Enable(){
-	glUseProgramObjectARB(m_shaderProg);
-
-}
-
-void Shader::Disable(){
-	glUseProgramObjectARB( 0 );
 
 }

@@ -16,6 +16,7 @@ class WindowMng{
 	int m_width;
 	int m_height;
 	Camera* m_camera;
+	bool m_pressingKey;
 
 public:
 	WindowMng(int, int);

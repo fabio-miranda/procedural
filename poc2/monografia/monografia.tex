@@ -21,6 +21,7 @@
 \usepackage{graphicx}														%Package para figuras
 \usepackage{float}
 \usepackage{geometry}
+\usepackage{listings}
 
 
 \usepackage{url}
@@ -32,7 +33,7 @@
 \geometry{a4paper,left=3cm,right=2cm,top=3cm,bottom=2cm}
 
 
-\hyphenation{a-pre-sen-ta-da e-di-to-res mo-de-los au-xi-li-\'a-lo abs-tra-ção ge-ra-ção re-a-lis-tas so-fre-rão geo-mé-tri-cas co-nhe-ci-men-to me-lho-rar}
+%\hyphenation{a-pre-sen-ta-da e-di-to-res mo-de-los au-xi-li-\'a-lo abs-tra-ção ge-ra-ção re-a-lis-tas so-fre-rão geo-mé-tri-cas co-nhe-ci-men-to me-lho-rar}
 
 %%
 %%	Ainda em teste
@@ -142,7 +143,7 @@
 	\vspace{-0.75cm}
 	\leftskip 0em
 	\parindent 0em
-	\@tempdima 5em
+	\@tempdima 8em
 	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
 	{\normalfont #1}\hfil\nobreak\par}
 
@@ -222,10 +223,12 @@
 % ********** REFERÊNCIAS **********
 %\bibliographystyle{acm}
 %\bibliographystyle{abnt-alf}	 % Existem ainda: abbrv, acm, alpha, amsalpha, amsplain
+
 \bibliographystyle{abnt-num}
 %\bibliographystyle{unsrt}
 \bibliography{monografia} % o nome do arquivo .bib com as referências
 %\include{bibliografia}															
+%\nocite{*}
 
 %\include{apendice1}
 

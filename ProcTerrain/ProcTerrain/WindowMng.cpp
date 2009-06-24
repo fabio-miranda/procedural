@@ -4,6 +4,7 @@
 WindowMng::WindowMng(int width, int height){
 	m_width = width;
 	m_height = height;
+	m_pressingKey = false;
 
 	m_camera = new Camera(Vector3<float>(2.5, 2.5, 3), Vector3<float>(0,0,0));
 
@@ -95,13 +96,35 @@ bool WindowMng::isRunning(){
 void WindowMng::UpdateKeyboard(){
 	m_camera->UpdateKeyboard();
 
-	if(glfwGetKey( '1' )){
-		conf_wire_frame = true;
-
+	if(glfwGetKey( '1' ) && m_pressingKey == false){
+		conf_showWireFrame = !conf_showWireFrame;
+		m_pressingKey = true;
 	}
-	else if(glfwGetKey( '2' )){
-		conf_wire_frame = false;
+	else if(glfwGetKey( '2' ) && m_pressingKey == false){
+		conf_showHeightMap = !conf_showHeightMap;
+		m_pressingKey = true;
+	}
+	else if(glfwGetKey( '3' ) && m_pressingKey == false){
+		conf_showVerticesDisplacement = !conf_showVerticesDisplacement;
+		m_pressingKey = true;
+	}
+	else if(glfwGetKey( '4' ) && m_pressingKey == false){
+		conf_showBlendTexture = !conf_showBlendTexture;
+		m_pressingKey = true;
+	}
+	else if(glfwGetKey( '5' ) && m_pressingKey == false){
+		conf_showLight = !conf_showLight;
+		m_pressingKey = true;
+	}
 
+	
+
+	if(glfwGetKey( '1' ) == GLFW_RELEASE
+		&& glfwGetKey( '2' ) == GLFW_RELEASE
+		&& glfwGetKey( '3' ) == GLFW_RELEASE
+		&& glfwGetKey( '4' ) == GLFW_RELEASE
+		&& glfwGetKey( '5' ) == GLFW_RELEASE){
+			m_pressingKey = false;
 	}
 }
 

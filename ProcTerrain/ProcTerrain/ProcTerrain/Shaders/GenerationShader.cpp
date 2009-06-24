@@ -1,9 +1,10 @@
 #include "GenerationShader.h"
 
 
+//TODO: calculate the normal of the heightmap on the generation shader (instead of calculating it each frame on the rendering shader)
+GenerationShader::GenerationShader(float seed, GLuint permTextureID) {
 
-GenerationShader::GenerationShader(float seed, GLuint permTextureID)
-	: Shader("../../ProcTerrain/Shaders/terrainGeneration.vert", "../../ProcTerrain/Shaders/terrainGeneration.frag"){
+	LoadFiles("../../ProcTerrain/Shaders/terrainGeneration.vert", "../../ProcTerrain/Shaders/terrainGeneration.frag");
 	
 	//m_locSeed = glGetUniformLocationARB(m_shaderProg,"seed");
 	//m_seed = seed;

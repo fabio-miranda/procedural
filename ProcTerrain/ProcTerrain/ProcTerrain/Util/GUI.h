@@ -29,6 +29,7 @@ public:
 	void Render();
 	void RenderFPS();
 	void RenderPolyCount();
+	void RenderInfo();
 	
 	
 

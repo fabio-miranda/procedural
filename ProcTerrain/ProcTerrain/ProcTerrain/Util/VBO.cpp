@@ -79,7 +79,7 @@ void VBO::Render(){
 	//glIndexPointer(GL_UNSIGNED_SHORT, 0, 0);
 
 	//TODO: remove the if/else verification each frame (passing the conf_wire_frame to the glPolygonMode
-	if(conf_wire_frame)
+	if(conf_showWireFrame)
 		glPolygonMode(GL_FRONT, GL_LINE);
 	else
 		glPolygonMode(GL_FRONT, GL_FILL);

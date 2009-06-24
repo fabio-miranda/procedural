@@ -26,7 +26,7 @@ TerrainMng::TerrainMng()
 	//Shaders
 	//SetUpShaders();
 	m_terrainGenerationShader = new GenerationShader(5132, m_permTextureID);
-	m_terrainRenderingShader = new RenderingShader();
+	m_terrainRenderingShader = new RenderingShader(conf_complexRendering);
 
 	
 
@@ -34,9 +34,48 @@ TerrainMng::TerrainMng()
 	//Light
 	initLight();
 
+	//Textures
+	initTextures();
+
 	//Nodes
 	initNodes();
+
 	
+	
+
+}
+
+void TerrainMng::initTextures(){
+	
+	m_blendTexturesId = new GLuint[4];
+
+	//Level 0
+	glGenTextures(1,&m_blendTexturesId[0]); 
+	glBindTexture(GL_TEXTURE_2D, m_blendTexturesId[0]);
+	glfwLoadTexture2D("level0.tga", 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	//Level 1
+	glGenTextures(1,&m_blendTexturesId[1]); 
+	glBindTexture(GL_TEXTURE_2D, m_blendTexturesId[1]);
+	glfwLoadTexture2D("level1.tga", 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); 
+
+	//Level 2
+	glGenTextures(1,&m_blendTexturesId[2]); 
+	glBindTexture(GL_TEXTURE_2D, m_blendTexturesId[2]);
+	glfwLoadTexture2D("level2.tga", 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); 
+
+	//Level 3
+	glGenTextures(1,&m_blendTexturesId[3]); 
+	glBindTexture(GL_TEXTURE_2D, m_blendTexturesId[3]);
+	glfwLoadTexture2D("level3.tga", 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); 
 
 }
 
@@ -74,14 +113,14 @@ void TerrainMng::initNodes(){
 			}
 
 
-			m_ptrNodes[i*m_size+j] = new SquareNode(cont, m_terrainGenerationShader, m_terrainRenderingShader, 
+			m_ptrNodes[i*m_size+j] = new SquareNode(cont, m_terrainGenerationShader, m_terrainRenderingShader, m_blendTexturesId,
 													Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), 
 													conf_geomSize, conf_textureSize, numDivisions,
 													neighbLeft, neighbDown);
-			//m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray, 10, 5.5, 0.5, 0.9);
+			//m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray, 32, 5.5, 0.5, 0.9);
 			
 			//float a = (float)rand()/RAND_MAX;
-			m_ptrNodes[i*m_size+j]->GenerateGPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0),25, 1.5, 0.5, 1.0);
+			m_ptrNodes[i*m_size+j]->GenerateGPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0),64, 2.5, 0.5, 1.0);
 
 
 			
@@ -150,9 +189,9 @@ void TerrainMng::Render(double elapsedTime){
 
 void TerrainMng::initLight(){
 	
-	GLfloat LightPosition[] = { 0.0, 0.0, 5.0, 1.0};
+	GLfloat LightPosition[] = { 2.0, 2.0, 1.0, 1.0};
 
-	GLfloat DiffuseLight[] = {1.0, 0.0, 0.0};
+	GLfloat DiffuseLight[] = {1.0, 1.0, 1.0};
 	GLfloat AmbientLight[] = {0.2, 0.2, 0.2};
 	GLfloat SpecularLight[] = {1.0, 1.0, 1.0};
 
@@ -163,7 +202,7 @@ void TerrainMng::initLight(){
 
 	GLfloat mShininess[] = {8};
 
-	GLfloat DiffuseMaterial[] = {1.0, 0.0, 0.0};
+	GLfloat DiffuseMaterial[] = {1.0, 1.0, 1.0};
 	GLfloat AmbientMaterial[] = {0.2, 0.2, 0.2};
 	GLfloat SpecularMaterial[] = {1.0, 1.0, 1.0};
 
@@ -292,7 +331,7 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 				//m_ptrNodes[i]->m_heightMap = m_ptrNodes[i-m_size]->m_heightMap;
 
 				if(m_ptrNodes[i]->m_heightMap->m_gpuOrCpu == GPU)
-					((HeightMapGPU*)(m_ptrNodes[j]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[i-m_size]->m_heightMap))->m_ptrFBO);
+					((HeightMapGPU*)(m_ptrNodes[i]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[i-m_size]->m_heightMap))->m_ptrFBO);
 			}	
 		}
 		

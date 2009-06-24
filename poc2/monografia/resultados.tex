@@ -1,126 +1,140 @@
 \chapter{RESULTADOS E DISCUSSÃO}
+\label{resultados}
 
-Os conhecimentos adquiridos ao longo desse trabalho permitiram a criação de um arcabouço capaz de gerar terrenos procedurais e também de levar em consideração algumas entradas do usuário. Na Seção \ref{arcabouco} será apresentado tal arcabouço. Na Seção \ref{grafocena} será mostrado o grafo de cena implementado e, finalmente, na Seção \ref{terrenosgerados} alguns exemplos de terrenos gerados proceduralmente com o arcabouço.
+Os conhecimentos adquiridos ao longo desse trabalho permitiram a criação de um sistema capaz de gerar terrenos procedurais tanto na \emph{GPU} quanto na \emph{CPU}, e também permite a navegação do usuário por tal terreno. Na Seção \ref{sistema} será apresentado tal sistema, bem como decições e detalhes de implementação. Finalmente, na Seção \ref{terrenosgerados} será apresentado alguns exemplos de terrenos gerados proceduralmente.
 
 
 
-\section{Arcabouço}
-\label{arcabouco}
+\section{O Sistema Implementado}
+\label{sistema}
 
-%O arcabouço implementado aqui teve como um dos principais objetivos a possibilidade de futuras expansões. A Figura \ref{fig:node} mostra uma hierárquia de classes implementadas, e que podem ser , como \emph{PerlinNoise} e \emph{Plasma} (para geração procedural através dos algoritmos de ruído de Perlin e Plasma), e também a \emph{FileHeightmap}, que é a responsável por ler mapas de altura de arquivos de imagem. Quaisquer novos algoritmos de geração procedural de terrenos devem ser filhos da classe \emph{Terrain}, que já encapsula uma série de funções pertinentes à visualização de terrenos, como a cópia dos vértices para uma estrutura VBO.
 
-Os módulos presentes no arcabouço têm como objeto principal possibilitar e facilitar a implementação de outras técnicas de geração procedural de terrenos, sem a necessidade de uma reorganização do arcabouço. A Figura \ref{fig:arcabouco} mostra um diagrama \emph{Unified Modeling Language} (\sigla{UML}{Unified Modeling Language}) com a organização das principais classes, e uma explicação de cada módulo pode ser vista em seguida.
-
+O sistema implementado neste trabalho teve como principal objetivo permitir a geração procedural de terrenos tanto na \emph{GPU} quanto na \emph{CPU}. A Figura \ref{fig:bibliotecas} apresenta as camadas do sistema, destacando as bibliotecas utilizadas (como é explicado a seguir).
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.5\linewidth]{img/arcabouco.png}}
-	\caption{\label{fig:arcabouco} Diagrama UML do arcabouço.}
+	\center{\includegraphics[width=0.2\linewidth]{img/bibliotecas.png}}
+	\caption{\label{fig:bibliotecas} Camadas do sistema.}
 \end{figure}
 
 \begin{itemize}
-	\item {\bf Framework}: responsável por chamar as rotinas de renderização e também verifica os eventos de entrada do mouse e do teclado.
-	\item {\bf Camera}: responsável pela movimentação no cenário.
-	\item {\bf SceneGraph}: grafo de cena implementado (e que será detalhado na Seção \ref{grafocena}).
-	\item {\bf Node}: classe base para todos os nodos que serão inseridos no grafo de cena.
-	\item {\bf Mesh}: responsável por armazenar os vértices da malha do terreno.
+	\item {\bf OpenGL}: \emph{API} gráfica utilizada para a renderização gráfica.
+	\item {\bf glew}: Biblioteca para carregamento de extensão do \emph{OpenGL}.
+	\item {\bf glfw}: Biblioteca que facilita o tratamento de entradas e também criação de janelas.
+	\item {\bf ftgl}: Biblioteca para a renderização de textos.
+	\item {\bf FreeType}: Biblioteca para renderização de textos (dependência do \emph{ftgl}).
+	\item {\bf WindowMng}: Camada responsável por criar a tela e tratar os eventos de entrada.
+	\item {\bf ProcTerrain}: Camada responsável por gerar e exibir os terrenos.
 \end{itemize}
 
+As camadas \emph{WindowMng} e \emph{ProcTerrain} foram implementadas neste trabalho. O \emph{WindowMng} tem como proposito simular a camada de um aplicativo gráfico genérico (\emph{game}, simulador, etc.); desta forma, o sistema poderá ser posteriormente adaptado para funcionar em conjunto com outros aplicativos que possam vir a ser desenvolvidos.
 
-A câmera implementada permite que o usuário navegue pelo terreno com o controle do mouse e do teclado, padrão em programas de modelagem 3D, como \emph{Maya} e \emph{3dMax}.
-
-\section{Grafo de cena implementado}
-\label{grafocena}
-
-Para a visualização dos terrenos, foi criada uma estrutura de grafo de cena, onde cada nodo representa um terreno gerado (chamado de \emph{patch}). Os \emph{patchs} são pequenas partes da geometria do terreno; juntos eles formam o terreno como um todo. A Figura \ref{fig:patch} mostra isso:
+A Figura \ref{fig:arquitetura} apresenta em detalhes os módulos presentes nas camadas \emph{WindowMng} e \emph{ProcTerrain}. A seguir, uma explicação sobre cada um dos módulos.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.4\linewidth]{img/caps/patch.png}}
-	\caption{\label{fig:patch} Diversos \emph{patchs} formando um terreno maior.}
+	\center{\includegraphics[width=0.5\linewidth]{img/arquitetura.png}}
+	\caption{\label{fig:arquitetura} Diagrama com as principais classes do sistema implementado.}
 \end{figure}
 
-A estrutura leva em consideração a posição atual da câmera para gerar os terrenos. A Figura \ref{fig:grafo2} considera que a câmera está situada acima do {\bf Terreno 0}, e assim ele possui oito nodos filhos ao seu redor.
+\begin{itemize}
+	\item {\bf WindowMng}: Responsável por simular um aplicativo gráfico genérico, e chamar os devidos \emph{callbacks} do pacote \emph{ProcTerrain}.
+	\item {\bf Camera}: Módulo que implementa uma câmera controlada pelo jogador e navegando pelo mundo.
+	\item {\bf TerrainMng}: Módulo responsável por gerar e controlar os terrenos.
+	\item {\bf SquareNode}: Nodo que representa uma fatia do terreno.
+	\item {\bf HeightMap}, {\bf HeightMapCPU} e {\bf HeightMapGPU}: Módulos que implementam os mapas de altura dos terrenos gerados na \emph{CPU} ou na \emph{GPU}.
+	\item {\bf GenerationShader}: \emph{Shader} responsável pela geração dos terrenos.
+	\item {\bf RenderingShader}: \emph{Shader} responsável pela renderização dos terrenos.
+\end{itemize}
+
+A seguir, nas Seções \ref{geracao} e \ref{visualizacao} serão apresentados os detalhes de implementação da geração e visualização do terreno.
+
+
+\section{Geração do Terreno}
+\label{geracao}
+Nesta seção, será abordado a implementação da geração de terrenos, tanto na \emph{GPU}, quanto na \emph{CPU}. Os dois têm, em comum, o algoritmo usado para a geração (\emph{Ridged multifractal noise}).
+
+
+\subsection{Geração do Terreno na \emph{GPU}}
+Toda a geração dos terrenos na \emph{GPU} é feita através de um \emph{fragment shader}. Como toda computação de \emph{shaders} só pode ser aplicada com base em geometrias ou texturas, foi preciso renderizar um quadrado. Entra aí então o \sigla{FBO}{Frame Buffer Object}, extensão do \emph{OpenGL} que permite criar \emph{Frame Buffers} e realizar renderizações \emph{off-screen} (que não são exibidas na tela). O quadrado é renderizado em um novo \emph{frame buffer}, e o \emph{shader} de geração procedural é aplicado sobre ele. O resultado pode ser visto na Figura \ref{fig:resultados:heightmap}.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.4\linewidth]{img/grafo_cena2.png}}
-	\caption{\label{fig:grafo2} Grafo de cena e terrenos, com a câmera no Terreno 0.}
+	\center{\includegraphics[width=0.5\linewidth]{img/caps/heightmap.png}}
+	\caption{\label{fig:resultados:heightmap} Mapa de altura gerado pelo \emph{shader}.}
 \end{figure}
 
-Na Figura \ref{fig:grafo3}, a câmera passa a estar em cima do {\bf Terreno 5}. Logo, serão gerados os terrenos 8, 9 e 10. Os terrenos 1, 4 e 6 (em branco) poderão ser excluídos, enquanto que os terrenos 0, 2, 3, 7 e 8 passarão a apontar para um novo nodo pai: o nodo que representa o {\bf Terreno 5}.
+\subsection{Geração do Terreno na \emph{CPU}}
+A geração na \emph{CPU} é feita de maneira tradicional. Uma lista de vértices é criada e, para cada vértice, é calculado a sua altura de acordo com o algoritmo \emph{Ridged multifractal noise}.
+
+
+
+\section{Visualização do Terreno}
+\label{visualizacao}
+Com o mapa de altura gerado, o próximo passo é exibir o terreno para o usuário. Da mesma forma, aqui também será exposto alguns detalhes específicos da visualização do terreno gerado na \emph{GPU}, na Seção \ref{visualizacaogpu}. Antes, porém, é necessário detalhar funções comuns tanto à visualização de terrenos gerados na \emph{CPU} quanto na \emph{GPU}.
+
+O passo inicial é a geração de uma malha (conjunto de vértices) de tamanho pré-determinado, como mostra a Figura \ref{fig:malha}
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.4\linewidth]{img/grafo_cena3.png}}
-	\caption{\label{fig:grafo3} Grafo de cena e terrenos, com a câmera no Terreno 5.}
+	\center{\includegraphics[width=0.5\linewidth]{img/caps/malha.png}}
+	\caption{\label{fig:malha} Malha inicial para visualização dos terrenos.}
 \end{figure}
 
-Outro aspecto levado em consideração, foi o número de terrenos gerados e o número de terrenos que estão sendo visualizados. Na Figura \ref{fig:grafo1}, os terrenos em branco foram gerados, mas não serão renderizados na tela, para economizar recursos da placa de vídeo. O número e as distâncias entre os terrenos gerados e visualizados são parâmetros do arcabouço.
+A malha é gerada de tal forma que um número maior de vértices está concentrado no centro. Quanto maior a distância, menor o número de vértices presentes. Isto propicia uma maneira rápida e fácil de implementar um nível de detalhamento (quanto maior a distância do centro, menor será a necessidade de se renderizar o terreno em alta fidelidade).
+
+Como a malha é gerada apenas uma única vez (no início da execução), não é preciso criar repetidas malhas a medida que o jogador percorre o terreno. Apenas os mapas de altura são trocados, como mostra a Figura \ref{fig:texturas}
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.6\linewidth]{img/grafo_cena1.png}}
-	\caption{\label{fig:grafo1} Visualização e geração dos terrenos.}
+	\center{\includegraphics[width=0.5\linewidth]{img/texturas.png}}
+	\caption{\label{fig:texturas} Movimentação da câmera do nodo (1,1), na esquerda, para o nodo (2, 1), na direita.}
 \end{figure}
 
-\newpage
+Na Figura \ref{fig:texturas} é possível notar o deslocamento dos mapas de textura quando a câmera se move do nodo (1,1) para o nodo (2,1). Este método, possível somente para terrenos gerados na \emph{GPU}, diminuiu a necessidade de implementação de um algoritmo de nível de detalhe mais robusto. Além disso, como sabemos o número de vértices antecipadamente, a performance do aplicativo tem uma menor chance de sofrer quedas bruscas de rendimento.
+
+
+\subsection{Visualização do Terreno Gerado na \emph{GPU}}
+\label{visualizacaogpu}
+Para a visualização do terreno gerado na \emph{GPU}, um \emph{vertex shader} lê a altura do mapa de altura gerado e desloca a posição de \emph{z} do vértice correspondente na malha.
+
+Um aspecto importante é que a geração do mapa de altura já fornece os valores das normais de cada vértice (necessários para o cálculo da luz).
+
+
+
+
 \section{Terrenos gerados}
 \label{terrenosgerados}
+Nesta Seção, será apresentado uma série de imagens com o resultado das gerações procedurais na \emph{GPU}.
 
-A Figura \ref{fig:tela1} mostra um terreno gerado em um estágio inicial do arcabouço.
-
+A Figura \ref{fig:heightmap2} mostra a renderização de uma cena apenas com a textura do mapa de altura aplicado em um quadrado.
 \begin{figure}[H]
-	\center{\includegraphics[width=0.7\linewidth]{img/caps/1.png}}
-	\caption{\label{fig:tela1} Tela com o terreno gerado (versão inicial).}
-\end{figure}
-
-As Figuras \ref{fig:tela2}, \ref{fig:tela3} e \ref{fig:tela4} mostram terrenos gerados com uma \emph{interface} provisória, onde é possível escolher os parâmetros dos terrenos a serem gerados, como a semente (\emph{seed}) da geração, o número de vizinhos e a cor do terreno.
-
-\begin{figure}[H]
-	\center{\includegraphics[width=0.7\linewidth]{img/caps/2.png}}
-	\caption{\label{fig:tela2} Tela com a \emph{interface} do usuário (exibição do terreno em \emph{wireframe}).}
-\end{figure}
-
-\begin{figure}[H]
-	\center{\includegraphics[width=0.8\linewidth]{img/caps/3.png}}
-	\caption{\label{fig:tela3} Tela com a \emph{interface} do usuário (exibição do terreno em tons de cinza).}
-\end{figure}
-
-\begin{figure}[H]
-	\center{\includegraphics[width=0.8\linewidth]{img/caps/4.png}}
-	\caption{\label{fig:tela4} Tela com a \emph{interface} do usuário (exibição do terreno com uma textura).}
-\end{figure}
-
-\newpage
-
-A Figura \ref{fig:tela5} mostra um terreno gerado proceduralmente e o mapa de altura exibido na Figura \ref{fig:mapaaltura} inserido no arcabouço (mostrado na Tela em um tom cinza mais escuro, para se destacar do terreno gerado proceduralmente).
-
-\begin{figure}[H]
-	\center{\includegraphics[width=0.25\linewidth]{img/heightmap.png}}
-	\caption{\label{fig:mapaaltura} Mapa de altura inserido pelo usuário.}
-\end{figure}
-
-\begin{figure}[H]
-	\center{\includegraphics[width=0.8\linewidth]{img/caps/5.png}}
-	\caption{\label{fig:tela5} Tela com o terreno gerado e um mapa de altura inserido.}
+	\center{\includegraphics[width=0.5\linewidth]{img/caps/heightmap2.png}}
+	\caption{\label{fig:heightmap2} Mapa de altura aplicado a um quadrado.}
 \end{figure}
 
 
-\newpage
+A Figura \ref{fig:deslocamento} mostra o mesmo mapa de altura, mas agora com o deslocamento dos vértices em no eixo \emph{z}.
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{img/caps/deslocamento.png}}
+	\caption{\label{fig:deslocamento} Mapa de altura aplicado a um quadrado, deslocando a altura.}
+\end{figure}
+
+A Figura \ref{fig:blend} mostra agora a renderização da malha com texturas para simular o grama, pedras, neve, etc.
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{img/caps/blend.png}}
+	\caption{\label{fig:blend} Mapa de altura aplicado a um quadrado, deslocando a altura, e com texturas.}
+\end{figure}
+
+A Figura \ref{fig:luz} mostra o resultado final, agora com a aplicação de iluminação.
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{img/caps/luz.png}}
+	\caption{\label{fig:luz} Mapa de altura aplicado a um quadrado, deslocando a altura, com texturas, e iluminação.}
+\end{figure}
+
 
 \section{Testes}
-Alguns testes foram feitos para avaliar a variação de frames por segundo (\sigla{FPS}{Frames por segundo}) com a alteração de alguns parâmetros e também o tempo gasto na geração procedural. Eles foram executados em um \emph{Athlon64 3500}, com 2GB de memória \emph{RAM} e placa de vídeo \emph{GeForce6600} com 64MB de memória.
-
-A Seção \ref{teste_geracao} mostra um teste com a geração de 100 terrenos proceduralmente.
-
-As Seções \ref{teste_variando_octaves} e \ref{teste_variando_vizinhos} apresentam testes que consistiam em um vôo da câmera pelo terreno durante 60 segundos, em um trajeto constante para todos os testes.
-
-\subsection{Teste 1}
-\label{teste_geracao}
-\input{teste_geracao}
-
-\subsection{Teste 2}
-\label{teste_variando_octaves}
-\input{teste_variando_octaves}
+Alguns testes foram feitos para avaliar a velocidade de geração dos terrenos com a alteração de alguns parâmetros, utilizando tanto a \emph{GPU} quanto a \emph{CPU}. Eles foram executados em um \emph{Core 2 Duo E7400}, com 2GB de memória \emph{RAM} e placa de vídeo \emph{ATI Radeon HD 4850} com 512MB de memória \emph{RAM}, e \emph{driver} versão 8.612. As tabelas com os tempos e as conclusões dos testes são apresentadas a seguir.
 
 
-\subsection{Teste 3}
-\label{teste_variando_vizinhos}
-\input{teste_variando_vizinhos}
+A Seção \ref{testeGeracao} mostra um teste com a geração de 100 terrenos proceduralmente.
+
+\subsection{Tempos de Geração do Terreno}
+\label{testeGeracao}
+\input{testeGeracao}
 

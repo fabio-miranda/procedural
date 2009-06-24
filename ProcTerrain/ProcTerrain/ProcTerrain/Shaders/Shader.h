@@ -14,6 +14,7 @@ public:
 	~Shader();
 	void Enable();
 	void Disable();
+	void LoadFiles(char*, char*);
 
 	GLhandleARB m_shaderProg;
 

@@ -470,27 +470,35 @@
 			>
 		</Filter>
 		<File
+			RelativePath=".\ProcTerrain\Shaders\complexTerrainRendering.frag"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\complexTerrainRendering.vert"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\lightTerrainRendering.frag"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\lightTerrainRendering.vert"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\simpleTerrainRendering.frag"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcTerrain\Shaders\simpleTerrainRendering.vert"
+			>
+		</File>
+		<File
 			RelativePath=".\ProcTerrain\Shaders\terrainGeneration.frag"
 			>
 		</File>
 		<File
 			RelativePath=".\ProcTerrain\Shaders\terrainGeneration.vert"
-			>
-		</File>
-		<File
-			RelativePath=".\ProcTerrain\Shaders\terrainRendering.frag"
-			>
-		</File>
-		<File
-			RelativePath=".\ProcTerrain\Shaders\terrainRendering.vert"
-			>
-		</File>
-		<File
-			RelativePath=".\ProcTerrain\Shaders\terrainRendering_bkp.frag"
-			>
-		</File>
-		<File
-			RelativePath=".\ProcTerrain\Shaders\terrainRendering_bkp.vert"
 			>
 		</File>
 		<File

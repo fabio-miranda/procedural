@@ -1,7 +1,12 @@
-\contentsline {sigla}{\hbox to\@tempdima {API\hfil }{Application Programming Interface}}{18}{section.3.2}
-\contentsline {sigla}{\hbox to\@tempdima {VBO\hfil }{Vertex Buffer Object}}{18}{section.3.2}
-\contentsline {sigla}{\hbox to\@tempdima {GPU\hfil }{Graphics Processing Unit}}{18}{section.3.2}
-\contentsline {sigla}{\hbox to\@tempdima {POO\hfil }{Programa\c c\~ao Orientada a Objetos}}{18}{section.3.2}
-\contentsline {sigla}{\hbox to\@tempdima {UML\hfil }{Unified Modeling Language}}{20}{section.4.1}
-\contentsline {sigla}{\hbox to\@tempdima {FPS\hfil }{Frames por segundo}}{26}{section.4.4}
-\contentsline {sigla}{\hbox to\@tempdima {XML\hfil }{Extensible Markup Language}}{30}{chapter.5}
+\contentsline {sigla}{\hbox to\@tempdima {GPU\hfil }{Graphics Processing Unit}}{12}{section.1.1}
+\contentsline {sigla}{\hbox to\@tempdima {HLSL\hfil }{High Level Shader Language}}{17}{figure.2.4}
+\contentsline {sigla}{\hbox to\@tempdima {Cg\hfil }{C for Graphics}}{17}{figure.2.4}
+\contentsline {sigla}{\hbox to\@tempdima {GLSL\hfil }{OpenGL Shading Language}}{17}{figure.2.4}
+\contentsline {sigla}{\hbox to\@tempdima {OpenGL ARB\hfil }{OpenGL Architecture Review Board}}{17}{figure.2.4}
+\contentsline {sigla}{\hbox to\@tempdima {CUDA\hfil }{Compute Unified Device Architecture}}{18}{section.2.3}
+\contentsline {sigla}{\hbox to\@tempdima {API\hfil }{Application Programming Interface}}{18}{section.2.3}
+\contentsline {sigla}{\hbox to\@tempdima {API\hfil }{Application Programming Interface}}{19}{section.3.2}
+\contentsline {sigla}{\hbox to\@tempdima {VBO\hfil }{Vertex Buffer Object}}{19}{section.3.2}
+\contentsline {sigla}{\hbox to\@tempdima {GPU\hfil }{Graphics Processing Unit}}{19}{section.3.2}
+\contentsline {sigla}{\hbox to\@tempdima {FBO\hfil }{Frame Buffer Object}}{19}{section.3.2}
+\contentsline {sigla}{\hbox to\@tempdima {FBO\hfil }{Frame Buffer Object}}{23}{subsection.4.2.1}

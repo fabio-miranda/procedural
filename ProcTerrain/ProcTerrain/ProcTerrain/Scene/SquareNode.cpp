@@ -2,11 +2,14 @@
 
 
 
-SquareNode::SquareNode(int index, GenerationShader* generationShader, RenderingShader* renderingShader, Vector3<float> relativePosition, Vector3<float> translation, float geomSize, int textureSize, short numDivisions, SquareNode* neighbLeft, SquareNode* neighbDown){
+SquareNode::SquareNode(int index, GenerationShader* generationShader, RenderingShader* renderingShader, GLuint* ptrBlendTexturesId,
+					   Vector3<float> relativePosition, Vector3<float> translation, float geomSize, int textureSize, short numDivisions, SquareNode* neighbLeft, SquareNode* neighbDown){
 	
 	
 	m_ptrRenderingShader = renderingShader;
 	m_ptrGenerationShader = generationShader;
+	m_ptrBlendTexturesId = ptrBlendTexturesId;
+
 	m_relativePosition = relativePosition;
 	m_globalPosition = relativePosition;
 	m_globalPosition.Add(translation);
@@ -51,7 +54,8 @@ void SquareNode::ReGenerate(Vector3<float> globalPosition){
 void SquareNode::GenerateGPU(Vector3<float> relativePosition, Vector3<float> translation, int octaves, float lacunarity, float gain, float offset){
 
 	//Generate on GPU
-	m_heightMap = new HeightMapGPU(m_ptrRenderingShader,m_ptrGenerationShader, relativePosition, translation, m_geomSize, m_numDivisions, m_textureSize, 1,
+	m_heightMap = new HeightMapGPU(m_ptrRenderingShader,m_ptrGenerationShader, m_ptrBlendTexturesId,
+									relativePosition, translation, m_geomSize, m_numDivisions, m_textureSize, 1,
 									octaves, lacunarity, gain, offset);
 
 

@@ -6,7 +6,7 @@
 uniform sampler2D permTexture;
 //varying vec2 position;
 //uniform vec2 position;
-uniform float octaves;
+uniform int octaves;
 uniform float lacunarity;
 uniform float gain;
 uniform float offset;
@@ -96,6 +96,6 @@ void main(void){
 	vec3 position = vec3(gl_TexCoord[0].x, gl_TexCoord[0].y, 0);
 	//float color = ridgedmf(position, 5, 0.5, 0.5, 1.0);
 	float color = ridgedmf(position);
-	gl_FragColor = vec4(color, color, color, 1);
+	gl_FragColor = vec4(color, color, color, color);
 
 }
