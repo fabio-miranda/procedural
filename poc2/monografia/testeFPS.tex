@@ -1,0 +1,40 @@
+Neste teste foi medido o \sigla{FPS}{Frames por segundo} médio durante a navegação pelo terreno gerado proceduralmente, por 30 segundos. Os seguintes parâmetros foram utilizados:
+
+\begin{itemize}
+\item \emph{Octaves}: 16
+\item \emph{Lacunarity}: 2.5
+\item Ganho: 0.5
+\item \emph{Offset}: 1.0
+\item Tamanho da textura: 512
+\item Número de divisões dos quadrados: 150
+\item Tamanho dos quadrados: 5.0
+\item Fator \emph{LOD}: 2
+\end{itemize}
+
+A Tabela \ref{tabela:fps} mostra os tempos médios, mínimos e a média de \emph{FPS}. Além disso, há o número de \emph{frames} renderizados durante o percurso:
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			 & Total de \emph{Frames} & \emph{FPS} Mínimo & \emph{FPS} Máximo & \emph{FPS} Médio \\
+			\hline
+			CPU & 9664 & 248 & 397 & 322.133\\
+			\hline
+			GPU & 11287 & 361 & 394 & 376.233\\
+			\hline
+		\end{tabular}
+		\caption{Dados sobre a navegação pelo mundo durante 30 segundos}
+		\label{tabela:fps}
+	\end{center}
+\end{table}
+
+
+A Figura \ref{fig:fps} apresenta os tempos anteriores:
+\begin{figure}[H]
+	\center{\includegraphics[width=0.9\linewidth]{img/tempoFPS.png}}
+	\caption{\label{fig:fps} Gráfico do tempo médio (em ms) de geração dos terrenos, com número variável de \emph{octaves}.}
+\end{figure}
+
+
+Como pode ser visto através do gráfico, a navegação pelo mundo, utilizando a geração dos terrenos na \emph{GPU}, é muito mais fluida, sem quedas bruscas de \emph{FPS}, como nos \emph{frames} 3, 6, 9, 12, 14, 17, 20, 23, 26 e 29. Na geração pela \emph{CPU}, tais quedas correspondem justamente nos momentos em que o sistema gera novos terrenos.

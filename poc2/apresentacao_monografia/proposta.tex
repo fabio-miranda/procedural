@@ -1,0 +1,142 @@
+\section{Proposta}
+
+\subsection{Proposta}
+
+\begin{frame}\frametitle{Proposta}
+\begin{itemize}
+	\item O objetivo deste trabalho é construir um sistema em que seja possível gerar proceduralmente terrenos utilizando a \emph{GPU} de placas gráficas e também na \emph{CPU}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Proposta}
+\begin{itemize}
+	\item Os terrenos gerados serão baseados no algoritmo \emph{ridged multifractal noise}.	
+\end{itemize}
+\begin{columns}
+	\begin{column}{5cm}
+	\begin{itemize}
+		\item \alert<1-2>{Ruído de Perlin:\\} \onslide<1-2>{\scriptsize Função que retorna um valor com certa consistência com os outros valores ao seu redor.}
+		\item \alert<3>{Fractais:\\} \only<3>{\scriptsize \emph{objetos geométricos complexos, na qual a complexidade surge da repetição de uma forma em uma extensão de escalas.} \cite{livro}}
+		%\item \alert<4>{Multifractais:\\} \only<4>{\scriptsize \emph{fractais cuja dimensão fractal varia com a posição}. \cite{livro}}
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics<1>[width=1.0\linewidth]{img/noise}
+		\includegraphics<2>[width=1.0\linewidth]{img/perlin2}
+		\includegraphics<3>[width=1.0\linewidth]{img/fractal}
+		%\includegraphics<4>[width=1.0\linewidth]{img/dimensaoFractal}
+	\end{overprint}
+	\end{column}
+	
+
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Geração na GPU}
+\begin{columns}
+	\begin{column}{5cm}
+	\begin{itemize}
+		\item A geração é feita através de conjuntos de instruções (shaders) executados na GPU.
+		\item O \emph{pipeline} gráfico das GPUs executa dois tipos de shaders:
+		\begin{itemize}
+			\item \tiny Vertex shader: executado para cada vértice da cena.
+			\item \tiny Fragment shader: executado para cada fragmento dos polígonos (a saída do shader é uma cor, salva em uma textura).
+		\end{itemize}
+	\end{itemize}
+	%\vspace{3cm} 
+	\end{column}
+	\begin{column}{7cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/pipeline}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Terreno}
+\begin{columns}
+	\begin{column}{7cm}
+	\begin{itemize}
+		\item O terreno é dividido em um grid, sendo que cada \emph{patch} é criado separadamente.
+		\item As geometrias são criadas somente uma vez (no início do programa). Quando o jogador se move, apenas os mapas de altura são trocados.
+		\item Os \emph{patchs} mais próximos da câmera possuem um maior número de vértices.
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/grid}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Geração na GPU}
+\begin{columns}
+	\begin{column}{7cm}
+	\begin{itemize}
+		\item Geração do terreno:
+		\begin{itemize}
+			\item Fragment shader: calcular o novo terreno procedural e salva o resultado em um \emph{frame buffer object} (FBO).
+			\begin{itemize}
+				\item Geração incremental (\emph{Ping-Pong}): a cada \emph{frame}, uma iteração do \emph{ridged multifractal noise} é feita. O \emph{frame buffer} resultante servirá como entrada na próxima iteração.
+				\item Na última iteração, é calculado as normais de todos os vértices (iluminação).
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/geracao}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Geração na GPU}
+\begin{columns}
+	\begin{column}{7cm}
+	\begin{itemize}
+		
+		\item Visualização do terreno:
+			\begin{itemize}
+				\item Vertex shader: após o calculo do terreno, o vertex shader irá consultar oque foi gerado, e ajustar a altura dos vértices do terreno.
+				\item Fragment shader: Cálculo da iluminação (por pixel).
+			\end{itemize}
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics[width=1.0\linewidth]{img/geracao}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}\frametitle{Sistema}
+\begin{columns}
+	\begin{column}{7cm}
+	\begin{itemize}
+		\item \onslide<1> glfw, ftgl, freetype, glew: bibliotecas para OpenGL.
+		\item \onslide<1> WindowMng: camada que simula um aplicativo gráfico genérico.
+		\item \onslide<1> TerrainMng: gera e controla os terrenos.
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics<1>[width=1.0\linewidth]{img/bibliotecas}
+	\end{overprint}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+
+

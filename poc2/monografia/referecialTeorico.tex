@@ -31,6 +31,7 @@ A maior vantagem do ruído de Perlin é ele ser coerente, ou seja, com os mesmos v
 
 
 \subsubsection{\emph{Ridged multifractal noise}}
+\label{ridged}
 O \emph{Ridged multifractal noise} é uma variação do ruído de Perlin, e foi apresentado em \cite{livro}. O maior ponto do algoritmo é que ele captura a \emph{heterogeneidade de terrenos em grande escala}, apresentando montanhas, planaltos e crateras. Um pseudo-algoritmo pode ser visto na Tabela \ref{tabela:ridged}.
 
 \begin{table}[H]
@@ -54,7 +55,9 @@ for(int i=0; i<octaves; i++) {
 	\end{center}
 \end{table}
 
-No algoritmo, o número de \textbf{octaves} representa o número de iterações (e, consequentemente somas) feitas sobre a função de ruído. A \textbf{amplitude} é o máximo valor adicionado ao valor total do ruído. \textbf{Frequency} é o número de valores de ruídos definidos entre dois pontos (quanto maior a frequência, maior o disturbio da textura resultante). \textbf{Lacunarity} é o espaço entre sucessivas frequências e, finalmente, \textbf{offset} é o valor adicionado ao resultado do \emph{ridged multifractal noise} (elevando o terreno acima do plano \emph{z = 0}).
+No algoritmo, o número de \textbf{octaves} representa o número de iterações (e, consequentemente somas) feitas sobre a função de ruído. A \textbf{amplitude} é o máximo valor adicionado ao valor total do ruído. \textbf{Frequency} é o número de valores de ruídos definidos entre dois pontos (quanto maior a frequência, maior o disturbio da textura resultante). \textbf{Lacunarity} é um termo usado no cálculo de fractais, e dita o espaço entre sucessivas frequências, aumentando ou diminuindo a densidade do resultado final. Finalmente, \textbf{offset} é o valor adicionado ao resultado do \emph{ridged multifractal noise} (elevando o terreno acima do plano \emph{z = 0}).
+
+A função \emph{noise} retorna um valor 
 
 
 \subsection{Mapa de altura}
@@ -79,7 +82,7 @@ As \emph{GPUs} são as unidades de processamento inseridas na maioria das placas 
 	\caption{\label{fig:gflops} Gráfico com a evolução das \emph{GPUs}, em comparação com as \emph{CPUs}.}
 \end{figure}
 
-Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as \emph{GPUs} foram construídas de forma a processar da melhor maneira possível um grande número de dados homogêneos. Assim, certos aspectos de um processador, como \emph{cache}, são relegados.
+Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as \emph{GPUs} foram construídas de forma a processar da melhor maneira possível um grande número de dados homogêneos e independentes entre si, como é o caso de vértices e \emph{pixels}, base de todo o processamento gráfico. Assim, certos aspectos de um processador, como \emph{cache}, aspectos de sincronização de \emph{threads} e a comunicação entre elas, são relegados.
 
 A programação utilizando \emph{GPUs} iniciou de forma mais concreta no ano de 2001, com a placa \emph{Geforce3}, da \emph{NVidia}. Essa geração permitiu que programas (conhecidos como \emph{shaders}) fossem escritos para serem executados diretamente na \emph{GPU}. Inicialmente, tais programas modificavam os valores e propriedades dos vértices de uma cena. Na geração seguinte (representada pelas placas \emph{GeForce FX}), foi possível também executar \emph{shaders} que modificavam os valores dos \emph{pixels} (ou fragmentos) da cena. A Figura abaixo mostra o \emph{pipeline} gráfico das \emph{GPUs}, destacando a posição das do \emph{vertex shader} e {fragment shader}, sendo estes estágios programáveis.
 

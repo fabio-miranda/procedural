@@ -1,4 +1,16 @@
-Neste teste foi medido o tempo médio gasto com a geração de terrenos tanto na \emph{GPU} quanto na \emph{CPU}. Para cada número de \emph{octaves} (4, 8, 12, 16), foi gerado 100 terrenos, e medido o tempo gasto. O mapa de altura utilizado possui tamanho 512 x 512. Os resultados obtidos estão na tabela \ref{tabela:geracao}.
+Neste teste foi medido o tempo médio gasto com a geração de terrenos tanto na \emph{GPU} quanto na \emph{CPU}. Os seguintes parâmetros foram utilizados:
+
+\begin{itemize}
+\item \emph{Octaves}: Variável (4, 8, 12, 16)
+\item \emph{Lacunarity}: 2.5
+\item Ganho: 0.5
+\item \emph{Offset}: 1.0
+\item Tamanho da textura: 512
+\item Número de divisões dos quadrados: 150
+\item Tamanho dos quadrados: 5.0
+\item Fator \emph{LOD}: 2
+\end{itemize}
+
 
 
 \begin{table}[H]
@@ -16,7 +28,7 @@ Neste teste foi medido o tempo médio gasto com a geração de terrenos tanto na \e
 			32 & 30,1095 & 370,841\\
 			\hline
 		\end{tabular}
-		\caption{Tempo média (em ms) de geração dos terrenos, com número variável de \emph{octaves}}
+		\caption{Tempo médio (em ms) de geração dos terrenos, com número variável de \emph{octaves}}
 		\label{tabela:geracao}
 	\end{center}
 \end{table}
@@ -24,7 +36,7 @@ Neste teste foi medido o tempo médio gasto com a geração de terrenos tanto na \e
 
 A Figura \ref{fig:geracao} apresenta os tempos anteriores.
 \begin{figure}[H]
-	\center{\includegraphics[width=0.5\linewidth]{img/tempoGeracao.png}}
+	\center{\includegraphics[width=0.4\linewidth]{img/tempoGeracao.png}}
 	\caption{\label{fig:geracao} Gráfico do tempo médio (em ms) de geração dos terrenos, com número variável de \emph{octaves}.}
 \end{figure}
 

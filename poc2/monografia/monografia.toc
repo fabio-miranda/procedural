@@ -18,11 +18,12 @@
 \contentsline {section}{\numberline {4.1}O Sistema Implementado}{21}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Gera\c c\~ao do Terreno}{23}{subsection.4.1.1}
 \contentsline {subsubsection}{\numberline {4.1.1.1}Gera\c c\~ao do Terreno na \emph {GPU}}{23}{subsubsection.4.1.1.1}
-\contentsline {section}{\numberline {4.2}Gera\c c\~ao do Terreno na \emph {CPU}}{23}{section.4.2}
-\contentsline {subsubsection}{\numberline {4.2.0.2}Visualiza\c c\~ao do Terreno}{23}{subsubsection.4.2.0.2}
-\contentsline {subsubsection}{\numberline {4.2.0.3}Visualiza\c c\~ao do Terreno Gerado na \emph {GPU}}{25}{subsubsection.4.2.0.3}
-\contentsline {section}{\numberline {4.3}Terrenos gerados}{25}{section.4.3}
+\contentsline {section}{\numberline {4.2}Gera\c c\~ao do Terreno na \emph {CPU}}{24}{section.4.2}
+\contentsline {subsubsection}{\numberline {4.2.0.2}Visualiza\c c\~ao do Terreno}{24}{subsubsection.4.2.0.2}
+\contentsline {subsubsection}{\numberline {4.2.0.3}Visualiza\c c\~ao do Terreno Gerado na \emph {GPU}}{26}{subsubsection.4.2.0.3}
+\contentsline {section}{\numberline {4.3}Terrenos gerados}{26}{section.4.3}
 \contentsline {section}{\numberline {4.4}Testes}{27}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Tempos de Gera\c c\~ao do Terreno}{27}{subsection.4.4.1}
-\contentsline {chapter}{\numberline {5}CONCLUS\~OES E TRABALHOS FUTUROS}{29}{chapter.5}
-\contentsline {chapter}{Refer\^encias}{30}{chapter.5}
+\contentsline {subsection}{\numberline {4.4.2}\emph {Frames} por Segundo Durante Navega\c c\~ao}{29}{subsection.4.4.2}
+\contentsline {chapter}{\numberline {5}CONCLUS\~OES E TRABALHOS FUTUROS}{31}{chapter.5}
+\contentsline {chapter}{Refer\^encias}{32}{chapter.5}
