@@ -14,20 +14,42 @@ Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Li
 \label{terrenos}
 Existem uma série de técnicas para criação de terrenos proceduralmente, como ruído de Perlin, \emph{fractal plasma}, \emph{fault formation}, \emph{circles}. Para este trabalho, porém, foi escolhido o \emph{Ridged multifractal noise}, uma variação do ruído de Perlin, por este ser o que melhor representa terrenos \cite{livro}.
 
-\subsubsection{Ruído de Perlin}
-O ruído de Perlin foi criado pelo Professor Ken Perlin, da \emph{New York University}. O ruído é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
 
-Para criar um ruído de Perlin, precisamos de uma função que retorne, para um dado domínio, números entre 0 e 1. Para gerarmos esses números, é preciso uma semente (\emph{seed}); dessa forma, em uma segunda execução, com uma mesma semente, teremos os mesmos números entre 0 e 1.
 
-A Figura \ref{fig:perlin} \cite{figura_perlin} mostra três funções de ruído, criadas com diferentes valores de amplitude e frequência. A primeira função poderia ser uma representação de montanhas, a segunda de morros, a terceira de blocos de pedras. A quarta função é a soma das três funções anteriores. Cada função de ruído é chamada de um \emph{octave}.
+
+\subsubsection{Ruído Perlin}
+O ruído Perlin foi criado pelo Professor Ken Perlin, da \emph{New York University} e é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
+
+A função ruído retorna, para um dado domínio e as mesmas sementes (\emph{seeds}, números entre 0 e 1; dessa forma, em uma segunda execução, com uma mesma semente, teremos os mesmos números entre 0 e 1. Porém, os números não são aleatórios, e aí está a razão da alta aceitação do trabalho de Perlin em áreas como \emph{games} e cinema. 
+Cada valor retornado é o resultado do seguinte produto interno:
+
+\begin{center}
+G . (P-Q)
+\end{center}
+
+Onde P é a posição do ponto que está sendo calculado o valor do ruído, Q é a posição de um de seus vizinhos, e G é o valor de um vetor gradiente pseudo-aleatório. Os resultados do produto interno dos vizinhos é então interpolado, garantindo assim que haverá uma suave transição entre todos os valores retornados.
+
+O resultado, como pode ser visto na Figura \ref{fig:noise} apresenta transições suaves, diferentemente do ruído aleatório.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.5\linewidth]{img/perlin.png}}
-	\caption{\label{fig:perlin} Exemplo de um ruído de Perlin.}
+	\center{\includegraphics[width=0.5\linewidth]{img/noise.png}}
+	\caption{\label{fig:noise} \emph{Esquerda:} Ruído aleatório. \emph{Direita:} Ruído Perlin.}
 \end{figure}
 
 
-A maior vantagem do ruído de Perlin é ele ser coerente, ou seja, com os mesmos valores de entrada, obteremos os mesmos valores de saída.
+As características fundamentais do ruído Perlin são então a sua aparente aleatoriedade (ao menos para o olho humano); sua capacidade de ser reproduzido, dado os mesmos valores dos gradientes; e sua transição suave entre valores.
+
+
+
+\subsubsection{Fractais}
+Fractais podem ser descritos, segundo \cite{livro}, como \emph{objetos geométricos complexos, na qual a complexidade surge da repetição de uma forma em uma extensão de escalas}. Um exemplo simples pode ser visto na Figura \ref{fig:fractal}:
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.5\linewidth]{img/fractal.png}}
+	\caption{\label{fig:fractal} Exemplo de um fractal a pertir de ruído Perlin.}
+\end{figure}
+
+Os quatro ruídos Perlin estão em escalas diferentes e, uma vez somados, formam um fractal, segundo a definição citada. Multifractais já são um subgrupo caracterizado pela variação de sua dimensão fractal ao longo de sua localização.
 
 
 \subsubsection{\emph{Ridged multifractal noise}}
@@ -55,9 +77,9 @@ for(int i=0; i<octaves; i++) {
 	\end{center}
 \end{table}
 
-No algoritmo, o número de \textbf{octaves} representa o número de iterações (e, consequentemente somas) feitas sobre a função de ruído. A \textbf{amplitude} é o máximo valor adicionado ao valor total do ruído. \textbf{Frequency} é o número de valores de ruídos definidos entre dois pontos (quanto maior a frequência, maior o disturbio da textura resultante). \textbf{Lacunarity} é um termo usado no cálculo de fractais, e dita o espaço entre sucessivas frequências, aumentando ou diminuindo a densidade do resultado final. Finalmente, \textbf{offset} é o valor adicionado ao resultado do \emph{ridged multifractal noise} (elevando o terreno acima do plano \emph{z = 0}).
+No algoritmo, o número de \textbf{octaves} representa o número de iterações (e, consequentemente somas) feitas sobre a função de ruído. A \textbf{amplitude} é o máximo valor adicionado ao valor total do ruído. \textbf{Frequency} é o número de valores de ruídos definidos entre dois pontos (quanto maior a frequência, maior o disturbio da textura resultante). \textbf{Lacunarity} é um termo usado no cálculo de fractais, e dita o espaço entre sucessivas frequências, aumentando ou diminuindo a densidade do resultado final. Finalmente, \textbf{offset} é o fator multifractal; a sua variação torna o resultado mais heterogêneo (menor \emph{offset}), ou mais uniforme (maior \emph{offset}).
 
-A função \emph{noise} retorna um valor 
+A função \emph{noise} retorna um valor de acordo com o ruído Perlin, alterado pela função \emph{ridge}, que leva em consideração o fator multifractal (\emph{offset}).
 
 
 \subsection{Mapa de altura}

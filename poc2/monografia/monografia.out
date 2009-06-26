@@ -5,8 +5,9 @@
 \BOOKMARK [0][-]{chapter.2}{REFERENCIAL TE\323RICO}{}
 \BOOKMARK [1][-]{section.2.1}{Gera\347\343o Procedural}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.1.1}{Terrenos procedurais}{section.2.1}
-\BOOKMARK [3][-]{subsubsection.2.1.1.1}{Ru\355do de Perlin}{subsection.2.1.1}
-\BOOKMARK [3][-]{subsubsection.2.1.1.2}{Ridged multifractal noise}{subsection.2.1.1}
+\BOOKMARK [3][-]{subsubsection.2.1.1.1}{Ru\355do Perlin}{subsection.2.1.1}
+\BOOKMARK [3][-]{subsubsection.2.1.1.2}{Fractais}{subsection.2.1.1}
+\BOOKMARK [3][-]{subsubsection.2.1.1.3}{Ridged multifractal noise}{subsection.2.1.1}
 \BOOKMARK [2][-]{subsection.2.1.2}{Mapa de altura}{section.2.1}
 \BOOKMARK [1][-]{section.2.2}{GPUs}{chapter.2}
 \BOOKMARK [1][-]{section.2.3}{Gera\347\343o Procedural utilizando GPUs}{chapter.2}

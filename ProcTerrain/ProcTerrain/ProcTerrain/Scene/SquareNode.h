@@ -28,6 +28,7 @@ class SquareNode{
 	RenderingShader* m_ptrRenderingShader;
 	GenerationShader* m_ptrGenerationShader;
 	GLuint* m_ptrBlendTexturesId;
+	char* m_ptrPermArray;
 
 	
 	
@@ -35,7 +36,7 @@ class SquareNode{
 
 
 public:
-	SquareNode(int index, GenerationShader* generationShader, RenderingShader* renderingShader, GLuint* ptrBlendTexturesId,
+	SquareNode(int index, GenerationShader* generationShader, RenderingShader* renderingShader, GLuint* ptrBlendTexturesId, char* ptrPermArray,
 				Vector3<float> position, Vector3<float> translation, float geomSize, int textureSize, short numDivisions, SquareNode* neighbLeft, SquareNode* neighbDown);
 	~ SquareNode();
 	void Render(double);

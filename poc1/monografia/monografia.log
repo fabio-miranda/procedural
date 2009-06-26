@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-1.40.8-beta-20080627 (MiKTeX 2.7) (preloaded format=pdflatex 2008.8.29)  2 DEC 2008 13:41
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  26 JUN 2009 01:18
 entering extended mode
 **monografia.tex
 (monografia.tex
 LaTeX2e <2005/12/01>
-Babel <v3.8j> and hyphenation patterns for english, dumylang, nohyphenation, ge
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman, ngerman, german-x-2008-06-18, ngerman-x-2008-06-18, french, loaded.
 ("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\abnt.cls"
 ("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
@@ -103,22 +103,36 @@ Package: `setspace' 6.7 <2000/12/01>
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ))
 ("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\hyperref.sty"
-Package: hyperref 2008/04/24 v6.77u Hypertext links for LaTeX
+Package: hyperref 2008/11/18 v6.78m Hypertext links for LaTeX
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\hycolor.sty"
-Package: hycolor 2007/04/11 v1.1 Code for color options of hyperref/bookmark (H
-O)
+("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2007/12/12 v1.6 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
 )
+("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.7\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2008/09/18 v0.4 Provides ifxetex conditional
+)
+("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\hycolor.sty"
+Package: hycolor 2008/09/08 v1.4 Code for color options of hyperref/bookmark (H
+O)
+
+("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\xcolor-patch.sty"
+Package: xcolor-patch 2008/09/08 xcolor patch
+))
 \@linkdim=\dimen113
 \Hy@linkcounter=\count99
 \Hy@pagecounter=\count100
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\pd1enc.def"
-File: pd1enc.def 2008/04/24 v6.77u Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2008/11/18 v6.78m Hyperref: PDFDocEncoding definition (HO)
 )
 ("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\etexcmds.sty"
 Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
@@ -137,19 +151,19 @@ File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 ("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2007/10/18 v3.0 Keyval support for LaTeX options (HO)
 )
-Package hyperref Info: Hyper figures OFF on input line 2892.
-Package hyperref Info: Link nesting OFF on input line 2897.
-Package hyperref Info: Hyper index ON on input line 2900.
-Package hyperref Info: Plain pages OFF on input line 2907.
-Package hyperref Info: Backreferencing OFF on input line 2912.
+Package hyperref Info: Hyper figures OFF on input line 2907.
+Package hyperref Info: Link nesting OFF on input line 2912.
+Package hyperref Info: Hyper index ON on input line 2915.
+Package hyperref Info: Plain pages OFF on input line 2922.
+Package hyperref Info: Backreferencing OFF on input line 2927.
 
 Implicit mode ON; LaTeX internals redefined
-Package hyperref Info: Bookmarks ON on input line 3071.
+Package hyperref Info: Bookmarks ON on input line 3117.
 ("C:\Program Files\MiKTeX 2.7\tex\latex\ltxmisc\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 3255.
+LaTeX Info: Redefining \url on input line 3351.
 
 ("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\bitset.sty"
 Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
@@ -173,28 +187,24 @@ t (HO)
 \Field@Width=\dimen114
 \Fld@charsize=\dimen115
 \Field@toks=\toks15
-Package hyperref Info: Hyper figures OFF on input line 4169.
-Package hyperref Info: Link nesting OFF on input line 4174.
-Package hyperref Info: Hyper index ON on input line 4177.
-Package hyperref Info: backreferencing OFF on input line 4184.
-Package hyperref Info: Link coloring OFF on input line 4189.
-Package hyperref Info: Link coloring with OCG OFF on input line 4194.
-Package hyperref Info: PDF/A mode OFF on input line 4199.
+Package hyperref Info: Hyper figures OFF on input line 4268.
+Package hyperref Info: Link nesting OFF on input line 4273.
+Package hyperref Info: Hyper index ON on input line 4276.
+Package hyperref Info: backreferencing OFF on input line 4283.
+Package hyperref Info: Link coloring OFF on input line 4288.
+Package hyperref Info: Link coloring with OCG OFF on input line 4293.
+Package hyperref Info: PDF/A mode OFF on input line 4298.
 
 ("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\atbegshi.sty"
-Package: atbegshi 2007/09/09 v1.6 At begin shipout hook (HO)
-
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\ifpdf.sty"
-Package: ifpdf 2007/12/12 v1.6 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in pdf mode detected.
-))
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+)
 \Hy@abspage=\count102
 \c@Item=\count103
 \c@Hfootnote=\count104
 )
 *hyperref using default driver hpdftex*
 ("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\hpdftex.def"
-File: hpdftex.def 2008/04/24 v6.77u Hyperref driver for pdfTeX
+File: hpdftex.def 2008/11/18 v6.78m Hyperref driver for pdfTeX
 \Fld@listcount=\count105
 )
 ("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\abntcite.sty"
@@ -234,7 +244,7 @@ LaTeX Info: Redefining \cite on input line 831.
 \ABCItoken=\toks16
 )
 ("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.sty"
-Package: babel 2008/03/16 v3.8j The Babel package
+Package: babel 2008/07/06 v3.8l The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
@@ -246,7 +256,7 @@ File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
 ("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.def"
-File: babel.def 2008/03/16 v3.8j Babel common definitions
+File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count108
 \U@D=\dimen116
 )
@@ -266,13 +276,6 @@ Package: inputenc 2006/05/05 v1.1b Input encoding file
 ("C:\Program Files\MiKTeX 2.7\tex\latex\base\latin1.def"
 File: latin1.def 2006/05/05 v1.1b Input encoding file
 ))
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\fontenc.sty"
-Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
-
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\t1enc.def"
-File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-))
 ("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -287,8 +290,8 @@ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 90.
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\pdftex.def"
-File: pdftex.def 2007/06/12 v0.04h Graphics/color for pdfTeX
+("C:\Program Files\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
 \Gread@gobject=\count109
 ))
 \Gin@req@height=\dimen117
@@ -303,7 +306,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box53
 )
 ("C:\Program Files\MiKTeX 2.7\tex\latex\geometry\geometry.sty"
-Package: geometry 2002/07/08 v3.2 Page Geometry
+Package: geometry 2008/11/13 v4.1 Page Geometry
 \Gm@cnth=\count111
 \Gm@cntv=\count112
 \c@Gm@tempcnt=\count113
@@ -317,458 +320,10 @@ Package: geometry 2002/07/08 v3.2 Page Geometry
 ("C:\Program Files\MiKTeX 2.7\tex\latex\multirow\multirow.sty"
 \bigstrutjot=\dimen123
 )
-
-LaTeX Warning: Unused global option(s):
-    [pagestart=fistchapter,tocpage=plain].
-
-(monografia.aux (capa.aux) (folharosto.aux) (dedicatoria.aux)
-(agradecimentos.aux) (epigrafe.aux) (resumo.aux) (abstract.aux) (introducao.aux
-) (referecialTeorico.aux) (metodologia.aux) (resultados.aux) (conclusao.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-Package hyperref Info: Link coloring OFF on input line 183.
-
-("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\nameref.sty"
-Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
-
-("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\refcount.sty"
-Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
-)
-\c@section@level=\count114
-)
-LaTeX Info: Redefining \ref on input line 183.
-LaTeX Info: Redefining \pageref on input line 183.
-
-(monografia.out) (monografia.out)
-\@outlinefile=\write3
-\AtBeginShipoutBox=\box54
-
-("C:\Program Files\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
-\scratchdimen=\dimen124
-\scratchbox=\box55
-\nofMPsegments=\count116
-\nofMParguments=\count117
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count118
-\MPscratchDim=\dimen125
-\MPnumerator=\count119
-\everyMPtoPDFconversion=\toks23
-)
--------------------- Geometry parameters
-paper: a4paper
-landscape: --
-twocolumn: --
-twoside: --
-asymmetric: --
-h-parts: 85.35826pt, 455.24411pt, 56.9055pt
-v-parts: 85.35826pt, 702.78308pt, 56.9055pt
-hmarginratio: --
-vmarginratio: --
-lines: --
-heightrounded: --
-bindingoffset: 0.0pt
-truedimen: --
-includehead: --
-includefoot: --
-includemp: --
-driver: pdftex
--------------------- Page layout dimensions and switches
-\paperwidth  597.50787pt
-\paperheight 845.04684pt
-\textwidth  455.24411pt
-\textheight 702.78308pt
-\oddsidemargin  13.08827pt
-\evensidemargin 13.08827pt
-\topmargin  -21.05495pt
-\headheight 12.0pt
-\headsep    22.14322pt
-\footskip   30.0pt
-\marginparwidth 35.0pt
-\marginparsep   10.0pt
-\columnsep  10.0pt
-\skip\footins  10.8pt plus 4.0pt minus 2.0pt
-\hoffset 0.0pt
-\voffset 0.0pt
-\mag 1000
-
-(1in=72.27pt, 1cm=28.45pt)
------------------------
- (capa.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 13.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 13.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 13.
- [1
-
-
-{C:/Documents and Settings/All Users/Application Data/MiKTeX/2.7/pdftex/config/
-pdftex.map}]) (folharosto.texpdfTeX warning (ext4): destination with the same i
-dentifier (name{page.i}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.50 \end{titlepage}
-                     [1
-
-
-]) (dedicatoria.tex)pdfTeX warning (ext4): destination with the same identifier
- (name{page.i}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.191 \include{dedicatoria}
-                            [1
-
-
-
-] (agradecimentos.tex
-Overfull \hbox (42.67912pt too wide) in paragraph at lines 5--10
-[]$[]$ 
- []
-
-) [2
-
-
-
-] (epigrafe.tex) [3
-
-
-
-] (resumo.tex [4
-
-
-
-
-]) (abstract.tex [5
-
-
-
-
-]) (monografia.lof
-[6
-
-
-])
-\tf@lof=\write4
- [7] (monografia.lot)
-\tf@lot=\write5
- [8
-
-] (monografia.lsg)
-\tf@lsg=\write6
- [9
-
-] (monografia.toc [10
-
-])
-\tf@toc=\write7
-
-[11] (introducao.tex
-Cap\'{\i }tulo 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\omscmr.fd"
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
- [12
-
-
-
-]) [13]
-(referecialTeorico.tex
-Cap\'{\i }tulo 2.
-<img/grafocena_exemplo1.png, id=276, 447.6725pt x 315.1775pt>
-File: img/grafocena_exemplo1.png Graphic file (type png)
-
-<use img/grafocena_exemplo1.png> [14
-
-
-
-]
-<img/grafocena_exemplo2.png, id=292, 569.12625pt x 369.38pt>
-File: img/grafocena_exemplo2.png Graphic file (type png)
-
-<use img/grafocena_exemplo2.png>
-<img/mapaaltura.png, id=295, 225.84375pt x 225.84375pt>
-File: img/mapaaltura.png Graphic file (type png)
-
-<use img/mapaaltura.png> [15pdfTeX warning (ext4): destination with the same id
-entifier (name{figure.2.1}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.45 \subsection
-                {Ruído de Perlin}pdfTeX warning (ext4): destination with the sa
-me identifier (name{figure.2.2}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.45 \subsection
-                {Ruído de Perlin}pdfTeX warning (ext4): destination with the sa
-me identifier (name{figure.2.3}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.45 \subsection
-                {Ruído de Perlin} <img/grafocena_exemplo1.png (PNG copy)> <img/
-grafocena_exemplo2.png (PNG copy)> <img/mapaaltura.png (PNG copy)>]
-<img/perlin.png, id=303, 703.62875pt x 497.86pt>
-File: img/perlin.png Graphic file (type png)
- <use img/perlin.png> [16pdfTeX warning (ext4): destination with the same ident
-ifier (name{figure.2.4}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.59 
-      <img/perlin.png (PNG copy)>]
-<img/plasma.png, id=311, 301.125pt x 301.125pt>
-File: img/plasma.png Graphic file (type png)
- <use img/plasma.png>) [17pdfTeX warning (ext4): destination with the same iden
-tifier (name{figure.2.5}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.215 \include{referecialTeorico}
-                                  <img/plasma.png (PNG copy)>] (metodologia.tex
-Cap\'{\i }tulo 3.
-Package hyperref Info: bookmark level for unknown sigla defaults to 0 on input 
-line 9.
-[18
-
-
-
-]) [19] (resultados.tex
-Cap\'{\i }tulo 4.
-<img/arcabouco.png, id=341, 478.78876pt x 321.2pt>
-File: img/arcabouco.png Graphic file (type png)
- <use img/arcabouco.png>
-[20
-
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
-has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.24 	\item {
-             \bf Node}: classe base para todos os nodos que serão inseridos ...
- <img/arcabouco.png (PNG copy)>]
-<img/caps/patch.png, id=348, 602.25pt x 451.6875pt>
-File: img/caps/patch.png Graphic file (type png)
- <use img/caps/patch.png>
-<img/grafo_cena2.png, id=350, 571.13374pt x 362.35374pt>
-File: img/grafo_cena2.png Graphic file (type png)
-
-<use img/grafo_cena2.png> [21pdfTeX warning (ext4): destination with the same i
-dentifier (name{figure.4.7}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.49 
-     pdfTeX warning (ext4): destination with the same identifier (name{figure.4
-.8}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.49 
-      <img/caps/patch.png (PNG copy)> <img/grafo_cena2.png (PNG copy)>]
-<img/grafo_cena3.png, id=356, 571.13374pt x 362.35374pt>
-File: img/grafo_cena3.png Graphic file (type png)
-
-<use img/grafo_cena3.png>
-<img/grafo_cena1.png, id=358, 1000.73875pt x 666.49pt>
-File: img/grafo_cena1.png Graphic file (type png)
-
-<use img/grafo_cena1.png> [22pdfTeX warning (ext4): destination with the same i
-dentifier (name{figure.4.9}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.62 \newpage
-             pdfTeX warning (ext4): destination with the same identifier (name{
-figure.4.10}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.62 \newpage
-              <img/grafo_cena3.png (PNG copy)> <img/grafo_cena1.png (PNG copy)>
-] <img/caps/1.png, id=364, 602.25pt x 451.6875pt>
-File: img/caps/1.png Graphic file (type png)
- <use img/caps/1.png>
-<img/caps/2.png, id=368, 602.25pt x 451.6875pt>
-File: img/caps/2.png Graphic file (type png)
- <use img/caps/2.png>
-<img/caps/3.png, id=369, 602.25pt x 451.6875pt>
-File: img/caps/3.png Graphic file (type png)
- <use img/caps/3.png> [23pdfTeX warning (ext4): destination with the same ident
-ifier (name{figure.4.11}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.84 
-     pdfTeX warning (ext4): destination with the same identifier (name{figure.4
-.12}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.84 
-      <img/caps/1.png (PNG copy)> <img/caps/2.png (PNG copy)>]
-<img/caps/4.png, id=375, 602.25pt x 451.6875pt>
-File: img/caps/4.png Graphic file (type png)
- <use img/caps/4.png> [24pdfTeX warning (ext4): destination with the same ident
-ifier (name{figure.4.13}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.90 \newpage
-             pdfTeX warning (ext4): destination with the same identifier (name{
-figure.4.14}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.90 \newpage
-              <img/caps/3.png (PNG copy)> <img/caps/4.png (PNG copy)>]
-<img/heightmap.png, id=382, 100.375pt x 100.375pt>
-File: img/heightmap.png Graphic file (type png)
- <use img/heightmap.png>
-<img/caps/5.png, id=383, 602.25pt x 451.6875pt>
-File: img/caps/5.png Graphic file (type png)
- <use img/caps/5.png> [25pdfTeX warning (ext4): destination with the same ident
-ifier (name{figure.4.15}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.105 \newpage
-              pdfTeX warning (ext4): destination with the same identifier (name
-{figure.4.16}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.105 \newpage
-               <img/heightmap.png (PNG copy)> <img/caps/5.png (PNG copy)>]
-(teste_geracao.tex (tabela_tempos.tex [26pdfTeX warning (ext4): destination wit
-h the same identifier (name{table.4.1}) has been already used, duplicate ignore
-d
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.41 
-     ]) <testes/testes.png, id=399, 965.6075pt x 745.78625pt>
-File: testes/testes.png Graphic file (type png)
-
-<use testes/testes.png>) (teste_variando_octaves.tex
-<img/graficos/teste1/teste1.png, id=402, 642.4pt x 481.8pt>
-File: img/graficos/teste1/teste1.png Graphic file (type png)
-
-<use img/graficos/teste1/teste1.png> [27pdfTeX warning (ext4): destination with
- the same identifier (name{table.4.2}) has been already used, duplicate ignored
-
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.6 \end{figure}
-                pdfTeX warning (ext4): destination with the same identifier (na
-me{table.4.3}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.6 \end{figure}
-                pdfTeX warning (ext4): destination with the same identifier (na
-me{figure.4.17}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.6 \end{figure}
-                 <testes/testes.png (PNG copy)>]) (teste_variando_vizinhos.tex
-<img/graficos/teste2/teste2.png, id=409, 642.4pt x 481.8pt>
-File: img/graficos/teste2/teste2.png Graphic file (type png)
-
-<use img/graficos/teste2/teste2.png> [28pdfTeX warning (ext4): destination with
- the same identifier (name{figure.4.18}) has been already used, duplicate ignor
-ed
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.7 \end{figure}
-                pdfTeX warning (ext4): destination with the same identifier (na
-me{table.4.4}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.7 \end{figure}
-                 <img/graficos/teste1/teste1.png (PNG copy)>])) [29pdfTeX warni
-ng (ext4): destination with the same identifier (name{figure.4.19}) has been al
-ready used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.219 \include{resultados}
-                          pdfTeX warning (ext4): destination with the same iden
-tifier (name{table.4.5}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.219 \include{resultados}
-                           <img/graficos/teste2/teste2.png (PNG copy)>]
-(conclusao.tex
-Cap\'{\i }tulo 5.
-) [30
-
-
-
-] (monografia.bbl [31
-
-
-])
-+-------------------------------------------------------------------+
-| Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
-|                  http://abntex.codigolivre.org.br                 |
-+-------------------------------------------------------------------+
-[32] (monografia.aux (capa.aux) (folharosto.aux) (dedicatoria.aux)
-(agradecimentos.aux) (epigrafe.aux) (resumo.aux) (abstract.aux) (introducao.aux
-) (referecialTeorico.aux) (metodologia.aux) (resultados.aux) (conclusao.aux)) )
- 
-Here is how much of TeX's memory you used:
- 6244 strings out of 95305
- 86448 string characters out of 1183030
- 166719 words of memory out of 1500000
- 9071 multiletter control sequences out of 110000
- 13216 words of font info for 32 fonts, out of 1200000 for 2000
- 25 hyphenation exceptions out of 8191
- 36i,8n,30p,981b,458s stack positions out of 5000i,500n,10000p,200000b,5000s
- <C:\Documents and Settings\All Users\Application Data\MiKTeX\2.7\fonts\pk\ljfo
-ur\jknappen\ec\dpi600\ecbx1440.pk> <C:\Documents and Settings\All Users\Applica
-tion Data\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Docume
-nts and Settings\All Users\Application Data\MiKTeX\2.7\fonts\pk\ljfour\jknappen
-\ec\dpi600\ecti1200.pk> <C:\Documents and Settings\All Users\Application Data\M
-iKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Documents and Set
-tings\All Users\Application Data\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\
-ecrm1000.pk> <C:\Documents and Settings\All Users\Application Data\MiKTeX\2.7\f
-onts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Documents and Settings\All U
-sers\Application Data\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk
-> <C:\Documents and Settings\All Users\Application Data\MiKTeX\2.7\fonts\pk\ljf
-our\jknappen\ec\dpi600\ecrm1200.pk><C:/Program Files/MiKTeX 2.7/fonts/type1/blu
-esky/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy10.p
-fb>
-Output written on monografia.pdf (34 pages, 1487880 bytes).
-PDF statistics:
- 917 PDF objects out of 1000 (max. 8388607)
- 132 named destinations out of 1000 (max. 131072)
- 288 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+! Improper \hyphenation will be flushed.
+\leavevmode ->\unhbox 
+                      \voidb@x 
+l.35 ...n-ta-da e-di-to-res mo-de-los au-xi-li-\'a
+                                                  -lo abs-tra-ção ge-ra-ção ...
+
+? 

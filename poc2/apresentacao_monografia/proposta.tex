@@ -15,7 +15,7 @@
 \begin{columns}
 	\begin{column}{5cm}
 	\begin{itemize}
-		\item \alert<1-2>{Ruído de Perlin:\\} \onslide<1-2>{\scriptsize Função que retorna um valor com certa consistência com os outros valores ao seu redor.}
+		\item \alert<1-2>{Ruído Perlin:\\} \onslide<1-2>{\scriptsize Função que retorna um valor com certa consistência com os outros valores ao seu redor.}
 		\item \alert<3>{Fractais:\\} \only<3>{\scriptsize \emph{objetos geométricos complexos, na qual a complexidade surge da repetição de uma forma em uma extensão de escalas.} \cite{livro}}
 		%\item \alert<4>{Multifractais:\\} \only<4>{\scriptsize \emph{fractais cuja dimensão fractal varia com a posição}. \cite{livro}}
 	\end{itemize}
@@ -29,8 +29,24 @@
 		%\includegraphics<4>[width=1.0\linewidth]{img/dimensaoFractal}
 	\end{overprint}
 	\end{column}
-	
+\end{columns}
+\end{frame}
 
+\begin{frame}\frametitle{Sistema}
+\begin{columns}
+	\begin{column}{7cm}
+	\begin{itemize}
+		\item \onslide<1> glfw, ftgl, freetype, glew: bibliotecas para OpenGL.
+		\item \onslide<1> WindowMng: camada que simula um aplicativo gráfico genérico.
+		\item \onslide<1> ProcTerrain: gera e controla os terrenos.
+	\end{itemize}
+	\vspace{3cm} 
+	\end{column}
+	\begin{column}{5cm}
+	\begin{overprint}
+		\includegraphics<1>[width=1.0\linewidth]{img/bibliotecas}
+	\end{overprint}
+	\end{column}
 \end{columns}
 \end{frame}
 
@@ -119,23 +135,7 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}\frametitle{Sistema}
-\begin{columns}
-	\begin{column}{7cm}
-	\begin{itemize}
-		\item \onslide<1> glfw, ftgl, freetype, glew: bibliotecas para OpenGL.
-		\item \onslide<1> WindowMng: camada que simula um aplicativo gráfico genérico.
-		\item \onslide<1> TerrainMng: gera e controla os terrenos.
-	\end{itemize}
-	\vspace{3cm} 
-	\end{column}
-	\begin{column}{5cm}
-	\begin{overprint}
-		\includegraphics<1>[width=1.0\linewidth]{img/bibliotecas}
-	\end{overprint}
-	\end{column}
-\end{columns}
-\end{frame}
+
 
 
 

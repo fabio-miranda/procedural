@@ -21,9 +21,9 @@ class HeightMapCPU : public HeightMap{
 
 
 public:
-	HeightMapCPU(RenderingShader* renderingShader, 
+	HeightMapCPU(RenderingShader* renderingShader, char *ptrPermArray,
 						   Vector3<float> relativePosition, Vector3<float> translation, 
-						   float geomSize, short numDivisions, char* ptrPermArray,
+						   float geomSize, short numDivisions, 
 						   int octaves, float lacunarity, float gain, float offset);
 	~ HeightMapCPU();
 	void Generate();

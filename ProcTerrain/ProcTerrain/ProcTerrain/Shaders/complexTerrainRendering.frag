@@ -106,7 +106,7 @@ void main()
 		blendTextureFactor = calculateBlendFactor();
 	}
 
-	gl_FragColor = blendTextureFactor * height * lightFactor;
+	gl_FragColor = blendTextureFactor * height * 1.2 * lightFactor;
 
 	
 	

@@ -7,7 +7,7 @@ short conf_numNeighbours = 1;
 short conf_numDivisions = 150;
 short conf_lodFactor = 2;
 float conf_geomSize = 5.0f;
-short conf_textureSize = 1028;
+short conf_textureSize = 512;
 
 //Keys
 bool conf_showWireFrame = false;

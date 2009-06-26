@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  26 JUN 2009 02:59
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  26 JUN 2009 06:31
 entering extended mode
 **apresentacao_monografia.tex
 (apresentacao_monografia.tex
@@ -822,222 +822,191 @@ g/pdftex.map}
 ] [4
 
 ]
-[5
+<img/gflops.png, id=260, 75.3998pt x 42.67914pt>
+File: img/gflops.png Graphic file (type png)
+ <use img/gflops.png> [5
+
+ <img/gflops.png (PNG copy)>]) (metodologia.tex (apresentacao_monografia.toc) [
+6
+
+
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 63.
- ("C:\Program Files\MiKTeX 2.7\tex\latex\amsfonts\umsa.fd"
+[7
+
+]) (proposta.tex (apresentacao_monografia.toc) [8
+
+
+
+] [9
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+
+("C:\Program Files\MiKTeX 2.7\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 63.
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
 
 ("C:\Program Files\MiKTeX 2.7\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-<img/kkrieger.png, id=317, 803.0pt x 600.2425pt>
-File: img/kkrieger.png Graphic file (type png)
- <use img/kkrieger.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 63--63
-[][][]  
- []
-
-[6
-
- <img/kkrieger.png (PNG copy)>]
-<img/elite.png, id=365, 481.8pt x 600.2425pt>
-File: img/elite.png Graphic file (type png)
- <use img/elite.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 63--63
-[][][]  
- []
-
-[7
-
- <img/elite.png (PNG copy)>]
-<img/speedtree.png, id=412, 441.65pt x 468.75125pt>
-File: img/speedtree.png Graphic file (type png)
- <use img/speedtree.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 63--63
-[][][]  
- []
-
-[8
-
- <img/speedtree.png (PNG copy)>]
-<img/gflops.png, id=458, 75.3998pt x 42.67914pt>
-File: img/gflops.png Graphic file (type png)
- <use img/gflops.png> [9
-
- <img/gflops.png (PNG copy)>]) (metodologia.tex (apresentacao_monografia.toc) [
-10
-
-
-
-]
-[11
-
-]) (proposta.tex (apresentacao_monografia.toc) [12
-
-
-
-] [13
-
-]
-<img/noise.png, id=702, 321.2pt x 240.9pt>
+<img/noise.png, id=494, 321.2pt x 240.9pt>
 File: img/noise.png Graphic file (type png)
  <use img/noise.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 35--35
+Overfull \hbox (142.26378pt too wide) in paragraph at lines 33--33
+[][][]  
+ []
+
+[10
+
+ <img/noise.png (PNG copy)>] <img/perlin2.png, id=541, 385.44pt x 385.44pt>
+File: img/perlin2.png Graphic file (type png)
+
+<use img/perlin2.png>
+Overfull \hbox (142.26378pt too wide) in paragraph at lines 33--33
+[][][]  
+ []
+
+[11
+
+ <img/perlin2.png (PNG copy)>]
+<img/fractal.png, id=586, 590.205pt x 128.48pt>
+File: img/fractal.png Graphic file (type png)
+ <use img/fractal.png>
+Overfull \hbox (142.26378pt too wide) in paragraph at lines 33--33
+[][][]  
+ []
+
+
+Overfull \vbox (7.47801pt too high) detected at line 33
+ []
+
+[12
+
+ <img/fractal.png (PNG copy)>]
+<img/bibliotecas.png, id=631, 261.97874pt x 144.54pt>
+File: img/bibliotecas.png Graphic file (type png)
+
+<use img/bibliotecas.png>
+Overfull \hbox (142.26378pt too wide) in paragraph at lines 51--51
+[][][]  
+ []
+
+[13
+
+ <img/bibliotecas.png>] <img/pipeline.png, id=678, 789.95125pt x 449.68pt>
+File: img/pipeline.png Graphic file (type png)
+
+<use img/pipeline.png>
+Overfull \hbox (199.16928pt too wide) in paragraph at lines 72--72
 [][][]  
  []
 
 [14
 
- <img/noise.png (PNG copy)>] <img/perlin2.png, id=751, 385.44pt x 385.44pt>
-File: img/perlin2.png Graphic file (type png)
-
-<use img/perlin2.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 35--35
+ <img/pipeline.png (PNG copy)>]
+<img/grid.png, id=722, 399.4925pt x 255.95625pt>
+File: img/grid.png Graphic file (type png)
+ <use img/grid.png>
+Overfull \hbox (142.26378pt too wide) in paragraph at lines 92--92
 [][][]  
+ []
+
+
+Overfull \vbox (11.20721pt too high) detected at line 92
  []
 
 [15
 
- <img/perlin2.png (PNG copy)>]
-<img/fractal.png, id=798, 590.205pt x 128.48pt>
-File: img/fractal.png Graphic file (type png)
- <use img/fractal.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 35--35
+ <img/grid.png (PNG copy)>]
+<img/geracao.png, id=766, 426.59375pt x 244.915pt>
+File: img/geracao.png Graphic file (type png)
+ <use img/geracao.png>
+Overfull \hbox (142.26378pt too wide) in paragraph at lines 115--115
 [][][]  
  []
 
 
-Overfull \vbox (7.47801pt too high) detected at line 35
+Overfull \vbox (19.928pt too high) detected at line 115
  []
 
 [16
 
- <img/fractal.png (PNG copy)>]
-<img/pipeline.png, id=845, 789.95125pt x 449.68pt>
-File: img/pipeline.png Graphic file (type png)
- <use img/pipeline.png>
-Overfull \hbox (199.16928pt too wide) in paragraph at lines 56--56
+ <img/geracao.png (PNG copy)>]
+File: img/geracao.png Graphic file (type png)
+ <use img/geracao.png>
+Overfull \hbox (142.26378pt too wide) in paragraph at lines 136--136
 [][][]  
  []
 
 [17
 
- <img/pipeline.png (PNG copy)>]
-<img/grid.png, id=891, 399.4925pt x 255.95625pt>
-File: img/grid.png Graphic file (type png)
- <use img/grid.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 76--76
-[][][]  
- []
-
-
-Overfull \vbox (11.20721pt too high) detected at line 76
- []
-
-[18
-
- <img/grid.png (PNG copy)>]
-<img/geracao.png, id=937, 426.59375pt x 244.915pt>
-File: img/geracao.png Graphic file (type png)
- <use img/geracao.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 99--99
-[][][]  
- []
-
-
-Overfull \vbox (19.928pt too high) detected at line 99
- []
-
-[19
-
- <img/geracao.png (PNG copy)>]
-File: img/geracao.png Graphic file (type png)
- <use img/geracao.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 120--120
-[][][]  
- []
-
-[20
-
-] <img/bibliotecas.png, id=1031, 261.97874pt x 144.54pt>
-File: img/bibliotecas.png Graphic file (type png)
-
-<use img/bibliotecas.png>
-Overfull \hbox (142.26378pt too wide) in paragraph at lines 138--138
-[][][]  
- []
-
-[21
-
- <img/bibliotecas.png>]) (resultados.tex (apresentacao_monografia.toc)
-[22
-
-
-
-] <img/tempoGeracao.png, id=1131, 468.75125pt x 347.2975pt>
-File: img/tempoGeracao.png Graphic file (type png)
-
-<use img/tempoGeracao.png> [23
-
- <img/tempoGeracao.png (PNG copy)>]
-<img/tempoFPS.png, id=1157, 748.7975pt x 240.9pt>
-File: img/tempoFPS.png Graphic file (type png)
- <use img/tempoFPS.png>
-[24
-
- <img/tempoFPS.png (PNG copy)>]
-<img/caps/1.png, id=1182, 1284.8pt x 722.7pt>
-File: img/caps/1.png Graphic file (type png)
- <use img/caps/1.png> [25
-
- <img/caps/1.png (PNG copy)>] <img/caps/2.png, id=1208, 1284.8pt x 722.7pt>
-File: img/caps/2.png Graphic file (type png)
-
-<use img/caps/2.png> [26
-
- <img/caps/2.png (PNG copy)>]
-<img/caps/3.png, id=1233, 1284.8pt x 722.7pt>
-File: img/caps/3.png Graphic file (type png)
- <use img/caps/3.png> [27
-
- <img/caps/3.png (PNG copy)>] <img/caps/4.png, id=1258, 1284.8pt x 722.7pt>
-File: img/caps/4.png Graphic file (type png)
-
-<use img/caps/4.png> [28
-
- <img/caps/4.png (PNG copy)>]
-<img/caps/5.png, id=1282, 1284.8pt x 722.7pt>
-File: img/caps/5.png Graphic file (type png)
- <use img/caps/5.png> [29
-
- <img/caps/5.png (PNG copy)>]) (conclusao.tex (apresentacao_monografia.toc) [30
+]) (resultados.tex (apresentacao_monografia.toc) [18
 
 
 
 ]
-[31
+<img/tempoGeracao.png, id=905, 468.75125pt x 347.2975pt>
+File: img/tempoGeracao.png Graphic file (type png)
 
-]) (apresentacao_monografia.toc) [32
+<use img/tempoGeracao.png> [19
+
+ <img/tempoGeracao.png (PNG copy)>]
+<img/tempoFPS.png, id=932, 748.7975pt x 240.9pt>
+File: img/tempoFPS.png Graphic file (type png)
+ <use img/tempoFPS.png>
+[20
+
+ <img/tempoFPS.png (PNG copy)>]
+<img/caps/1.png, id=957, 1284.8pt x 722.7pt>
+File: img/caps/1.png Graphic file (type png)
+ <use img/caps/1.png> [21
+
+ <img/caps/1.png (PNG copy)>] <img/caps/2.png, id=982, 1284.8pt x 722.7pt>
+File: img/caps/2.png Graphic file (type png)
+
+<use img/caps/2.png> [22
+
+ <img/caps/2.png (PNG copy)>]
+<img/caps/3.png, id=1007, 1284.8pt x 722.7pt>
+File: img/caps/3.png Graphic file (type png)
+ <use img/caps/3.png> [23
+
+ <img/caps/3.png (PNG copy)>] <img/caps/4.png, id=1032, 1284.8pt x 722.7pt>
+File: img/caps/4.png Graphic file (type png)
+
+<use img/caps/4.png> [24
+
+ <img/caps/4.png (PNG copy)>]
+<img/caps/5.png, id=1056, 1284.8pt x 722.7pt>
+File: img/caps/5.png Graphic file (type png)
+ <use img/caps/5.png> [25
+
+ <img/caps/5.png (PNG copy)>]) (conclusao.tex (apresentacao_monografia.toc) [26
+
+
+
+]
+[27
+
+]) (apresentacao_monografia.toc) [28
 
 
 ] (apresentacao_monografia.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33
+ [29
 
  <C:/Program Files/MiKTeX 2.7/tex/latex/beamer/base/art/beamericonarticle.pdf>]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34])
+ [30])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35]
-[36]
+ [31]
+[32]
 \tf@nav=\write5
 \tf@toc=\write6
 \tf@snm=\write7
@@ -1049,10 +1018,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13334 strings out of 95304
- 231661 string characters out of 1183032
- 321700 words of memory out of 1500000
- 16038 multiletter control sequences out of 110000
+ 13306 strings out of 95304
+ 231268 string characters out of 1183032
+ 319700 words of memory out of 1500000
+ 16021 multiletter control sequences out of 110000
  12755 words of font info for 47 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
  47i,20n,60p,360b,1006s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1063,9 +1032,9 @@ y/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmssi10.pfb>
 <C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmssi8.pfb><C:/Program File
 s/MiKTeX 2.7/fonts/type1/bluesky/cm/cmssi9.pfb><C:/Program Files/MiKTeX 2.7/fon
 ts/type1/bluesky/cm/cmtt8.pfb>
-Output written on apresentacao_monografia.pdf (36 pages, 5079829 bytes).
+Output written on apresentacao_monografia.pdf (32 pages, 3713773 bytes).
 PDF statistics:
- 1734 PDF objects out of 2073 (max. 8388607)
- 102 named destinations out of 1000 (max. 131072)
- 183 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1494 PDF objects out of 1728 (max. 8388607)
+ 94 named destinations out of 1000 (max. 131072)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 

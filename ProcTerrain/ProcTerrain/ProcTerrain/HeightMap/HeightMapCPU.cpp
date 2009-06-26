@@ -1,9 +1,9 @@
 #include "HeightMapCPU.h"
 
 
-HeightMapCPU::HeightMapCPU(RenderingShader* renderingShader, 
+HeightMapCPU::HeightMapCPU(RenderingShader* renderingShader, char* ptrPermArray,
 						   Vector3<float> relativePosition, Vector3<float> globalPosition, 
-						   float geomSize, short numDivisions, char* ptrPermArray,
+						   float geomSize, short numDivisions, 
 						   int octaves, float lacunarity, float gain, float offset)
 						   : HeightMap(renderingShader, relativePosition, globalPosition, geomSize, numDivisions,octaves,lacunarity,gain,offset){
 

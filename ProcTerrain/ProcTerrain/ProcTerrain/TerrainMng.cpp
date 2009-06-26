@@ -113,14 +113,14 @@ void TerrainMng::initNodes(){
 			}
 
 
-			m_ptrNodes[i*m_size+j] = new SquareNode(cont, m_terrainGenerationShader, m_terrainRenderingShader, m_blendTexturesId,
+			m_ptrNodes[i*m_size+j] = new SquareNode(cont, m_terrainGenerationShader, m_terrainRenderingShader, m_blendTexturesId, m_permArray,
 													Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), 
 													conf_geomSize, conf_textureSize, numDivisions,
 													neighbLeft, neighbDown);
-			//m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray, 32, 5.5, 0.5, 0.9);
+			//m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray, 16, 5.5, 0.5, 0.9);
 			
 			//float a = (float)rand()/RAND_MAX;
-			m_ptrNodes[i*m_size+j]->GenerateGPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0),64, 2.5, 0.5, 1.0);
+			m_ptrNodes[i*m_size+j]->GenerateGPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0),32, 2.5, 0.5, 0.9);
 
 
 			
@@ -159,6 +159,7 @@ void TerrainMng::Update(Vector3<float> currentPosition){
 }
 
 void TerrainMng::Render(double elapsedTime){
+	
 	
 	glTranslatef(m_translation.GetX(),m_translation.GetY(), 0);
 
@@ -409,4 +410,6 @@ void TerrainMng::initPermAndGradTextures()
 	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, 256, 256, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_permArray );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
+
+
 }
