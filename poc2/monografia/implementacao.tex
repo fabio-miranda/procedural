@@ -106,7 +106,7 @@ Este método diminuiu a necessidade de implementação de um algoritmo de nível de 
 
 Após a geração dos vértices, as texturas com os mapas de altura gerados proceduralmente são aplicados à malha. Um \emph{vertex shader} lê então a altura presente no mapa e desloca a posição de \emph{z} do vértice correspondente na malha.
 
-A cor de cada fragmento é calculado a partir de quatro diferentes texturas, uma simulando areia, grama, pedras e outra simulando neve. A participação de cada uma delas na cor final dependerá da altura do vértice correspondente do fragmento. Para pontos mais altos, a textura de neve será predominante e, pontos mais baixos, serão cobertos pela textura de grama. Entre esses pontos, haverá uma mistura das outras texturas.
+A cor de cada fragmento é calculada a partir de quatro diferentes texturas, simulando areia, grama, pedras e neve. A participação de cada uma delas na cor final dependerá da altura do vértice correspondente do fragmento. Para pontos mais altos, a textura de neve será predominante e, pontos mais baixos, serão cobertos pela textura de grama. Entre esses pontos, haverá uma mistura das outras texturas.
 
 
 
