@@ -1,4 +1,4 @@
-Neste teste foi medido o tempo médio gasto com a geração de terrenos tanto na \emph{GPU} quanto na \emph{CPU}. Os seguintes parâmetros foram utilizados:
+Neste teste foi medido o tempo médio gasto com a geração de 100 terrenos proceduralmente tanto na GPU quanto na CPU. Os seguintes parâmetros foram utilizados:
 
 \begin{itemize}
 \item \emph{Octaves}: Variável (4, 8, 12, 16)
@@ -40,5 +40,4 @@ A Figura \ref{fig:geracao} apresenta os tempos anteriores.
 	\caption{\label{fig:geracao} Gráfico do tempo médio (em ms) de geração dos terrenos, com número variável de \emph{octaves}.}
 \end{figure}
 
-
-Como pode ser visto, o tempo de geração do terreno na \emph{GPU} permanece quase constante, enquanto a geração na \emph{CPU} tem um comportamento praticamente linear.
+Quanto maior o número de \emph{octaves}, maior o número de iterações feitas sobre a função de ruído, como explicado na Seção \ref{ridged}, necessitando assim de um maior processamento. Como pode ser visto, o tempo de geração do terreno na GPU permanece quase constante, enquanto a geração na CPU tem um comportamento praticamente linear. 

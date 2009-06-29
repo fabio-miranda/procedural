@@ -1,13 +1,9 @@
-\contentsline {sigla}{\hbox to\@tempdima {GPU\hfil }{Graphics Processing Unit}}{12}{section.1.1}
-\contentsline {sigla}{\hbox to\@tempdima {HLSL\hfil }{High Level Shader Language}}{18}{figure.2.5}
-\contentsline {sigla}{\hbox to\@tempdima {Cg\hfil }{C for Graphics}}{18}{figure.2.5}
-\contentsline {sigla}{\hbox to\@tempdima {GLSL\hfil }{OpenGL Shading Language}}{18}{figure.2.5}
-\contentsline {sigla}{\hbox to\@tempdima {OpenGL ARB\hfil }{OpenGL Architecture Review Board}}{18}{figure.2.5}
-\contentsline {sigla}{\hbox to\@tempdima {CUDA\hfil }{Compute Unified Device Architecture}}{19}{section.2.3}
-\contentsline {sigla}{\hbox to\@tempdima {API\hfil }{Application Programming Interface}}{19}{section.2.3}
-\contentsline {sigla}{\hbox to\@tempdima {API\hfil }{Application Programming Interface}}{20}{section.3.2}
-\contentsline {sigla}{\hbox to\@tempdima {VBO\hfil }{Vertex Buffer Object}}{20}{section.3.2}
-\contentsline {sigla}{\hbox to\@tempdima {GPU\hfil }{Graphics Processing Unit}}{20}{section.3.2}
-\contentsline {sigla}{\hbox to\@tempdima {FBO\hfil }{Frame Buffer Object}}{20}{section.3.2}
-\contentsline {sigla}{\hbox to\@tempdima {FBO\hfil }{Frame Buffer Object}}{24}{subsubsection.4.1.1.1}
-\contentsline {sigla}{\hbox to\@tempdima {FPS\hfil }{Frames por segundo}}{30}{subsection.4.4.2}
+\contentsline {sigla}{\hbox to\@tempdima {GPUs\hfil }{Graphics Processing Unit}}{12}{section.1.1}
+\contentsline {sigla}{\hbox to\@tempdima {HLSL\hfil }{High Level Shader Language}}{19}{figure.2.5}
+\contentsline {sigla}{\hbox to\@tempdima {Cg\hfil }{C for Graphics}}{19}{figure.2.5}
+\contentsline {sigla}{\hbox to\@tempdima {GLSL\hfil }{OpenGL Shading Language}}{19}{figure.2.5}
+\contentsline {sigla}{\hbox to\@tempdima {OpenGL ARB\hfil }{OpenGL Architecture Review Board}}{19}{figure.2.5}
+\contentsline {sigla}{\hbox to\@tempdima {API\hfil }{Application Programming Interface}}{20}{section.2.3}
+\contentsline {sigla}{\hbox to\@tempdima {VBO\hfil }{Vertex Buffer Object}}{21}{section.3.2}
+\contentsline {sigla}{\hbox to\@tempdima {FBO\hfil }{Frame Buffer Object}}{21}{section.3.2}
+\contentsline {sigla}{\hbox to\@tempdima {FPS\hfil }{Frames por segundo}}{32}{subsection.5.2.2}

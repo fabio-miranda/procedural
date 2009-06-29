@@ -1,4 +1,4 @@
-Neste teste foi medido o \sigla{FPS}{Frames por segundo} médio durante a navegação pelo terreno gerado proceduralmente, por 30 segundos. Os seguintes parâmetros foram utilizados:
+Neste teste foi medido o \emph{Frames por segundo} (\sigla{FPS}{Frames por segundo}) médio durante a navegação pelo terreno gerado proceduralmente, por 30 segundos. Os seguintes parâmetros foram utilizados:
 
 \begin{itemize}
 \item \emph{Octaves}: 16
@@ -33,8 +33,10 @@ A Tabela \ref{tabela:fps} mostra os tempos médios, mínimos e a média de \emph{FP
 A Figura \ref{fig:fps} apresenta os tempos anteriores:
 \begin{figure}[H]
 	\center{\includegraphics[width=0.9\linewidth]{img/tempoFPS.png}}
-	\caption{\label{fig:fps} Gráfico do tempo médio (em ms) de geração dos terrenos, com número variável de \emph{octaves}.}
+	\caption{\label{fig:fps} Gráfico com o FPS na navegação pelo mundo durante 30 segundos.}
 \end{figure}
 
 
-Como pode ser visto através do gráfico, a navegação pelo mundo, utilizando a geração dos terrenos na \emph{GPU}, é muito mais fluida, sem quedas bruscas de \emph{FPS}, como nos \emph{frames} 3, 6, 9, 12, 14, 17, 20, 23, 26 e 29. Na geração pela \emph{CPU}, tais quedas correspondem justamente nos momentos em que o sistema gera novos terrenos.
+Como pode ser visto através do gráfico, a navegação pelo mundo, utilizando a geração dos terrenos na GPU, é muito mais fluida, sem quedas bruscas de \emph{FPS}, como nos \emph{frames} 3, 6, 9, 12, 14, 17, 20, 23, 26 e 29, graças às centenas de unidades de processamento presentes na GPU.
+
+Na geração pela CPU, tais quedas correspondem justamente aos momentos em que o sistema gera novos terrenos e podem significar um menor senso de imersão do usuário no mundo virtual.

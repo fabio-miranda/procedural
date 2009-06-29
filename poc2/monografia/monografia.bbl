@@ -5,6 +5,23 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.42.2.1 }
 
+\bibitem{gpugflops}
+\abntrefinfo{Programming\ldots}{PROGRAMMING\ldots}{}
+{PROGRAMMING with CUDA.
+Dispon{\'\i}vel em:
+  \htmladdnormallink{$<$http:\-/\-/theinf2\-.informatik\-.uni-jena\-.de\-/For\%
+underline{\ }Students-p-9\-/Lectures\-/Programming\underline{\
+  }with\underline{\ }CUDA-p-41\-/WS\underline{\ }2008\underline{\
+  }2009\-.html$>$}{http://theinf2.informatik.uni-jena.de/For_Students-p-9/Lect%
+ures/Programming_with_CUDA-p-41/WS_2008_2009.html}. Acesso em: 25 jun. 2009.}
+
+\bibitem{pipeline}
+\abntrefinfo{Fernando e Kilgard}{FERNANDO; KILGARD}{2003}
+{FERNANDO, R.; KILGARD, M.~J. \emph{The Cg Tutorial: The Definitive Guide to
+  Programmable Real-Time Graphics}. Boston, MA, USA: Addison-Wesley Longman
+  Publishing Co., Inc., 2003.
+ISBN 0321194969.}
+
 \bibitem{parish}
 \abntrefinfo{Parish e Müller}{PARISH; MüLLER}{2001}
 {PARISH, Y. I.~H.; MüLLER, P. Procedural modelling of cities. In:  \emph{in
@@ -35,14 +52,14 @@ ISBN 1-58113-578-5.}
 {MOJOWORLD Generator.
 Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/www\-.mojoworld\-.org\-/$>$}{http://www.moj%
-oworld.org/}. Acesso em: 23 nov. 2008.}
+oworld.org/}. Acesso em: 25 jun. 2009.}
 
 \bibitem{speedtree}
 \abntrefinfo{SpeedTree\ldots}{SPEEDTREE\ldots}{}
 {SPEEDTREE | IDV, Inc.
 Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/www\-.speedtree\-.com\-/$>$}{http://www.spe%
-edtree.com/}. Acesso em: 23 nov. 2008.}
+edtree.com/}. Acesso em: 25 jun. 2009.}
 
 \bibitem{livro}
 \abntrefinfo{Ebert et al.}{EBERT et al.}{2002}
@@ -67,16 +84,7 @@ ISBN 0716711869.}
 {KEN Perlin's homepage.
 Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/mrl\-.nyu\-.edu\-/\~{}perlin\-/$>$}{http://%
-mrl.nyu.edu/~perlin/}. Acesso em: 23 nov. 2008.}
-
-\bibitem{figura_perlin}
-\abntrefinfo{ACMC\ldots}{ACMC\ldots}{}
-{ACMC Projects, CG Rendering of Coral at The University of Queensland.
-Dispon{\'\i}vel em:
-  \htmladdnormallink{$<$http:\-/\-/www\-.acmc\-.uq\-.edu\-.au\-/Projects\-/CG{%
-\textbackslash}\underline{\
-  }Rendering\-.html$>$}{http://www.acmc.uq.edu.au/Projects/CG\_Rendering.html}.
-  Acesso em: 23 nov. 2008.}
+mrl.nyu.edu/~perlin/}. Acesso em: 25 jun. 2009.}
 
 \bibitem{mapaaltura}
 \abntrefinfo{Student\ldots}{STUDENT\ldots}{}
@@ -85,13 +93,20 @@ Dispon{\'\i}vel em:
   \htmladdnormallink{$<$http:\-/\-/southport\-.jpl\-.nasa\-.gov\-/cdrom\-/sirc%
 ed03\-/cdrom\-/DOCUMENT\-/HTML\-/LESSONS\-/COVERPAG\-.HTM$>$}{http://southport%
 .jpl.nasa.gov/cdrom/sirced03/cdrom/DOCUMENT/HTML/LESSONS/COVERPAG.HTM}. Acesso
-  em: 23 nov. 2008.}
+  em: 25 jun. 2009.}
+
+\bibitem{perlinnoise}
+\abntrefinfo{Perlin}{PERLIN}{1985}
+{PERLIN, K. An image synthesizer.
+\emph{SIGGRAPH Comput. Graph.}, ACM, New York, NY, USA, v.~19, n.~3, p.
+  287--296, 1985.
+ISSN 0097-8930.}
 
 \bibitem{gpugems3}
-\abntrefinfo{Nguyen}{NGUYEN}{2007}
-{NGUYEN, H. \emph{GPU Gems 3}. [S.l.]: Addison-Wesley Professional, 2007.
-  Hardcover.
-ISBN 0321515269.}
+\abntrefinfo{Geiss}{GEISS}{2007}
+{GEISS, R. Gpu gems 3.
+In:  \underline{\ \ \ \ \ \ \ \ }. [S.l.]: Addison-Wesley Professional, 2007.
+  cap. 1 Generating Complex Procedural Terrains Using the GPU, p. 7--37.}
 
 \bibitem{Schneider:2006:FractalTerrain}
 \abntrefinfo{Schneider, Boldte e Westermann}{SCHNEIDER; BOLDTE;
@@ -105,5 +120,13 @@ ISBN 0321515269.}
 {KELLY, G.; MCCABE, H. Citygen: An interactive system for procedural city
   generation. In:  \emph{Game Design \& Technology Workshop}. [S.l.: s.n.],
   2006.}
+
+\bibitem{youtube}
+\abntrefinfo{YouTube\ldots}{YOUTUBE\ldots}{}
+{YOUTUBE - Infinite Procedural Terrain Generation using the GPU (POC / DCC /
+  UFMG).
+Dispon{\'\i}vel em:
+  \htmladdnormallink{$<$http:\-/\-/www\-.youtube\-.com\-/watch?v=IdYP0PUPQpA$>%
+$}{http://www.youtube.com/watch?v=IdYP0PUPQpA}. Acesso em: 25 jun. 2009.}
 
 \end{thebibliography}

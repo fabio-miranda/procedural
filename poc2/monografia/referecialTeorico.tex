@@ -1,27 +1,41 @@
 \chapter{REFERENCIAL TEÓRICO}
 \label{referencialTeorico}
 
-Para ume melhor compreensão deste trabalho, é necessário explicar o contexto em que ele se situa e também pesquisas relacionadas. O referencial teórico pertinente a este trabalho pode ser dividido em duas áreas: geração procedural e \emph{GPU}. A parte referente à geração procedural será apresentada na Seção \ref{geracaoprocedural}, enquanto que na Seçao \ref{gpu} será apresentada conceitos e trabalhos relativos à programação utilizando a \emph{GPU}.
+Para uma melhor compreensão deste trabalho, é necessário explicar o contexto em que ele se situa e também alguns trabalhos relacionadas. O referencial teórico pertinente a este trabalho pode ser dividido em duas áreas: geração procedural e GPU. A parte referente à geração procedural será apresentada na Seção \ref{geracaoprocedural}, enquanto que na Seção \ref{gpu} será apresentada conceitos e trabalhos relativos à programação utilizando a GPU.
 
 
 \section{Geração Procedural}
 \label{geracaoprocedural}
 Vários trabalhos publicados abordam a geração de modelos tridimensionais com o uso de algoritmos. Alguns destes trabalhos abordam a geração de cidades (\cite{parish} e \cite{pseudoinfinite}), outros abordam a geração de terrenos realistas (em tempo-real, como os trabalhos \cite{realtime} e \cite{virtual}, ou não, como o \emph{MojoWorld} \cite{mojoworld}), ou então a geração de árvores \cite{speedtree}. A principal referência na área é o livro \emph{Texturing and Modeling: A Procedural Approach} \cite{livro}, em que é explicada a geração procedural de diversos tipos de modelos.
 
-Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Lindenmayer (\emph{l-System})\cite{lsystem}, que, através de uma gramática, modela o crescimento de plantas; geometrias fractais \cite{geometrias}; e também ruído de Perlin (\emph{Perlin noise} \cite{perlin}). Algumas técnicas pertinentes a este trabalho serão abordadas na Seção \ref{terrenos}.
+Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Lindenmayer (\emph{l-System})\cite{lsystem}, que, através de uma gramática, pode modelar o crescimento de plantas; geometrias fractais \cite{geometrias}; e também ruído de Perlin (\emph{Perlin noise} \cite{perlin}). Algumas técnicas pertinentes a este trabalho serão abordadas na Seção \ref{terrenos}.
 
 \subsection{Terrenos procedurais}
 \label{terrenos}
-Existem uma série de técnicas para criação de terrenos proceduralmente, como ruído de Perlin, \emph{fractal plasma}, \emph{fault formation}, \emph{circles}. Para este trabalho, porém, foi escolhido o \emph{Ridged multifractal noise}, uma variação do ruído de Perlin, por este ser o que melhor representa terrenos \cite{livro}.
+
+Algumas técnicas populares para criação de terrenos proceduralmente são ruído Perlin, \emph{fractal plasma}, \emph{fault formation}, \emph{circles}. Para este trabalho, porém, foi escolhido o \emph{Ridged multifractal noise}, uma variação do ruído Perlin, por este ser o que melhor representa terrenos \cite{livro}.
+
+Na Seção \ref{mapaaltura} será explicado como os dados gerados são armazenados, através de mapas de altura. Nas Seções \ref{ruidoperlin} e \ref{fractais} serão apresentados os conceitos de ruído Perlin e fractais, necessários para o entendimento do algoritmo \emph{Ridged multifractal noise}, mostrado na Seção \ref{ridged}.
 
 
 
+\subsubsection{Mapa de altura}
+\label{mapaaltura}
+
+Um mapa de altura (ou \emph{heightmap}) é uma imagem bidimensional que armazena dados referentes ao relevo de um terreno. Geralmente, tons mais claros representam pontos mais altos, enquanto tons mais escuros são pontos mais baixos do mapa. A Figura \ref{fig:mapaalturaexemplo} \cite{mapaaltura} é um exemplo de mapa de altura.
+
+\begin{figure}[H]
+	\center{\includegraphics[width=0.20\linewidth]{img/mapaaltura.png}}
+	\caption{\label{fig:mapaalturaexemplo} Exemplo de um mapa de altura.}
+\end{figure}
+
+Os algoritmos de geração procedural irão retornar valores que representam a altura de um determinado ponto do terreno, e estes serão armazenados em um mapa de altura.
 
 \subsubsection{Ruído Perlin}
-O ruído Perlin foi criado pelo Professor Ken Perlin, da \emph{New York University} e é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
+\label{ruidoperlin}
+O ruído Perlin foi criado pelo Professor Ken Perlin \cite{perlinnoise}, da \emph{New York University} e é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
 
-A função ruído retorna, para um dado domínio e as mesmas sementes (\emph{seeds}, números entre 0 e 1; dessa forma, em uma segunda execução, com uma mesma semente, teremos os mesmos números entre 0 e 1. Porém, os números não são aleatórios, e aí está a razão da alta aceitação do trabalho de Perlin em áreas como \emph{games} e cinema. 
-Cada valor retornado é o resultado do seguinte produto interno:
+A função ruído retorna, para um dado domínio e as mesmas sementes (\emph{seeds}, números entre 0 e 1; dessa forma, em uma segunda execução, com uma mesma semente, teremos os mesmos números entre 0 e 1. Cada valor retornado é o resultado do seguinte produto interno:
 
 \begin{center}
 G . (P-Q)
@@ -42,19 +56,20 @@ As características fundamentais do ruído Perlin são então a sua aparente aleator
 
 
 \subsubsection{Fractais}
-Fractais podem ser descritos, segundo \cite{livro}, como \emph{objetos geométricos complexos, na qual a complexidade surge da repetição de uma forma em uma extensão de escalas}. Um exemplo simples pode ser visto na Figura \ref{fig:fractal}:
+\label{fractais}
+Fractais podem ser descritos, segundo \cite{livro}, como objetos geométricos complexos, na qual a complexidade surge da repetição de uma forma em uma extensão de escalas. Um exemplo simples pode ser visto na Figura \ref{fig:fractal}:
 
 \begin{figure}[H]
 	\center{\includegraphics[width=0.5\linewidth]{img/fractal.png}}
 	\caption{\label{fig:fractal} Exemplo de um fractal a pertir de ruído Perlin.}
 \end{figure}
 
-Os quatro ruídos Perlin estão em escalas diferentes e, uma vez somados, formam um fractal, segundo a definição citada. Multifractais já são um subgrupo caracterizado pela variação de sua dimensão fractal ao longo de sua localização.
+Os três ruídos Perlin estão em escalas diferentes e, uma vez somados, formam um fractal, segundo a definição citada. Multifractais já são um subgrupo caracterizado pela variação de sua dimensão fractal ao longo de sua localização.
 
 
 \subsubsection{\emph{Ridged multifractal noise}}
 \label{ridged}
-O \emph{Ridged multifractal noise} é uma variação do ruído de Perlin, e foi apresentado em \cite{livro}. O maior ponto do algoritmo é que ele captura a \emph{heterogeneidade de terrenos em grande escala}, apresentando montanhas, planaltos e crateras. Um pseudo-algoritmo pode ser visto na Tabela \ref{tabela:ridged}.
+O \emph{Ridged multifractal noise} é uma variação do ruído Perlin, e foi apresentado em \cite{livro}. O principal ponto do algoritmo é que ele captura a \emph{heterogeneidade de terrenos em grande escala}, apresentando montanhas, planaltos e crateras. Um pseudo-algoritmo pode ser visto na Tabela \ref{tabela:ridged}.
 
 \begin{table}[H]
 	\begin{center}
@@ -72,7 +87,7 @@ for(int i=0; i<octaves; i++) {
 		\\
 		\hline
 		\end{tabular}
-		\caption{Pseudo-algoritmo do \emph{Ridged multifractal noise}}
+		\caption{Pseudo-algoritmo do \emph{Ridged multifractal noise}.}
 		\label{tabela:ridged}
 	\end{center}
 \end{table}
@@ -82,48 +97,39 @@ No algoritmo, o número de \textbf{octaves} representa o número de iterações (e, 
 A função \emph{noise} retorna um valor de acordo com o ruído Perlin, alterado pela função \emph{ridge}, que leva em consideração o fator multifractal (\emph{offset}).
 
 
-\subsection{Mapa de altura}
-\label{mapaaltura}
 
-Um mapa de altura (ou \emph{heightmap}) é uma imagem bidimensional que armazena dados referentes à altura de um terreno. Geralmente, tons mais claros representam pontos mais altos, enquanto tons mais escuros são pontos mais baixos do mapa. A Figura \ref{fig:mapaalturaexemplo} \cite{mapaaltura} é um exemplo de mapa de altura.
-
-\begin{figure}[H]
-	\center{\includegraphics[width=0.20\linewidth]{img/mapaaltura.png}}
-	\caption{\label{fig:mapaalturaexemplo} Exemplo de um mapa de altura.}
-\end{figure}
-
-
-
-\section{\emph{GPUs}}
+\section{GPUs}
 \label{gpu}
 
-As \emph{GPUs} são as unidades de processamento inseridas na maioria das placas de vídeo atuais. A sua evolução foi incentivada pela alta demanda do mercado de renderização 3D em tempo-real, como \emph{games} e simuladores virtuais, sempre em busca de representar a realidade da maneira mais fidedígna possível. A imagem \ref{fig:gflops} mostra a rápida evolução das arquiteturas da \emph{NVidia} (uma das principais produtores de placas de vídeo), considerando o número de operações de pontos flutuantes executados por segundo, em contraste com a evolução das CPUs.
+As GPUs são as unidades de processamento inseridas na maioria das placas de vídeo atuais. A sua evolução foi incentivada pela alta demanda do mercado de renderização 3D em tempo-real, como \emph{games} e simuladores virtuais, sempre em busca de representar a realidade da maneira mais fidedígna possível. A imagem \ref{fig:gflops} mostra a rápida evolução das arquiteturas da \emph{NVidia} (uma das principais produtores de placas de vídeo), considerando o número de operações de pontos flutuantes executados por segundo, em contraste com a evolução das CPUs.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.5\linewidth]{img/gflops.png}}
-	\caption{\label{fig:gflops} Gráfico com a evolução das \emph{GPUs}, em comparação com as \emph{CPUs}.}
+	\center{\includegraphics[width=0.8\linewidth]{img/gflops.png}}
+	\caption{\label{fig:gflops} Gráfico com a evolução das GPUs, em comparação com as CPUs \cite{gpugflops}.}
 \end{figure}
 
-Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as \emph{GPUs} foram construídas de forma a processar da melhor maneira possível um grande número de dados homogêneos e independentes entre si, como é o caso de vértices e \emph{pixels}, base de todo o processamento gráfico. Assim, certos aspectos de um processador, como \emph{cache}, aspectos de sincronização de \emph{threads} e a comunicação entre elas, são relegados.
+Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as GPUs foram construídas de forma a processar da melhor maneira possível um grande número de dados homogêneos e independentes entre si, como é o caso de vértices e \emph{pixels}, base de todo o processamento gráfico. Assim, certos aspectos de um processador, como \emph{cache}, aspectos de sincronização de \emph{threads} e a comunicação entre elas, são relegados.
 
-A programação utilizando \emph{GPUs} iniciou de forma mais concreta no ano de 2001, com a placa \emph{Geforce3}, da \emph{NVidia}. Essa geração permitiu que programas (conhecidos como \emph{shaders}) fossem escritos para serem executados diretamente na \emph{GPU}. Inicialmente, tais programas modificavam os valores e propriedades dos vértices de uma cena. Na geração seguinte (representada pelas placas \emph{GeForce FX}), foi possível também executar \emph{shaders} que modificavam os valores dos \emph{pixels} (ou fragmentos) da cena. A Figura abaixo mostra o \emph{pipeline} gráfico das \emph{GPUs}, destacando a posição das do \emph{vertex shader} e {fragment shader}, sendo estes estágios programáveis.
+A programação utilizando GPUs iniciou de forma mais concreta no ano de 2001, com a placa \emph{Geforce3}, da \emph{NVidia}. Essa geração permitiu que programas (conhecidos como \emph{shaders}) fossem escritos para serem executados diretamente na GPU. Inicialmente, tais programas modificavam os valores e propriedades dos vértices de uma cena. Na geração seguinte (representada pelas placas \emph{GeForce FX}), foi possível também executar \emph{shaders} que modificavam os valores dos \emph{pixels} (ou fragmentos) da cena. A Figura abaixo mostra o \emph{pipeline} gráfico das GPUs, destacando a posição dos \emph{programmable vertex processor} e \emph{programmable fragment processor}, estágios responsáveis por executar o \emph{vertex shader} e \emph{fragment shader}, respectivamente.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=0.5\linewidth]{img/pipeline.png}}
-	\caption{\label{fig:pipeline} \emph{Pipeline} gráfico.}
+	\center{\includegraphics[width=0.8\linewidth]{img/pipeline.png}}
+	\caption{\label{fig:pipeline} \emph{Pipeline} gráfico \cite{pipeline}.}
 \end{figure}
 
-
-
-Ao longo da evolução das \emph{GPUs}, uma série de linguagens para programação de \emph{shaders} foram criadas. Entre elas, podemos ressaltar a \sigla{HLSL}{High Level Shader Language}, da \emph{Microsoft}, \sigla{Cg}{C for Graphics}, da \emph{NVidia}, e \sigla{GLSL}{OpenGL Shading Language}, da \sigla{OpenGL ARB}{OpenGL Architecture Review Board}.
-
-Ao se utilizar uma dessas linguagens, todo o processamento será feito com base nos vértices (em um \emph{vertex shader}) ou fragmentos (\emph{fragment shader}). O resultado do processamento também ficará limitado a tais primitivas. O destino da renderização de todas as \emph{APIs} é o chamado \emph{Frame Buffer}, que nada mais é do que um vetor com informações sobre cor, profundidade, etc. Como é possível criar novos \emph{Frame buffers}, também é possível criar novos destinos de renderização para os \emph{shaders}.
+O \emph{vertex shader} é o responsável por manipular as propriedades (posição, cor, coordenada de textura) dos vértices enviados para a GPU, e o \emph{fragment shader} calcula a cor de todos os fragmentos da cena. Placas de vídeo modernas apresentam um outro estágio, denominado \emph{geometry shader}, capaz de criar novas primitivas.
 
 
 
-\section{Geração Procedural utilizando \emph{GPUs}}
-A geração procedural de terrenos na \emph{GPU} já foi abordada nos trabalhos \cite{gpugems3} e \cite{Schneider:2006:FractalTerrain}. O primeiro faz uso da plataforma \sigla{CUDA}{Compute Unified Device Architecture}, da empresa \emph{NVidia}, para a geração procedural, e, apesar de mostrar resultados excelentes, está limitado às placas com suporte à \sigla{API}{Application Programming Interface} \emph{DirectX 10}. O trabalho descrito aqui pode ser executado em qualquer placa com suporte a \emph{DirectX 9}.
+Ao longo da evolução das GPUs, uma série de linguagens para programação de \emph{shaders} foram criadas. Entre elas, podemos ressaltar a \emph{High Level Shader Language} (\sigla{HLSL}{High Level Shader Language}), da \emph{Microsoft}, \emph{C for Graphics} (\sigla{Cg}{C for Graphics}), da \emph{NVidia}, e \emph{OpenGL Shading Language}(\sigla{GLSL}{OpenGL Shading Language}), da \emph{OpenGL Architecture Review Board} (\sigla{OpenGL ARB}{OpenGL Architecture Review Board}). Ao se utilizar uma dessas linguagens, todo o processamento será feito com base nos vértices (em um \emph{vertex shader}) ou fragmentos (\emph{fragment shader}), eo  resultado do processamento também ficará limitado a tais primitivas.
 
-O segundo trabalho (\cite{Schneider:2006:FractalTerrain}) é o que mais se assemelha ao que é proposto aqui. Ele porém não busca comparar a geração utilizando a \emph{GPU} e a \emph{CPU}.
+O destino da renderização de todas as APIs é o chamado \emph{framebuffer}, que nada mais é do que um espaço de memória que armazena informações sobre cores dos pixels. Como é possível criar novos \emph{framebuffers}, também é possível criar novos destinos de renderização para os \emph{shaders}, não ficando restrito apenas ao \emph{framebuffer} que é exibido na tela.
+
+
+
+\section{Geração Procedural utilizando GPUs}
+A geração procedural de terrenos na GPU já foi abordada nos trabalhos \cite{gpugems3} e \cite{Schneider:2006:FractalTerrain}. O primeiro faz uso dos \emph{geometry shaders}, disponíveis nas placas mais recentes, para a geração procedural. Apesar de mostrar resultados excelentes, está limitado às placas com suporte à \emph{Application Programming Interface} (\sigla{API}{Application Programming Interface}) \emph{DirectX 10}. O trabalho descrito aqui pode ser executado em qualquer placa com suporte a \emph{DirectX 9}.
+
+O segundo trabalho (\cite{Schneider:2006:FractalTerrain}) é o que mais se assemelha ao que é proposto aqui. Ele porém não busca comparar a geração utilizando a GPU e a CPU.
 
 
