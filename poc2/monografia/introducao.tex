@@ -7,10 +7,10 @@ A geração procedural de modelos é uma área da Ciência da Computação que propõe q
 Outro fato também muito relevante atualmente são as \emph{Graphics Processing Unit} (\sigla{GPUs}{Graphics Processing Unit}), microprocessadores incorporados às placas de vídeo e especializados em processamento gráfico. O avanço da indústria de \emph{games} fez com que as GPUs se tornassem cada vez mais rápidas, tornando-as atraentes para outras áreas da computação.
 
 \section{Objetivo, justificativa e motivação}
-O objetivo deste trabalho é permitir a criação de terrenos proceduralmente em tempo real, aproveitando o poder de processamento da GPU, e comparar as velocidades de geração em relação à CPU. O trabalho pode ser dividido em duas vertentes: visualização de terrenos e sua geração procedural..
+O objetivo deste trabalho é permitir a criação de terrenos proceduralmente em tempo real, aproveitando o poder de processamento da GPU, e comparar as velocidades de geração em relação à CPU. O trabalho pode ser dividido em duas vertentes: visualização de terrenos e sua geração procedural.
 
 
-O primeiro aspecto, a visualização, é um problema muito estudado em computação. O modelo de um terreno é algo que pode demandar um número extremamente alto de triângulos. O processo de gerar a imagem a partir desse modelo, ou renderização, em tempo real fica inviabilizado nos computadores atuais. Faz-se então necessária a utilização de técnicas que limitam e minimizam o número de triângulos a serem desenhados na tela. Entra aí o uso de \emph{culling} e níveis de detalhe dos modelos.
+O primeiro aspecto, a visualização, é um problema muito estudado em computação, pois o modelo de um terreno é algo que pode demandar um número extremamente alto de triângulos e o processo de gerar a imagem a partir desse modelo, ou renderização, em tempo real fica inviabilizado nos computadores atuais. Faz-se então necessária a utilização de técnicas que limitam e minimizam o número de triângulos a serem desenhados na tela. Entra aí o uso de \emph{culling} e níveis de detalhe dos modelos.
 
 A segunda parte, geração de terrenos proceduralmente, busca, através de algoritmos, criar terrenos realistas e que possam ser utilizados em jogos eletrônicos, simuladores, ou qualquer tipo de aplicação que necessita de um ambiente virtual tridimensional. Os principais benefícios dessa geração são:
 
@@ -21,10 +21,10 @@ A segunda parte, geração de terrenos proceduralmente, busca, através de algoritm
 \end{itemize}
 
 
-Este trabalho irá implementar soluções para a geração procedural de terrenos na GPU e também na CPU, com o objetivo de comparar a eficiência e velocidade das duas abordagens.
+Este trabalho irá implementar soluções para a geração procedural de terrenos na GPU e também na CPU, com o objetivo de permitir ao usuário a navegação por um terreno pseudo-infinito, limitado apenas pela precisão dos tipos primitivos utilizados (\emph{double} e \emph{integer}). Além disso, será comparado a eficiência e velocidade das duas arquiteturas.
 
 
 \section{Organização}
-O restante do trabalho está organizado da seguinte maneira. O Capítulo \ref{referencialTeorico} apresenta o referencial teórico pertinente a este trabalho. O Capítulo \ref{metodologia} mostra a metodologia envolvida. O Capítulo \ref{implementacao} mostra como o trabalho foi desenvolvido e implementado. O Capítulo \ref{resultados} apresenta os resultados obtidos e, finalmente, o Capítulo \ref{conclusao} mostra a conclusão do trabalho e propostas para trabalhos futuros.
+O restante do trabalho está organizado da seguinte maneira: O Capítulo \ref{referencialTeorico} apresenta o referencial teórico pertinente a este trabalho. O Capítulo \ref{metodologia} mostra a metodologia envolvida. O Capítulo \ref{implementacao} mostra como o trabalho foi desenvolvido e implementado. O Capítulo \ref{resultados} apresenta os resultados obtidos e, finalmente, o Capítulo \ref{conclusao} mostra a conclusão do trabalho e propostas para trabalhos futuros.
 
 

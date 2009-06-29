@@ -1,14 +1,14 @@
 \chapter{REFERENCIAL TEÓRICO}
 \label{referencialTeorico}
 
-Para uma melhor compreensão deste trabalho, é necessário explicar o contexto em que ele se situa e também alguns trabalhos relacionadas. O referencial teórico pertinente a este trabalho pode ser dividido em duas áreas: geração procedural e GPU. A parte referente à geração procedural será apresentada na Seção \ref{geracaoprocedural}, enquanto que na Seção \ref{gpu} será apresentada conceitos e trabalhos relativos à programação utilizando a GPU.
+Para uma melhor compreensão deste trabalho, é necessário explicar o contexto em que ele se situa e também alguns trabalhos relacionadas. O referencial teórico pode ser dividido em duas áreas: geração procedural e GPU. A parte referente à geração procedural será apresentada na Seção \ref{geracaoprocedural}, enquanto que na Seção \ref{gpu} será apresentado conceitos e trabalhos relativos à programação utilizando a GPU.
 
 
 \section{Geração Procedural}
 \label{geracaoprocedural}
 Vários trabalhos publicados abordam a geração de modelos tridimensionais com o uso de algoritmos. Alguns destes trabalhos abordam a geração de cidades (\cite{parish} e \cite{pseudoinfinite}), outros abordam a geração de terrenos realistas (em tempo-real, como os trabalhos \cite{realtime} e \cite{virtual}, ou não, como o \emph{MojoWorld} \cite{mojoworld}), ou então a geração de árvores \cite{speedtree}. A principal referência na área é o livro \emph{Texturing and Modeling: A Procedural Approach} \cite{livro}, em que é explicada a geração procedural de diversos tipos de modelos.
 
-Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Lindenmayer (\emph{l-System})\cite{lsystem}, que, através de uma gramática, pode modelar o crescimento de plantas; geometrias fractais \cite{geometrias}; e também ruído de Perlin (\emph{Perlin noise} \cite{perlin}). Algumas técnicas pertinentes a este trabalho serão abordadas na Seção \ref{terrenos}.
+Algumas técnicas largamente utilizadas na geração procedural são: Sistemas de Lindenmayer (\emph{l-System})\cite{lsystem}, que, através de uma gramática, pode modelar o crescimento de plantas; geometrias fractais \cite{geometrias}; e também ruído Perlin (\emph{Perlin noise} \cite{perlin}).
 
 \subsection{Terrenos procedurais}
 \label{terrenos}
@@ -35,7 +35,7 @@ Os algoritmos de geração procedural irão retornar valores que representam a altu
 \label{ruidoperlin}
 O ruído Perlin foi criado pelo Professor Ken Perlin \cite{perlinnoise}, da \emph{New York University} e é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
 
-A função ruído retorna, para um dado domínio e as mesmas sementes (\emph{seeds}, números entre 0 e 1; dessa forma, em uma segunda execução, com uma mesma semente, teremos os mesmos números entre 0 e 1. Cada valor retornado é o resultado do seguinte produto interno:
+A função ruído retorna, para um dado domínio e as mesmas sementes (\emph{seeds}), números entre 0 e 1; dessa forma, em uma segunda execução, com as mesmas entradas, teremos os mesmos números entre 0 e 1. Cada valor retornado é o resultado do seguinte produto interno:
 
 \begin{center}
 G . (P-Q)
@@ -43,7 +43,7 @@ G . (P-Q)
 
 Onde P é a posição do ponto que está sendo calculado o valor do ruído, Q é a posição de um de seus vizinhos, e G é o valor de um vetor gradiente pseudo-aleatório. Os resultados do produto interno dos vizinhos é então interpolado, garantindo assim que haverá uma suave transição entre todos os valores retornados.
 
-O resultado, como pode ser visto na Figura \ref{fig:noise} apresenta transições suaves, diferentemente do ruído aleatório.
+O resultado, como pode ser visto na Figura \ref{fig:noise}, apresenta transições suaves, diferentemente do ruído aleatório.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=0.5\linewidth]{img/noise.png}}
@@ -108,7 +108,7 @@ As GPUs são as unidades de processamento inseridas na maioria das placas de víde
 	\caption{\label{fig:gflops} Gráfico com a evolução das GPUs, em comparação com as CPUs \cite{gpugflops}.}
 \end{figure}
 
-Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as GPUs foram construídas de forma a processar da melhor maneira possível um grande número de dados homogêneos e independentes entre si, como é o caso de vértices e \emph{pixels}, base de todo o processamento gráfico. Assim, certos aspectos de um processador, como \emph{cache}, aspectos de sincronização de \emph{threads} e a comunicação entre elas, são relegados.
+Tamanha diferença evolutiva deve-se, principalmente, ao fato de que as GPUs foram construídas de forma a processar da melhor maneira possível um grande número de dados homogêneos e independentes entre si, como é o caso de vértices e \emph{pixels}, base de todo o processamento gráfico. Assim, certos aspectos de um processador, como \emph{cache}, sincronização de \emph{threads} e a comunicação entre elas, são relegados.
 
 A programação utilizando GPUs iniciou de forma mais concreta no ano de 2001, com a placa \emph{Geforce3}, da \emph{NVidia}. Essa geração permitiu que programas (conhecidos como \emph{shaders}) fossem escritos para serem executados diretamente na GPU. Inicialmente, tais programas modificavam os valores e propriedades dos vértices de uma cena. Na geração seguinte (representada pelas placas \emph{GeForce FX}), foi possível também executar \emph{shaders} que modificavam os valores dos \emph{pixels} (ou fragmentos) da cena. A Figura abaixo mostra o \emph{pipeline} gráfico das GPUs, destacando a posição dos \emph{programmable vertex processor} e \emph{programmable fragment processor}, estágios responsáveis por executar o \emph{vertex shader} e \emph{fragment shader}, respectivamente.
 
@@ -121,14 +121,16 @@ O \emph{vertex shader} é o responsável por manipular as propriedades (posição, c
 
 
 
-Ao longo da evolução das GPUs, uma série de linguagens para programação de \emph{shaders} foram criadas. Entre elas, podemos ressaltar a \emph{High Level Shader Language} (\sigla{HLSL}{High Level Shader Language}), da \emph{Microsoft}, \emph{C for Graphics} (\sigla{Cg}{C for Graphics}), da \emph{NVidia}, e \emph{OpenGL Shading Language}(\sigla{GLSL}{OpenGL Shading Language}), da \emph{OpenGL Architecture Review Board} (\sigla{OpenGL ARB}{OpenGL Architecture Review Board}). Ao se utilizar uma dessas linguagens, todo o processamento será feito com base nos vértices (em um \emph{vertex shader}) ou fragmentos (\emph{fragment shader}), eo  resultado do processamento também ficará limitado a tais primitivas.
+Ao longo da evolução das GPUs, uma série de linguagens para programação de \emph{shaders} foram criadas. Entre elas, podemos ressaltar a \emph{High Level Shader Language} (\sigla{HLSL}{High Level Shader Language}), da \emph{Microsoft}, \emph{C for Graphics} (\sigla{Cg}{C for Graphics}), da \emph{NVidia}, e \emph{OpenGL Shading Language} (\sigla{GLSL}{OpenGL Shading Language}), da \emph{OpenGL Architecture Review Board} (\sigla{OpenGL ARB}{OpenGL Architecture Review Board}). Ao se utilizar uma dessas linguagens, todo o processamento será feito com base nos vértices (em um \emph{vertex shader}) ou fragmentos (\emph{fragment shader}), e o  resultado do processamento também ficará limitado a tais primitivas.
 
-O destino da renderização de todas as APIs é o chamado \emph{framebuffer}, que nada mais é do que um espaço de memória que armazena informações sobre cores dos pixels. Como é possível criar novos \emph{framebuffers}, também é possível criar novos destinos de renderização para os \emph{shaders}, não ficando restrito apenas ao \emph{framebuffer} que é exibido na tela.
+O destino da renderização de todas as \emph{Application Programming Interfaces} (\sigla{API}{Application Programming Interface}) é o chamado \emph{framebuffer}, que nada mais é do que um espaço de memória que armazena informações sobre cores dos pixels. Como é possível criar novos \emph{framebuffers}, também é possível criar novos destinos de renderização para os \emph{shaders}, não ficando restrito apenas ao \emph{framebuffer} que é exibido na tela.
 
+
+A arquitetura \emph{CUDA} \sigla{CUDA}{Compute Unified Device Architecture}, da \emph{NVidia}, também permite que programas rodem na GPU, porém de uma maneira diferente. Não há a utilização de \emph{shaders} e programas não ficam limitados à operações em cima de vértices e fragmentos. A arquitetura só está disponível para placas \emph{NVidia} a partir da geração \emph{GeForce 8}.
 
 
 \section{Geração Procedural utilizando GPUs}
-A geração procedural de terrenos na GPU já foi abordada nos trabalhos \cite{gpugems3} e \cite{Schneider:2006:FractalTerrain}. O primeiro faz uso dos \emph{geometry shaders}, disponíveis nas placas mais recentes, para a geração procedural. Apesar de mostrar resultados excelentes, está limitado às placas com suporte à \emph{Application Programming Interface} (\sigla{API}{Application Programming Interface}) \emph{DirectX 10}. O trabalho descrito aqui pode ser executado em qualquer placa com suporte a \emph{DirectX 9}.
+A geração procedural de terrenos na GPU já foi abordada nos trabalhos \cite{gpugems3} e \cite{Schneider:2006:FractalTerrain}. O primeiro faz uso dos \emph{geometry shaders}, disponíveis nas placas mais recentes, para a geração procedural. Apesar de mostrar resultados excelentes, está limitado às placas com suporte à API \emph{DirectX 10}. O trabalho descrito aqui pode ser executado em qualquer placa com suporte a \emph{DirectX 9}.
 
 O segundo trabalho (\cite{Schneider:2006:FractalTerrain}) é o que mais se assemelha ao que é proposto aqui. Ele porém não busca comparar a geração utilizando a GPU e a CPU.
 

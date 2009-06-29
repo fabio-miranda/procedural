@@ -1,7 +1,7 @@
 \chapter{IMPLEMENTAÇÃO}
 \label{implementacao}
 
-Os conhecimentos adquiridos ao longo desse trabalho permitiram a criação de um sistema capaz de gerar terrenos procedurais tanto na GPU quanto na CPU, e também permite a navegação do usuário por tal terreno. Na Seção \ref{sistema} será apresentado tal sistema, bem como as principais decições e detalhes de implementação. As Seções \ref{geracao} e \ref{visualizacao} mostrarão como os terrenos são gerados e visualizados.
+Os conhecimentos adquiridos ao longo desse trabalho permitiram a criação de um sistema capaz de gerar terrenos procedurais tanto na GPU quanto na CPU, e também permite a navegação do usuário por tal terreno. Na Seção \ref{sistema} será apresentado uma visão geral do sistema. As Seções \ref{geracao} e \ref{visualizacao} mostrarão como os terrenos são gerados e visualizados.
 
 
 
@@ -25,7 +25,7 @@ O sistema implementado neste trabalho teve como principal objetivo permitir a ge
 	\item {\bf ProcTerrain}: Camada responsável por gerar e exibir os terrenos.
 \end{itemize}
 
-As camadas \emph{WindowMng} e \emph{ProcTerrain} foram implementadas neste trabalho. O \emph{WindowMng} tem como proposito simular a camada de um aplicativo gráfico genérico (\emph{game}, simulador, etc.); desta forma, o sistema poderá ser posteriormente adaptado para funcionar em conjunto com outros aplicativos que possam vir a ser desenvolvidos.
+As camadas \emph{WindowMng} e \emph{ProcTerrain} foram implementadas neste trabalho. O \emph{WindowMng} tem como propósito simular a camada de um aplicativo gráfico genérico (\emph{game}, simulador, etc.); desta forma, o sistema poderá ser posteriormente adaptado para funcionar em conjunto com outros aplicativos que possam ser desenvolvidos.
 
 A Figura \ref{fig:arquitetura} apresenta em detalhes os módulos presentes nas camadas \emph{WindowMng} e \emph{ProcTerrain}. A seguir, uma explicação sobre cada um dos módulos.
 
@@ -38,7 +38,7 @@ A Figura \ref{fig:arquitetura} apresenta em detalhes os módulos presentes nas ca
 	\item {\bf WindowMng}: Responsável por simular um aplicativo gráfico genérico, e chamar os devidos \emph{callbacks} do pacote \emph{ProcTerrain}.
 	\item {\bf Camera}: Módulo que implementa uma câmera controlada pelo jogador e navegando pelo mundo.
 	\item {\bf TerrainMng}: Módulo responsável por gerar e controlar os terrenos.
-	\item {\bf SquareNode}: Nodo que representa uma fatia do terreno.
+	\item {\bf SquareNode}: Nodo que representa uma fatia (\emph{patch}) do terreno.
 	\item {\bf HeightMap}, {\bf HeightMapCPU} e {\bf HeightMapGPU}: Módulos que implementam os mapas de altura dos terrenos gerados na CPU ou na GPU.
 	\item {\bf GenerationShader}: \emph{Shader} responsável pela geração dos terrenos.
 	\item {\bf RenderingShader}: \emph{Shader} responsável pela renderização dos terrenos.
@@ -47,7 +47,7 @@ A Figura \ref{fig:arquitetura} apresenta em detalhes os módulos presentes nas ca
 
 \section{Geração do Terreno}
 \label{geracao}
-Nesta seção, será abordado a implementação da geração de terrenos, tanto na GPU, quanto na CPU. Os dois têm, em comum, o algoritmo usado para a geração (\emph{Ridged multifractal noise}, descrito na Seção \ref{ridged}).
+Nesta seção, será abordada a implementação da geração de terrenos, tanto na GPU, quanto na CPU. Os dois têm, em comum, o algoritmo usado para a geração (\emph{Ridged multifractal noise}, descrito na Seção \ref{ridged}).
 
 O terreno geral é dividido em terrenos menores (chamados \emph{patchs}), como mostra o \emph{grid} da Figura \ref{fig:resultados:grid}:
 
@@ -60,11 +60,11 @@ Considerando o usuário inicialmente localizado no \emph{patch} central, ao mover
 
 
 \subsection{Geração do Terreno na GPU}
-Toda a geração dos terrenos na GPU é feita através de um \emph{fragment shader}, porém, como toda computação de \emph{shaders} só pode ser aplicada com base em geometrias ou texturas, foi preciso renderizar um quadrado utilizando as funções OpenGL e, dessa forma, aplicar os \emph{shaders} às suas primitivas. Entra aí então o FBO, extensão do OpenGL que permite criar \emph{Frame Buffers} e realizar renderizações \emph{off-screen} (que não são exibidas na tela).
+Toda a geração dos terrenos na GPU é feita através de um \emph{fragment shader}. Como toda computação de \emph{shaders} fica limitada a geometrias ou texturas, foi preciso renderizar um quadrado utilizando as funções OpenGL, para que, dessa forma, fosse possível aplicar os \emph{shaders} às suas primitivas e iniciar os cálculos necessários. O resultado da geração é renderizado em um \emph{framebuffer} \emph{off-screen}, que não é exibido na tela, através da extenção FBO, que permite criar novos \emph{buffers}.
 
 O cálculo dos vetores gradientes, necessário no ruído Perlin, é feito na CPU, apenas no início do sistema, e depois é acessado no \emph{fragment shader} como uma textura 2D.
 
-O quadrado é renderizado em um novo \emph{frame buffer}, e o \emph{shader} de geração procedural é aplicado sobre ele. O resultado pode ser visto na Figura \ref{fig:resultados:heightmap}.
+A Figura \ref{fig:resultados:heightmap} apresenta o resultado da geração, visto como um mapa de altura.
 
 \begin{figure}[H]
 	\center{\includegraphics[width=0.5\linewidth]{img/caps/heightmap.png}}
@@ -76,13 +76,13 @@ Como o mapa de altura é gerado na GPU, não há qualquer tipo de perda de desempen
 
 
 \subsection{Geração do Terreno na CPU}
-A geração na CPU é feita de maneira tradicional. Uma lista de vértices é criada e, para cada vértice, é calculado a sua altura de acordo com o algoritmo \emph{Ridged multifractal noise}.
+A geração na CPU é feita de maneira tradicional. Uma matrix com o tamanho da textura do mapa de altura é preenchida de acordo com o algoritmo \emph{Ridged multifractal noise}, e posteriormente enviada para a memória da GPU.
 
 
 
 \section{Visualização do Terreno}
 \label{visualizacao}
-Com o mapa de altura gerado, o próximo passo é exibir o terreno para o usuário. Da mesma forma, aqui também será exposto alguns detalhes específicos da visualização do terreno gerado na GPU, na Seção \ref{visualizacaogpu}. Antes, porém, é necessário detalhar funções comuns tanto à visualização de terrenos gerados na CPU quanto na GPU.
+Com o mapa de altura gerado, o próximo passo é exibir o terreno para o usuário, que é feito de forma idêntica tanto para os terrenos gerados na GPU quanto para os gerados na CPU.
 
 O passo inicial é a geração de uma malha (conjunto de vértices) de tamanho pré-determinado, como mostra a Figura \ref{fig:malha}.
 
@@ -104,10 +104,9 @@ Na Figura \ref{fig:texturas} é possível notar o deslocamento dos mapas de textur
 
 Este método diminuiu a necessidade de implementação de um algoritmo de nível de detalhe mais robusto. Além disso, como sabemos o número de vértices antecipadamente, a performance do aplicativo tem uma menor chance de sofrer quedas bruscas de rendimento.
 
-Após a geração dos vértices, as texturas com os mapas de altura gerados proceduralmente são aplicados à malha. Um \emph{vertex shader} lê então a altura presente no mapa e desloca a posição de \emph{z} do vértice correspondente da malha.
+Após a geração dos vértices, as texturas com os mapas de altura gerados proceduralmente são aplicados à malha. Um \emph{vertex shader} lê então a altura presente no mapa e desloca a posição de \emph{z} do vértice correspondente na malha.
 
-
-
+A cor de cada fragmento é calculado a partir de quatro diferentes texturas, uma simulando areia, grama, pedras e outra simulando neve. A participação de cada uma delas na cor final dependerá da altura do vértice correspondente do fragmento. Para pontos mais altos, a textura de neve será predominante e, pontos mais baixos, serão cobertos pela textura de grama. Entre esses pontos, haverá uma mistura das outras texturas.
 
 
 

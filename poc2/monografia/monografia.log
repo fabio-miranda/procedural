@@ -1,18 +1,19 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  29 JUN 2009 05:02
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.29)  29 JUN 2009 14:55
 entering extended mode
-**monografia.tex
-(monografia.tex
+**C:/Temp/fabio/monografia/monografia.tex
+(C:/Temp/fabio/monografia/monografia.tex
 LaTeX2e <2005/12/01>
 Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman, ngerman, german-x-2008-06-18, ngerman-x-2008-06-18, french, loaded.
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\abnt.cls"
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
+rman, ngerman, german-x-2008-06-18, ngerman-x-2008-06-18, french, portuguese, l
+oaded.
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\abnt.cls"
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
 Document Class: abnt 2004/11/02 v1.27.2.1 Classe abnt (NBR6024, NBR6027, NBR602
 8, NBR14724)
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\ifthen.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\tools\calc.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\tools\calc.sty"
 Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count79
 \calc@Bcount=\count80
@@ -25,7 +26,7 @@ LaTeX Info: Redefining \addtolength on input line 76.
 \calc@Ccount=\count81
 \calc@Cskip=\skip43
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\tools\multicol.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\tools\multicol.sty"
 Package: multicol 2006/05/18 v1.6g multicolumn formatting (FMi)
 \c@tracingmulticols=\count82
 \mult@box=\box26
@@ -72,9 +73,9 @@ Package: multicol 2006/05/18 v1.6g multicolumn formatting (FMi)
 \mult@nat@firstbox=\box50
 \colbreak@box=\box51
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\report.cls"
+("C:\temp\MiKTeX 2.7\tex\latex\base\report.cls"
 Document Class: report 2005/09/16 v1.4f Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\size12.clo"
+("C:\temp\MiKTeX 2.7\tex\latex\base\size12.clo"
 File: size12.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 )
 \c@part=\count90
@@ -90,7 +91,7 @@ File: size12.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 \belowcaptionskip=\skip47
 \bibindent=\dimen112
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\setspace\setspace.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\setspace\setspace.sty"
 Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 
 Package: `setspace' 6.7 <2000/12/01>
@@ -99,45 +100,45 @@ Package: `setspace' 6.7 <2000/12/01>
 \ABNTsignwidth=\skip49
 \ABNTsignthickness=\skip50
 \ABNTsignskip=\skip51
- ("C:\Program Files\MiKTeX 2.7\tex\latex\tools\indentfirst.sty"
+ ("C:\temp\MiKTeX 2.7\tex\latex\tools\indentfirst.sty"
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ))
-("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\hyperref.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2008/11/18 v6.78m Hypertext links for LaTeX
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\ifpdf.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2007/12/12 v1.6 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode detected.
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\ifvtex.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\ifxetex\ifxetex.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2008/09/18 v0.4 Provides ifxetex conditional
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\hycolor.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\oberdiek\hycolor.sty"
 Package: hycolor 2008/09/08 v1.4 Code for color options of hyperref/bookmark (H
 O)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\xcolor-patch.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\oberdiek\xcolor-patch.sty"
 Package: xcolor-patch 2008/09/08 xcolor patch
 ))
 \@linkdim=\dimen113
 \Hy@linkcounter=\count99
 \Hy@pagecounter=\count100
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\pd1enc.def"
+("C:\temp\MiKTeX 2.7\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2008/11/18 v6.78m Hyperref: PDFDocEncoding definition (HO)
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\etexcmds.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\etexcmds.sty"
 Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
 
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\infwarerr.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
 )
 Package etexcmds Info: Could not find \expanded.
@@ -145,10 +146,10 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\hyperref.cfg"
+("C:\temp\MiKTeX 2.7\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\kvoptions.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2007/10/18 v3.0 Keyval support for LaTeX options (HO)
 )
 Package hyperref Info: Hyper figures OFF on input line 2907.
@@ -159,27 +160,27 @@ Package hyperref Info: Backreferencing OFF on input line 2927.
 
 Implicit mode ON; LaTeX internals redefined
 Package hyperref Info: Bookmarks ON on input line 3117.
-("C:\Program Files\MiKTeX 2.7\tex\latex\ltxmisc\url.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\ltxmisc\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 3351.
 
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\bitset.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\bitset.sty"
 Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
 
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\intcalc.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\intcalc.sty"
 Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\bigintcalc.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\bigintcalc.sty"
 Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
 
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\pdftexcmds.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2007/12/12 v0.3 LuaTeX support for pdfTeX utility functions
  (HO)
 Package pdftexcmds Info: LuaTeX not detected on input line 139.
 )))
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\kvsetkeys.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\kvsetkeys.sty"
 Package: kvsetkeys 2007/09/29 v1.3 Key value parser with default handler suppor
 t (HO)
 )
@@ -195,7 +196,7 @@ Package hyperref Info: Link coloring OFF on input line 4288.
 Package hyperref Info: Link coloring with OCG OFF on input line 4293.
 Package hyperref Info: PDF/A mode OFF on input line 4298.
 
-("C:\Program Files\MiKTeX 2.7\tex\generic\oberdiek\atbegshi.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\oberdiek\atbegshi.sty"
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
 \Hy@abspage=\count102
@@ -203,30 +204,30 @@ Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 \c@Hfootnote=\count104
 )
 *hyperref using default driver hpdftex*
-("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\hpdftex.def"
+("C:\temp\MiKTeX 2.7\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2008/11/18 v6.78m Hyperref driver for pdfTeX
 \Fld@listcount=\count105
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\abntcite.sty"
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\abntcite.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
 Package: abntcite 2003/10/13 v1.26 Chamadas de referencias no texto (NBR10520)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\abntex-abrev.sty"
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\abntex-abrev.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
 Package: abntex-abrev 2003/10/13 v1.3 Abreviacoes
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\nbr10522-1988.def"
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\nbr10522-1988.def"
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
 File: nbr10522-1988.def 2003/10/13 v1.2 Abreviacoes bibliograficas (NBR10522:19
 88)
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\abntex-abrev-pt_BR.def"
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\abntex-abrev-pt_BR.def"
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
 File: abntex-abrev-pt_BR.def 2003/10/13 v1.2 definicao de abntex-abrev, traduca
 o de termos en_US/pt_BR
 ))
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\nbr10520-2002.def"
-("C:\Program Files\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\nbr10520-2002.def"
+("C:\temp\MiKTeX 2.7\tex\latex\abntex\cvs-id.def")
 File: nbr10520-2002.def 2003/10/13 v1.2 Definicoes para abntcite (NBR10520:2002
 )
 )
@@ -235,7 +236,7 @@ File: nbr10520-2002.def 2003/10/13 v1.2 Definicoes para abntcite (NBR10520:2002
 \c@ABCIaux=\count106
 \c@ABCImax=\count107
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\ltxmisc\relsize.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\ltxmisc\relsize.sty"
 Package: relsize 2003/07/04 ver 3.1
 )
 \biblabelsep=\skip54
@@ -243,61 +244,56 @@ LaTeX Info: Redefining \newblock on input line 562.
 LaTeX Info: Redefining \cite on input line 831.
 \ABCItoken=\toks16
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.sty"
+("C:\temp\MiKTeX 2.7\tex\generic\babel\babel.sty"
 Package: babel 2008/07/06 v3.8l The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
+("C:\temp\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\babel\portuges.ldf"
+("C:\temp\MiKTeX 2.7\tex\generic\babel\portuges.ldf"
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
-("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.def"
+("C:\temp\MiKTeX 2.7\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count108
 \U@D=\dimen116
 )
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `Portuguese'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@portuges = a dialect from \language0
 \l@brazil = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
-)) ("C:\Program Files\MiKTeX 2.7\tex\latex\base\inputenc.sty"
+))
+("C:\temp\MiKTeX 2.7\tex\latex\base\inputenc.sty"
 Package: inputenc 2006/05/05 v1.1b Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\latin1.def"
+("C:\temp\MiKTeX 2.7\tex\latex\base\latin1.def"
 File: latin1.def 2006/05/05 v1.1b Input encoding file
 ))
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
 Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\trig.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
+("C:\temp\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 90.
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
+("C:\temp\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
 \Gread@gobject=\count109
 ))
 \Gin@req@height=\dimen117
 \Gin@req@width=\dimen118
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\float\float.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count110
 \float@exts=\toks19
@@ -305,7 +301,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks20
 \@floatcapt=\box53
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\geometry\geometry.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\geometry\geometry.sty"
 Package: geometry 2008/11/13 v4.1 Page Geometry
 \Gm@cnth=\count111
 \Gm@cntv=\count112
@@ -316,8 +312,8 @@ Package: geometry 2008/11/13 v4.1 Page Geometry
 \Gm@even@mp=\dimen122
 \Gm@dimlist=\toks21
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\geometry\geometry.cfg"))
-("C:\Program Files\MiKTeX 2.7\tex\latex\listings\listings.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\geometry\geometry.cfg"))
+("C:\temp\MiKTeX 2.7\tex\latex\listings\listings.sty"
 \lst@mode=\count114
 \lst@gtempboxa=\box54
 \lst@token=\toks22
@@ -331,58 +327,69 @@ Package: geometry 2008/11/13 v4.1 Page Geometry
 \lst@lineno=\count119
 \lst@maxwidth=\dimen126
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\listings\lstmisc.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 \c@lstnumber=\count120
 \lst@skipnumbers=\count121
 \lst@framebox=\box55
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\listings\listings.cfg"
+("C:\temp\MiKTeX 2.7\tex\latex\listings\listings.cfg"
 File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\multirow\multirow.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\multirow\multirow.sty"
 \bigstrutjot=\dimen127
 )
 
 LaTeX Warning: Unused global option(s):
     [pagestart=fistchapter,tocpage=plain].
 
-(monografia.aux (capa.aux) (folharosto.aux) (dedicatoria.aux)
-(agradecimentos.aux) (epigrafe.aux) (resumo.aux) (abstract.aux) (introducao.aux
-) (referecialTeorico.aux) (metodologia.aux) (implementacao.aux) (resultados.aux
-) (conclusao.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-Package hyperref Info: Link coloring OFF on input line 183.
- ("C:\Program Files\MiKTeX 2.7\tex\latex\hyperref\nameref.sty"
+(C:\Temp\fabio\monografia\monografia.aux (C:\Temp\fabio\monografia\capa.aux)
+(C:\Temp\fabio\monografia\folharosto.aux)
+(C:\Temp\fabio\monografia\dedicatoria.aux)
+(C:\Temp\fabio\monografia\agradecimentos.aux)
+(C:\Temp\fabio\monografia\epigrafe.aux) (C:\Temp\fabio\monografia\resumo.aux)
+(C:\Temp\fabio\monografia\abstract.aux)
+(C:\Temp\fabio\monografia\introducao.aux)
+(C:\Temp\fabio\monografia\referecialTeorico.aux)
+(C:\Temp\fabio\monografia\metodologia.aux)
+(C:\Temp\fabio\monografia\implementacao.aux)
+(C:\Temp\fabio\monografia\resultados.aux)
+(C:\Temp\fabio\monografia\conclusao.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+Package hyperref Info: Link coloring OFF on input line 185.
+
+("C:\temp\MiKTeX 2.7\tex\latex\hyperref\nameref.sty"
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
- ("C:\Program Files\MiKTeX 2.7\tex\latex\oberdiek\refcount.sty"
+
+("C:\temp\MiKTeX 2.7\tex\latex\oberdiek\refcount.sty"
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count122
 )
-LaTeX Info: Redefining \ref on input line 183.
-LaTeX Info: Redefining \pageref on input line 183.
+LaTeX Info: Redefining \ref on input line 185.
+LaTeX Info: Redefining \pageref on input line 185.
 
-(monografia.out) (monografia.out)
+(C:\Temp\fabio\monografia\monografia.out)
+(C:\Temp\fabio\monografia\monografia.out)
 \@outlinefile=\write3
 \AtBeginShipoutBox=\box56
 
-("C:\Program Files\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
+("C:\temp\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count123
 \scratchdimen=\dimen128
@@ -437,7 +444,7 @@ driver: pdftex
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
 \c@lstlisting=\count128
-(capa.tex
+(C:\Temp\fabio\monografia\capa.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -447,25 +454,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 
-{C:/Documents and Settings/All Users/Application Data/MiKTeX/2.7/pdftex/config/
-pdftex.map}]) (folharosto.texpdfTeX warning (ext4): destination with the same i
-dentifier (name{page.i}) has been already used, duplicate ignored
+{C:/Documents and Settings/fmiranda/Local Settings/Application Data/MiKTeX/2.7/
+pdftex/config/pdftex.map}])
+(C:\Temp\fabio\monografia\folharosto.texpdfTeX warning (ext4): destination with
+ the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.50 \end{titlepage}
                      [1
 
 
-]) (dedicatoria.tex)pdfTeX warning (ext4): destination with the same identifier
- (name{page.i}) has been already used, duplicate ignored
+]) (C:\Temp\fabio\monografia\dedicatoria.tex)pdfTeX warning (ext4): destination
+ with the same identifier (name{page.i}) has been already used, duplicate ignor
+ed
 <to be read again> 
                    \relax 
-l.191 \include{dedicatoria}
+l.193 \include{dedicatoria}
                             [1
 
 
 
-] (agradecimentos.tex
+] (C:\Temp\fabio\monografia\agradecimentos.tex
 Overfull \hbox (42.67912pt too wide) in paragraph at lines 5--10
 []$[]$ 
  []
@@ -474,40 +483,45 @@ Overfull \hbox (42.67912pt too wide) in paragraph at lines 5--10
 
 
 
-] (epigrafe.tex) [3
+] (C:\Temp\fabio\monografia\epigrafe.tex) [3
 
 
 
-] (resumo.tex [4
-
-
-
-
-]) (abstract.tex [5
+]
+(C:\Temp\fabio\monografia\resumo.tex [4
 
 
 
 
-]) (monografia.lof
-[6
+])
+(C:\Temp\fabio\monografia\abstract.tex [5
+
+
+
+
+])
+(C:\Temp\fabio\monografia\monografia.lof [6
 
 
 ])
 \tf@lof=\write4
- [7] (monografia.lot)
+ [7]
+(C:\Temp\fabio\monografia\monografia.lot)
 \tf@lot=\write5
  [8
 
-] (monografia.lsg)
+]
+(C:\Temp\fabio\monografia\monografia.lsg)
 \tf@lsg=\write6
  [9
 
-] (monografia.toc [10
+]
+(C:\Temp\fabio\monografia\monografia.toc [10
 
 ])
 \tf@toc=\write7
-
-[11] (introducao.tex
+ [11]
+(C:\Temp\fabio\monografia\introducao.tex
 Cap\'{\i }tulo 1.
 Package hyperref Info: bookmark level for unknown sigla defaults to 0 on input 
 line 7.
@@ -517,13 +531,13 @@ line 7.
 
 ]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
- ("C:\Program Files\MiKTeX 2.7\tex\latex\base\omscmr.fd"
+ ("C:\temp\MiKTeX 2.7\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
 ) [13]
-(referecialTeorico.tex
+(C:\Temp\fabio\monografia\referecialTeorico.tex
 Cap\'{\i }tulo 2.
 [14
 
@@ -540,14 +554,14 @@ ier (name{figure.2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.51 \end{figure}
-                  <img/mapaaltura.png (PNG copy)>]
+l.52 
+      <C:/Temp/fabio/monografia/img/mapaaltura.png (PNG copy)>]
 <img/fractal.png, id=333, 590.205pt x 128.48pt>
 File: img/fractal.png Graphic file (type png)
  <use img/fractal.png>
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 79.
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\omlcmr.fd"
+("C:\temp\MiKTeX 2.7\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
@@ -569,7 +583,8 @@ l.94
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.94 
-      <img/noise.png (PNG copy)> <img/fractal.png (PNG copy)>]
+      <C:/Temp/fabio/monografia/img/noise.png (PNG copy)> <C:/Temp/fabio/monogr
+afia/img/fractal.png (PNG copy)>]
 <img/gflops.png, id=342, 75.3998pt x 42.67914pt>
 File: img/gflops.png Graphic file (type png)
  <use img/gflops.png> [17pdfTeX warning (ext4): destination with the same ident
@@ -587,26 +602,27 @@ tifier (name{figure.2.4}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.119 
-       <img/gflops.png (PNG copy)>] [19pdfTeX warning (ext4): destination with 
-the same identifier (name{figure.2.5}) has been already used, duplicate ignored
-
+       <C:/Temp/fabio/monografia/img/gflops.png (PNG copy)>] [19pdfTeX warning 
+(ext4): destination with the same identifier (name{figure.2.5}) has been alread
+y used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.132 
-       <img/pipeline.png (PNG copy)>]) [20] (metodologia.tex
+l.134 
+       <C:/Temp/fabio/monografia/img/pipeline.png (PNG copy)>]) [20]
+(C:\Temp\fabio\monografia\metodologia.tex
 Cap\'{\i }tulo 3.
 
 Overfull \hbox (2.45433pt too wide) in paragraph at lines 12--13
-[]\OT1/cmr/m/n/12 Durante este tempo de pesquisa, foi con-sid-er-ado a uti-liza
-c~ao da plataforma CUDA,
+[]\OT1/cmr/m/n/12 Durante este tempo de pes-quisa, foi con-si-de-rado a uti-liz
+ac~ao da pla-ta-forma CUDA,
  []
 
 [21
 
 
 
-]) [22] (implementacao.tex
+]) [22] (C:\Temp\fabio\monografia\implementacao.tex
 Cap\'{\i }tulo 4.
 <img/bibliotecas.png, id=392, 261.97874pt x 144.54pt>
 File: img/bibliotecas.png Graphic file (type png)
@@ -621,7 +637,7 @@ has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.29 
-      <img/bibliotecas.png>]
+      <C:/Temp/fabio/monografia/img/bibliotecas.png>]
 <img/arquitetura.png, id=401, 658.46pt x 414.54875pt>
 File: img/arquitetura.png Graphic file (type png)
 
@@ -631,10 +647,11 @@ dentifier (name{figure.4.7}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.53 
-      <img/arquitetura.png>] <img/caps/grid.png, id=409, 963.6pt x 542.025pt>
+      <C:/Temp/fabio/monografia/img/arquitetura.png>]
+<img/caps/grid.png, id=409, 963.6pt x 542.025pt>
 File: img/caps/grid.png Graphic file (type png)
-
-<use img/caps/grid.png> <img/caps/heightmap.png, id=411, 963.6pt x 542.025pt>
+ <use img/caps/grid.png>
+<img/caps/heightmap.png, id=411, 963.6pt x 542.025pt>
 File: img/caps/heightmap.png Graphic file (type png)
 
 <use img/caps/heightmap.png> [25pdfTeX warning (ext4): destination with the sam
@@ -643,11 +660,7 @@ e identifier (name{figure.4.8}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.73 
-      <img/caps/grid.png (PNG copy)>]
-
-LaTeX Warning: Reference `visualizacaogpu' on page 26 undefined on input line 8
-5.
-
+      <C:/Temp/fabio/monografia/img/caps/grid.png (PNG copy)>]
 <img/caps/malha.png, id=417, 963.6pt x 542.025pt>
 File: img/caps/malha.png Graphic file (type png)
  <use img/caps/malha.png>
@@ -657,7 +670,7 @@ File: img/caps/malha.png Graphic file (type png)
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.93 
-      <img/caps/heightmap.png (PNG copy)>]
+      <C:/Temp/fabio/monografia/img/caps/heightmap.png (PNG copy)>]
 <img/texturas.png, id=423, 722.7pt x 259.97125pt>
 File: img/texturas.png Graphic file (type png)
  <use img/texturas.png>
@@ -673,8 +686,8 @@ l.108
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.108 
-       <img/caps/malha.png (PNG copy)> <img/texturas.png>]) [28]
-(resultados.tex
+       <C:/Temp/fabio/monografia/img/caps/malha.png (PNG copy)> <C:/Temp/fabio/
+monografia/img/texturas.png>]) [28] (C:\Temp\fabio\monografia\resultados.tex
 Cap\'{\i }tulo 5.
 <img/caps/heightmap2.png, id=437, 963.6pt x 542.025pt>
 File: img/caps/heightmap2.png Graphic file (type png)
@@ -703,13 +716,14 @@ ame{figure.5.13}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.26 \end{figure}
-                  <img/caps/heightmap2.png (PNG copy)> <img/caps/deslocamento.p
-ng (PNG copy)>] <img/caps/luz.png, id=448, 963.6pt x 542.025pt>
+                  <C:/Temp/fabio/monografia/img/caps/heightmap2.png (PNG copy)>
+ <C:/Temp/fabio/monografia/img/caps/deslocamento.png (PNG copy)>]
+<img/caps/luz.png, id=448, 963.6pt x 542.025pt>
 File: img/caps/luz.png Graphic file (type png)
-
-<use img/caps/luz.png> (testeGeracao.tex [30pdfTeX warning (ext4): destination 
-with the same identifier (name{figure.5.14}) has been already used, duplicate i
-gnored
+ <use img/caps/luz.png>
+(C:\Temp\fabio\monografia\testeGeracao.tex [30pdfTeX warning (ext4): destinatio
+n with the same identifier (name{figure.5.14}) has been already used, duplicate
+ ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -721,9 +735,9 @@ ate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.4 \item \emph
-               {Octaves}: Variável (4, 8, 12, 16) <img/caps/blend.png (PNG copy
-)> <img/caps/luz.png (PNG copy)>]
-<img/tempoGeracao.png, id=456, 468.75125pt x 347.2975pt>
+               {Octaves}: Variável (4, 8, 12, 16) <C:/Temp/fabio/monografia/img
+/caps/blend.png (PNG copy)> <C:/Temp/fabio/monografia/img/caps/luz.png (PNG cop
+y)>] <img/tempoGeracao.png, id=456, 468.75125pt x 347.2975pt>
 File: img/tempoGeracao.png Graphic file (type png)
 
 <use img/tempoGeracao.png>) [31pdfTeX warning (ext4): destination with the same
@@ -738,29 +752,31 @@ l.46
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.46 
-      <img/tempoGeracao.png (PNG copy)>] (testeFPS.tex
-<img/tempoFPS.png, id=464, 748.7975pt x 240.9pt>
+      <C:/Temp/fabio/monografia/img/tempoGeracao.png (PNG copy)>]
+(C:\Temp\fabio\monografia\testeFPS.tex [32pdfTeX warning (ext4): destination wi
+th the same identifier (name{table.5.3}) has been already used, duplicate ignor
+ed
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.33 \newpage
+             ] <img/tempoFPS.png, id=468, 748.7975pt x 240.9pt>
 File: img/tempoFPS.png Graphic file (type png)
- <use img/tempoFPS.png>
-[32pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}
-) has been already used, duplicate ignored
+
+<use img/tempoFPS.png>)) [33pdfTeX warning (ext4): destination with the same id
+entifier (name{figure.5.17}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.38 
-     ])) [33pdfTeX warning (ext4): destination with the same identifier (name{f
-igure.5.17}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.221 \include{resultados}
-                           <img/tempoFPS.png (PNG copy)>] (conclusao.tex
+l.223 \include{resultados}
+                           <C:/Temp/fabio/monografia/img/tempoFPS.png (PNG copy
+)>] (C:\Temp\fabio\monografia\conclusao.tex
 Cap\'{\i }tulo 6.
 ) [34
 
 
 
-] (monografia.bbl [35
+] (C:\Temp\fabio\monografia\monografia.bbl [35
 
 
 ])
@@ -768,30 +784,33 @@ Cap\'{\i }tulo 6.
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[36] (monografia.aux (capa.aux) (folharosto.aux) (dedicatoria.aux)
-(agradecimentos.aux) (epigrafe.aux) (resumo.aux) (abstract.aux) (introducao.aux
-) (referecialTeorico.aux) (metodologia.aux) (implementacao.aux) (resultados.aux
-) (conclusao.aux))
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[36] (C:\Temp\fabio\monografia\monografia.aux
+(C:\Temp\fabio\monografia\capa.aux) (C:\Temp\fabio\monografia\folharosto.aux)
+(C:\Temp\fabio\monografia\dedicatoria.aux)
+(C:\Temp\fabio\monografia\agradecimentos.aux)
+(C:\Temp\fabio\monografia\epigrafe.aux) (C:\Temp\fabio\monografia\resumo.aux)
+(C:\Temp\fabio\monografia\abstract.aux)
+(C:\Temp\fabio\monografia\introducao.aux)
+(C:\Temp\fabio\monografia\referecialTeorico.aux)
+(C:\Temp\fabio\monografia\metodologia.aux)
+(C:\Temp\fabio\monografia\implementacao.aux)
+(C:\Temp\fabio\monografia\resultados.aux)
+(C:\Temp\fabio\monografia\conclusao.aux)) ) 
 Here is how much of TeX's memory you used:
- 7786 strings out of 95304
- 107759 string characters out of 1183032
- 192030 words of memory out of 1500000
- 10611 multiletter control sequences out of 110000
+ 7785 strings out of 95278
+ 108490 string characters out of 1182884
+ 192032 words of memory out of 1500000
+ 10625 multiletter control sequences out of 110000
  8961 words of font info for 31 fonts, out of 3000000 for 5000
- 14 hyphenation exceptions out of 8191
- 36i,12n,32p,849b,1453s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.7
-/fonts/type1/bluesky/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/blu
-esky/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr12.pfb
-><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr8.pfb><C:/Program Files
-/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.7/font
-s/type1/bluesky/cm/cmti12.pfb>
-Output written on monografia.pdf (38 pages, 3934747 bytes).
+ 16 hyphenation exceptions out of 8191
+ 36i,12n,32p,874b,1453s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/temp/MiKTeX 2.7/fonts/type1/blue
+sky/cm/cmbx12.pfb><C:/temp/MiKTeX 2.7/fonts/type1/bluesky/cm/cmbxti10.pfb><C:/t
+emp/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi12.pfb><C:/temp/MiKTeX 2.7/fonts/type
+1/bluesky/cm/cmr10.pfb><C:/temp/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr12.pfb><C:
+/temp/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr8.pfb><C:/temp/MiKTeX 2.7/fonts/type
+1/bluesky/cm/cmsy10.pfb><C:/temp/MiKTeX 2.7/fonts/type1/bluesky/cm/cmti12.pfb>
+Output written on monografia.pdf (38 pages, 3935185 bytes).
 PDF statistics:
  571 PDF objects out of 1000 (max. 8388607)
  137 named destinations out of 1000 (max. 131072)

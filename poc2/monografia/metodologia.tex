@@ -2,14 +2,14 @@
 \label{metodologia}
 
 \section{Tipo de Pesquisa}
-O trabalho proposto é uma pesquisa de natureza aplicada, pois busca aplicar um conhecimento teórico (técnicas de geração procedural na GPU) e obter um resultado prático na forma de um sistema e tem um  objetivo exploratório. A pesquisa se dá em laboratório, pois se trata de um ambiente controlado.
+O trabalho proposto é uma pesquisa de natureza aplicada, pois busca aplicar um conhecimento teórico (técnicas de geração procedural na GPU) e obter um resultado prático na forma de um sistema, e tem um  objetivo exploratório. A pesquisa se dá em laboratório, pois se trata de um ambiente controlado.
 
 
 \section{Procedimentos metodológicos}
 
 O primeiro passo do trabalho foi a escolha de uma API. Por se tratar de uma plataforma aberta e já estudada em matérias durante o curso, o \emph{OpenGL} foi escolhido, juntamente com a linguagem C++. Além disso, essa API oferece algumas extensões que permitem maximizar a performance do sistema, como o a estrutura \emph{Vertex Buffer Object} (\sigla{VBO}{Vertex Buffer Object}), que armazena os vértices do modelo 3D diretamente na memória da GPU, diminuindo o número de chamadas para a renderização, e o \emph{Frame Buffer Object} (\sigla{FBO}{Frame Buffer Object}), que permite renderizar o resultado de uma certa computação, realizada em um \emph{shader}, diretamente em uma textura.
 
-Durante este tempo de pesquisa, foi considerado a utilização da plataforma CUDA, da \emph{NVidia}, destinada especificamente para o uso da GPU em computação de propósito geral. Porém, ele foi descartado, uma vez que seu uso é limitado às placas \emph{NVidia} e, de uma maneira geral, tudo que é proposto aqui pode ser feito com o uso de plataformas abertas e que podem ser executadas em um grande número de computadores.
+Durante este tempo de pesquisa, foi considerado a utilização da plataforma CUDA, da \emph{NVidia}, destinada especificamente para o uso da GPU em computação de propósito geral. Porém, ele foi descartado, uma vez que seu uso é limitado às placas \emph{NVidia} e, de uma maneira geral, tudo que é proposto aqui pode ser feito com o uso de plataformas abertas e que podem ser executadas em um maior número de computadores.
 
 O segundo passo foi pesquisar diversas técnicas procedurais envolvidas na geração de terrenos, bem como alguns sistemas que oferecem soluções ligadas à geração procedural, como o \emph{CityEngine} \cite{citygen} e o \emph{MojoWorld} \cite{mojoworld}. Foi pesquisado também trabalhos relacionados à geração procedural de terrenos na GPU.
 
