@@ -110,6 +110,9 @@ void TerrainMng::initNodes(){
 			if(i != center_xy || j != center_xy){
 				distanceFromCenter = floor(sqrt(pow((float)center_xy - i, 2) + pow((float)center_xy - j, 2)));
 				numDivisions = conf_numDivisions / (distanceFromCenter * conf_lodFactor);
+
+				if(numDivisions < 1)
+					numDivisions = 1;
 			}
 
 
@@ -117,10 +120,10 @@ void TerrainMng::initNodes(){
 													Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), 
 													conf_geomSize, conf_textureSize, numDivisions,
 													neighbLeft, neighbDown);
-			//m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray, 16, 5.5, 0.5, 0.9);
+			//m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray, 1, 5.5, 0.5, 0.9);
 			
 			//float a = (float)rand()/RAND_MAX;
-			m_ptrNodes[i*m_size+j]->GenerateGPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0),32, 2.5, 0.5, 0.9);
+			m_ptrNodes[i*m_size+j]->Generate(Vector3<float>(pos_x,pos_y,0),8, 2.5, 0.5, 0.9);
 
 
 			
@@ -231,9 +234,11 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 		for(int i=0; i<m_size-1;i++){
 			for(int cont=0; cont<m_size; cont++){
 				int j = i + cont*m_size;
+				
+				m_ptrNodes[j]->m_heightMap->SwapHeightMap(m_ptrNodes[j+1]->m_heightMap);
 
-				if(m_ptrNodes[j]->m_heightMap->m_gpuOrCpu == GPU)
-					((HeightMapGPU*)(m_ptrNodes[j]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[j+1]->m_heightMap))->m_ptrFBO);
+				//if(m_ptrNodes[j]->m_heightMap->m_gpuOrCpu == GPU)
+					//((HeightMapGPU*)(m_ptrNodes[j]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[j+1]->m_heightMap))->m_ptrFBO);
 			}
 		}
 		
@@ -264,9 +269,12 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 		for(int i=m_size-1; i>0;i--){
 			for(int cont=0; cont<m_size; cont++){
 				int j = i + cont*m_size;;
+
+				m_ptrNodes[j]->m_heightMap->SwapHeightMap(m_ptrNodes[j-1]->m_heightMap);
+
 				//m_ptrNodes[j]->m_heightMap = m_ptrNodes[j-1]->m_heightMap;
-				if(m_ptrNodes[j]->m_heightMap->m_gpuOrCpu == GPU)
-					((HeightMapGPU*)(m_ptrNodes[j]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[j-1]->m_heightMap))->m_ptrFBO);
+				//if(m_ptrNodes[j]->m_heightMap->m_gpuOrCpu == GPU)
+					//((HeightMapGPU*)(m_ptrNodes[j]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[j-1]->m_heightMap))->m_ptrFBO);
 			}
 			
 		}
@@ -298,9 +306,12 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 		for(int j=0; j<m_size;j++){
 			for(int cont=0; cont<m_size-1; cont++){
 				int i = j + cont*m_size;
+
+				m_ptrNodes[i]->m_heightMap->SwapHeightMap(m_ptrNodes[i+m_size]->m_heightMap);
+
 				//m_ptrNodes[i]->m_heightMap = m_ptrNodes[i+m_size]->m_heightMap;
-				if(m_ptrNodes[i]->m_heightMap->m_gpuOrCpu == GPU)
-					((HeightMapGPU*)(m_ptrNodes[i]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[i+m_size]->m_heightMap))->m_ptrFBO);
+				//if(m_ptrNodes[i]->m_heightMap->m_gpuOrCpu == GPU)
+					//((HeightMapGPU*)(m_ptrNodes[i]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[i+m_size]->m_heightMap))->m_ptrFBO);
 			}	
 		}
 		
@@ -330,9 +341,10 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 			for(int cont=0; cont<m_size; cont++){
 				int i = j + cont;
 				//m_ptrNodes[i]->m_heightMap = m_ptrNodes[i-m_size]->m_heightMap;
+				m_ptrNodes[i]->m_heightMap->SwapHeightMap(m_ptrNodes[i-m_size]->m_heightMap);
 
-				if(m_ptrNodes[i]->m_heightMap->m_gpuOrCpu == GPU)
-					((HeightMapGPU*)(m_ptrNodes[i]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[i-m_size]->m_heightMap))->m_ptrFBO);
+				//if(m_ptrNodes[i]->m_heightMap->m_gpuOrCpu == GPU)
+					//((HeightMapGPU*)(m_ptrNodes[i]->m_heightMap))->SwapFBOs(((HeightMapGPU*)(m_ptrNodes[i-m_size]->m_heightMap))->m_ptrFBO);
 			}	
 		}
 		
@@ -393,17 +405,18 @@ void TerrainMng::initPermAndGradTextures()
 		{-1,1,0},
 		{0,-1,-1}
 	};
-
+	
 	m_permArray = (char*)malloc( 256*256*4 );
 	for(i = 0; i<256; i++)
 		for(j = 0; j<256; j++) {
 			int offset = (i*256+j)*4;
 			char value = perm[(j+perm[i]) & 0xFF];
-			m_permArray[offset] = grad3[value & 0x0F][0] * 64 + 64;   // Gradient x
-			m_permArray[offset+1] = grad3[value & 0x0F][1] * 64 + 64; // Gradient y
-			m_permArray[offset+2] = grad3[value & 0x0F][2] * 64 + 64; // Gradient z
+			m_permArray[offset] = value;   // Gradient x
+			m_permArray[offset+1] = value; // Gradient y
+			m_permArray[offset+2] = value; // Gradient z
 			m_permArray[offset+3] = value;                     // Permuted index
 	}
+	
 
 	glGenTextures(1, &m_permTextureID); // Generate a unique texture ID
 	glBindTexture(GL_TEXTURE_2D, m_permTextureID); // Bind the texture to texture unit 0

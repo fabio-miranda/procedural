@@ -64,12 +64,6 @@ public:
 
 	}
 
-	void Floor(){
-		this->list[0] = floor(this->list[0]);
-		this->list[1] = floor(this->list[1]);
-		this->list[2] = floor(this->list[2]);
-	}
-
 
 
 };

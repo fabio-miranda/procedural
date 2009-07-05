@@ -1,7 +1,7 @@
 #include "FBO.h"
 
 
-FBO::FBO(short width, short height){
+FBO::FBO(GLuint textureId, short width, short height){
 	m_width = width;
 	m_height = height;
 	//GLint maxbuffers;
@@ -15,8 +15,8 @@ FBO::FBO(short width, short height){
 
 	//TODO: Change the FBOs, so that one FBO can render more than one texture
 	//Generate texture
-	glGenTextures(1, &m_textureId);
-	glBindTexture(GL_TEXTURE_2D, m_textureId);
+	//glGenTextures(1, &m_textureId);
+	glBindTexture(GL_TEXTURE_2D, textureId);
 	//TODO: GL_LINEAR ?
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
@@ -36,7 +36,7 @@ FBO::FBO(short width, short height){
     glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, 0);
 
 	//Attach texture to the fbo
-	glFramebufferTexture2DEXT(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_TEXTURE_2D, m_textureId, 0);
+	glFramebufferTexture2DEXT(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_TEXTURE_2D, textureId, 0);
 	//Attach render buffer to the fbo
 	glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT, GL_DEPTH_ATTACHMENT_EXT, GL_RENDERBUFFER_EXT, m_renderBufferId);
 
@@ -139,6 +139,6 @@ void FBO::Disable(){
 
 void FBO::DeleteBuffer(){
 	glDeleteFramebuffersEXT(1, &m_fbo);
-	glDeleteTextures( 1, &m_textureId );
+	//glDeleteTextures( 1, &m_textureId );
 
 }

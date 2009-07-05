@@ -34,13 +34,14 @@ void calculateLight(){
 void main()
 {	
 	gl_TexCoord[0] = gl_MultiTexCoord0;
-	gl_TexCoord[1] = gl_MultiTexCoord1;
-	gl_TexCoord[2] = gl_MultiTexCoord2;
-	gl_TexCoord[3] = gl_MultiTexCoord3;
-	gl_TexCoord[4] = gl_MultiTexCoord4;
+	//gl_TexCoord[1] = gl_MultiTexCoord1;
+	//gl_TexCoord[2] = gl_MultiTexCoord2;
+	//gl_TexCoord[3] = gl_MultiTexCoord3;
+	//gl_TexCoord[4] = gl_MultiTexCoord4;
 	
-	if(gpuGenerated == 1.0 && showVerticesDisplacement == 1.0)
+	if(showVerticesDisplacement == 1.0)
 		gl_Vertex.z = texture2D(heightmap,gl_TexCoord[0].st).r * 1.0 * ((5.0 - time + 1.0) / 5.0);
+
 
 	z = gl_Vertex.z;
 

@@ -11,8 +11,6 @@
 class HeightMapGPU : public HeightMap {
 	
 	
-	float m_textureSize;
-	
 	short m_currentIteration;
 	short m_maxIterations;
 	
@@ -30,11 +28,13 @@ public:
 	void ReGenerate(Vector3<float> newPosition);
 	void Render(double);
 	void Delete();
-	void SwapFBOs(FBO* ptrNewFBO);
+	//void SwapFBOs(FBO* ptrNewFBO);
+	void SwapHeightMap(GLuint newHeightMap);
 
 
 	GenerationShader *m_ptrGenerationShader;
 	FBO *m_ptrFBO;
+	
 	GLuint* m_ptrBlendTextures;
 
 };

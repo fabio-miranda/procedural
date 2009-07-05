@@ -5,7 +5,12 @@ GUI::GUI(){
 	m_frameRate = 0;
 	m_startTime = 0;
 	m_currentTime = 0;
+	m_lastTime = 0;
 	m_frameCount = 0;
+	m_cont = 0;
+	m_framesToCount = 500;
+	m_avgRenderTime = 0;
+	
 
 	m_width = 0;
 	m_height = 0;
@@ -60,22 +65,42 @@ void GUI::Render(){
 void GUI::RenderFPS(){
 	m_currentTime = glfwGetTime();
 
+	
 	if(m_currentTime - m_startTime > 1){
 		m_frameRate = m_frameCount / (m_currentTime - m_startTime);
 
 		m_startTime = m_currentTime;
 		m_frameCount = 0;
-
-
-		
-		
-
 		
 	}
 	
-	stringstream ss;
-	ss << "FPS: " << m_frameRate;
-	m_text->Render(ss.str().c_str(), -1, FTPoint(m_width-200, m_height-100, 0));
+	
+	
+	
+	if(m_listRenderTimes.size() < m_framesToCount){
+		m_listRenderTimes.push_back((m_currentTime - m_lastTime)*1000.0f);
+	}
+	else{
+		m_listRenderTimes.pop_front();
+		m_listRenderTimes.push_back((m_currentTime - m_lastTime)*1000.0f);
+	}
+	m_lastTime = m_currentTime;
+	m_cont++;
+
+	m_avgRenderTime = 0;
+	for (list<double>::iterator it = m_listRenderTimes.begin(); it != m_listRenderTimes.end(); it++){
+		m_avgRenderTime += *it;
+	}
+	m_avgRenderTime = m_avgRenderTime / m_framesToCount;
+		
+	
+	stringstream ss1;
+	ss1 << "FPS: " << m_frameRate;
+	m_text->Render(ss1.str().c_str(), -1, FTPoint(m_width-200, m_height-100, 0));
+	
+	stringstream ss2;
+	ss2 << "Render time (avg): " << m_avgRenderTime;
+	m_text->Render(ss2.str().c_str(), -1, FTPoint(m_width-200, m_height-115, 0));
 	
 
 	m_frameCount++;

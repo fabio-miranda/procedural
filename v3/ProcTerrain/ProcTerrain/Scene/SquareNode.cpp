@@ -19,6 +19,7 @@ SquareNode::SquareNode(int index, GenerationShader* generationShader, RenderingS
 	m_numDivisions = numDivisions;
 	m_numNeighbours = 0;
 	m_textureSize = textureSize;
+	m_heightMapGenerated = false;
 	
 	m_gridIndex = index; //center of the grid (currentNode)
 
@@ -47,26 +48,19 @@ SquareNode::~SquareNode(){
 void SquareNode::ReGenerate(Vector3<float> globalPosition){
 
 	//Generate on GPU
-	m_heightMap->ReGenerate(globalPosition);
+	//m_heightMap->ReGenerate(globalPosition);
+	m_heightMapGenerated = false;
+	m_globalPosition = globalPosition;
+	//m_heightMap->GenerateGPU(m_ptrGenerationShader, globalPosition);
+	//m_heightMap->GenerateCPU(m_ptrPermArray);
 	//m_heightMap = new HeightMapCPU(m_ptrRenderingShader, m_ptrPermArray,globalPosition, Vector3<float>(0,0,0), m_geomSize, m_numDivisions, 16, 5.5, 0.5, 0.9);
 }
+void SquareNode::Generate(Vector3<float> relativePosition, int octaves, float lacunarity, float gain, float offset){
 
-void SquareNode::GenerateGPU(Vector3<float> relativePosition, Vector3<float> translation, int octaves, float lacunarity, float gain, float offset){
 
-	//Generate on GPU
-	m_heightMap = new HeightMapGPU(m_ptrRenderingShader,m_ptrGenerationShader, m_ptrBlendTexturesId,
-									relativePosition, translation, m_geomSize, m_numDivisions, m_textureSize, 1,
+	m_heightMap = new HeightMap(relativePosition, m_geomSize, m_numDivisions, m_textureSize, 
 									octaves, lacunarity, gain, offset);
 
-
-}
-
-void SquareNode::GenerateCPU(Vector3<float> relativePosition, Vector3<float> translation, char* ptrPermArray, int octaves, float lacunarity, float gain, float offset){
-	
-	//Generate on CPU
-	m_heightMap = new HeightMapCPU(m_ptrRenderingShader, ptrPermArray,
-									relativePosition, translation, m_geomSize, m_numDivisions,
-									octaves, lacunarity, gain, offset);
 
 }
 
@@ -74,15 +68,14 @@ void SquareNode::GenerateCPU(Vector3<float> relativePosition, Vector3<float> tra
 
 void SquareNode::Render(double elapsedTime){
 
-	
-	m_heightMap->Generate();
-	
-	m_heightMap->Render(elapsedTime);
-
-	
-	
-	
-	
+	if(m_heightMapGenerated){
+		m_heightMap->Render(elapsedTime, m_ptrRenderingShader);
+	}
+	else{
+		//m_heightMap->GenerateCPU(m_ptrPermArray, m_globalPosition);
+		m_heightMap->GenerateGPU(m_ptrGenerationShader, m_globalPosition);
+		m_heightMapGenerated = true;
+	}
 }
 
 bool SquareNode::IsWithin(Vector3<float> position){

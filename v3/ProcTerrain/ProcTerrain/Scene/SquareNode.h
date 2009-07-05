@@ -11,6 +11,7 @@
 #include "../Shaders/GenerationShader.h"
 #include "../Util/FBO.h"
 #include <math.h>
+#include <pthread.h>
 
 
 class SquareNode{
@@ -40,11 +41,13 @@ public:
 				Vector3<float> position, Vector3<float> translation, float geomSize, int textureSize, short numDivisions, SquareNode* neighbLeft, SquareNode* neighbDown);
 	~ SquareNode();
 	void Render(double);
-	void GenerateGPU(Vector3<float> relativePosition, Vector3<float> translation, int octaves, float lacunarity, float gain, float offset);
-	void GenerateCPU(Vector3<float> relativePosition, Vector3<float> translation, char* ptrPermArray, int octaves, float lacunarity, float gain, float offset);
+	//void GenerateGPU(Vector3<float> relativePosition, Vector3<float> translation, int octaves, float lacunarity, float gain, float offset);
+	//void GenerateCPU(Vector3<float> relativePosition, Vector3<float> translation, char* ptrPermArray, int octaves, float lacunarity, float gain, float offset);
+	void Generate(Vector3<float> relativePosition, int octaves, float lacunarity, float gain, float offset);
 	void ReGenerate(Vector3<float> newPosition);
 	bool IsWithin(Vector3<float>);
 	short GetNewStandingNodePosition(Vector3<float>, short);
+	void Delete();
 
 	//void SetNumNeighbours(short);
 	//void AddNode(int, Node*);
@@ -52,6 +55,7 @@ public:
 
 
 	int m_gridIndex; //the index of the node, relative to the m_currentNode
+	bool m_heightMapGenerated;
 	Vector3<float> m_relativePosition;
 	Vector3<float> m_globalPosition;
 	

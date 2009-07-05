@@ -2,10 +2,10 @@
 #define NORMAL_OFF 0.001953125 //(1.0 / textureSize)
 
 uniform sampler2D heightmap;
-uniform sampler2D blendTexture1;
-uniform sampler2D blendTexture2;
-uniform sampler2D blendTexture3;
-uniform sampler2D blendTexture4;
+//uniform sampler2D blendTexture1;
+//uniform sampler2D blendTexture2;
+//uniform sampler2D blendTexture3;
+//uniform sampler2D blendTexture4;
 
 uniform float time;
 uniform float gpuGenerated;
@@ -99,14 +99,17 @@ void main()
 	if(showLight == 1.0)
 		lightFactor = calculateLightFactor();
 
-	if(gpuGenerated == 1.0 && showHeightMap == 1.0)
+	if(showHeightMap == 1.0){
 		height = texture2D(heightmap,gl_TexCoord[0].st) * vec4(time,1,1,1);
+		
+	}
 
 	if(showBlendTexture == 1.0){
 		blendTextureFactor = calculateBlendFactor();
 	}
 
 	gl_FragColor = blendTextureFactor * height * 1.2 * lightFactor;
+	//gl_FragColor = texture2D(heightmap,gl_TexCoord[0].st);
 
 	
 	

@@ -6,6 +6,7 @@
 #include "../Util/Vertex.h"
 #include "../Util/SimpleSquare.h"
 #include "../Shaders/RenderingShader.h"
+#include "../Shaders/GenerationShader.h"
 #include "../Util/FBO.h"
 #include "../Util/VBOSquare.h"
 
@@ -20,16 +21,18 @@ class HeightMap{
 
 protected:
 	Vector3<float> m_relativePosition;
-	Vector3<float> m_globalPosition;
+	//Vector3<float> m_globalPosition;
 	
 
 	VBOSquare* m_face;
+	
+	//FBO* m_ptrFBO;
 
-	RenderingShader *m_ptrRenderingShader;
 
 	
 	float m_geomSize;
-	bool m_generated;
+	
+	short m_textureSize;
 	
 	short m_numDivisions;
 
@@ -43,18 +46,27 @@ protected:
 
 
 public:
-	HeightMap(RenderingShader* renderingShader,
-				Vector3<float> relativePosition, Vector3<float> translation,
-				float geomSize, short numDivisions,
+	HeightMap(Vector3<float> relativePosition, 
+				float geomSize, short numDivisions, short textureSize,
 				int octaves, float lacunarity, float gain, float offset);
 	~ HeightMap();
-	virtual void Generate();
-	virtual void ReGenerate(Vector3<float> newPosition);
-	virtual void Render(double);
-	virtual void Delete();
+	void SwapHeightMap(HeightMap* heightMap);
+	void GenerateGPU(GenerationShader* ptrGenerationShader, Vector3<float> globalPosition);
+	void GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition);
+	void Render(double, RenderingShader*);
+	void Delete();
+
+	//Statics
+	static float ridgedmf(char* ptrPermArray, Vector3<float> position, int octaves, float gain, float lacunarity, float offset);
+	static float ridge(float h, float offset);
+	static float fade(float t);
+	static float noise(char* ptrPermArray, Vector3<float> P);
+	static double grad(int hash, float x, float y, float z);
+	static float mix(float weight, float a, float b);
 
 	double m_time;
 	bool m_gpuOrCpu;
+	GLuint m_heightMapId;
 
 	
 

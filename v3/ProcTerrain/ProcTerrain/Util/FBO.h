@@ -27,14 +27,13 @@ private:
 
 public:
 
-	FBO(short, short);
+	FBO(GLuint,short, short);
 	~FBO();
 	void DeleteBuffer();
 	//void BindTexture(GLuint);
 	void Enable(Vector3<float>);
 	void Disable();
 
-	GLuint m_textureId;
 	GLuint m_renderBufferId;
 	
 	

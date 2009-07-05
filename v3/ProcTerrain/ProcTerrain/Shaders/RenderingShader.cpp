@@ -23,6 +23,7 @@ RenderingShader::RenderingShader(bool complex){
 	m_locShowVerticesDisplacement = glGetUniformLocationARB(m_shaderProg,"showVerticesDisplacement");
 
 	//Textures
+	/*
 	m_locBlendTextures = new GLuint[4];
 	m_locBlendTextures[0] = glGetUniformLocationARB(m_shaderProg,"blendTexture1");
 	//glUniform1i(m_locBlendTextures[0], 1);
@@ -32,7 +33,7 @@ RenderingShader::RenderingShader(bool complex){
 	//glUniform1i(m_locBlendTextures[2], 3);
 	m_locBlendTextures[3] = glGetUniformLocationARB(m_shaderProg,"blendTexture4");
 	//glUniform1i(m_locBlendTextures[3], 4);
-
+	*/
 
 
 
