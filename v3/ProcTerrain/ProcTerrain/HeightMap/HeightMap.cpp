@@ -134,7 +134,7 @@ void HeightMap::GenerateGPU(GenerationShader* ptrGenerationShader, Vector3<float
 
 	//glFinish();
 
-	m_generated = true;
+	FinishGeneration();
 
 	time = glfwGetTime() - time;
 	cout << time * 1000.0f;
@@ -187,8 +187,14 @@ void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
 
 	
 	pthread_mutex_lock(&m_mutex);
-	m_generated = true;
+	FinishGeneration();
 	pthread_mutex_unlock(&m_mutex); 
+
+}
+
+void HeightMap::FinishGeneration(){
+	m_generated = true;
+	m_beingGenerated = false;
 
 }
 

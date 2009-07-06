@@ -4,7 +4,7 @@
 
 bool conf_complexRendering = true;
 bool conf_generateOnGPU = false;
-short conf_numNeighbours = 0;
+short conf_numNeighbours = 1;
 short conf_numDivisions = 150;
 short conf_lodFactor = 2;
 float conf_geomSize = 5.0f;

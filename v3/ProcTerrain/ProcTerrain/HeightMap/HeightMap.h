@@ -60,6 +60,7 @@ public:
 	void Render(double, RenderingShader*);
 	void Delete();
 	void TransferToTexture();
+	void FinishGeneration();
 	
 
 	//Statics
