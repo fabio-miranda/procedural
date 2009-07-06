@@ -1,11 +1,12 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  2 JUL 2009 19:50
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.29)  6 JUL 2009 13:04
 entering extended mode
-**paper.tex
-(paper.tex
+**C:/Temp/fabio/paper/paper.tex
+(C:/Temp/fabio/paper/paper.tex
 LaTeX2e <2005/12/01>
 Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman, ngerman, german-x-2008-06-18, ngerman-x-2008-06-18, french, loaded.
-(IEEEtran.cls
+rman, ngerman, german-x-2008-06-18, ngerman-x-2008-06-18, french, portuguese, l
+oaded.
+(C:\Temp\fabio\paper\IEEEtran.cls
 Document Class: IEEEtran 2007/03/05 V1.7a by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -16,7 +17,7 @@ Document Class: IEEEtran 2007/03/05 V1.7a by Michael Shell
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 373.
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\ot1ptm.fd"
+("C:\temp\MiKTeX 2.7\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \teaserspace=\skip41
@@ -91,64 +92,60 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEtmpitemindent=\dimen116
 \c@IEEEbiography=\count90
 \@IEEEtranrubishbin=\box26
-) ("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.sty"
+) ("C:\temp\MiKTeX 2.7\tex\generic\babel\babel.sty"
 Package: babel 2008/07/06 v3.8l The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
+("C:\temp\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\babel\portuges.ldf"
+("C:\temp\MiKTeX 2.7\tex\generic\babel\portuges.ldf"
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
-("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.def"
+("C:\temp\MiKTeX 2.7\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count91
 \U@D=\dimen117
 )
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `Portuguese'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@portuges = a dialect from \language0
 \l@brazil = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
-)) ("C:\Program Files\MiKTeX 2.7\tex\latex\base\inputenc.sty"
+))
+("C:\temp\MiKTeX 2.7\tex\latex\base\inputenc.sty"
 Package: inputenc 2006/05/05 v1.1b Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\latin1.def"
+("C:\temp\MiKTeX 2.7\tex\latex\base\latin1.def"
 File: latin1.def 2006/05/05 v1.1b Input encoding file
 ))
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks17
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
 Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\trig.sty"
+("C:\temp\MiKTeX 2.7\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
+("C:\temp\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 90.
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
+("C:\temp\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
 \Gread@gobject=\count92
 ))
 \Gin@req@height=\dimen118
 \Gin@req@width=\dimen119
-) (paper.aux)
+)
+(C:\Temp\fabio\paper\paper.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 354.
 LaTeX Font Info:    ... okay on input line 354.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 354.
@@ -162,7 +159,7 @@ LaTeX Font Info:    ... okay on input line 354.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 354.
 LaTeX Font Info:    ... okay on input line 354.
 
-("C:\Program Files\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
+("C:\temp\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count93
 \scratchdimen=\dimen120
@@ -180,6 +177,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
  <teaser.pdf, id=1, 1284.63936pt x 301.08687pt>
 File: teaser.pdf Graphic file (type pdf)
  <use teaser.pdf>
+(C:\Temp\fabio\paper\introducao.tex)
+(C:\Temp\fabio\paper\trabalhosRelacionados.tex)
+(C:\Temp\fabio\paper\contribuicoes.tex) (C:\Temp\fabio\paper\sistema.tex)
+(C:\Temp\fabio\paper\implementacao.tex) (C:\Temp\fabio\paper\testes.tex)
+(C:\Temp\fabio\paper\trabalhosFuturosConclusao.tex)
 No file paper.bbl.
 
 ** Conference Paper **
@@ -192,26 +194,25 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[1{C:/Documents and Settings/All Users/Application Data/MiKTeX/2.7/pdftex/confi
-g/pdftex.map}
+[1{C:/Documents and Settings/fmiranda/Local Settings/Application Data/MiKTeX/2.
+7/pdftex/config/pdftex.map}
 
 
-
- <teaser.pdf>] (paper.aux) ) 
+ <C:/Temp/fabio/paper/teaser.pdf>]
+(C:\Temp\fabio\paper\paper.aux) ) 
 Here is how much of TeX's memory you used:
- 1960 strings out of 95304
- 28559 string characters out of 1183032
- 82719 words of memory out of 1500000
- 5191 multiletter control sequences out of 110000
+ 1984 strings out of 95278
+ 29021 string characters out of 1182884
+ 85721 words of memory out of 1500000
+ 5209 multiletter control sequences out of 110000
  33555 words of font info for 63 fonts, out of 3000000 for 5000
- 17 hyphenation exceptions out of 8191
- 26i,8n,24p,467b,293s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.7/fonts/enc/dvips/fontna
-me/8r.enc}<C:/Program Files/MiKTeX 2.7/fonts/type1/urw/times/utmb8a.pfb><C:/Pro
-gram Files/MiKTeX 2.7/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTe
-X 2.7/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1
-/urw/times/utmri8a.pfb>
-Output written on paper.pdf (1 page, 2551080 bytes).
+ 19 hyphenation exceptions out of 8191
+ 26i,8n,24p,655b,293s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/temp/MiKTeX 2.7/fonts/enc/dvips/fontname/8
+r.enc}<C:/temp/MiKTeX 2.7/fonts/type1/urw/times/utmb8a.pfb><C:/temp/MiKTeX 2.7/
+fonts/type1/urw/times/utmbi8a.pfb><C:/temp/MiKTeX 2.7/fonts/type1/urw/times/utm
+r8a.pfb><C:/temp/MiKTeX 2.7/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (1 page, 2553818 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)

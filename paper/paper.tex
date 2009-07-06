@@ -356,7 +356,7 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 %\title{Bare Demo of IEEEtran.cls for IEEECS Conferences / adapted for Sibgrapi 2009}
-\title{Um Escalonador para Geração Procedural de Terrenos Pseudo-Infinitos em Tempo-Real utilizando um modelo CPU-GPU}
+\title{Um Escalonador para Geração Procedural de Terrenos Pseudo-Infinitos em Tempo-Real Utilizando um Modelo CPU/GPU\\ou\\Um Escalonador para Geração Procedural de Terrenos Pseudo-Infinitos em Tempo-Real Utilizando Arquiteturas Heterogêneas GPU/CPU}
 
 %------------------------------------------------------------------------- 
 % change the % on next lines to produce the final camera-ready version 
@@ -435,11 +435,11 @@
 \begin{abstract}
 O rápido crescimento do poder de processamento das placas gráficas fez com que diversas tarefas migrassem da CPU para a GPU. Porém, as unidades de processamento gráfico podem ser vistas como aliadas da CPU, e não rivais. Este trabalho propõe um modelo que utilize tanto a CPU quanto a GPU para minimizar o tempo gasto com a geração procedural de terrenos e permitir uma navegação fluida através de um mundo pseudo-infinito gerado proceduralmente.
 
-Ao final, uma discussão é feita com base em testes com três modelos de geração (CPU-only, GPU-only, GPU+CPU), com o objetivo de expor suas vantagens e desvantagens.
+Ao final, uma discussão é feita com base em testes com três modelos de geração (apenas CPU, apenas GPU, GPU e CPU), com o objetivo de expor suas vantagens e desvantagens.
 \end{abstract}
 
 \begin{IEEEkeywords}
-geração procedural; gpu; gpgpu;
+geração procedural; gpu; gpgpu; programação paralela
 \end{IEEEkeywords}
 
 
@@ -455,22 +455,18 @@ geração procedural; gpu; gpgpu;
 
 
 
-\section{Introdução}
 
-\section{Trabalhos relacionados}
+\input{introducao}
+\input{trabalhosRelacionados}
+\input{contribuicoes}
+\input{conceitosBasicos}
+\input{sistema}
+\input{implementacao}
+\input{testes}
+\input{trabalhosFuturosConclusao}
 
-\section{Contribuições}
-
-\section{Sistema}
 
 
-\section{Implementação}
-
-\section{Testes}
-
-\section{Trabalhos Futuros}
-
-\section{Conclusão}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
