@@ -55,7 +55,6 @@ public:
 
 
 	int m_gridIndex; //the index of the node, relative to the m_currentNode
-	bool m_heightMapGenerated;
 	Vector3<float> m_relativePosition;
 	Vector3<float> m_globalPosition;
 	

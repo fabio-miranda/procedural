@@ -19,7 +19,6 @@ SquareNode::SquareNode(int index, GenerationShader* generationShader, RenderingS
 	m_numDivisions = numDivisions;
 	m_numNeighbours = 0;
 	m_textureSize = textureSize;
-	m_heightMapGenerated = false;
 	
 	m_gridIndex = index; //center of the grid (currentNode)
 
@@ -49,7 +48,7 @@ void SquareNode::ReGenerate(Vector3<float> globalPosition){
 
 	//Generate on GPU
 	//m_heightMap->ReGenerate(globalPosition);
-	m_heightMapGenerated = false;
+	m_heightMap->m_generated = false;
 	m_globalPosition = globalPosition;
 	//m_heightMap->GenerateGPU(m_ptrGenerationShader, globalPosition);
 	//m_heightMap->GenerateCPU(m_ptrPermArray);
@@ -68,13 +67,28 @@ void SquareNode::Generate(Vector3<float> relativePosition, int octaves, float la
 
 void SquareNode::Render(double elapsedTime){
 
-	if(m_heightMapGenerated){
+	bool generated;
+	pthread_mutex_lock(&m_heightMap->m_mutex);
+	generated = m_heightMap->m_generated;
+	pthread_mutex_unlock(&m_heightMap->m_mutex);
+
+	if(generated){
+		m_heightMap->TransferToTexture();
 		m_heightMap->Render(elapsedTime, m_ptrRenderingShader);
 	}
-	else{
+	else if(m_heightMap->m_beingGenerated == false){
 		//m_heightMap->GenerateCPU(m_ptrPermArray, m_globalPosition);
-		m_heightMap->GenerateGPU(m_ptrGenerationShader, m_globalPosition);
-		m_heightMapGenerated = true;
+		
+		struct HeightMapThreadData* threadData = new HeightMapThreadData();
+		threadData->globalPosition = m_globalPosition;
+		threadData->ptrPermArray = m_ptrPermArray;
+		threadData->ptrThis = m_heightMap;
+		
+		m_heightMap->m_beingGenerated = true;
+
+		pthread_t a = pthread_t();
+		pthread_create(&a, NULL, &HeightMap::CreateThread, threadData);
+		//m_heightMap->GenerateGPU(m_ptrGenerationShader, m_globalPosition);
 	}
 }
 

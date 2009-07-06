@@ -13,6 +13,9 @@ HeightMap::HeightMap(Vector3<float> relativePosition, float geomSize, short numD
 	m_textureSize = textureSize;
 	m_geomSize = geomSize;
 	m_numDivisions = numDivisions;
+	m_generated = false;
+	m_beingGenerated = false;
+	pthread_mutex_init(&m_mutex, NULL);
 
 	m_time = 5.0f; //time since the generation of the heightmap
 
@@ -131,6 +134,8 @@ void HeightMap::GenerateGPU(GenerationShader* ptrGenerationShader, Vector3<float
 
 	//glFinish();
 
+	m_generated = true;
+
 	time = glfwGetTime() - time;
 	cout << time * 1000.0f;
 	cout << "\n";
@@ -138,15 +143,26 @@ void HeightMap::GenerateGPU(GenerationShader* ptrGenerationShader, Vector3<float
 
 }
 
+void* HeightMap::CreateThread(void* ptr){
+	
+
+	HeightMapThreadData* threadData = (HeightMapThreadData*)ptr;
+	
+	threadData->ptrThis->GenerateCPU(threadData->ptrPermArray, threadData->globalPosition);
+
+	return NULL;
+
+}
+
 void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
 
-
+	
 
 	float time = glfwGetTime();
 	float height = 0;
 	int cont = 0;
 	Vector3<float> position;
-	char* heightMapArray = (char*)malloc(4 * m_textureSize * m_textureSize);
+	m_heightMapArray = (char*)malloc(4 * m_textureSize * m_textureSize);
 	for(float i=0; i<m_textureSize ; i++){
 		for(float j=0; j<m_textureSize; j++){
 			
@@ -156,10 +172,10 @@ void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
 			//m_face->m_vertices[cont].z = (i + j) / 100.0;
 			
 			//TODO: improve that
-			heightMapArray[cont] = height;
-			heightMapArray[cont+1] =height;
-			heightMapArray[cont+2] = height;
-			heightMapArray[cont+3] = 1;
+			m_heightMapArray[cont] = height;
+			m_heightMapArray[cont+1] =height;
+			m_heightMapArray[cont+2] = height;
+			m_heightMapArray[cont+3] = 1;
 
 			cont+=4;
 
@@ -169,18 +185,27 @@ void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
 	cout << time * 1000.0f;
 	cout << "\n";
 
+	
+	pthread_mutex_lock(&m_mutex);
+	m_generated = true;
+	pthread_mutex_unlock(&m_mutex); 
 
+}
+
+void HeightMap::TransferToTexture(){
+	
+	if(glIsTexture(m_heightMapId)) return;
 
 
 	glGenTextures(1, &m_heightMapId);
 	glBindTexture( GL_TEXTURE_2D, m_heightMapId );
 
-	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, m_textureSize, m_textureSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, heightMapArray );
+	glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, m_textureSize, m_textureSize, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_heightMapArray );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST );
 	glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
 	glBindTexture( GL_TEXTURE_2D, 0 );
 
-	delete[] heightMapArray;
+	delete[] m_heightMapArray;
 
 }
 

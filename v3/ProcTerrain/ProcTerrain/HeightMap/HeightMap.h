@@ -12,8 +12,11 @@
 
 
 #include "GL/glfw.h"
+#include <pthread.h>
 #include <iostream>
 using namespace std;
+
+
 
 
 class HeightMap{
@@ -25,6 +28,7 @@ protected:
 	
 
 	VBOSquare* m_face;
+	char* m_heightMapArray;
 	
 	//FBO* m_ptrFBO;
 
@@ -55,6 +59,8 @@ public:
 	void GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition);
 	void Render(double, RenderingShader*);
 	void Delete();
+	void TransferToTexture();
+	
 
 	//Statics
 	static float ridgedmf(char* ptrPermArray, Vector3<float> position, int octaves, float gain, float lacunarity, float offset);
@@ -64,12 +70,25 @@ public:
 	static double grad(int hash, float x, float y, float z);
 	static float mix(float weight, float a, float b);
 
+	//Threads
+	static void* CreateThread(void* ptrThis);
+
+	pthread_mutex_t m_mutex;
 	double m_time;
+	bool m_generated;
+	bool m_beingGenerated;
 	bool m_gpuOrCpu;
 	GLuint m_heightMapId;
 
 	
 
+};
+
+struct HeightMapThreadData{
+   int  threadId;
+   HeightMap *ptrThis;
+   char *ptrPermArray;
+   Vector3<float> globalPosition;
 };
 
 #endif

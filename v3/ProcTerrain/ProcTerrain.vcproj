@@ -42,7 +42,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;GLEW_STATIC"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;GLEW_STATIC;PTW32_STATIC_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib"
+				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib ws2_32.lib"
 				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
@@ -118,7 +118,7 @@
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;GLEW_STATIC"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;GLEW_STATIC;PTW32_STATIC_LIB"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
@@ -136,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib"
+				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib ws2_32.lib"
 				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
@@ -196,7 +196,7 @@
 				EnableIntrinsicFunctions="true"
 				WholeProgramOptimization="false"
 				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;GLEW_STATIC"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;GLEW_STATIC;PTW32_STATIC_LIB"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
@@ -214,7 +214,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib"
+				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib ws2_32.lib"
 				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
@@ -382,11 +382,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Util\Random.h"
+				RelativePath=".\ProcTerrain\Util\Random.h"
 				>
 			</File>
 			<File
-				RelativePath=".\ProcTerrain\Util\Random.h"
+				RelativePath=".\Util\Random.h"
 				>
 			</File>
 			<File

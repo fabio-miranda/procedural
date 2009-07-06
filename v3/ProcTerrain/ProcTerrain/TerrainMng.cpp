@@ -4,6 +4,12 @@
 TerrainMng::TerrainMng()
 {
 
+	//Non portable pthread functions
+	#ifdef PTW32_STATIC_LIB
+	pthread_win32_process_attach_np();
+	#endif
+
+
 	//Init glew
 	int err=glewInit();
 	if(err!=GLEW_OK)
