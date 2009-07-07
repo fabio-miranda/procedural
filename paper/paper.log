@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  7 JUL 2009 04:31
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  7 JUL 2009 04:52
 entering extended mode
 **paper.tex
 (paper.tex
@@ -200,8 +200,28 @@ File: img/fractal.png Graphic file (type png)
 File: img/caps/grid.png Graphic file (type png)
 
 <use img/caps/grid.png> [2 <img/noise.png (PNG copy)> <img/fractal.png (PNG cop
-y)> <img/caps/grid.png (PNG copy)>]) (implementacao.tex) (testes.tex)
-(trabalhosFuturosConclusao.tex) (paper.bbl
+y)> <img/caps/grid.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+[]\OT1/ptm/m/n/10 A mesuriza[][]ao do tempo gasto com tra-balho
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+\OT1/ptm/m/n/10 rela-cionado []a parte gr[]afica uti-lizando OpenGL
+ []
+
+
+Underfull \hbox (badness 5954) in paragraph at lines 23--24
+\OT1/ptm/m/n/10 n[]ao []e algo dispon[]vel em GPUs. A ex-tens[]ao
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 23--24
+\OT1/ptm/b/n/10 GL[]EXT[]timer[]query \OT1/ptm/m/n/10 [[]], por ex-em-plo, s[]o
+ est[]a
+ []
+
+) (implementacao.tex) (testes.tex) (trabalhosFuturosConclusao.tex) (paper.bbl
 Underfull \hbox (badness 1681) in paragraph at lines 31--33
 []\OT1/ptm/m/n/9 K. Per-lin, ``An im-age syn-the-sizer,'' \OT1/ptm/m/it/9 SIG-G
 RAPH Com-put.
@@ -240,7 +260,7 @@ Here is how much of TeX's memory you used:
 KTeX 2.7/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/ty
 pe1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/times/ut
 mr8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (3 pages, 1473207 bytes).
+Output written on paper.pdf (3 pages, 1473616 bytes).
 PDF statistics:
  37 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
