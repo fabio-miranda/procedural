@@ -356,13 +356,13 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 %\title{Bare Demo of IEEEtran.cls for IEEECS Conferences / adapted for Sibgrapi 2009}
-\title{Um Escalonador para Geração Procedural de Terrenos Pseudo-Infinitos em Tempo-Real Utilizando um Modelo CPU/GPU\\ou\\Um Escalonador para Geração Procedural de Terrenos Pseudo-Infinitos em Tempo-Real Utilizando Arquiteturas Heterogêneas GPU/CPU}
+\title{Um Escalonador para Geração Procedural de Terrenos Pseudo-Infinitos em Tempo-Real Utilizando Arquiteturas Heterogêneas GPU/CPU}
 
 %------------------------------------------------------------------------- 
 % change the % on next lines to produce the final camera-ready version 
 \newif\iffinal
-\finalfalse
-%\finaltrue
+%\finalfalse
+\finaltrue
 \newcommand{\jemsid}{99999}
 %------------------------------------------------------------------------- 
 
@@ -371,18 +371,11 @@
 % affiliations
 
 \iffinal
-  \author{%
-    {\IEEEauthorblockN{Authors Name/s per 1st Affiliation (Author)}
-     \IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
-      line 2: name of organization, acronyms acceptable\\
-      line 3: City, Country\\
-      line 4: Web page: www.institution1.eud/~{}firstauthor}
-     \and
-      \IEEEauthorblockN{Authors Name/s per 2nd Affiliation (Author)}
-      \IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
-      line 2: name of organization, acronyms acceptable\\
-      line 3: City, Country\\
-      line 4: Email: name@xyz.com}
+  \author
+    {\IEEEauthorblockN{Fábio Markus N. Miranda, Luiz Chaimowicz}
+     \IEEEauthorblockA{Departamento de Ciência da Computação\\
+						UFMG\\
+						Email: fabiom@gmail.com, chaimo@dcc.ufmg.br}
   }
 \else
   \author{Sibgrapi paper ID: \jemsid \\ }
@@ -420,7 +413,7 @@
 %------------------------------------------------------------------------- 
 % Special Sibgrapi teaser
 \teaser{%
-  \includegraphics[width=.8\linewidth]{teaser}
+  \includegraphics[width=.8\linewidth]{img/teaser.png}
   \caption{Terreno gerado proceduralmente.}
   \label{fig:teaser}
 }
@@ -460,7 +453,7 @@ geração procedural; gpu; gpgpu; programação paralela
 \input{trabalhosRelacionados}
 \input{contribuicoes}
 \input{conceitosBasicos}
-\input{sistema}
+\input{proposta}
 \input{implementacao}
 \input{testes}
 \input{trabalhosFuturosConclusao}

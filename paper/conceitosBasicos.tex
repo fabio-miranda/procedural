@@ -1,9 +1,47 @@
 \section{Conceitos básicos}
-
+\label{conceitosBasicos}
 \subsection{Ruído Perlin}
+O ruído Perlin foi criado pelo Professor Ken Perlin \cite{perlinNoise}, da \emph{New York University} e é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
 
+A função ruído retorna, para um dado domínio e as mesmas sementes (\emph{seeds}), números entre 0 e 1; dessa forma, em uma segunda execução, com as mesmas entradas, teremos os mesmos números entre 0 e 1. Cada valor retornado é o resultado do seguinte produto interno:
+
+\begin{center}
+G . (P-Q)
+\end{center}
+
+Onde P é a posição do ponto que está sendo calculado o valor do ruído, Q é a posição de um de seus vizinhos, e G é o valor de um vetor gradiente pseudo-aleatório. Os resultados do produto interno dos vizinhos é então interpolado, garantindo assim que haverá uma suave transição entre todos os valores retornados.
+
+O resultado, como pode ser visto na Figura \ref{fig:noise}, apresenta transições suaves, diferentemente do ruído aleatório.
+
+\begin{figure}[h]
+	\center{\includegraphics[width=0.5\linewidth]{img/noise.png}}
+	\caption{\label{fig:noise} \emph{Esquerda:} Ruído aleatório. \emph{Direita:} Ruído Perlin.}
+\end{figure}
+
+As características fundamentais do ruído Perlin são então a sua aparente aleatoriedade (ao menos para o olho humano); sua capacidade de ser reproduzido, dado os mesmos valores dos gradientes; e sua transição suave entre valores.
 
 \subsection{Fractais}
+Fractais podem ser descritos, segundo \cite{proceduralApproach}, como objetos geométricos complexos, na qual a complexidade surge da repetição de uma forma em uma extensão de escalas. Um exemplo simples pode ser visto na Figura \ref{fig:fractal}:
+
+\begin{figure}[h]
+	\center{\includegraphics[width=0.5\linewidth]{img/fractal.png}}
+	\caption{\label{fig:fractal} Exemplo de um fractal a pertir de ruído Perlin.}
+\end{figure}
+
+Os três ruídos Perlin estão em escalas diferentes e, uma vez somados, formam um fractal, segundo a definição citada. Multifractais já são um subgrupo caracterizado pela variação de sua dimensão fractal ao longo de sua localização.
 
 
 \subsection{Ridged Multifractal Noise}
+O \emph{Ridged multifractal noise} é uma variação do ruído Perlin, e foi apresentado em \cite{proceduralApproach}. O principal ponto do algoritmo é que ele captura a \emph{heterogeneidade de terrenos em grande escala}, apresentando montanhas, planaltos e crateras. Os seguintes parâmetros são levados em consideração na execução do algoritmo:
+
+\begin{itemize}
+	\item \textbf{Octaves:} Número de iterações (e, consequentemente somas) feitas sobre a função de ruído.
+	\item \textbf{Amplitude:} Máximo valor adicionado ao valor total do ruído.
+	\item \textbf{Frequency:} Número de valores de ruídos definidos entre dois pontos (quanto maior a frequência, maior o disturbio da textura resultante).
+	\item \textbf{Lacunarity:} É um termo usado no cálculo de fractais, e dita o espaço entre sucessivas frequências, aumentando ou diminuindo a densidade do resultado final.
+	\item \textbf{Offset:} Fator multifractal.
+	\item \textbf{Tamanho:} Tamanho do mapa de altura que será salvo o resultado da geração procedural.
+\end{itemize}
+
+O tempo de execução é dependente apenas do tamanho do mapa e o número de octaves.
+
