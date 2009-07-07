@@ -1,2 +1,28 @@
 \section{Implementação}
 \label{implementacao}
+
+A Figura \ref{fig:bibliotecas} apresenta as camadas do sistema, bem como as bibliotecas utilizadas.
+
+\begin{figure}[h]
+	\center{\includegraphics[width=0.6\linewidth]{img/bibliotecas.png}}
+	\caption{\label{fig:bibliotecas} Camadas do sistema.}
+\end{figure}
+
+A camada \emph{WindowMng} tem como propósito simular a um aplicativo gráfico genérico (\emph{game}, simulador, etc.); desta forma, o sistema poderá ser posteriormente adaptado para funcionar em conjunto com outros aplicativos que possam ser desenvolvidos (ou acoplado a uma \emph{engine}).
+
+A Figura \ref{fig:arquitetura} apresenta em detalhes os módulos presentes nas camadas \emph{WindowMng} e \emph{ProcTerrain}. A seguir, uma explicação sobre cada um dos módulos.
+
+\begin{figure}[h]
+	\center{\includegraphics[width=0.6\linewidth]{img/arquitetura.png}}
+	\caption{\label{fig:arquitetura} Diagrama com as principais classes do sistema implementado.}
+\end{figure}
+
+\begin{itemize}
+	\item {\bf WindowMng}: Responsável por simular um aplicativo gráfico genérico, e chamar os devidos \emph{callbacks} do pacote \emph{ProcTerrain}.
+	\item {\bf Camera}: Módulo que implementa uma câmera controlada pelo jogador e navegando pelo mundo.
+	\item {\bf TerrainMng}: Módulo responsável por gerar e controlar os terrenos.
+	\item {\bf SquareNode}: Nodo que representa uma fatia (\emph{patch}) do terreno.
+	\item {\bf HeightMap}: Módulo que implementa os mapas de altura dos terrenos gerados na CPU ou na GPU.
+	\item {\bf GenerationShader}: \emph{Shader} responsável pela geração dos terrenos.
+	\item {\bf RenderingShader}: \emph{Shader} responsável pela renderização dos terrenos.
+\end{itemize}

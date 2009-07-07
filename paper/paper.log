@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.24)  7 JUL 2009 04:52
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.6.19)  7 JUL 2009 13:54
 entering extended mode
 **paper.tex
 (paper.tex
@@ -16,7 +16,7 @@ Document Class: IEEEtran 2007/03/05 V1.7a by Michael Shell
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 373.
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\ot1ptm.fd"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \teaserspace=\skip41
@@ -91,19 +91,19 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEtmpitemindent=\dimen116
 \c@IEEEbiography=\count90
 \@IEEEtranrubishbin=\box26
-) ("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.sty"
+) ("C:\Arquivos de programas\MiKTeX 2.7\tex\generic\babel\babel.sty"
 Package: babel 2008/07/06 v3.8l The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Program Files\MiKTeX 2.7\tex\generic\babel\portuges.ldf"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\generic\babel\portuges.ldf"
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
-("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.def"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count91
 \U@D=\dimen117
@@ -116,39 +116,40 @@ Package babel Warning: No hyphenation patterns were loaded for
 \l@portuges = a dialect from \language0
 \l@brazil = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
-)) ("C:\Program Files\MiKTeX 2.7\tex\latex\base\inputenc.sty"
+)) ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\inputenc.sty"
 Package: inputenc 2006/05/05 v1.1b Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\base\latin1.def"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\latin1.def"
 File: latin1.def 2006/05/05 v1.1b Input encoding file
 ))
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks17
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
 Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\trig.sty"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 90.
 
-("C:\Program Files\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
+("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
 \Gread@gobject=\count92
 ))
 \Gin@req@height=\dimen118
 \Gin@req@width=\dimen119
-) (paper.aux)
+)
+(paper.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 354.
 LaTeX Font Info:    ... okay on input line 354.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 354.
@@ -161,8 +162,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 354.
 LaTeX Font Info:    ... okay on input line 354.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 354.
 LaTeX Font Info:    ... okay on input line 354.
-
-("C:\Program Files\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
+ ("C:\Arquivos de programas\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count93
 \scratchdimen=\dimen120
@@ -181,47 +181,58 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
 File: img/teaser.png Graphic file (type png)
  <use img/teaser.png>
 (introducao.tex) (trabalhosRelacionados.tex [1{C:/Documents and Settings/All Us
-ers/Application Data/MiKTeX/2.7/pdftex/config/pdftex.map}
+ers/Dados de aplicativos/MiKTeX/2.7/pdftex/config/pdftex.map}
 
 
  <img/teaser.png (PNG copy)>]) (contribuicoes.tex
+Underfull \hbox (badness 6927) in paragraph at lines 4--5
+[]\OT1/ptm/m/n/10 O tra-balho ap-re-sen-tado aqui pos-sui as seguintes
+ []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 7.
-) (conceitosBasicos.tex
-<img/noise.png, id=10, 768.8725pt x 285.065pt>
+) (conceitosBasicos.tex <img/noise.png, id=10, 768.8725pt x 285.065pt>
 File: img/noise.png Graphic file (type png)
- <use img/noise.png>
-<img/fractal.png, id=11, 590.205pt x 128.48pt>
+
+<use img/noise.png> <img/fractal.png, id=11, 590.205pt x 128.48pt>
 File: img/fractal.png Graphic file (type png)
- <use img/fractal.png>)
-(proposta.tex <img/caps/grid.png, id=12, 963.6pt x 542.025pt>
+
+<use img/fractal.png>) (proposta.tex
+<img/caps/grid.png, id=12, 963.6pt x 542.025pt>
 File: img/caps/grid.png Graphic file (type png)
+ <use img/caps/grid.png>
+[2 <img/noise.png (PNG copy)> <img/fractal.png (PNG copy)> <img/caps/grid.png (
+PNG copy)>]
 
-<use img/caps/grid.png> [2 <img/noise.png (PNG copy)> <img/fractal.png (PNG cop
-y)> <img/caps/grid.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-[]\OT1/ptm/m/n/10 A mesuriza[][]ao do tempo gasto com tra-balho
+LaTeX Warning: Reference `fig:geracao' on page 3 undefined on input line 15.
+
+
+LaTeX Warning: Reference `fig:geracao' on page 3 undefined on input line 18.
+
+<img/caps/malha.png, id=17, 963.6pt x 542.025pt>
+File: img/caps/malha.png Graphic file (type png)
+ <use img/caps/malha.png>
+<img/texturas.png, id=18, 722.7pt x 259.97125pt>
+File: img/texturas.png Graphic file (type png)
+ <use img/texturas.png>
+[3 <img/caps/malha.png (PNG copy)> <img/texturas.png>]) (implementacao.tex
+<img/bibliotecas.png, id=25, 261.97874pt x 144.54pt>
+File: img/bibliotecas.png Graphic file (type png)
+ <use img/bibliotecas.png>
+<img/arquitetura.png, id=26, 658.46pt x 414.54875pt>
+File: img/arquitetura.png Graphic file (type png)
+ <use img/arquitetura.png>
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+[]\OT1/ptm/b/n/10 RenderingShader\OT1/ptm/m/n/10 : \OT1/ptm/m/it/10 Shader \OT1
+/ptm/m/n/10 re-spons[]avel pela
  []
 
+) (testes.tex <img/tempoFPS.png, id=27, 748.7975pt x 240.9pt>
+File: img/tempoFPS.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-\OT1/ptm/m/n/10 rela-cionado []a parte gr[]afica uti-lizando OpenGL
- []
-
-
-Underfull \hbox (badness 5954) in paragraph at lines 23--24
-\OT1/ptm/m/n/10 n[]ao []e algo dispon[]vel em GPUs. A ex-tens[]ao
- []
-
-
-Underfull \hbox (badness 1728) in paragraph at lines 23--24
-\OT1/ptm/b/n/10 GL[]EXT[]timer[]query \OT1/ptm/m/n/10 [[]], por ex-em-plo, s[]o
- est[]a
- []
-
-) (implementacao.tex) (testes.tex) (trabalhosFuturosConclusao.tex) (paper.bbl
+<use img/tempoFPS.png>) (trabalhosFuturosConclusao.tex) (paper.bbl
 Underfull \hbox (badness 1681) in paragraph at lines 31--33
 []\OT1/ptm/m/n/9 K. Per-lin, ``An im-age syn-the-sizer,'' \OT1/ptm/m/it/9 SIG-G
 RAPH Com-put.
@@ -230,6 +241,11 @@ RAPH Com-put.
 
 Underfull \hbox (badness 10000) in paragraph at lines 51--54
 []\OT1/ptm/m/n/9 ``Gl[]ext[]timer[]query.'' [On-line]. Avail-able:
+ []
+
+[4 <img/bibliotecas.png> <img/arquitetura.png> <img/tempoFPS.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 57--60
+[]\OT1/ptm/m/n/9 ``Gl[]nv[]fence.'' [On-line]. Avail-able:
  []
 
 )
@@ -244,25 +260,31 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3
+[5
 
-] (paper.aux) ) 
+] (paper.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2039 strings out of 95304
- 29741 string characters out of 1183032
- 92833 words of memory out of 1500000
- 5235 multiletter control sequences out of 110000
+ 2071 strings out of 95304
+ 30453 string characters out of 1182724
+ 92877 words of memory out of 1500000
+ 5262 multiletter control sequences out of 110000
  36934 words of font info for 66 fonts, out of 3000000 for 5000
  17 hyphenation exceptions out of 8191
  26i,11n,24p,702b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.7/fonts/enc/dvips/fontname/8r.enc}<C:
-/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy7.pfb><C:/Program Files/Mi
-KTeX 2.7/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/ty
-pe1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/times/ut
-mr8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (3 pages, 1473616 bytes).
+{C:/Arquivos de programas/MiKTeX 2.7/fonts/enc/dvips/fontname/8r.enc}<C:/Arqu
+ivos de programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi10.pfb><C:/Arquivos de 
+programas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy7.pfb><C:/Arquivos de programas
+/MiKTeX 2.7/fonts/type1/urw/times/utmb8a.pfb><C:/Arquivos de programas/MiKTeX 2
+.7/fonts/type1/urw/times/utmbi8a.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts
+/type1/urw/times/utmr8a.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/ur
+w/times/utmri8a.pfb>
+Output written on paper.pdf (5 pages, 1570721 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
+ 56 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

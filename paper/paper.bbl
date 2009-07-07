@@ -52,4 +52,10 @@ J.~Schneider, T.~Boldte, and R.~Westermann, ``Real-time editing, synthesis, and
   \url{http://www.opengl.org/registry/specs/EXT/timer\_query.txt}
 \BIBentrySTDinterwordspacing
 
+\bibitem{nvFence}
+\BIBentryALTinterwordspacing
+``Gl\_nv\_fence.'' [Online]. Available:
+  \url{http://www.opengl.org/registry/specs/NV/fence.txt}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

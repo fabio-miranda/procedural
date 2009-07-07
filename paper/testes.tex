@@ -1,2 +1,10 @@
 \section{Testes}
 \label{testes}
+
+Para comprovar a eficiência do sistema, foi feito um teste que consiste na navegação por um trajeto constante pelo terreno gerado proceduralmente, durante 30 segundos. O teste foi executado para cinco valores diferentes de $\alpha$: 1.0 (geração totalmente na GPU), 0.7, 0.4, 0.0 (geração totalmente na CPU).
+
+
+\begin{figure}[h]
+	\center{\includegraphics[width=0.9\linewidth]{img/tempoFPS.png}}
+	\caption{\label{fig:fps} Gráfico com o FPS na navegação pelo mundo durante 30 segundos.}
+\end{figure}

@@ -1,4 +1,4 @@
 pdflatex paper.tex
 pdflatex paper.tex
-paper.pdf
+pdflatex paper.tex
 @pause
