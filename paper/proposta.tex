@@ -22,7 +22,7 @@ A Figura \ref{fig:geracao} mostra como se dá o fluxo de geração.
 
 As requisições por novos terrenos serão adicionadas a uma fila e uma política \emph{First In, First Out} (FIFO) será utilizada para decidir qual terreno será gerado. Como é possível ver na Figura \ref{fig:geracao}, o número de filas existentes no sistema será igual ao número de vizinhos do \emph{patch} central. Dessa forma, é possível decidir quais terrenos serão gerados a partir de sua distância do \emph{patch} central.
 
-A \emph{thread} principal ficará encarregada da requisição para gerar novos eventos, avaliação da fila, avaliação da arquitetura a ser utilizada as chamadas às funções OpenGL. A geração na CPU ocorrerá em outras \emph{threads}, não a principal.
+A \emph{thread 0} (principal) ficará encarregada da requisição para gerar novos eventos, avaliação da fila, avaliação da arquitetura a ser utilizada (GPU ou CPU), e também será responsável pelas chamadas às funções OpenGL, incluindo aquelas responsáveis por iniciar a execução das instruções que serão executadas na GPU. A geração na CPU ocorrerá em outras \emph{threads}, não a principal.
 
 
 
@@ -37,7 +37,7 @@ A utilização de chamadas como \textbf{glFinish()} para sincronizar a CPU e a GPU
 Uma outra opção para a sincronização seria a extensão \textbf{GL\_NV\_fence} \cite{nvFence}, que oferece funções para sincronização semelhantes ao \textbf{glFinish()} e \textbf{glFlush()}, porém com um grau maior de controle sobre quais comandos OpenGL deverão ser executados na chamada. Mais uma vez, porém, a extensão não está disponível para placas ATI.
 
 \subsection{Geração}
-Toda a geração dos terrenos na GPU é feita através de um \emph{fragment shader}, utilizando o ruído Perlin como foi proposto em \cite{improvedPerlinNoise}. Como toda computação de \emph{shaders} fica limitada a geometrias ou texturas, foi preciso renderizar um quadrado utilizando as funções OpenGL, para que, dessa forma, fosse possível aplicar os \emph{shaders} às suas primitivas e iniciar os cálculos necessários. O resultado da geração é renderizado em um \emph{framebuffer} \emph{off-screen}, que não é exibido na tela, através da extenção FBO, que permite criar novos \emph{buffers}.
+Toda a geração dos terrenos na GPU é feita através de um \emph{fragment shader} (versão 3.0), utilizando o ruído Perlin como foi proposto em \cite{improvedPerlinNoise}. Como toda computação de \emph{shaders} fica limitada a geometrias ou texturas, foi preciso renderizar um quadrado utilizando as funções OpenGL, para que, dessa forma, fosse possível aplicar os \emph{shaders} às suas primitivas e iniciar os cálculos necessários. O resultado da geração é renderizado em um \emph{framebuffer} \emph{off-screen}, que não é exibido na tela, através da extenção FBO, que permite criar novos \emph{buffers}.
 
 O cálculo dos vetores gradientes, necessário no ruído Perlin, é feito na CPU, apenas no início do sistema, e depois é acessado no \emph{fragment shader} como uma textura 2D.
 
