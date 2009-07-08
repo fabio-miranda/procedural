@@ -11,6 +11,7 @@
 #include "../Util/VBOSquare.h"
 
 
+#include <windows.h>
 #include "GL/glfw.h"
 #include <pthread.h>
 #include <iostream>
@@ -60,6 +61,7 @@ public:
 	void Render(double, RenderingShader*);
 	void Delete();
 	void TransferToTexture();
+	void BeginGeneration();
 	void FinishGeneration();
 	
 

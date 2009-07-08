@@ -145,8 +145,11 @@ void HeightMap::GenerateGPU(GenerationShader* ptrGenerationShader, Vector3<float
 
 void* HeightMap::CreateThread(void* ptr){
 	
+	
+
 
 	HeightMapThreadData* threadData = (HeightMapThreadData*)ptr;
+
 	
 	threadData->ptrThis->GenerateCPU(threadData->ptrPermArray, threadData->globalPosition);
 
@@ -156,9 +159,9 @@ void* HeightMap::CreateThread(void* ptr){
 
 void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
 
-	
+	BeginGeneration();
 
-	float time = glfwGetTime();
+	
 	float height = 0;
 	int cont = 0;
 	Vector3<float> position;
@@ -181,20 +184,37 @@ void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
 
 		}
 	}
+
+	float time = glfwGetTime();
+
+	TransferToTexture();
+
 	time = glfwGetTime() - time;
 	cout << time * 1000.0f;
 	cout << "\n";
 
 	
-	pthread_mutex_lock(&m_mutex);
+	
 	FinishGeneration();
+	
+
+}
+
+void HeightMap::BeginGeneration(){
+	
+	pthread_mutex_lock(&m_mutex);
+	m_generated = false;
+	m_beingGenerated = true;
 	pthread_mutex_unlock(&m_mutex); 
 
 }
 
 void HeightMap::FinishGeneration(){
+
+	pthread_mutex_lock(&m_mutex);
 	m_generated = true;
 	m_beingGenerated = false;
+	pthread_mutex_unlock(&m_mutex); 
 
 }
 

@@ -73,11 +73,11 @@ void SquareNode::Render(double elapsedTime){
 	pthread_mutex_unlock(&m_heightMap->m_mutex);
 
 	if(generated){
-		m_heightMap->TransferToTexture();
+		
 		m_heightMap->Render(elapsedTime, m_ptrRenderingShader);
 	}
 	else if(m_heightMap->m_beingGenerated == false){
-		//m_heightMap->GenerateCPU(m_ptrPermArray, m_globalPosition);
+		
 		
 		struct HeightMapThreadData* threadData = new HeightMapThreadData();
 		threadData->globalPosition = m_globalPosition;
@@ -87,8 +87,13 @@ void SquareNode::Render(double elapsedTime){
 		m_heightMap->m_beingGenerated = true;
 
 		pthread_t a = pthread_t();
-		pthread_create(&a, NULL, &HeightMap::CreateThread, threadData);
+		//pthread_create(&a, NULL, &HeightMap::CreateThread, threadData);
+
+		//CPU Affinity
+		//SetThreadIdealProcessor(GetCurrentThread(), 2);
+		
 		//m_heightMap->GenerateGPU(m_ptrGenerationShader, m_globalPosition);
+		m_heightMap->GenerateCPU(m_ptrPermArray, m_globalPosition);
 	}
 }
 

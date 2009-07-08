@@ -10,8 +10,11 @@
 #include "../Shaders/RenderingShader.h"
 #include "../Shaders/GenerationShader.h"
 #include "../Util/FBO.h"
+#include <windows.h>
 #include <math.h>
 #include <pthread.h>
+#include <sched.h>
+
 
 
 class SquareNode{
