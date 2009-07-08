@@ -1,8 +1,8 @@
 \section{Conclusão e Trabalhos Futuros}
 \label{conclusao}
 
-Os resultados obtidos na geração procedural de terrenos na GPU mostram o poder de processamento das placas gráficas, em relação às CPU. A opção de se gerar nas duas arquiteturas facilita 
+Os resultados obtidos na geração procedural de terrenos na GPU mostram o poder de processamento das placas gráficas em relação às CPU. A opção de se gerar nas duas arquiteturas mostra-se promissor, principalmente considerando a utilização do sistema acoplado a um \emph{game} ou simulador. Como haverá inevitavelmente outras tarefas sendo executadas (\emph{path-finding}, sombras, HDR), a possibilidade de se migrar a carga de trabalho envolvida na geração procedural pode ser bastante vantajosa.
 
-Este trabalho, porém, não implementou uma alternativa \emph{multi-core} para a geração procedural na CPU. Isto poderia diminuir o tempo gasto na geração. Outro aspecto que pode ser abordado no futuro é o escalonamento entre GPU e CPU, dependendo do nível de ociosidade de cada processador.
+Como trabalho futuro, espera-se encontrar uma estratégia eficiente para o cálculo de $\alpha$. Dessa forma, a geração procedural poderá ser balanceada automaticamente entre as diferentes arquiteturas utilizadas (CPU e GPU).
 
-O sistema foi implementado sempre tendo em mente a sua utilização acoplada a outras aplicativos. Dessa forma, adotá-lo em um simulador ou demandaria pouco esforço.
+O sistema foi implementado sempre tendo em mente a sua utilização acoplada a outras aplicativos. Dessa forma, adotá-lo em um \emph{game} ou simulador demandaria pouco esforço.

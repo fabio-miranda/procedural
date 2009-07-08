@@ -3,7 +3,7 @@
 \subsection{Ruído Perlin}
 O ruído Perlin foi criado pelo Professor Ken Perlin \cite{perlinNoise}, da \emph{New York University} e é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
 
-A função ruído retorna, para um dado domínio e as mesmas sementes (\emph{seeds}), números entre 0 e 1; dessa forma, em uma segunda execução, com as mesmas entradas, teremos os mesmos números entre 0 e 1. Cada valor retornado é o resultado do seguinte produto interno:
+A função ruído retorna, para um dado domínio e as mesmas sementes (\emph{seeds}), números entre 0 e 1; Em uma segunda execução, com as mesmas entradas, teremos os mesmos números entre 0 e 1. Cada valor retornado é o resultado do seguinte produto interno:
 
 \begin{center}
 G . (P-Q)
@@ -43,5 +43,5 @@ O \emph{Ridged multifractal noise} é uma variação do ruído Perlin, e foi apresen
 	\item \textbf{Tamanho:} Tamanho do mapa de altura que será salvo o resultado da geração procedural.
 \end{itemize}
 
-O tempo de execução é dependente apenas do tamanho do mapa e o número de octaves.
+O tempo de execução é dependente apenas do tamanho do mapa e do número de octaves.
 

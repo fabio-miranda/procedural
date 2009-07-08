@@ -4,7 +4,7 @@
 A Figura \ref{fig:bibliotecas} apresenta as camadas do sistema, bem como as bibliotecas utilizadas.
 
 \begin{figure}[h]
-	\center{\includegraphics[width=0.6\linewidth]{img/bibliotecas.png}}
+	\center{\includegraphics[width=0.6\linewidth]{img/bibliotecas.pdf}}
 	\caption{\label{fig:bibliotecas} Camadas do sistema.}
 \end{figure}
 
@@ -13,7 +13,7 @@ A camada \emph{WindowMng} tem como propósito simular a um aplicativo gráfico gen
 A Figura \ref{fig:arquitetura} apresenta em detalhes os módulos presentes nas camadas \emph{WindowMng} e \emph{ProcTerrain}. A seguir, uma explicação sobre cada um dos módulos.
 
 \begin{figure}[h]
-	\center{\includegraphics[width=0.6\linewidth]{img/arquitetura.png}}
+	\center{\includegraphics[width=0.6\linewidth]{img/arquitetura.pdf}}
 	\caption{\label{fig:arquitetura} Diagrama com as principais classes do sistema implementado.}
 \end{figure}
 
@@ -22,7 +22,10 @@ A Figura \ref{fig:arquitetura} apresenta em detalhes os módulos presentes nas ca
 	\item {\bf Camera}: Módulo que implementa uma câmera controlada pelo jogador e navegando pelo mundo.
 	\item {\bf TerrainMng}: Módulo responsável por gerar e controlar os terrenos.
 	\item {\bf SquareNode}: Nodo que representa uma fatia (\emph{patch}) do terreno.
-	\item {\bf HeightMap}: Módulo que implementa os mapas de altura dos terrenos gerados na CPU ou na GPU.
+	\item {\bf HeightMap}: Módulo que implementa os mapas de altura dos terrenos gerados na CPU ou na GPU. Possui os métodos \textbf{GenerateGPU} e \textbf{GenerateCPU}, que são executados em paralelo à \emph{thread} principal.
 	\item {\bf GenerationShader}: \emph{Shader} responsável pela geração dos terrenos.
 	\item {\bf RenderingShader}: \emph{Shader} responsável pela renderização dos terrenos.
 \end{itemize}
+
+
+As Figuras \ref{fig:heightmap}, \ref{fig:deslocamento}, \ref{fig:blend}, \ref{fig:luz} mostram o mapa de altura, o deslocamento dos vértices das malhas, a texturização dos fragmentos e, finalmente, a cena final com a iluminação.

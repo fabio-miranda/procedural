@@ -10,12 +10,19 @@ O terreno geral é dividido em terrenos menores (chamados \emph{patchs}), como mo
 
 Considerando o usuário inicialmente localizado no \emph{patch} central, ao mover-se para um \emph{patch} vizinho, o sistema irá requisitar a geraçaõ de novos \emph{patchs}, vizinhos a aqueles que estão na borda do grid. O número de vizinhos gerados, bem como a quantidade de vizinhos do \emph{patch} central são variáveis do sistema, podendo ser adaptadas, pelo usuário, de acordo com o poder de processamento de sua máquina.
 
-Para garantir uma visualização fluida do terreno, minimizando as interrupções com a geração, o sistema proposto decidirá qual arquitetura (GPU ou CPU) será utilizada na geração dos \emph{patchs} a partir de uma variável $\alpha$, que representa a porcentagem de gerações que ocorrerão na \emph{GPU}. \textbf{1 - $\alpha$} representará, portanto a porcentagem de gerações na \emph{CPU}.
+Para garantir uma visualização fluida do terreno, minimizando as interrupções com a geração, o sistema proposto decidirá qual arquitetura (GPU ou CPU) será utilizada na geração dos \emph{patchs} a partir de uma variável $\alpha$, que representa a porcentagem de gerações que ocorrerão na \emph{GPU}. $1 - \alpha$ representará, portanto a porcentagem de gerações na \emph{CPU}.
 
 A Figura \ref{fig:geracao} mostra como se dá o fluxo de geração.
 
+\begin{figure}[h]
+	\center{\includegraphics[width=1.0\linewidth]{img/geracao.pdf}}
+	\caption{\label{fig:geracao} Fluxo da geração procedural.}
+\end{figure}
+
 
 As requisições por novos terrenos serão adicionadas a uma fila e uma política \emph{First In, First Out} (FIFO) será utilizada para decidir qual terreno será gerado. Como é possível ver na Figura \ref{fig:geracao}, o número de filas existentes no sistema será igual ao número de vizinhos do \emph{patch} central. Dessa forma, é possível decidir quais terrenos serão gerados a partir de sua distância do \emph{patch} central.
+
+A \emph{thread} principal ficará encarregada da requisição para gerar novos eventos, avaliação da fila, avaliação da arquitetura a ser utilizada as chamadas às funções OpenGL. A geração na CPU ocorrerá em outras \emph{threads}, não a principal.
 
 
 
@@ -23,7 +30,7 @@ As requisições por novos terrenos serão adicionadas a uma fila e uma política \e
 
 O valor da variável $\alpha$ é, atualmente, uma variável controlada manualmente pelo usuário.  A sua variação de acordo com a utilização de cada arquitetura será um tema a ser abordado em trabalhos futuros.
 
-Atualmente, a maior dificuldade para medir o tempo de geração tanto na GPU é a falta de um padrão nas extensões disponíveis em OpenGL.  extensão \textbf{GL\_EXT\_timer\_query} \cite{timerQuery}, por exemplo, só está disponível em placas NVidia, algo que anularia a possibilidade da execução deste trabalho em placas ATI.
+Atualmente, a maior dificuldade para medir o tempo de geração tanto na GPU é a falta de um padrão nas extensões disponíveis em OpenGL. A extensão \textbf{GL\_EXT\_timer\_query} \cite{timerQuery}, por exemplo, só está disponível em placas NVidia, algo que anularia a possibilidade da execução deste trabalho em placas ATI.
 
 A utilização de chamadas como \textbf{glFinish()} para sincronizar a CPU e a GPU e assim medir o tempo de geração dos terrenos poderia prejudicar a performance do sistema, já que pára a execução da CPU enquanto todos os os comandos OpenGL não forem executados.
 
@@ -54,7 +61,7 @@ A malha é gerada de tal forma que um número maior de vértices está concentrado n
 Como a malha é gerada apenas uma única vez (no início da execução), não é preciso criar repetidas malhas a medida que o jogador percorre o terreno. Apenas os mapas de altura de cada \emph{patch} são trocados, como mostra a Figura \ref{fig:texturas}
 
 \begin{figure}[h]
-	\center{\includegraphics[width=0.8\linewidth]{img/texturas.png}}
+	\center{\includegraphics[width=0.8\linewidth]{img/texturas.pdf}}
 	\caption{\label{fig:texturas} Movimentação da câmera para um outro \emph{patchs}.}
 \end{figure}
 
