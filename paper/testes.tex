@@ -1,7 +1,7 @@
 \section{Testes}
 \label{testes}
 
-Para verificar a eficiência das gerações na CPU e GPU, foi feito um teste que consiste na navegação por um trajeto constante durante 60 segundos. O computador utilizado foi um \emph{Core 2 Duo E7400}, com 2GB de memória \emph{RAM} e placa de vídeo \emph{ATI Radeon HD 4850} com 512MB de memória \emph{RAM}, e \emph{driver} versão 8.612. As seguintes configurações foram utilizadas para a geração procedural: 8 \emph{octaves}, \emph{lacunarity} igual a 2.5, \emph{gain} igual a 0.5,  \emph{offset} como 0.9 e número de vizinhos referente ao \emph{patch} central igual a 2.
+Para verificar a eficiência das gerações na CPU e GPU, foi feito um teste que consiste na navegação por um trajeto constante durante 60 segundos. O computador utilizado foi um \emph{Core 2 Duo E7400}, com 2GB de memória \emph{RAM} e placa de vídeo \emph{ATI Radeon HD 4850} com 512MB de memória \emph{RAM}, e \emph{driver} versão 8.612. As seguintes configurações foram utilizadas para a geração procedural: 8 \emph{octaves}, \emph{lacunarity} igual a 2.5, \emph{gain} igual a 0.5,  \emph{offset} como 0.9, número de vizinhos referente ao \emph{patch} central igual a 2,  tamanho de textura 256. A resolução do programa foi de 1280 x 720.
 
 Quatro testes foram executados, cada um com uma configuração diferente de utilização da CPU e GPU. O primeiro teste foi executado somente na GPU ($\alpha$ = 1); o segundo somente na CPU ($\alpha$ = 0) e utilizando uma única \emph{thread} para todo o programa; os testes três e quatro foram executados tanto na GPU quanto na CPU, sendo que o teste três utilizou uma única \emph{thread} e o teste três utilizou um esquema \emph{multithread} para a geração na CPU.
 

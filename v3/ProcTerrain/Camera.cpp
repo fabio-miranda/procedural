@@ -7,12 +7,20 @@ Camera::Camera(Vector3<float> position, Vector3<float> up){
 	m_up = up;
 	m_rotation = Vector3<float>(0,0,1);
 	m_speed = 0.01f;
+	m_benchmark = false;
 
 }
 
 
 void Camera::UpdateKeyboard(){
 	
+	if(m_benchmark){
+		float z_rotation;
+		z_rotation = (m_rotation.GetZ() / 180 * 3.141592654f);
+		m_pos.AddX(float(sin(z_rotation)) * m_speed);
+		m_pos.AddY(float(cos(z_rotation)) * m_speed) ;
+
+	}
 
 	if(glfwGetKey( 'W' )){
 		
@@ -20,6 +28,8 @@ void Camera::UpdateKeyboard(){
 		z_rotation = (m_rotation.GetZ() / 180 * 3.141592654f);
 		m_pos.AddX(float(sin(z_rotation)) * m_speed);
 		m_pos.AddY(float(cos(z_rotation)) * m_speed) ;
+
+		m_benchmark = true;
 		
 		/*
 		float x_rotation;

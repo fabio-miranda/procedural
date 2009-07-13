@@ -129,7 +129,9 @@ void TerrainMng::initNodes(){
 			//m_ptrNodes[i*m_size+j]->GenerateCPU(Vector3<float>(pos_x,pos_y,0), Vector3<float>(0,0,0), m_permArray, 1, 5.5, 0.5, 0.9);
 			
 			//float a = (float)rand()/RAND_MAX;
-			m_ptrNodes[i*m_size+j]->Generate(Vector3<float>(pos_x,pos_y,0),8, 2.5, 0.5, 0.9);
+			Vector3<float> position = Vector3<float>(pos_x,pos_y,0);
+			m_ptrNodes[i*m_size+j]->InstantiateHeightMap(position,8, 2.5, 0.5, 0.9);
+			m_ptrNodes[i*m_size+j]->GenerateHeightMap(position, true);
 
 
 			
@@ -169,6 +171,7 @@ void TerrainMng::Update(Vector3<float> currentPosition){
 
 void TerrainMng::Render(double elapsedTime){
 	
+	SetThreadAffinityMask(GetCurrentThread(), 0);
 	
 	glTranslatef(m_translation.GetX(),m_translation.GetY(), 0);
 
@@ -227,8 +230,17 @@ void TerrainMng::initLight(){
 void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 
 	short difference = newIndex - oldIndex;
+	
+	int countGeneratedOnGPU = 0;
+	int heightmapsToGenerateOnGPU = (int)ceil(conf_alpha * (2 * (conf_numNeighbours ) + 1));;
+	
+
 	//Moving up
 	if(difference == 1){
+
+		
+
+
 		//Delete lower row
 		for(int i=0; i<m_size*m_size; i+=m_size){
 			//delete ((HeightMapGPU*)(m_ptrNodes[i]->m_heightMap))->m_ptrFBO;
@@ -255,7 +267,15 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 		for(int i=m_size-1; i<m_size*m_size; i+=m_size){
 			position = Vector3<float>(m_currentNode->m_globalPosition.GetX() + pos_x, m_currentNode->m_globalPosition.GetY() + conf_geomSize*conf_numNeighbours, 0);
 			//m_ptrNodes[i]->m_heightMap = new HeightMap(m_terrainGenerationShader, position, conf_geomSize, conf_textureSize, 1);
-			m_ptrNodes[i]->ReGenerate(position);
+			
+			
+			if(countGeneratedOnGPU < heightmapsToGenerateOnGPU){
+				m_ptrNodes[i]->GenerateHeightMap(position, true);
+				countGeneratedOnGPU++;
+			}
+			else
+				m_ptrNodes[i]->GenerateHeightMap(position, false);
+	
 
 			pos_x+=conf_geomSize;
 
@@ -292,7 +312,13 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 		for(int i=0; i<m_size*m_size; i+=m_size){
 			position = Vector3<float>(m_currentNode->m_globalPosition.GetX() + pos_x, m_currentNode->m_globalPosition.GetY() - conf_geomSize*conf_numNeighbours, 0);
 			//m_ptrNodes[i]->m_heightMap = new HeightMap(m_terrainGenerationShader, position, conf_geomSize, conf_textureSize, 1);
-			m_ptrNodes[i]->ReGenerate(position);
+			
+			if(countGeneratedOnGPU < heightmapsToGenerateOnGPU){
+				m_ptrNodes[i]->GenerateHeightMap(position, true);
+				countGeneratedOnGPU++;
+			}
+			else
+				m_ptrNodes[i]->GenerateHeightMap(position, false);
 
 			pos_x+=conf_geomSize;
 
@@ -328,7 +354,13 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 		for(int i=m_size*(m_size-1); i<m_size*m_size; i++){
 			position = Vector3<float>(m_currentNode->m_globalPosition.GetX() + conf_geomSize*conf_numNeighbours, m_currentNode->m_globalPosition.GetY() + pos_y, 0);
 			//m_ptrNodes[i]->m_heightMap = new HeightMap(m_terrainGenerationShader, position, conf_geomSize, conf_textureSize, 1);
-			m_ptrNodes[i]->ReGenerate(position);
+			
+			if(countGeneratedOnGPU < heightmapsToGenerateOnGPU){
+				m_ptrNodes[i]->GenerateHeightMap(position, true);
+				countGeneratedOnGPU++;
+			}
+			else
+				m_ptrNodes[i]->GenerateHeightMap(position, false);
 
 			pos_y+=conf_geomSize;
 
@@ -361,7 +393,13 @@ void TerrainMng::GenerateNeighbours(short oldIndex, short newIndex){
 		for(int i=0; i<m_size; i++){
 			position = Vector3<float>(m_currentNode->m_globalPosition.GetX() - conf_geomSize*conf_numNeighbours, m_currentNode->m_globalPosition.GetY() + pos_y, 0);
 			//m_ptrNodes[i]->m_heightMap = new HeightMap(m_terrainGenerationShader, position, conf_geomSize, conf_textureSize, 1);
-			m_ptrNodes[i]->ReGenerate(position);
+			
+			if(countGeneratedOnGPU < heightmapsToGenerateOnGPU){
+				m_ptrNodes[i]->GenerateHeightMap(position, true);
+				countGeneratedOnGPU++;
+			}
+			else
+				m_ptrNodes[i]->GenerateHeightMap(position, false);
 
 			pos_y+=conf_geomSize;
 

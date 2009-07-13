@@ -33,6 +33,8 @@ class SquareNode{
 	GenerationShader* m_ptrGenerationShader;
 	GLuint* m_ptrBlendTexturesId;
 	char* m_ptrPermArray;
+	VBOSquare* m_face;
+	double m_time;
 
 	
 	
@@ -46,8 +48,8 @@ public:
 	void Render(double);
 	//void GenerateGPU(Vector3<float> relativePosition, Vector3<float> translation, int octaves, float lacunarity, float gain, float offset);
 	//void GenerateCPU(Vector3<float> relativePosition, Vector3<float> translation, char* ptrPermArray, int octaves, float lacunarity, float gain, float offset);
-	void Generate(Vector3<float> relativePosition, int octaves, float lacunarity, float gain, float offset);
-	void ReGenerate(Vector3<float> newPosition);
+	void InstantiateHeightMap(Vector3<float> relativePosition, int octaves, float lacunarity, float gain, float offset);
+	void GenerateHeightMap(Vector3<float> newPosition, bool generateOnGPU);
 	bool IsWithin(Vector3<float>);
 	short GetNewStandingNodePosition(Vector3<float>, short);
 	void Delete();

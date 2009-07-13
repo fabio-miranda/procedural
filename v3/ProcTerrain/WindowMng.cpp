@@ -118,7 +118,7 @@ void WindowMng::UpdateKeyboard(){
 	}
 
 	
-
+	
 	if(glfwGetKey( '1' ) == GLFW_RELEASE
 		&& glfwGetKey( '2' ) == GLFW_RELEASE
 		&& glfwGetKey( '3' ) == GLFW_RELEASE
@@ -126,6 +126,7 @@ void WindowMng::UpdateKeyboard(){
 		&& glfwGetKey( '5' ) == GLFW_RELEASE){
 			m_pressingKey = false;
 	}
+	
 }
 
 void WindowMng::UpdateMouse(){

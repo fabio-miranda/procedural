@@ -28,7 +28,7 @@ protected:
 	//Vector3<float> m_globalPosition;
 	
 
-	VBOSquare* m_face;
+	
 	char* m_heightMapArray;
 	
 	//FBO* m_ptrFBO;
@@ -77,7 +77,7 @@ public:
 	static void* CreateThread(void* ptrThis);
 
 	pthread_mutex_t m_mutex;
-	double m_time;
+	
 	bool m_generated;
 	bool m_beingGenerated;
 	bool m_gpuOrCpu;

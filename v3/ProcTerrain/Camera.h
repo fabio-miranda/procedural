@@ -20,6 +20,7 @@ public:
 	Vector3<float> m_rotation;
 	Vector2<int> m_lastMousePos;
 	float m_speed;
+	bool m_benchmark;
 
 	float fov;
 

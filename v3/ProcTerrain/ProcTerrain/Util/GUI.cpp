@@ -78,11 +78,11 @@ void GUI::RenderFPS(){
 	
 	
 	if(m_listRenderTimes.size() < m_framesToCount){
-		m_listRenderTimes.push_back((m_currentTime - m_lastTime)*1000.0f);
+		m_listRenderTimes.push_back((m_currentTime - m_lastTime));
 	}
 	else{
 		m_listRenderTimes.pop_front();
-		m_listRenderTimes.push_back((m_currentTime - m_lastTime)*1000.0f);
+		m_listRenderTimes.push_back((m_currentTime - m_lastTime));
 	}
 	m_lastTime = m_currentTime;
 	m_cont++;

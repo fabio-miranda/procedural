@@ -22,6 +22,10 @@ SquareNode::SquareNode(int index, GenerationShader* generationShader, RenderingS
 	
 	m_gridIndex = index; //center of the grid (currentNode)
 
+	m_face = new VBOSquare(m_relativePosition, m_geomSize + 0.1f, m_numDivisions);
+
+	m_time = conf_time; //time since the generation of the heightmap
+
 	/*
 	for(int i=0; i<8; i++){
 		m_ptrNeighbours[i] = NULL;
@@ -44,7 +48,7 @@ SquareNode::~SquareNode(){
 
 }
 
-void SquareNode::ReGenerate(Vector3<float> globalPosition){
+void SquareNode::GenerateHeightMap(Vector3<float> globalPosition, bool generateOnGPU){
 
 	//Generate on GPU
 	//m_heightMap->ReGenerate(globalPosition);
@@ -53,8 +57,40 @@ void SquareNode::ReGenerate(Vector3<float> globalPosition){
 	//m_heightMap->GenerateGPU(m_ptrGenerationShader, globalPosition);
 	//m_heightMap->GenerateCPU(m_ptrPermArray);
 	//m_heightMap = new HeightMapCPU(m_ptrRenderingShader, m_ptrPermArray,globalPosition, Vector3<float>(0,0,0), m_geomSize, m_numDivisions, 16, 5.5, 0.5, 0.9);
+
+	//DWORD_PTR mask = 0; 
+	
+
+	if(m_heightMap->m_beingGenerated == false){
+		
+		//Generate using the GPU
+		if(generateOnGPU){
+			m_heightMap->GenerateGPU(m_ptrGenerationShader, m_globalPosition);
+		}
+		//Generate using the CPU
+		else{
+			struct HeightMapThreadData* threadData = new HeightMapThreadData();
+			threadData->globalPosition = m_globalPosition;
+			threadData->ptrPermArray = m_ptrPermArray;
+			threadData->ptrThis = m_heightMap;
+
+			pthread_t a = pthread_t();
+			pthread_create(&a, NULL, &HeightMap::CreateThread, threadData);
+
+			//CPU Affinity
+			///UCHAR NodeNum;
+			//GetNumaProcessorNode( 2, &NodeNum );
+			//SetThreadIdealProcessor(GetCurrentThread(), NodeNum);
+			
+		}
+		//m_heightMap->m_beingGenerated = true;
+		
+		
+		//m_heightMap->GenerateCPU(m_ptrPermArray, m_globalPosition);
+	}
+
 }
-void SquareNode::Generate(Vector3<float> relativePosition, int octaves, float lacunarity, float gain, float offset){
+void SquareNode::InstantiateHeightMap(Vector3<float> relativePosition, int octaves, float lacunarity, float gain, float offset){
 
 
 	m_heightMap = new HeightMap(relativePosition, m_geomSize, m_numDivisions, m_textureSize, 
@@ -73,28 +109,45 @@ void SquareNode::Render(double elapsedTime){
 	pthread_mutex_unlock(&m_heightMap->m_mutex);
 
 	if(generated){
-		
-		m_heightMap->Render(elapsedTime, m_ptrRenderingShader);
-	}
-	else if(m_heightMap->m_beingGenerated == false){
-		
-		
-		struct HeightMapThreadData* threadData = new HeightMapThreadData();
-		threadData->globalPosition = m_globalPosition;
-		threadData->ptrPermArray = m_ptrPermArray;
-		threadData->ptrThis = m_heightMap;
-		
-		m_heightMap->m_beingGenerated = true;
+		if(m_time > 1) m_time -= elapsedTime;
 
-		pthread_t a = pthread_t();
-		//pthread_create(&a, NULL, &HeightMap::CreateThread, threadData);
 
-		//CPU Affinity
-		//SetThreadIdealProcessor(GetCurrentThread(), 2);
+		//m_ptrRenderingShader->Enable();
+
+		glEnable(GL_TEXTURE_2D);
 		
-		//m_heightMap->GenerateGPU(m_ptrGenerationShader, m_globalPosition);
-		m_heightMap->GenerateCPU(m_ptrPermArray, m_globalPosition);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, m_heightMap->m_heightMapId);
+		
+		glUniform1f(m_ptrRenderingShader->m_locTime, m_time);
+		glUniform1f(m_ptrRenderingShader->m_locGPUGenerated, 1.0);
+		glUniform1f(m_ptrRenderingShader->m_locShowHeightMap, conf_showHeightMap);
+		glUniform1f(m_ptrRenderingShader->m_locShowLight, conf_showLight);
+		glUniform1f(m_ptrRenderingShader->m_locShowBlendTexture, conf_showBlendTexture);
+		glUniform1f(m_ptrRenderingShader->m_locShowVerticesDisplacement, conf_showVerticesDisplacement);
+		
+		/*
+		for(int i=0; i<4; i++)
+		{
+			glUniform1i(m_ptrRenderingShader->m_locBlendTextures[i], 0);
+			glActiveTexture(GL_TEXTURE1+i);
+			glBindTexture(GL_TEXTURE_2D, m_ptrBlendTextures[i]);
+			
+		}
+		*/
+		
+		//TODO: do it only once, after generating the heightmap
+		//there is no need to do it every frame: http://www.gamedev.net/community/forums/mod/journal/journal.asp?jn=530427&reply_id=3450696
+		//glUniform1i(m_ptrTerrainRenderingShader->m_locTexture, 0);
+		
+		m_face->Render();
+
+		glBindTexture(GL_TEXTURE_2D, 0);
+		glDisable(GL_TEXTURE_2D);
+
+		//m_ptrRenderingShader->Disable();
 	}
+	
 }
 
 bool SquareNode::IsWithin(Vector3<float> position){

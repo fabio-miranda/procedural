@@ -17,9 +17,9 @@ HeightMap::HeightMap(Vector3<float> relativePosition, float geomSize, short numD
 	m_beingGenerated = false;
 	pthread_mutex_init(&m_mutex, NULL);
 
-	m_time = 5.0f; //time since the generation of the heightmap
+	
 
-	m_face = new VBOSquare(m_relativePosition, m_geomSize + 0.1f, m_numDivisions);
+	
 
 	
 	//m_ptrFBO = new FBO(m_heightMapId, textureSize, textureSize);
@@ -47,57 +47,13 @@ void HeightMap::SwapHeightMap(HeightMap* heightMap){
 
 }
 
-void HeightMap::Render(double elapsedTime, RenderingShader* ptrRenderingShader){
-	if(m_time > 1) m_time -= elapsedTime;
-
-
-	//m_ptrRenderingShader->Enable();
-
-	glEnable(GL_TEXTURE_2D);
-	
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, m_heightMapId);
-	
-	glUniform1f(ptrRenderingShader->m_locTime, m_time);
-	glUniform1f(ptrRenderingShader->m_locGPUGenerated, 1.0);
-	glUniform1f(ptrRenderingShader->m_locShowHeightMap, conf_showHeightMap);
-	glUniform1f(ptrRenderingShader->m_locShowLight, conf_showLight);
-	glUniform1f(ptrRenderingShader->m_locShowBlendTexture, conf_showBlendTexture);
-	glUniform1f(ptrRenderingShader->m_locShowVerticesDisplacement, conf_showVerticesDisplacement);
-	
-	/*
-	for(int i=0; i<4; i++)
-	{
-		glUniform1i(m_ptrRenderingShader->m_locBlendTextures[i], 0);
-		glActiveTexture(GL_TEXTURE1+i);
-		glBindTexture(GL_TEXTURE_2D, m_ptrBlendTextures[i]);
-		
-	}
-	*/
-	
-	
-	
-
-	
-	//TODO: do it only once, after generating the heightmap
-	//there is no need to do it every frame: http://www.gamedev.net/community/forums/mod/journal/journal.asp?jn=530427&reply_id=3450696
-	//glUniform1i(m_ptrTerrainRenderingShader->m_locTexture, 0);
-	
-
-	m_face->Render();
-
-	glBindTexture(GL_TEXTURE_2D, 0);
-	glDisable(GL_TEXTURE_2D);
-
-	//m_ptrRenderingShader->Disable();
-
-}
 
 //TODO: calculate the normal of the heightmap on the generation shader (instead of calculating it each frame on the rendering shader)
 void HeightMap::GenerateGPU(GenerationShader* ptrGenerationShader, Vector3<float> globalPosition){
 
-
+	#ifdef DEBUG_PRINT
 	float time = glfwGetTime();
+	#endif
 
 
 	//Simple square has to have the same size as the FBO
@@ -136,9 +92,11 @@ void HeightMap::GenerateGPU(GenerationShader* ptrGenerationShader, Vector3<float
 
 	FinishGeneration();
 
+	#ifdef DEBUG_PRINT
 	time = glfwGetTime() - time;
-	cout << time * 1000.0f;
+	cout << "OpenGL calls time (not really the GPU generation time):" << time;
 	cout << "\n";
+	#endif
 	
 
 }
@@ -158,9 +116,15 @@ void* HeightMap::CreateThread(void* ptr){
 }
 
 void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
+	
+
+	SetThreadAffinityMask(GetCurrentThread(), 1);
 
 	BeginGeneration();
 
+	#ifdef DEBUG_PRINT
+	float time = glfwGetTime();
+	#endif
 	
 	float height = 0;
 	int cont = 0;
@@ -174,7 +138,7 @@ void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
 			height = HeightMap::ridgedmf(ptrPermArray, position, m_octaves, m_gain, m_lacunarity, m_offset) * 250.0f;
 			//m_face->m_vertices[cont].z = (i + j) / 100.0;
 			
-			//TODO: improve that
+			//TODO: improve that, there is no need to store the same info three times
 			m_heightMapArray[cont] = height;
 			m_heightMapArray[cont+1] =height;
 			m_heightMapArray[cont+2] = height;
@@ -185,13 +149,19 @@ void HeightMap::GenerateCPU(char* ptrPermArray, Vector3<float> globalPosition){
 		}
 	}
 
-	float time = glfwGetTime();
+	#ifdef DEBUG_PRINT
+	time = glfwGetTime() - time;
+	cout << "CPU Generation time:" << time;
+	cout << "\n";
+	#endif
 
 	TransferToTexture();
 
+	#ifdef DEBUG_PRINT
 	time = glfwGetTime() - time;
-	cout << time * 1000.0f;
+	cout << "CPU Transfer to Texture time:" << time;
 	cout << "\n";
+	#endif
 
 	
 	
@@ -220,7 +190,7 @@ void HeightMap::FinishGeneration(){
 
 void HeightMap::TransferToTexture(){
 	
-	if(glIsTexture(m_heightMapId)) return;
+	//if(glIsTexture(m_heightMapId)) return;
 
 
 	glGenTextures(1, &m_heightMapId);
