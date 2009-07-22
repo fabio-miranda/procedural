@@ -1,11 +1,11 @@
 \section{Trabalhos relacionados}
 \label{trabalhosRelacionados}
 
-A base para a geração procedural de terrenos é o ruído Perlin \cite{perlinNoise}, uma função pseudo-aleatória que, dado uma entrada (posição), retorna um valor que possui uma suave transição com os seus vizinhos. Em \cite{improvedPerlinNoise} foi apresentado um ruído Perlin otimizado, que buscou tornar o ruído mais amigável às novas arquiteturas (GPUs), melhorar as propriedades visuais e introduzir uma única versão do ruído que retornaria os mesmos valores independentemente da plataforma de \emph{hardware} ou \emph{software}.
+Uma das técnicas de modelagem procedural de terrenos é o ruído Perlin \cite{perlinNoise}, uma função pseudo-aleatória que, dado uma entrada (posição), retorna um valor que possui uma suave transição com os seus vizinhos. Em \cite{improvedPerlinNoise} foi apresentado um ruído Perlin otimizado, que buscou tornar o ruído mais amigável às novas arquiteturas (GPUs), melhorar as propriedades visuais e introduzir uma única versão do ruído que retornaria os mesmos valores independentemente da plataforma de \emph{hardware} ou \emph{software}.
 
 
 Em \cite{proceduralApproach} são apresentados alguns algoritmos que fazem uso do ruído Perlin e que são capazes de gerar terrenos de uma forma significativamente realista. Podemos citar o algoritmo \emph{fBm}, \emph{heterogenous terrain}, \emph{hybrid multifractal} e \emph{ridged multifractal}, sendo que este último foi o algoritmo utilizado neste trabalho.
 
-Em \cite{carlucio}, os autores apresentam um paradigma para a geração procedural utilizando várias \emph{threads}. Uma implementação é proposta utilizando apenas as unidades de processamento disponíveis na CPU.
+Em \cite{carlucio}, os autores apresentam um paradigma para a modelagem procedural (terrenos, vegetação, etc.) utilizando várias \emph{threads}. Uma implementação é proposta utilizando apenas as unidades de processamento disponíveis na CPU.
 
 A geração procedural utilizando a GPU foi explorada em \cite{generatingComplex} e \cite{Schneider:2006:FractalTerrain}. O primeiro trabalho, faz uso de \emph{geometry shaders} e está limitado às placas de vídeo com suporte a DirectX 10. O segundo trabalho, mais abrangente quanto as placas de vídeo suportadas, gera os terrenos na GPU com o uso de algoritmos multifractais (semelhante ao que é proposto aqui). Nenhum dos dois trabalhos, porém, faz uma comparação entre implementações de geração de terrenos utilizando a CPU e a GPU, e também não buscam uma plataforma que utilize as duas arquiteturas.
