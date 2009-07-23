@@ -25,14 +25,14 @@ Fractais podem ser descritos, segundo \cite{proceduralApproach}, como objetos ge
 
 \begin{figure}[h]
 	\center{\includegraphics[width=0.5\linewidth]{img/fractal.png}}
-	\caption{\label{fig:fractal} Exemplo de um fractal a pertir de ruído Perlin.}
+	\caption{\label{fig:fractal} Exemplo de um fractal a partir de ruído Perlin.}
 \end{figure}
 
 Os três ruídos Perlin estão em escalas diferentes e, uma vez somados, formam um fractal, segundo a definição citada. Multifractais já são um subgrupo caracterizado pela variação de sua dimensão fractal ao longo de sua localização.
 
 
-\subsection{Ridged Multifractal Noise}
-O \emph{Ridged multifractal noise} é uma variação do ruído Perlin, e foi apresentado em \cite{proceduralApproach}. O principal ponto do algoritmo é que ele captura a \emph{heterogeneidade de terrenos em grande escala}, apresentando montanhas, planaltos e crateras. Os seguintes parâmetros são levados em consideração na execução do algoritmo:
+\subsection{Ridged Multifractal}
+O \emph{Ridged multifractal} é um modelo para geração de terrenos apresentado em \cite{proceduralApproach}. O seu principal ponto é a captura da \emph{heterogeneidade de terrenos em grande escala}, apresentando montanhas, planaltos e crateras. Os seguintes parâmetros são levados em consideração na execução do algoritmo:
 
 \begin{itemize}
 	\item \textbf{Octaves:} Número de iterações (e, consequentemente somas) feitas sobre a função de ruído.
