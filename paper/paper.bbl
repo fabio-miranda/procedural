@@ -26,9 +26,6 @@
 \newblock Addison-Wesley Professional, ch.~1 Generating Complex Procedural
   Terrains Using the GPU, 7--37.
 
-\bibitem[\protect\citename{nvF }]{nvFence}
-Gl\_nv\_fence.
-
 \bibitem[\protect\citename{Perlin }1985]{perlinNoise}
 {\sc Perlin, K.}
 \newblock 1985.
@@ -55,8 +52,5 @@ Gl\_nv\_fence.
 \newblock Real-time editing, synthesis, and rendering of infinite landscapes on
   {GPU}s.
 \newblock In {\em Vision, Modeling and Visualization 2006}.
-
-\bibitem[\protect\citename{tim }]{timerQuery}
-Gl\_ext\_timer\_query.
 
 \end{thebibliography}

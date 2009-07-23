@@ -1,4 +1,8 @@
 \section{Conceitos básicos}
+
+A modelagem procedural de terrenos pode ser feita através da construção de mapas de altura dos terrenos. Para a geração destes mapas, as técnicas mais utilizadas são as baseadas em ruídos, como será apresentado a seguir.
+
+
 \label{conceitosBasicos}
 \subsection{Ruído Perlin}
 O ruído Perlin foi criado pelo Professor Ken Perlin \cite{perlinNoise}, da \emph{New York University} e é usado para simular estruturas naturais, como nuvens, texturas de árvores, e terrenos.
@@ -18,7 +22,7 @@ O resultado, como pode ser visto na Figura \ref{fig:noise}, apresenta transições
 	\caption{\label{fig:noise} \emph{Esquerda:} Ruído aleatório. \emph{Direita:} Ruído Perlin.}
 \end{figure}
 
-As características fundamentais do ruído Perlin são então a sua aparente aleatoriedade (ao menos para o olho humano); sua capacidade de ser reproduzido, dado os mesmos valores dos gradientes; e sua transição suave entre valores.
+As características fundamentais do ruído Perlin são a sua aparente aleatoriedade (ao menos para o olho humano); sua capacidade de ser reproduzido, dado os mesmos valores dos gradientes; e sua transição suave entre valores.
 
 \subsection{Fractais}
 Fractais podem ser descritos, segundo \cite{proceduralApproach}, como objetos geométricos complexos, na qual a complexidade surge da repetição de uma forma em uma extensão de escalas. Um exemplo simples pode ser visto na Figura \ref{fig:fractal}:

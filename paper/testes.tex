@@ -1,20 +1,12 @@
-\begin{figure*}
-	\center{\includegraphics[width=0.8\linewidth]{img/fps_single.pdf}}
-	\caption{\label{fig:fps} Gráfico com o FPS na navegação pelo mundo durante 60 segundos.}
-\end{figure*}
-
-\begin{figure*}
-	\center{\includegraphics[width=0.8\linewidth]{img/fps_multi.pdf}}
-	\caption{\label{fig:fps} Gráfico com o FPS na navegação pelo mundo durante 60 segundos.}
-\end{figure*}
-
-
 \section{Testes}
 \label{testes}
 
 
-Para verificar a eficiência das gerações na CPU e GPU, foi feito um teste que consiste na navegação por um trajeto constante durante 60 segundos. O computador utilizado foi um \emph{Core 2 Duo E7400}, com 2GB de memória \emph{RAM} e placa de vídeo \emph{ATI Radeon HD 4850} com 512MB de memória \emph{RAM}, e \emph{driver} versão 8.612. As seguintes configurações foram utilizadas para a geração procedural: 8 \emph{octaves}, \emph{lacunarity} igual a 2.5, \emph{gain} igual a 0.5,  \emph{offset} como 0.9, número de vizinhos referente ao \emph{patch} central igual a 2,  tamanho de textura 256. A resolução do programa foi de 1280 x 720.
+Para verificar a eficiência das gerações na CPU e GPU, foi feito um experimento que consiste na navegação por um trajeto constante durante 300 segundos. O computador utilizado foi um \emph{Core 2 Duo E7400}, com 2GB de memória \emph{RAM} e placa de vídeo \emph{ATI Radeon HD 4850} com 512MB de memória \emph{RAM}, e \emph{driver} versão 8.612. As seguintes configurações foram utilizadas para a geração procedural: 8 \emph{octaves}, \emph{lacunarity} igual a 2.5, \emph{gain} igual a 0.5,  \emph{offset} como 0.9, número de vizinhos referente ao \emph{patch} central igual a 2,  tamanho de textura 256. A resolução do programa foi de 1280 x 720.
 
-Quatro testes foram executados, cada um com uma configuração diferente de utilização da CPU e GPU. O primeiro teste foi executado somente na GPU ($\alpha$ = 1); o segundo somente na CPU ($\alpha$ = 0) e utilizando uma única \emph{thread} para todo o programa; os testes três e quatro foram executados tanto na GPU quanto na CPU, sendo que o teste três utilizou uma única \emph{thread} e o teste três utilizou um esquema \emph{multithread} para a geração na CPU.
+%Quatro experimentos foram executados, cada um com uma configuração diferente de utilização da CPU e GPU. O primeiro experimento foi executado somente na GPU ($\alpha$ = 1); o segundo somente na CPU ($\alpha$ = 0) e utilizando uma única \emph{thread} para todo o programa; os experimentos três e quatro foram executados tanto na GPU quanto na CPU, sendo que o experimento três utilizou uma única \emph{thread} e o experimento três utilizou um esquema \emph{multithread} para a geração na CPU.
 
-Como é possível ver através da Figura \ref{fig:fps}, a utilização da geração apenas na GPU se mostrou a mais vantajosa. No computador utilizado, nenhuma queda no \emph{frame rate} foi percebida. A geração totalmente na CPU (utilizando várias \emph{threads}) se mostrou também bastante eficiente. Pequenas quedas no \emph{frame rate} ocorreram devido a transferência das texturas da memória principal para a memória da placa de vídeo. Como era de se esperar, a geração na CPU com apenas uma \emph{thread} se mostrou impraticável do ponto de vista da fluidez da navegação.
+Quatro experimentos foram executados, cada um com uma configuração diferente de utilização da CPU e GPU. Os dois primeiros experimentos (Figura \ref{fig:fpssingle}) foram executados utilizando a GPU e uma única \emph{thread} na CPU. Os experimentos três e quatro (Figura \ref{fig:fpsmulti}) utilizaram a GPU e múltiplas \emph{threads} na CPU. A carga de geração dos terrenos foi dividida igualmente entre as duas arquiteturas em todos os experimentos ($\alpha$ = 0.5).
+
+%Como é possível ver através da Figura \ref{fig:fps}, a utilização da geração apenas na GPU se mostrou a mais vantajosa. No computador utilizado, nenhuma queda no \emph{frame rate} foi percebida. A geração totalmente na CPU (utilizando várias \emph{threads}) se mostrou também bastante eficiente. Pequenas quedas no \emph{frame rate} ocorreram devido a transferência das texturas da memória principal para a memória da placa de vídeo. Como era de se esperar, a geração na CPU com apenas uma \emph{thread} se mostrou impraticável do ponto de vista da fluidez da navegação.
+
