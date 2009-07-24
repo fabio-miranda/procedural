@@ -1,7 +1,7 @@
 \section{Metodologia Proposta}
 \label{proposta}
 
-
+O sistema proposto tem como objetivo gerar proceduralmente os terrenos tanto na GPU quanto na CPU a medida em que o usuário percorra o terreno. Portanto, foi preciso estabelecer uma base comum às duas arquiteturas.
 
 O terreno geral é dividido em terrenos retangulares menores (chamados \emph{patches}), como mostra o \emph{grid} da Figura \ref{fig:resultados:grid}. Dessa forma, apenas \emph{patches} de interesse do usuário (que estão mais próximos, por exemplo) precisarão ser gerados.
 
@@ -22,7 +22,7 @@ A Figura \ref{fig:geracao} mostra como se dá o fluxo de geração.
 \end{figure}
 
 
-As requisições por novos terrenos serão adicionadas a uma fila e uma política \emph{First In, First Out} (FIFO) será utilizada para decidir qual terreno será gerado. Como é possível ver na Figura \ref{fig:geracao}, o número de filas existentes no sistema será igual ao número de vizinhos do \emph{patch} central. Dessa forma, é possível decidir quais terrenos serão gerados a partir de sua distância do \emph{patch} central.
+As requisições por novos terrenos serão adicionadas a uma fila e uma política \emph{First In, First Out} (FIFO) será utilizada para decidir qual terreno será gerado. Como é possível ver na Figura \ref{fig:geracao}, o número de filas existentes no sistema será igual ao número de vizinhos do \emph{patch} central. Dessa forma, é possível decidir quais terrenos serão gerados a partir de sua distância da câmera.
 
 A \emph{thread 0} (principal) ficará encarregada da requisição para gerar novos eventos, avaliação da fila, avaliação da arquitetura a ser utilizada (GPU ou CPU), e também será responsável pelas chamadas às funções OpenGL, incluindo aquelas responsáveis por iniciar a execução das instruções que serão executadas na GPU. A geração na CPU ocorrerá em outras \emph{threads}, não a principal.
 

@@ -1,4 +1,4 @@
-\section{Testes}
+\section{Resultados Experimentais}
 \label{testes}
 
 
@@ -9,4 +9,8 @@ Para verificar a eficiência das gerações na CPU e GPU, foi feito um experimento 
 Quatro experimentos foram executados, cada um com uma configuração diferente de utilização da CPU e GPU. Os dois primeiros experimentos (Figura \ref{fig:fpssingle}) foram executados utilizando a GPU e uma única \emph{thread} na CPU. Os experimentos três e quatro (Figura \ref{fig:fpsmulti}) utilizaram a GPU e múltiplas \emph{threads} na CPU. A carga de geração dos terrenos foi dividida igualmente entre as duas arquiteturas em todos os experimentos ($\alpha$ = 0.5).
 
 %Como é possível ver através da Figura \ref{fig:fps}, a utilização da geração apenas na GPU se mostrou a mais vantajosa. No computador utilizado, nenhuma queda no \emph{frame rate} foi percebida. A geração totalmente na CPU (utilizando várias \emph{threads}) se mostrou também bastante eficiente. Pequenas quedas no \emph{frame rate} ocorreram devido a transferência das texturas da memória principal para a memória da placa de vídeo. Como era de se esperar, a geração na CPU com apenas uma \emph{thread} se mostrou impraticável do ponto de vista da fluidez da navegação.
+
+Como mostra os experimentos exibidos na Figura \ref{fig:fpssingle}, a geração utilizando uma \emph{thread} na CPU possui quedas bruscas no \emph{framerate}, com momentos em que este chega até a 2 FPS; O \emph{framerate} médio fica em 51.79. Com a geração conjunta na GPU, as quedas são sensivelmente menores, nunca caindo abaixo dos 15 FPS, e o \emph{framerate} médio fica em 60.94.
+
+Utilizando uma configuração do sistema com múltiplas \emph{threads} (Figura \ref{fig:fpsmulti}), é possível notar algumas quedas do \emph{framerate}, embora a navegação seja consideravelmente mais fluida do que a obtida utilizando apenas uma única \emph{thread}. O \emph{framerate} mínimo nessa situação foi de 10 FPS, e a média durante a navegação foi de 68.08 FPS. Utilizando a geração em conjunto na GPU, o \emph{framerate} nunca ficou abaixo de 65 FPS, e a média foi de 70.45 FPS.
 
