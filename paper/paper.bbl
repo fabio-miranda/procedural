@@ -1,17 +1,15 @@
 \begin{thebibliography}{\protect\citename{Prusinkiewicz and Lindenmayer }1996}
 
+\bibitem[\protect\citename{[blind review] }]{carlucio}
+{\sc [blind review]}.
+\newblock [blind review] paper info hidden due to blind review.
+\newblock {\em [blind review]\/}.
+
 \bibitem[\protect\citename{Chen et~al\mbox{.} }2008]{Chen:Street:2008}
 {\sc Chen, G., Esch, G., Wonka, P., Muller, P., and Zhang, E.}
 \newblock 2008.
 \newblock Interactive procedural street modeling.
 \newblock {\em ACM Trans. Graph. 27}, 3.
-
-\bibitem[\protect\citename{Cordeiro and Chaimowicz }]{carlucio}
-{\sc Cordeiro, C.~S., and Chaimowicz, L.}
-\newblock Parallel lazy amplification: Real-time procedural modeling and
-  rendering of multi-terabyte scenes on a single pc.
-\newblock {\em VII Brazilian Symposium on Computer Games and Digital
-  Entertainment, 2008, Belo Horizonte. SBGames 2008\/}.
 
 \bibitem[\protect\citename{Ebert et~al\mbox{.} }2002]{proceduralApproach}
 {\sc Ebert, D.~S., Musgrave, F.~K., Peachey, D., Perlin, K., and Worley, S.}
