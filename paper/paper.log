@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.7.22)  24 JUL 2009 01:35
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.7.22)  27 JUL 2009 23:19
 entering extended mode
 **paper.tex
 (paper.tex
@@ -179,37 +179,30 @@ Underfull \hbox (badness 1394) in paragraph at lines 2--3
 cia da
  []
 
-) (trabalhosRelacionados.tex) (contribuicoes.tex
-Underfull \hbox (badness 5008) in paragraph at lines 4--5
-[]\OT1/ptm/m/n/9 Portanto, o tra-ba-lho apre-sen-tado aqui pos-sui as se-guin-t
-es
- []
-
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 7.
-("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\omsptm.fd"
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
-)
-(conceitosBasicos.tex
+) (trabalhosRelacionados.tex) (conceitosBasicos.tex
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 7.
  [1{C:/Documents and Settings/All Users/Application Data/MiKTeX/2.7/pdftex/conf
 ig/pdftex.map}
 
 
- <img/teaser.png (PNG copy)>]
-<img/noise.png, id=11, 768.8725pt x 285.065pt>
+ <img/teaser.png (PNG copy)>] <img/noise.png, id=10, 768.8725pt x 285.065pt>
 File: img/noise.png Graphic file (type png)
- <use img/noise.png>
-<img/fractal.png, id=12, 590.205pt x 128.48pt>
+
+<use img/noise.png> <img/fractal.png, id=11, 590.205pt x 128.48pt>
 File: img/fractal.png Graphic file (type png)
- <use img/fractal.png>)
-(proposta.tex <img/caps/grid.png, id=13, 963.6pt x 542.025pt>
+
+<use img/fractal.png>
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 42.
+ ("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
+) (proposta.tex <img/caps/grid.png, id=12, 963.6pt x 542.025pt>
 File: img/caps/grid.png Graphic file (type png)
 
-<use img/caps/grid.png> <img/geracao.pdf, id=14, 626.34pt x 455.7025pt>
+<use img/caps/grid.png> <img/geracao.pdf, id=13, 626.34pt x 455.7025pt>
 File: img/geracao.pdf Graphic file (type pdf)
 
 <use img/geracao.pdf> [2 <img/noise.png (PNG copy)> <img/fractal.png (PNG copy)
@@ -219,23 +212,26 @@ Underfull \hbox (badness 6825) in paragraph at lines 39--40
 ao
  []
 
-<img/caps/malha.png, id=42, 963.6pt x 542.025pt>
+<img/caps/malha.png, id=43, 963.6pt x 542.025pt>
 File: img/caps/malha.png Graphic file (type png)
  <use img/caps/malha.png>
-<img/texturas.pdf, id=43, 682.55pt x 227.85126pt>
+<img/texturas.pdf, id=44, 682.55pt x 227.85126pt>
 File: img/texturas.pdf Graphic file (type pdf)
- <use img/texturas.pdf>)
-(figuras.tex <img/fps_single.pdf, id=45, 626.34pt x 198.7425pt>
+ <use img/texturas.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (figuras.tex <img/fps_single.pdf, id=46, 626.34pt x 198.7425pt>
 File: img/fps_single.pdf Graphic file (type pdf)
 
-<use img/fps_single.pdf> <img/fps_multi.pdf, id=47, 626.34pt x 198.7425pt>
+<use img/fps_single.pdf> <img/fps_multi.pdf, id=48, 626.34pt x 198.7425pt>
 File: img/fps_multi.pdf Graphic file (type pdf)
 
 <use img/fps_multi.pdf>) (implementacao.tex
-<img/bibliotecas.pdf, id=49, 483.8075pt x 156.585pt>
+<img/bibliotecas.pdf, id=50, 483.8075pt x 156.585pt>
 File: img/bibliotecas.pdf Graphic file (type pdf)
  <use img/bibliotecas.pdf>
-<img/arquitetura.pdf, id=51, 614.295pt x 398.3386pt>
+<img/arquitetura.pdf, id=52, 614.295pt x 398.3386pt>
 File: img/arquitetura.pdf Graphic file (type pdf)
  <use img/arquitetura.pdf>
 [3 <img/caps/malha.png (PNG copy)> <img/texturas.pdf> <img/bibliotecas.pdf> <im
@@ -251,8 +247,8 @@ Underfull \hbox (badness 1616) in paragraph at lines 8--75
 
 (paper.bbl) [4 <img/fps_single.pdf> <img/fps_multi.pdf>] (paper.aux) ) 
 Here is how much of TeX's memory you used:
- 2605 strings out of 95278
- 36937 string characters out of 1182514
+ 2602 strings out of 95278
+ 36894 string characters out of 1182514
  116828 words of memory out of 1500000
  5780 multiletter control sequences out of 110000
  21398 words of font info for 41 fonts, out of 3000000 for 5000
@@ -266,7 +262,7 @@ uesky/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr9.pfb
 s/MiKTeX 2.7/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.7/f
 onts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/ti
 mes/utmr8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (4 pages, 1740554 bytes).
+Output written on paper.pdf (4 pages, 1740244 bytes).
 PDF statistics:
  152 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
