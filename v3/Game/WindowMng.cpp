@@ -33,7 +33,7 @@ void WindowMng::GLInit(){
 	
 
 	// Set window title
-    glfwSetWindowTitle( "GPU Procedural Terrain" );
+    glfwSetWindowTitle( "Game Layer" );
 
 	// Enable sticky keys
     glfwEnable( GLFW_STICKY_KEYS );

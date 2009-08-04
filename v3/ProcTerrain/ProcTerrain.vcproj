@@ -18,9 +18,9 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\ProcTerrain\bin"
+			OutputDirectory="$(SolutionDir)\ProcTerrain\lib"
 			IntermediateDirectory="$(SolutionDir)\ProcTerrain\obj\$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="4"
 			CharacterSet="1"
 			>
 			<Tool
@@ -60,19 +60,11 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib ws2_32.lib"
-				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
-				LinkIncremental="2"
-				GenerateDebugInformation="true"
-				SubSystem="1"
-				TargetMachine="1"
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\$(ConfigurationName)\$(ProjectName).lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -84,17 +76,14 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\ProcTerrain\bin"
+			OutputDirectory="$(SolutionDir)\ProcTerrain\lib"
 			IntermediateDirectory="$(SolutionDir)\ProcTerrain\obj\$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -135,21 +124,11 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib ws2_32.lib"
-				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
-				LinkIncremental="1"
-				GenerateDebugInformation="true"
-				SubSystem="1"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				TargetMachine="1"
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\$(ConfigurationName)\$(ProjectName).lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -161,17 +140,14 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release-without whole code optmization|Win32"
-			OutputDirectory="$(SolutionDir)\ProcTerrain\bin"
+			OutputDirectory="$(SolutionDir)\ProcTerrain\lib"
 			IntermediateDirectory="$(SolutionDir)\ProcTerrain\obj\$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -213,21 +189,11 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib opengl32.lib glu32.lib ws2_32.lib"
-				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
-				LinkIncremental="1"
-				GenerateDebugInformation="true"
-				SubSystem="1"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				TargetMachine="1"
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\$(ConfigurationName)\$(ProjectName).lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -237,9 +203,6 @@
 			/>
 			<Tool
 				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -280,10 +243,6 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\Camera.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\ProcTerrain\Util\FBO.cpp"
 				>
 			</File>
@@ -297,10 +256,6 @@
 			</File>
 			<File
 				RelativePath=".\ProcTerrain\HeightMap\HeightMap.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\main.cpp"
 				>
 			</File>
 			<File
@@ -331,10 +286,6 @@
 				RelativePath=".\ProcTerrain\Util\VBOSquare.cpp"
 				>
 			</File>
-			<File
-				RelativePath=".\WindowMng.cpp"
-				>
-			</File>
 			<Filter
 				Name="ProceduralTerrain"
 				>
@@ -349,10 +300,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\Camera.h"
-				>
-			</File>
 			<File
 				RelativePath=".\ProcTerrain\Config.cpp"
 				>
@@ -386,10 +333,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Util\Random.h"
-				>
-			</File>
-			<File
 				RelativePath=".\ProcTerrain\Shaders\RenderingShader.h"
 				>
 			</File>
@@ -418,19 +361,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Util\Vector2.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Util\Vector3.h"
-				>
-			</File>
-			<File
 				RelativePath=".\ProcTerrain\Util\Vertex.h"
-				>
-			</File>
-			<File
-				RelativePath=".\WindowMng.h"
 				>
 			</File>
 			<Filter

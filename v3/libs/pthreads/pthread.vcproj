@@ -16,8 +16,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\lib\$(ConfigurationName)\"
-			IntermediateDirectory="$(ConfigurationName)"
+			OutputDirectory="lib\$(ConfigurationName)\"
+			IntermediateDirectory="obj\$(ConfigurationName)\"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -96,8 +96,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\lib\$(ConfigurationName)\"
-			IntermediateDirectory="$(ConfigurationName)"
+			OutputDirectory="lib\$(ConfigurationName)\"
+			IntermediateDirectory="obj\$(ConfigurationName)\"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
