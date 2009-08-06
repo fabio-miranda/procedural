@@ -349,12 +349,48 @@ void container_base<r_option>::draw_cells_gnuplot(const char *filename,fpoint xm
 	os.close();
 }
 
+//[[fabio]]
+template<class r_option>
+CellInfo* container_base<r_option>::get_cell_vertices(int index) {
+	fpoint x, y, z, px,py,pz;
+
+	fpoint xmin = ax;
+	fpoint xmax = bx;
+	fpoint ymin = ay;
+	fpoint ymax = by;
+	fpoint zmin = az;
+	fpoint zmax = bz;
+
+	voropp_loop l1(this);
+	int s;
+	CellInfo* cell = new CellInfo();
+	voronoicell c;
+
+	s=l1.init(xmin,xmax,ymin,ymax,zmin,zmax,px,py,pz);
+
+	do {
+		x=p[s][sz*index]+px;y=p[s][sz*index+1]+py;z=p[s][sz*index+2]+pz;
+		if(compute_cell(c,l1.ip,l1.jp,l1.kp,s,index,x,y,z))
+			cell = c.get_vertices(x,y,z);
+	} while((s=l1.inc(px,py,pz))!=-1);
+
+	
+
+
+
+	return cell;
+
+
+}
+
 /** If only a filename is supplied to draw_cells_gnuplot(), then assume that we are
  * calculating the entire simulation region. */
 template<class r_option>
 void container_base<r_option>::draw_cells_gnuplot(const char *filename) {
 	draw_cells_gnuplot(filename,ax,bx,ay,by,az,bz);
 }
+
+
 
 /** Computes the Voronoi cells for all particles within a box with corners
  * (xmin,ymin,zmin) and (xmax,ymax,zmax), and saves the output in a format

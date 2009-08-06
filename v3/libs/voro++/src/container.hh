@@ -47,6 +47,10 @@ class container_base {
 		void region_count();
 		void clear();
 		void draw_cells_gnuplot(const char *filename,fpoint xmin,fpoint xmax,fpoint ymin,fpoint ymax,fpoint zmin,fpoint zmax);
+	
+		//[[fabio]]
+		CellInfo* get_cell_vertices(int index);
+
 		inline void draw_cells_gnuplot(const char *filename);
 		void draw_cells_pov(const char *filename,fpoint xmin,fpoint xmax,fpoint ymin,fpoint ymax,fpoint zmin,fpoint zmax);
 		inline void draw_cells_pov(const char *filename);

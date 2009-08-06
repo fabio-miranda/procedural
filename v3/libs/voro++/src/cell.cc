@@ -1580,6 +1580,42 @@ void voronoicell_base<n_option>::draw_gnuplot(ostream &os,fpoint x,fpoint y,fpoi
 	}
 }
 
+
+//[[fabio]]
+template<class n_option>
+CellInfo* voronoicell_base<n_option>::get_vertices(fpoint x,fpoint y,fpoint z) {
+	
+	CellInfo* cell = new CellInfo();
+	cell->vertices = new double[9*p];
+	cell->size = 9*p;
+
+	int cont = 0;
+
+	int i,j,k;fpoint ux,uy,uz;
+	for(i=0;i<p;i++) {
+		ux=x+0.5*pts[3*i];uy=y+0.5*pts[3*i+1];uz=z+0.5*pts[3*i+2];
+		for(j=0;j<nu[i];j++) {
+			k=ed[i][j];
+			if (ed[i][j]<i){
+				cell->vertices[cont] = ux;
+				cell->vertices[cont+1] = uy;
+				cell->vertices[cont+2] = uz;
+
+				cell->vertices[cont+3] = x+0.5*pts[3*k];
+				cell->vertices[cont+4] = y+0.5*pts[3*k+1];
+				cell->vertices[cont+5] = z+0.5*pts[3*k+2];
+
+				cont+=6;
+
+				//cout << ux << " " << uy << " " << uz << "\n" << x+0.5*pts[3*k] << " " << y+0.5*pts[3*k+1] << " " << z+0.5*pts[3*k+2] << "\n\n\n";
+
+			}
+		}
+	}
+
+	return cell;
+}
+
 /** An overloaded version of the draw_gnuplot routine that writes directly to
  * a file.
  * \param[in] filename The name of the file to write to.
@@ -1759,12 +1795,14 @@ void voronoicell_base<n_option>::facets(ostream &os) {
 		for(j=0;j<nu[i];j++) {
 			k=ed[i][j];
 			if (k>=0) {
-				neighbor.print(os,i,j);
+				cout << "( " << pts[3*i] << ", " << pts[3*i +1] << ", " << pts[3*i + 2] << ")";
+				//neighbor.print(os,i,j);
 				ed[i][j]=-1-k;
 				l=cycle_up(ed[i][nu[i]+j],k);
 				do {
 					os << " ";
-					neighbor.print(os,k,l);
+					cout << "( " << pts[3*k] << ", " << pts[3*k +1] << ", " << pts[3*k + 2] << ")";
+					//neighbor.print(os,k,l);
 					m=ed[k][l];
 					ed[k][l]=-1-m;
 					l=cycle_up(ed[k][nu[k]+l],m);

@@ -25,6 +25,13 @@ void voropp_fatal_error(const char *p,int status) {
 	exit(status);
 }
 
+
+//[[fabio]]
+struct CellInfo{
+	int size;
+	double* vertices;
+};
+
 /** \brief A class to reliably carry out floating point comparisons, storing
  * marginal cases for future reference.
  *
@@ -172,6 +179,10 @@ class voronoicell_base {
 		inline void draw_pov_mesh(const char *filename,fpoint x,fpoint y,fpoint z);
 		inline void draw_pov_mesh(fpoint x,fpoint y,fpoint z);
 		void draw_gnuplot(ostream &os,fpoint x,fpoint y,fpoint z);
+
+		//[[fabio]]
+		CellInfo* get_vertices(fpoint x,fpoint y,fpoint z);
+
 		inline void draw_gnuplot(const char *filename,fpoint x,fpoint y,fpoint z);
 		inline void draw_gnuplot(fpoint x,fpoint y,fpoint z);
 		inline void check_relations();
