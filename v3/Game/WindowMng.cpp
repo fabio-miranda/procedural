@@ -95,11 +95,12 @@ bool WindowMng::isRunning(){
 
 void WindowMng::UpdateKeyboard(){
 	m_camera->UpdateKeyboard();
-
+	
 	if(glfwGetKey( '1' ) && m_pressingKey == false){
 		conf_showWireFrame = !conf_showWireFrame;
 		m_pressingKey = true;
 	}
+	/*
 	else if(glfwGetKey( '2' ) && m_pressingKey == false){
 		conf_showHeightMap = !conf_showHeightMap;
 		m_pressingKey = true;
@@ -116,6 +117,7 @@ void WindowMng::UpdateKeyboard(){
 		conf_showLight = !conf_showLight;
 		m_pressingKey = true;
 	}
+	*/
 
 	
 	

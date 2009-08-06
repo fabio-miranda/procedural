@@ -29,7 +29,7 @@ void Camera::UpdateKeyboard(){
 		m_pos.AddX(float(sin(z_rotation)) * m_speed);
 		m_pos.AddY(float(cos(z_rotation)) * m_speed) ;
 
-		m_benchmark = true;
+		//m_benchmark = true;
 		
 		/*
 		float x_rotation;

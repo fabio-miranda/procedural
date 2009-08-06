@@ -1809,6 +1809,8 @@ int voronoicell_base<n_option>::number_of_faces() {
  * \param[in] j The particular plane of interest (ignored in this routine). */ 
 void neighbor_none::print(ostream &os,int i,int j) {
 	os << i;
+
+	
 }
 
 /** An overloaded version of facets() which output the results to the standard

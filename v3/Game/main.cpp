@@ -2,7 +2,8 @@
 //
 
 #include "ProcTerrain/TerrainMng.h"
-#include "ProcTerrain/Scene/SquareNode.h"
+#include "ProcCity/CityMng.h"
+#include "ProcCity/Voronoi/VoronoiDiagramGenerator.h"
 #include "WindowMng.h"
 #include "Camera.h"
 
@@ -15,11 +16,10 @@ int main( int argc, char **argv ){
 
 
 	//Create the terrain
-	//TerrainMng* terrain = new TerrainMng();
-	
+	//TerrainMng* mng = new TerrainMng();
+	//Create the city
+	CityMng* mng = new CityMng();
 
-
-	
 	double currentTime = 0;
 	double elapsedTime = 0;
 	double oldTime = 0;
@@ -31,11 +31,12 @@ int main( int argc, char **argv ){
 		window.GLConfig();
 		window.UpdateKeyboard();
 		window.UpdateMouse();
-		
+
+
 		
 		//===The important stuff
-		//terrain->Update(window.GetCameraPosition());
-		//terrain->Render(elapsedTime);
+		mng->Update(window.GetCameraPosition());
+		mng->Render(elapsedTime);
 		//===
 
 		glfwSwapBuffers();

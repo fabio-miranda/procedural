@@ -41,8 +41,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
+				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads;&quot;../libs/voro++/src&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;GLEW_STATIC;PTW32_STATIC_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -106,8 +106,8 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
+				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads;&quot;../libs/voro++/src&quot;"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;GLEW_STATIC;PTW32_STATIC_LIB"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
@@ -148,7 +148,99 @@
 	</References>
 	<Files>
 		<File
-			RelativePath=".\ProcCity\bla.cpp"
+			RelativePath=".\ProcCity\Scene\CellNode.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Scene\CellNode.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\CityMng.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\CityMng.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Config.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Config.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Defines.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\GUI.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\GUI.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Scene\Node.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Scene\Node.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\Random.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\Segment.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\SimpleSquare.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\SimpleSquare.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\textfile.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\textfile.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\VBO.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\VBO.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\VBOSquare.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\VBOSquare.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\Vector2.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\Vector3.h"
+			>
+		</File>
+		<File
+			RelativePath=".\ProcCity\Util\Vertex.h"
 			>
 		</File>
 	</Files>

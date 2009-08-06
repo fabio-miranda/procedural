@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads;../ProcTerrain"
+				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads;../ProcTerrain;../ProcCity"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib ../ProcTerrain/lib/$(ConfigurationName)/ProcTerrain.lib opengl32.lib glu32.lib ws2_32.lib"
+				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib ../ProcCity/lib/$(ConfigurationName)/ProcCity.lib opengl32.lib glu32.lib ws2_32.lib"
 				OutputFile="$(OutDir)\$(SolutionName)_$(ConfigurationName).exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads;../ProcTerrain"
+				AdditionalIncludeDirectories="../libs/glew/include;../libs/glfw/include;../libs/ftgl/src;../libs/freetype/include;../libs/pthreads;../ProcTerrain;../ProcCity"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -136,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib ../ProcTerrain/lib/$(ConfigurationName)/ProcTerrain.lib opengl32.lib glu32.lib ws2_32.lib"
+				AdditionalDependencies="../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib ../ProcCity/lib/$(ConfigurationName)/ProcCity.lib opengl32.lib glu32.lib ws2_32.lib"
 				OutputFile="$(OutDir)\$(SolutionName)_$(ConfigurationName).exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
