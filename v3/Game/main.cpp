@@ -7,7 +7,6 @@
 #include "WindowMng.h"
 #include "Camera.h"
 
-
 int main( int argc, char **argv ){
 	
 	//The WindowMng is responsable for opening and setting the window (something that the game would do, not the TerrainMng)
@@ -19,6 +18,7 @@ int main( int argc, char **argv ){
 	//TerrainMng* mng = new TerrainMng();
 	//Create the city
 	CityMng* mng = new CityMng();
+
 
 	double currentTime = 0;
 	double elapsedTime = 0;

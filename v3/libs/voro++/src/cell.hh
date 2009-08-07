@@ -30,6 +30,7 @@ void voropp_fatal_error(const char *p,int status) {
 struct CellInfo{
 	int size;
 	double* vertices;
+	double* center;
 };
 
 /** \brief A class to reliably carry out floating point comparisons, storing

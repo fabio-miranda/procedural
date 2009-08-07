@@ -5,6 +5,7 @@
 #include "Util/Random.h"
 #include "Util/Vector3.h"
 #include "Util/Gui.h"
+#include "Util/Segment.h"
 #include "Scene/Node.h"
 #include "Scene/CellNode.h"
 #include "Voronoi/VoronoiDiagramGenerator.h"

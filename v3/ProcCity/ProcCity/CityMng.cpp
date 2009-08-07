@@ -34,15 +34,15 @@ double rnd() {return double(rand())/RAND_MAX;}
 void CityMng::initNodes(){
 	
 	
-	const double x_min=-1,x_max=1;
-	const double y_min=-1,y_max=1;
+	const double x_min=-100,x_max=100;
+	const double y_min=-100,y_max=100;
 	const double z_min=-1,z_max=1;
 
-	const int particles=1;
+	const int particles=12;
 
-	const int n_x=6,n_y=6,n_z=6;
+	const int n_x=1,n_y=1,n_z=1;
 
-	container* con = new container(x_min,x_max,y_min,y_max,z_min,z_max,n_x,n_y,n_z,false,false,false,8);
+	container* con = new container(x_min,x_max,y_min,y_max,z_min,z_max,n_x,n_y,n_z,true,true,true,8);
 
 
 	int i;
@@ -50,14 +50,30 @@ void CityMng::initNodes(){
 	for(i=0;i<particles;i++) {
 		x=x_min+rnd()*(x_max-x_min);
 		y=y_min+rnd()*(y_max-y_min);
-		z=z_min+rnd()*(z_max-z_min);
+		z=0;
 		con->put(i,x,y,z);
 	}
-
-	con->print_facet_information();
+	//con->print_facet_information();
+	//con->draw_cells_gnuplot("gnuplot.dat");
 
 	
+	for(int i=0; i<particles; i++){
+		CellInfo* cellInfo = con->get_cell_vertices(i);
+		
+		CellNode* cellNode = new CellNode();
+		cellNode->SetVertices(cellInfo->size, cellInfo->vertices, cellInfo->center);
 
+		m_parentNode->AddNode(cellNode);
+
+		/*
+		for(int j=0; j<cellInfo->size; i+=6){
+			
+			Segment<double>* segment = new Segment<double>(cellInfo->vertices[i], cellInfo->vertices[i+1], cellInfo->vertices[i+2],
+														   cellInfo->vertices[i+3], cellInfo->vertices[i+4], cellInfo->vertices[i+5]);
+			
+		}
+		*/
+	}
 }
 
 

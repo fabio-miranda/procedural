@@ -363,15 +363,16 @@ CellInfo* container_base<r_option>::get_cell_vertices(int index) {
 
 	voropp_loop l1(this);
 	int s;
-	CellInfo* cell = new CellInfo();
+	CellInfo* cell;
 	voronoicell c;
 
 	s=l1.init(xmin,xmax,ymin,ymax,zmin,zmax,px,py,pz);
 
 	do {
 		x=p[s][sz*index]+px;y=p[s][sz*index+1]+py;z=p[s][sz*index+2]+pz;
-		if(compute_cell(c,l1.ip,l1.jp,l1.kp,s,index,x,y,z))
+		if(compute_cell(c,l1.ip,l1.jp,l1.kp,s,index,x,y,z)){
 			cell = c.get_vertices(x,y,z);
+		}
 	} while((s=l1.inc(px,py,pz))!=-1);
 
 	

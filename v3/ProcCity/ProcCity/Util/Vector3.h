@@ -1,6 +1,7 @@
 #ifndef Vector3_H
 #define Vector3_H
 
+#include "math.h"
 
 template <typename T>
 class Vector3
@@ -61,6 +62,17 @@ public:
 
 	float Dot(const Vector3<T> &vec){
 		return this->list[0] * vec.GetX() + this->list[1] * vec.GetY() + this->list[2] * vec.GetZ();
+
+	}
+
+	void Normalize(){
+		T sum;
+		sum = sqrt(pow(this->list[0],2.0) + pow(this->list[1],2.0) + pow(this->list[2],2.0));
+		this->list[0] = this->list[0] / sum;
+		this->list[1] = this->list[1] / sum;
+		this->list[2] = this->list[2] / sum;
+
+		
 
 	}
 

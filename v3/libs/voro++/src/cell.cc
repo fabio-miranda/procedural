@@ -1587,6 +1587,7 @@ CellInfo* voronoicell_base<n_option>::get_vertices(fpoint x,fpoint y,fpoint z) {
 	
 	CellInfo* cell = new CellInfo();
 	cell->vertices = new double[9*p];
+	cell->center = new double[3];
 	cell->size = 9*p;
 
 	int cont = 0;
@@ -1594,24 +1595,42 @@ CellInfo* voronoicell_base<n_option>::get_vertices(fpoint x,fpoint y,fpoint z) {
 	int i,j,k;fpoint ux,uy,uz;
 	for(i=0;i<p;i++) {
 		ux=x+0.5*pts[3*i];uy=y+0.5*pts[3*i+1];uz=z+0.5*pts[3*i+2];
+
 		for(j=0;j<nu[i];j++) {
 			k=ed[i][j];
 			if (ed[i][j]<i){
-				cell->vertices[cont] = ux;
-				cell->vertices[cont+1] = uy;
-				cell->vertices[cont+2] = uz;
 
-				cell->vertices[cont+3] = x+0.5*pts[3*k];
-				cell->vertices[cont+4] = y+0.5*pts[3*k+1];
-				cell->vertices[cont+5] = z+0.5*pts[3*k+2];
+				//if(uz == -1 && z+0.5*pts[3*k+2] == -1){
+					cell->vertices[cont] = ux;
+					cell->vertices[cont+1] = uy;
+					cell->vertices[cont+2] = uz;
 
-				cont+=6;
+					cell->vertices[cont+3] = x+0.5*pts[3*k];
+					cell->vertices[cont+4] = y+0.5*pts[3*k+1];
+					cell->vertices[cont+5] = z+0.5*pts[3*k+2];
 
-				//cout << ux << " " << uy << " " << uz << "\n" << x+0.5*pts[3*k] << " " << y+0.5*pts[3*k+1] << " " << z+0.5*pts[3*k+2] << "\n\n\n";
+					//cout << ux << " " << uy << " " << uz << "\n" << x+0.5*pts[3*k] << " " << y+0.5*pts[3*k+1] << " " << z+0.5*pts[3*k+2] << "\n\n\n";
+
+					cont+=6;
+
+				//}
 
 			}
 		}
+		
+		
 	}
+	double sum_x = 0;
+	double sum_y = 0;
+	double sum_z = 0;
+	for(int i=0; i<cell->size; i+=3){
+		sum_x += cell->vertices[i];
+		sum_y += cell->vertices[i+1];
+		sum_z += cell->vertices[i+2];
+
+	}
+
+	cell->center[0] = sum_x / (cell->size/3); cell->center[1] = sum_y / (cell->size/3); cell->center[2] = sum_z / (cell->size/3);
 
 	return cell;
 }
