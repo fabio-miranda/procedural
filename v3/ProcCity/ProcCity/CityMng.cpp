@@ -38,7 +38,7 @@ void CityMng::initNodes(){
 	const double y_min=-100,y_max=100;
 	const double z_min=-1,z_max=1;
 
-	const int particles=12;
+	const int particles=20;
 
 	const int n_x=1,n_y=1,n_z=1;
 

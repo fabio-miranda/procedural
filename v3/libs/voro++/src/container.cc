@@ -372,6 +372,8 @@ CellInfo* container_base<r_option>::get_cell_vertices(int index) {
 		x=p[s][sz*index]+px;y=p[s][sz*index+1]+py;z=p[s][sz*index+2]+pz;
 		if(compute_cell(c,l1.ip,l1.jp,l1.kp,s,index,x,y,z)){
 			cell = c.get_vertices(x,y,z);
+
+			//c.neighbors
 		}
 	} while((s=l1.inc(px,py,pz))!=-1);
 
