@@ -20,7 +20,8 @@ public:
 
 private:
 	WindowMng m_window;
-	TerrainMng* m_terrain;
+	TerrainMng* m_terrainMng;
+	CityMng* m_cityMng;
 
 
 	

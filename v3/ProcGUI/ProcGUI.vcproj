@@ -56,7 +56,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib imm32.lib winmm.lib qtmain.lib QtCore.lib QtGui.lib QtOpenGL.lib opengl32.lib glu32.lib"
+				AdditionalDependencies="ws2_32.lib imm32.lib winmm.lib qtmain.lib QtCore.lib QtGui.lib QtOpenGL.lib opengl32.lib glu32.lib ../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib ../ProcTerrain/lib/$(ConfigurationName)/ProcTerrain.lib ../ProcCity/lib/$(ConfigurationName)/ProcCity.lib"
 				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
 				AdditionalLibraryDirectories="$(QTDIR)\lib"
 				GenerateDebugInformation="false"
@@ -125,7 +125,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib imm32.lib winmm.lib qtmain.lib QtCore.lib QtGui.lib QtOpenGL.lib opengl32.lib glu32.lib ../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib ../ProcTerrain/lib/$(ConfigurationName)/ProcTerrain.lib"
+				AdditionalDependencies="ws2_32.lib imm32.lib winmm.lib qtmain.lib QtCore.lib QtGui.lib QtOpenGL.lib opengl32.lib glu32.lib ../libs/glew/lib/$(ConfigurationName)/glew.lib ../libs/glfw/lib/$(ConfigurationName)/glfw.lib ../libs/ftgl/lib/$(ConfigurationName)/ftgl.lib ../libs/freetype/lib/$(ConfigurationName)/freetype.lib ../libs/pthreads/lib/$(ConfigurationName)/pthread.lib ../ProcTerrain/lib/$(ConfigurationName)/ProcTerrain.lib ../ProcCity/lib/$(ConfigurationName)/ProcCity.lib"
 				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).exe"
 				AdditionalLibraryDirectories="$(QTDIR)\lib"
 				GenerateDebugInformation="true"
@@ -311,10 +311,10 @@
 			SourceControlFiles="false"
 			>
 			<File
-				RelativePath=".\GeneratedFiles\Release\moc_MainWindow.cpp"
+				RelativePath=".\GeneratedFiles\Debug\moc_MainWindow.cpp"
 				>
 				<FileConfiguration
-					Name="Debug|Win32"
+					Name="Release|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -323,10 +323,10 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\GeneratedFiles\Debug\moc_MainWindow.cpp"
+				RelativePath=".\GeneratedFiles\Release\moc_MainWindow.cpp"
 				>
 				<FileConfiguration
-					Name="Release|Win32"
+					Name="Debug|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool

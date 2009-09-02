@@ -4,7 +4,8 @@ GLCanvas::GLCanvas( QWidget *parent )
 : QGLWidget(parent)
 {
 	m_window = WindowMng(1280,720);
-	m_terrain = new TerrainMng();
+	//m_terrainMng = new TerrainMng();
+	m_cityMng = new CityMng();
 
 }
 
@@ -22,8 +23,8 @@ void GLCanvas::paintGL()
 	m_window.UpdateKeyboard();
 	m_window.UpdateMouse();
 
-	m_terrain->Update(m_window.GetCameraPosition());
-	m_terrain->Render(0);
+	m_cityMng->Update(m_window.GetCameraPosition());
+	m_cityMng->Render(0);
 }
 
 void GLCanvas::resizeGL()

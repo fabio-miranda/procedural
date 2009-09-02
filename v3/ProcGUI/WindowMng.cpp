@@ -9,11 +9,12 @@ WindowMng::WindowMng(int width, int height){
 	m_height = height;
 	m_pressingKey = false;
 
-	m_camera = new Camera(Vector3<float>(2.5, 2.5, 3), Vector3<float>(0,0,0));
+	m_camera = new Camera(Vector3<float>(2.5, 2.5, 25), Vector3<float>(0,0,0));
 
 }
 
 void WindowMng::GLInit(){
+	/*
 	int ok;
 
 	glfwInit();
@@ -37,6 +38,7 @@ void WindowMng::GLInit(){
 
 	// Set window title
     glfwSetWindowTitle( "Game Layer" );
+	*/
 
 	// Enable sticky keys
     glfwEnable( GLFW_STICKY_KEYS );
