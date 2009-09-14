@@ -6,8 +6,9 @@
 \newblock Interactive procedural street modeling.
 \newblock {\em ACM Trans. Graph. 27}, 3.
 
-\bibitem[\protect\citename{Cordeiro and Chaimowicz }]{carlucio}
+\bibitem[\protect\citename{Cordeiro and Chaimowicz }2008]{carlucio}
 {\sc Cordeiro, C.~S., and Chaimowicz, L.}
+\newblock 2008.
 \newblock Parallel lazy amplification: Real-time procedural modeling and
   rendering of multi-terabyte scenes on a single pc.
 \newblock {\em VII Brazilian Symposium on Computer Games and Digital
