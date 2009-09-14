@@ -32,9 +32,9 @@ A \emph{thread 0} (principal) ficará encarregada da requisição para gerar novos 
 
 O valor da variável $\alpha$ é, atualmente, controlado manualmente pelo usuário.  A sua variação de acordo com a utilização de cada arquitetura será um tema a ser abordado em trabalhos futuros.
 
-Atualmente, a maior dificuldade para medir o tempo de geração tanto na GPU é a falta de um padrão nas extensões disponíveis em OpenGL. A extensão \textbf{GL\_EXT\_timer\_query}, por exemplo, só está disponível em placas NVidia, algo que anularia a possibilidade da execução deste trabalho em placas ATI.
+Atualmente, a maior dificuldade para medir o tempo de geração na GPU é a falta de um padrão nas extensões disponíveis em OpenGL. A extensão \textbf{GL\_EXT\_timer\_query}, por exemplo, só está disponível em placas NVidia, algo que anularia a possibilidade da execução deste trabalho em placas ATI.
 
-A utilização de chamadas como \textbf{glFinish()} para sincronizar a CPU e a GPU e assim medir o tempo de geração dos terrenos poderia prejudicar a performance do sistema, já que pára a execução da CPU enquanto todos os os comandos OpenGL não forem executados.
+A utilização de chamadas como \textbf{glFinish()} para sincronizar a CPU e a GPU e assim medir o tempo de geração dos terrenos poderia prejudicar a performance do sistema, já que pára a execução da CPU enquanto todos os comandos OpenGL não forem executados.
 
 Uma outra opção para a sincronização seria a extensão \textbf{GL\_NV\_fence}, que oferece funções para sincronização semelhantes ao \textbf{glFinish()} e \textbf{glFlush()}, porém com um grau maior de controle sobre quais comandos OpenGL deverão ser executados na chamada. Mais uma vez, porém, a extensão não está disponível para placas ATI.
 
@@ -62,7 +62,7 @@ Como a malha é gerada apenas uma única vez (no início da execução), não é precis
 
 \begin{figure}[h]
 	\center{\includegraphics[width=0.8\linewidth]{img/texturas.pdf}}
-	\caption{\label{fig:texturas} Movimentação da câmera para um outro \emph{patches}.}
+	\caption{\label{fig:texturas} Movimentação da câmera para um outro \emph{patch}.}
 \end{figure}
 
 Na Figura \ref{fig:texturas} é possível notar o deslocamento dos mapas de altura quando a câmera move para o \emph{patch} superior ao (1,1). Para que haja uma transição, uma matriz de translação, com valores iguais ao tamanho do \emph{patch}, é feita e multiplicada à matriz responsável por renderizar todas as primitivas, resultando na translação de todos os \emph{patches}. 

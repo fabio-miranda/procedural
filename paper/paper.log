@@ -1,15 +1,16 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.7.23)  28 JUL 2009 10:10
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=pdflatex 2009.7.22)  13 SEP 2009 20:15
 entering extended mode
 **paper.tex
 (paper.tex
 LaTeX2e <2005/12/01>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman, ngerman, german-x-2008-06-18, ngerman-x-2008-06-18, french, loaded.
+Babel <v3.8l> and hyphenation patterns for portuguese, english, dumylang, nohyp
+henation, german, ngerman, german-x-2008-06-18, ngerman-x-2008-06-18, french, l
+oaded.
 (sbgames.cls
 Document Class: sbgames 2007/04/05 VI SBGAMES
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\article.cls"
+("C:\Program Files\MiKTeX 2.7\tex\latex\base\article.cls"
 Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\size10.clo"
+("C:\Program Files\MiKTeX 2.7\tex\latex\base\size10.clo"
 File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,74 +31,69 @@ File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 \sbc@abs=\toks14
 \sbc@copyrightlength=\skip46
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\generic\babel\babel.sty"
+("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.sty"
 Package: babel 2008/07/06 v3.8l The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
+("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\generic\babel\portuges.ldf"
+("C:\Program Files\MiKTeX 2.7\tex\generic\babel\portuges.ldf"
 Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\generic\babel\babel.def"
+("C:\Program Files\MiKTeX 2.7\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `Portuguese'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@portuges = a dialect from \language0
 \l@brazil = a dialect from \language\l@portuges 
 Package babel Info: Making " an active character on input line 145.
-)) ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\inputenc.sty"
+))
+("C:\Program Files\MiKTeX 2.7\tex\latex\base\inputenc.sty"
 Package: inputenc 2006/05/05 v1.1b Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\base\latin1.def"
+("C:\Program Files\MiKTeX 2.7\tex\latex\base\latin1.def"
 File: latin1.def 2006/05/05 v1.1b Input encoding file
 ))
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\psnfss\times.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\times.sty"
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks17
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
 Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\graphics\trig.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
+("C:\Program Files\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 90.
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
+("C:\Program Files\MiKTeX 2.7\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
 \Gread@gobject=\count88
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\ltxmisc\parskip.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\ltxmisc\parskip.sty"
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\caption\caption.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\caption\caption.sty"
 Package: caption 2008/08/24 v3.1j Customizing captions (AR)
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\caption\caption3.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\caption\caption3.sty"
 Package: caption3 2008/08/24 v3.1j caption3 kernel (AR)
 \captionmargin=\dimen106
 \captionmargin@=\dimen107
@@ -108,28 +104,28 @@ Package: caption3 2008/08/24 v3.1j caption3 kernel (AR)
 )
 \c@ContinuedFloat=\count89
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\ltxmisc\url.sty"
+("C:\Program Files\MiKTeX 2.7\tex\latex\ltxmisc\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 ) (paper.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 39.
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\psnfss\ot1ptm.fd"
+("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-("C:\Arquivos de programas\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
+("C:\Program Files\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count90
 \scratchdimen=\dimen112
@@ -144,143 +140,128 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 52.
- ("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\psnfss\ot1phv.fd"
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 50.
+ ("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 52.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 50.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 52.
+(Font)              <7> on input line 50.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 52.
+(Font)              <5> on input line 50.
 
 <img/teaser.png, id=1, 1284.8pt x 301.125pt>
 File: img/teaser.png Graphic file (type png)
  <use img/teaser.png>
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 52.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 56.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 54.
 
-Underfull \hbox (badness 1097) in paragraph at lines 57--58
-\OT1/ptm/m/n/9 O r[]apido cresci-mento do poder de pro-ces-sa-mento das pla-cas
-
+Underfull \hbox (badness 1097) in paragraph at lines 55--56
+\OT1/ptm/m/n/9 O r[]apido cres-ci-mento do po-der de pro-ces-sa-mento das pla-c
+as
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
+Underfull \hbox (badness 10000) in paragraph at lines 62--62
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 64.
+(Font)              <9> on input line 62.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 64.
-(introducao.tex
+(Font)              <6> on input line 62.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 62.
+("C:\Program Files\MiKTeX 2.7\tex\latex\psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
+ (introducao.tex
 Underfull \hbox (badness 1394) in paragraph at lines 2--3
 \OT1/ptm/m/n/9 A t[]ecnica de gera[][]ao pro-ce-du-ral []e uma []area da Ci[]en
 cia da
  []
 
-) (trabalhosRelacionados.tex
-Underfull \hbox (badness 1057) in paragraph at lines 4--5
-\OT1/ptm/m/n/9 A mod-e-lagem pro-ce-du-ral de ter-renos []e uma []area vas-ta-m
-ente
- []
-
-) (conceitosBasicos.tex
+) (trabalhosRelacionados.tex) (conceitosBasicos.tex
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 7.
- [1{C:/Documents and Settings/All Users/Dados de aplicativos/MiKTeX/2.7/pdftex/
-config/pdftex.map}
+
+Underfull \vbox (badness 3199) has occurred while \output is active []
+
+ [1{C:/Documents and Settings/All Users/Application Data/MiKTeX/2.7/pdftex/conf
+ig/pdftex.map}
 
 
- <img/teaser.png (PNG copy)>]
-<img/noise.png, id=10, 768.8725pt x 285.065pt>
+ <img/teaser.png (PNG copy)>] <img/noise.png, id=11, 768.8725pt x 285.065pt>
 File: img/noise.png Graphic file (type png)
- <use img/noise.png>
-<img/fractal.png, id=11, 590.205pt x 128.48pt>
+
+<use img/noise.png> <img/fractal.png, id=12, 590.205pt x 128.48pt>
 File: img/fractal.png Graphic file (type png)
- <use img/fractal.png>
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 42.
 
-("C:\Arquivos de programas\MiKTeX 2.7\tex\latex\psnfss\omsptm.fd"
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
-)
-(proposta.tex
-Underfull \hbox (badness 1199) in paragraph at lines 6--7
-[]\OT1/ptm/m/n/9 O ter-reno geral []e di-vi-dido em ter-renos re-tan-gu-lares m
-enores
- []
-
-<img/caps/grid.png, id=12, 963.6pt x 542.025pt>
+<use img/fractal.png>) (proposta.tex
+<img/caps/grid.png, id=13, 963.6pt x 542.025pt>
 File: img/caps/grid.png Graphic file (type png)
  <use img/caps/grid.png>
-<img/geracao.pdf, id=13, 626.34pt x 455.7025pt>
+<img/geracao.pdf, id=14, 626.34pt x 455.7025pt>
 File: img/geracao.pdf Graphic file (type pdf)
  <use img/geracao.pdf> [2 <img/noise.png (PNG copy)> <img/fractal.png (PNG copy
 )> <img/caps/grid.png (PNG copy)> <img/geracao.pdf>]
 Underfull \hbox (badness 6825) in paragraph at lines 39--40
-[]\OT1/ptm/m/n/9 Uma outra op[][]ao para a sincroniza[][]ao se-ria a ex-tens[]a
-o
+[]\OT1/ptm/m/n/9 Uma ou-tra op[][]ao para a sincroniza[][]ao se-ria a ex-tens[]
+ao
  []
 
-<img/caps/malha.png, id=43, 963.6pt x 542.025pt>
+<img/caps/malha.png, id=42, 963.6pt x 542.025pt>
 File: img/caps/malha.png Graphic file (type png)
  <use img/caps/malha.png>
-<img/texturas.pdf, id=44, 682.55pt x 227.85126pt>
+<img/texturas.pdf, id=43, 682.55pt x 227.85126pt>
 File: img/texturas.pdf Graphic file (type pdf)
- <use img/texturas.pdf>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (figuras.tex <img/fps_single.pdf, id=46, 626.34pt x 198.7425pt>
+ <use img/texturas.pdf>)
+(figuras.tex <img/fps_single.pdf, id=45, 626.34pt x 198.7425pt>
 File: img/fps_single.pdf Graphic file (type pdf)
 
-<use img/fps_single.pdf> <img/fps_multi.pdf, id=48, 626.34pt x 198.7425pt>
+<use img/fps_single.pdf> <img/fps_multi.pdf, id=47, 626.34pt x 198.7425pt>
 File: img/fps_multi.pdf Graphic file (type pdf)
 
 <use img/fps_multi.pdf>) (implementacao.tex
-<img/bibliotecas.pdf, id=50, 483.8075pt x 156.585pt>
+<img/bibliotecas.pdf, id=49, 483.8075pt x 156.585pt>
 File: img/bibliotecas.pdf Graphic file (type pdf)
  <use img/bibliotecas.pdf>
-<img/arquitetura.pdf, id=52, 614.295pt x 398.3386pt>
+<img/arquitetura.pdf, id=51, 614.295pt x 398.3386pt>
 File: img/arquitetura.pdf Graphic file (type pdf)
  <use img/arquitetura.pdf>
 [3 <img/caps/malha.png (PNG copy)> <img/texturas.pdf> <img/bibliotecas.pdf> <im
 g/arquitetura.pdf>]) (testes.tex
 Underfull \hbox (badness 2707) in paragraph at lines 9--10
-[]\OT1/ptm/m/n/9 Quatro ex-per-i-men-tos foram ex-e-cu-ta-dos, cada um com uma
+[]\OT1/ptm/m/n/9 Quatro ex-pe-ri-men-tos fo-ram exe-cu-ta-dos, cada um com uma
  []
 
 ) (trabalhosFuturosConclusao.tex)
-Underfull \hbox (badness 1616) in paragraph at lines 8--75
+Underfull \hbox (badness 1616) in paragraph at lines 8--73
 []\OT1/ptm/m/n/9 O sis-tema foi im-ple-men-tado sem-pre tendo em mente a sua
  []
 
 (paper.bbl) [4 <img/fps_single.pdf> <img/fps_multi.pdf>] (paper.aux) ) 
 Here is how much of TeX's memory you used:
- 2603 strings out of 95304
- 37088 string characters out of 1182724
- 115814 words of memory out of 1500000
- 5765 multiletter control sequences out of 110000
+ 2604 strings out of 95278
+ 36929 string characters out of 1182514
+ 115828 words of memory out of 1500000
+ 5782 multiletter control sequences out of 110000
  21398 words of font info for 41 fonts, out of 3000000 for 5000
- 14 hyphenation exceptions out of 8191
- 36i,7n,38p,687b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Arqui
-vos de programas/MiKTeX 2.7/fonts/enc/dvips/fontname/8r.enc}<C:/Arquivos de pro
-gramas/MiKTeX 2.7/fonts/type1/bluesky/cm/cmmi10.pfb><C:/Arquivos de programas/M
-iKTeX 2.7/fonts/type1/bluesky/cm/cmmi9.pfb><C:/Arquivos de programas/MiKTeX 2.7
-/fonts/type1/bluesky/cm/cmr9.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/typ
-e1/bluesky/cm/cmsy9.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/urw/he
-lvetic/uhvb8a.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/urw/times/ut
-mb8a.pfb><C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Arquivos de programas/MiKTeX 2.7/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (4 pages, 1740259 bytes).
+ 16 hyphenation exceptions out of 8191
+ 36i,11n,38p,687b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Progr
+am Files/MiKTeX 2.7/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.
+7/fonts/type1/bluesky/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bl
+uesky/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmr9.pfb
+><C:/Program Files/MiKTeX 2.7/fonts/type1/bluesky/cm/cmsy9.pfb><C:/Program File
+s/MiKTeX 2.7/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.7/f
+onts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/ti
+mes/utmr8a.pfb><C:/Program Files/MiKTeX 2.7/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paper.pdf (4 pages, 1742123 bytes).
 PDF statistics:
  152 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
